@@ -406,6 +406,7 @@
             }
         });
 
+
         // CSV/TSV 단어 데이터를 파싱하는 함수
         function parseWordData(dataText) {
             const lines = dataText.trim().split('\n');
@@ -891,29 +892,30 @@
 
                 // UI에서 전처리 옵션 가져오기
                 const enablePreprocessing = document.getElementById('enablePreprocessing').checked;
-                const preprocessingOptions = {
-                    numericNormalization: true, // STT 숫자 표현 정규화 항상 활성화
-                    normalize: document.getElementById('basicNormalization').checked,
-                    korean: document.getElementById('koreanProcessing').checked,
-                    clean: document.getElementById('basicNormalization').checked, // 기본 정규화에 포함
-                    domainProcessing: document.getElementById('domainSpecific').checked,
-                    domain: document.getElementById('domainSelect').value === 'auto' ? null : document.getElementById('domainSelect').value,
-                    debug: true // 디버깅 활성화로 전처리 과정 확인
-                };
+                
+                // // 기존 복잡한 전처리 로직 (주석처리)
+                // const preprocessingOptions = {
+                //     numericNormalization: true, // STT 숫자 표현 정규화 항상 활성화
+                //     normalize: document.getElementById('basicNormalization').checked,
+                //     korean: document.getElementById('koreanProcessing').checked,
+                //     clean: document.getElementById('basicNormalization').checked, // 기본 정규화에 포함
+                //     domainProcessing: document.getElementById('domainSpecific').checked,
+                //     domain: document.getElementById('domainSelect').value === 'auto' ? null : document.getElementById('domainSelect').value,
+                //     debug: true // 디버깅 활성화로 전처리 과정 확인
+                // };
 
-                console.log('전처리 설정:', { enablePreprocessing, ...preprocessingOptions });
+                console.log('전처리 설정:', { enablePreprocessing });
 
-                // todo --- 여기 이어서 진행
-
-
-                //// 전처리 시작
+                //// 새로운 단순한 전처리 시작
                 // 정답들 먼저 수집 (전처리 적용)
                 const expectedAnswers = groupedData.map(group => group.expected_answer);
                 expectedAnswers.forEach(answer => {
                     if (isValidText(answer)) {
                         const preprocessedAnswer = enablePreprocessing ?
-                            TextPreprocessor.preprocessText(answer.trim(), preprocessingOptions) :
+                            TextPreprocessor.preprocessLearningText(answer.trim()) :
                             answer.trim();
+
+                        console.log(`정답 전처리: "${answer}" → "${preprocessedAnswer}"`);
 
                         // 전처리 후에도 유효한지 재확인
                         if (isValidText(preprocessedAnswer)) {
@@ -930,15 +932,17 @@
                     }
                 });
 
-                console.log('정답들 > 전처리 적용:', { ...allTexts });
+                console.log('정답들 > 전처리 적용 완료');
 
                 // 모든 후보 단어들 수집 (전처리 적용)
                 groupedData.forEach(group => {
                     group.candidates.forEach(candidate => {
                         if (isValidText(candidate.candidate_word)) {
                             const preprocessedCandidate = enablePreprocessing ?
-                                TextPreprocessor.preprocessText(candidate.candidate_word.trim(), preprocessingOptions) :
+                                TextPreprocessor.preprocessLearningText(candidate.candidate_word.trim()) :
                                 candidate.candidate_word.trim();
+
+                            console.log(`후보 전처리: "${candidate.candidate_word}" → "${preprocessedCandidate}"`);
 
                             // 전처리 후에도 유효한지 재확인
                             if (isValidText(preprocessedCandidate)) {
@@ -955,7 +959,7 @@
                         }
                     });
                 });
-                console.log('모든 후보 단어들 > 전처리 적용:', { ...allTexts });
+                console.log('모든 후보 단어들 > 전처리 적용 완료');
 
                 console.log(`총 ${allTexts.length}개 유효한 텍스트를 배치로 임베딩 처리합니다.`);
 

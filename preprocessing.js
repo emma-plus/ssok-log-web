@@ -411,6 +411,143 @@ function getAvailableDomains() {
     return Object.keys(domainMappings);
 }
 
+// 새로운 단계별 학습용 텍스트 전처리 함수
+function preprocessLearningText(text) {
+    if (!text) return "";
+
+    let t = text.trim();
+    console.log(`전처리 시작: "${t}"`);
+
+    // Step 1. 한글 숫자 → 아라비아 숫자
+    const mapKoreanToDigit = {
+        "영": "0", "공": "0",
+        "일": "1", "하나": "1",
+        "이": "2", "둘": "2",
+        "삼": "3", "셋": "3",
+        "사": "4", "넷": "4",
+        "오": "5", "다섯": "5",
+        "육": "6", "여섯": "6",
+        "칠": "7", "일곱": "7",
+        "팔": "8", "여덟": "8",
+        "구": "9", "아홉": "9",
+        "십": "10", "열": "10"
+    };
+    for (const [k, v] of Object.entries(mapKoreanToDigit)) {
+        const before = t;
+        t = t.replace(new RegExp(k, "g"), v);
+        if (before !== t) {
+            console.log(`  Step 1 (한글→숫자): "${before}" → "${t}"`);
+        }
+    }
+
+    // Step 2. 소수점 표현 정규화
+    const beforeStep2 = t;
+    t = t.replace(/\b(점|쩜|dot|point)\b/gi, ".");
+    if (beforeStep2 !== t) {
+        console.log(`  Step 2 (소수점): "${beforeStep2}" → "${t}"`);
+    }
+
+    // Step 3. 단위 정규화
+    const beforeStep3 = t;
+    t = t.replace(/\b(mm|밀리미터)\b/gi, "미리");
+    t = t.replace(/\b(cm|센티미터)\b/gi, "센치");
+    t = t.replace(/\b(inch|인치)\b/gi, "인치");
+    t = t.replace(/\b(g|그램)\b/gi, "그램");
+    if (beforeStep3 !== t) {
+        console.log(`  Step 3 (단위): "${beforeStep3}" → "${t}"`);
+    }
+
+    // Step 4. 숫자 → 한글 변환
+    const beforeStep4 = t;
+    t = numberToKorean(t);
+    if (beforeStep4 !== t) {
+        console.log(`  Step 4 (숫자→한글): "${beforeStep4}" → "${t}"`);
+    }
+
+    console.log(`전처리 완료: "${text}" → "${t}"`);
+    return t;
+}
+
+// 숫자 → 한글 변환 함수 (텍스트 내 모든 숫자 패턴을 찾아서 변환)
+function numberToKorean(text) {
+    if (!text || typeof text !== 'string') {
+        return text;
+    }
+
+    // 숫자 패턴을 찾아서 한글로 변환 (정수와 소수점 모두 지원)
+    return text.replace(/\b\d+(\.\d+)?\b/g, (match) => {
+        const korean = convertSingleNumberToKorean(match);
+        console.log(`  숫자→한글 변환: "${match}" → "${korean}"`);
+        return korean;
+    });
+}
+
+// 개별 숫자를 한국어로 변환 (정수 + 소수점 지원)
+function convertSingleNumberToKorean(numInput) {
+    if (!numInput) return "";
+
+    // 소수점이 있는 경우 처리
+    if (numInput.includes('.')) {
+        const [integerPart, decimalPart] = numInput.split('.');
+        const integerKorean = convertIntegerToKorean(parseInt(integerPart, 10));
+        const decimalKorean = convertDecimalToKorean(decimalPart);
+        return `${integerKorean}점${decimalKorean}`;
+    }
+
+    // 정수만 있는 경우
+    const num = parseInt(numInput, 10);
+    if (isNaN(num)) return numInput;
+
+    return convertIntegerToKorean(num);
+}
+
+// 정수를 한국어로 변환
+function convertIntegerToKorean(num) {
+    if (num === 0) return "영";
+
+    const units = ["", "만", "억", "조", "경"];
+    const smallUnits = ["", "십", "백", "천"];
+    const digits = ["", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"];
+
+    let result = "";
+    let unitPos = 0;
+    let n = num;
+
+    while (n > 0) {
+        let part = n % 10000; // 네 자리씩 나눔
+        let partStr = "";
+
+        for (let i = 0; i < 4; i++) {
+            const digit = part % 10;
+            if (digit > 0) {
+                partStr = digits[digit] + smallUnits[i] + partStr;
+            }
+            part = Math.floor(part / 10);
+        }
+
+        if (partStr !== "") {
+            result = partStr + units[unitPos] + result;
+        }
+
+        n = Math.floor(n / 10000);
+        unitPos++;
+    }
+
+    // "일십", "일백", "일천" → "십", "백", "천"
+    result = result
+        .replace(/일십/g, "십")
+        .replace(/일백/g, "백")
+        .replace(/일천/g, "천");
+
+    return result;
+}
+
+// 소수점 이하를 한글로 변환
+function convertDecimalToKorean(decimalStr) {
+    const digits = ['영', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구'];
+    return decimalStr.split('').map(d => digits[parseInt(d)]).join('');
+}
+
 // Export for both Node.js and browser environments
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
@@ -425,7 +562,12 @@ if (typeof module !== 'undefined' && module.exports) {
         comparePreprocessingMethods,
         addDomainMapping,
         getAvailableDomains,
-        domainMappings
+        domainMappings,
+        preprocessLearningText,
+        numberToKorean,
+        convertSingleNumberToKorean,
+        convertIntegerToKorean,
+        convertDecimalToKorean
     };
 } else {
     // Browser environment - expose as global object
@@ -441,6 +583,11 @@ if (typeof module !== 'undefined' && module.exports) {
         comparePreprocessingMethods,
         addDomainMapping,
         getAvailableDomains,
-        domainMappings
+        domainMappings,
+        preprocessLearningText,
+        numberToKorean,
+        convertSingleNumberToKorean,
+        convertIntegerToKorean,
+        convertDecimalToKorean
     };
 }
