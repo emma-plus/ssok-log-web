@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 분석 파이프라인 - 유사어 분석</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            border: 1px solid #404040;
+        }
+
+        .header h1 {
+            color: #4fc3f7;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .header p {
+            color: #b0b0b0;
+            font-size: 1.1rem;
+        }
+
+        .input-section {
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            border: 1px solid #404040;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #e0e0e0;
+        }
+
+        .input-group input, .input-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #555;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            background: #3a3a3a;
+            color: #e0e0e0;
+        }
+
+        .input-group input:focus, .input-group textarea:focus {
+            outline: none;
+            border-color: #4fc3f7;
+        }
+
+        .input-group textarea {
+            height: 120px;
+            resize: vertical;
+            font-family: monospace;
+        }
+
+        .btn {
+            background: #4fc3f7;
+            color: #1a1a1a;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #29b6f6;
+        }
+
+        .btn:disabled {
+            background: #555;
+            color: #888;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #b0b0b0;
+        }
+
+        .results-section {
+            display: none;
+        }
+
+        .result-item {
+            background: #2d2d2d;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 1px solid #404040;
+        }
+
+        .result-header {
+            background: #3a3a3a;
+            color: #e0e0e0;
+            padding: 20px;
+        }
+
+        .result-header h3 {
+            margin-bottom: 5px;
+        }
+
+        .result-header .expected {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #b0b0b0;
+        }
+
+        .candidates-list {
+            padding: 20px;
+        }
+
+        .candidate-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border: 2px solid #555;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+            background: #3a3a3a;
+        }
+
+        .candidate-item:hover {
+            border-color: #4fc3f7;
+            background: #404040;
+        }
+
+        .candidate-info {
+            flex: 1;
+        }
+
+        .candidate-word {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #e0e0e0;
+            margin-bottom: 5px;
+        }
+
+        .candidate-stats {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .candidate-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-approve {
+            background: #27ae60;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .btn-approve:hover {
+            background: #219a52;
+        }
+
+        .btn-reject {
+            background: #e74c3c;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .btn-reject:hover {
+            background: #c0392b;
+        }
+
+        .approved {
+            border-color: #4caf50 !important;
+            background: #2d4a2d !important;
+        }
+
+        .rejected {
+            border-color: #f44336 !important;
+            background: #4a2d2d !important;
+        }
+
+        .similarity-high {
+            color: #4caf50;
+            font-weight: 600;
+        }
+
+        .similarity-medium {
+            color: #ff9800;
+            font-weight: 600;
+        }
+
+        .similarity-low {
+            color: #f44336;
+            font-weight: 600;
+        }
+
+        .similarity-details {
+            margin-top: 10px;
+            padding: 10px;
+            background: #404040;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .similarity-method {
+            display: inline-block;
+            margin: 2px;
+            padding: 3px 8px;
+            border-radius: 3px;
+            background: #555;
+            color: #e0e0e0;
+        }
+
+        .similarity-method.best {
+            background: #4caf50;
+            color: white;
+        }
+
+        .similarity-method.worst {
+            background: #f44336;
+            color: white;
+        }
+
+        .similarity-toggle {
+            background: #666;
+            color: #e0e0e0;
+            padding: 4px 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+
+        .similarity-toggle:hover {
+            background: #777;
+        }
+
+        .error {
+            background: #f44336;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI 분석 파이프라인</h1>
+            <p>유사어 후보 분석 및 승인/거절 관리 시스템</p>
+        </div>
+
+        <div class="input-section">
+            <div class="input-group">
+                <label for="apiKey">OpenAI API 키</label>
+                <!-- todo test 임 :: key 삭제 필요 -->
+                <input type="password" id="apiKey" placeholder="sk-...">
+            </div>
+
+            <div class="input-group">
+                <label>분석 데이터 타입</label>
+                <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 15px;">
+                    <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer;">
+                        <input type="radio" name="dataType" value="word" checked style="margin-right: 8px;flex: 1;">
+                        단어
+                    </label>
+                    <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer;">
+                        <input type="radio" name="dataType" value="sentence" style="margin-right: 8px;flex: 1;">
+                        문장
+                    </label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>OpenAI API 사용</label>
+                <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 15px;">
+                    <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer;">
+                        <input type="radio" name="useOpenAI" value="true" style="margin-right: 8px;flex: 1;">
+                        사용
+                    </label>
+                    <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer;">
+                        <input type="radio" name="useOpenAI" value="false" checked style="margin-right: 8px;flex: 1;">
+                        사용 안함 (전처리만)
+                    </label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>전처리 옵션</label>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+                    <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer;">
+                        <input type="checkbox" id="enablePreprocessing" checked style="margin-right: 8px;">
+                        전처리 활성화
+                    </label>
+                    <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer;">
+                        <input type="checkbox" id="basicNormalization" checked style="margin-right: 8px;">
+                        기본 정규화
+                    </label>
+                    <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer;">
+                        <input type="checkbox" id="koreanProcessing" checked style="margin-right: 8px;">
+                        한국어 처리
+                    </label>
+                    <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer;">
+                        <input type="checkbox" id="domainSpecific" checked style="margin-right: 8px;">
+                        도메인 특화 처리
+                    </label>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <label for="domainSelect" style="display: block; margin-bottom: 5px; font-weight: normal;">도메인 선택:</label>
+                    <select id="domainSelect" style="width: 200px; padding: 5px; background: #3a3a3a; color: #e0e0e0; border: 2px solid #555; border-radius: 4px;">
+                        <option value="auto">자동 감지</option>
+                        <option value="learning" selected>학습 (숫자/단위)</option>
+                        <option value="general">일반</option>
+                        <option value="tech">기술</option>
+                        <option value="brand">브랜드</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="csvData">분석 데이터 (CSV/TSV 형식)</label>
+                <textarea id="csvData" placeholder="단어 형태 - CSV: 47,6499,15,false,,WORD_SIMILARITY_PASS_FAIL_V2,,스냅드래곤 8,,스냅드래 곰파에&#10;단어 형태 - TSV: 1290	5643	15	FALSE		WORD_SIMILARITY_PASS_FAIL_V2		포토		안티&#10;&#10;문장 형태 - TSV: 521	3985	18.5	FALSE	설명	SENTENCE_SIMILARITY_PASS_FAIL_V2	안티딥보이스		원본문장		사용자답변문장"></textarea>
+            </div>
+
+            <button class="btn" onclick="analyzeData()">분석 시작</button>
+        </div>
+
+        <div class="loading" id="loading">
+            <p>🔄 AI가 데이터를 분석 중입니다...</p>
+        </div>
+
+        <div class="results-section" id="resultsSection">
+            <div class="results-controls" style="margin-bottom: 20px; text-align: center;">
+                <button class="btn" onclick="approveAll()" style="background: #27ae60; margin-right: 10px;">모두 승인</button>
+                <button class="btn" onclick="rejectAll()" style="background: #e74c3c; margin-right: 10px;">모두 거절</button>
+                <button class="btn" onclick="exportResults()" style="background: #9b59b6;">결과 내보내기</button>
+            </div>
+            <div id="results"></div>
+        </div>
+    </div>
+
+    <!-- similarity.js 모듈 로드 -->
+    <script src="./similarity.js"></script>
+    <!-- preprocessing.js 모듈 로드 -->
+    <script src="./preprocessing.js"></script>
+    <script>
+        let analysisResults = [];
+        let approvalStatus = {};
+
+        // CSV/TSV 단어 데이터를 파싱하는 함수
+        function parseWordData(dataText) {
+            const lines = dataText.trim().split('\n');
+            const data = [];
+
+            // 카운터 변수들
+            let skippedEmptyLines = 0;
+            let skippedCommentLines = 0;
+            let skippedInvalidLines = 0;
+            let totalLines = lines.length;
+
+            // 데이터 형태 자동 감지 (첫 번째 유효한 라인으로 판단)
+            let delimiter = ','; // 기본값은 CSV
+
+            for (const line of lines) {
+                const trimmedLine = line.trim();
+                if (trimmedLine && !trimmedLine.startsWith('--') && !trimmedLine.startsWith('-')) {
+                    // 탭과 쉼표 개수를 세어서 더 많은 쪽으로 결정
+                    const tabCount = (trimmedLine.match(/\t/g) || []).length;
+                    const commaCount = (trimmedLine.match(/,/g) || []).length;
+
+                    if (tabCount > commaCount) {
+                        delimiter = '\t';
+                        console.log('TSV 형태로 감지되었습니다.');
+                    } else {
+                        delimiter = ',';
+                        console.log('CSV 형태로 감지되었습니다.');
+                    }
+                    break;
+                }
+            }
+
+            for (const line of lines) {
+                const trimmedLine = line.trim();
+
+                // 빈 줄 체크
+                if (!trimmedLine) {
+                    skippedEmptyLines++;
+                    continue;
+                }
+
+                // 주석 라인 체크
+                if (trimmedLine.startsWith('--') || trimmedLine.startsWith('-')) {
+                    skippedCommentLines++;
+                    console.log(`주석 라인 건너뛰기: ${trimmedLine}`);
+                    continue;
+                }
+
+                const parts = trimmedLine.split(delimiter);
+                if (parts.length >= 10) {
+                    data.push({
+                        id: parts[0].trim(),
+                        user_id: parts[1].trim(),
+                        origin_judge: parts[3].trim().toLowerCase() === 'true',
+                        answer: parts[7].trim(),
+                        user_answer: parts[9].trim()
+                    });
+                } else {
+                    skippedInvalidLines++;
+                    console.log(`유효하지 않은 라인 (컬럼 수 부족): ${trimmedLine}`);
+                }
+            }
+
+            console.log('=== 파싱 결과 요약 ===');
+            console.log(`전체 라인 수: ${totalLines}`);
+            console.log(`성공적으로 파싱된 레코드: ${data.length}`);
+            console.log(`건너뛴 빈 줄: ${skippedEmptyLines}`);
+            console.log(`건너뛴 주석 라인: ${skippedCommentLines}`);
+            console.log(`건너뛴 유효하지 않은 라인: ${skippedInvalidLines}`);
+            console.log(`사용된 구분자: '${delimiter === '\t' ? 'TAB' : 'COMMA'}'`);
+            console.log('====================');
+
+            return data;
+        }
+
+        // CSV/TSV 문장 데이터를 파싱하는 함수
+        function parseSentenceData(dataText) {
+            const lines = dataText.trim().split('\n');
+            const data = [];
+
+            // 카운터 변수들
+            let skippedEmptyLines = 0;
+            let skippedCommentLines = 0;
+            let skippedInvalidLines = 0;
+            let totalLines = lines.length;
+
+            // 데이터 형태 자동 감지 (첫 번째 유효한 라인으로 판단)
+            let delimiter = ','; // 기본값은 CSV
+
+            for (const line of lines) {
+                const trimmedLine = line.trim();
+                if (trimmedLine && !trimmedLine.startsWith('--') && !trimmedLine.startsWith('-')) {
+                    // 탭과 쉼표 개수를 세어서 더 많은 쪽으로 결정
+                    const tabCount = (trimmedLine.match(/\t/g) || []).length;
+                    const commaCount = (trimmedLine.match(/,/g) || []).length;
+
+                    if (tabCount > commaCount) {
+                        delimiter = '\t';
+                        console.log('TSV 형태로 감지되었습니다.');
+                    } else {
+                        delimiter = ',';
+                        console.log('CSV 형태로 감지되었습니다.');
+                    }
+                    break;
+                }
+            }
+
+            for (const line of lines) {
+                const trimmedLine = line.trim();
+
+                // 빈 줄 체크
+                if (!trimmedLine) {
+                    skippedEmptyLines++;
+                    continue;
+                }
+
+                // 주석 라인 체크
+                if (trimmedLine.startsWith('--') || trimmedLine.startsWith('-')) {
+                    skippedCommentLines++;
+                    console.log(`주석 라인 건너뛰기: ${trimmedLine}`);
+                    continue;
+                }
+
+                const parts = trimmedLine.split(delimiter);
+                // 문장 데이터는 최소 10개 컬럼이 필요 (id, user_id, version, judge, description, type, keyword, empty, original_sentence, user_sentence)
+                if (parts.length >= 10) {
+                    data.push({
+                        id: parts[0].trim(),
+                        user_id: parts[1].trim(),
+                        version: parts[2].trim(),
+                        origin_judge: parts[3].trim().toLowerCase() === 'true',
+                        description: parts[4].trim(),
+                        type: parts[5].trim(),
+                        keyword: parts[6].trim(),
+                        empty1: parts[7].trim(),
+                        answer: parts[8].trim(), // 원본 문장
+                        user_answer: parts[9].trim() // 사용자 답변 문장
+                    });
+                } else {
+                    skippedInvalidLines++;
+                    console.log(`유효하지 않은 라인 (컬럼 수 부족): ${trimmedLine}`);
+                }
+            }
+
+            console.log('=== 문장 데이터 파싱 결과 요약 ===');
+            console.log(`전체 라인 수: ${totalLines}`);
+            console.log(`성공적으로 파싱된 레코드: ${data.length}`);
+            console.log(`건너뛴 빈 줄: ${skippedEmptyLines}`);
+            console.log(`건너뛴 주석 라인: ${skippedCommentLines}`);
+            console.log(`건너뛴 유효하지 않은 라인: ${skippedInvalidLines}`);
+            console.log(`사용된 구분자: '${delimiter === '\t' ? 'TAB' : 'COMMA'}'`);
+            console.log('====================');
+
+            return data;
+        }
+
+        // 단어 데이터를 그룹핑하는 함수 (expected_answer별로 그룹핑)
+        function groupWordData(data) {
+            const grouped = {};
+
+            for (const row of data) {
+                if (!row.answer || !row.user_answer) continue;
+
+                const key = row.answer;
+                if (!grouped[key]) {
+                    grouped[key] = {
+                        expected_answer: row.answer,
+                        candidates: []
+                    };
+                }
+
+                // 중복 제거를 위해 기존 후보 중에서 같은 user_answer가 있는지 확인
+                const existingCandidate = grouped[key].candidates.find(c => c.candidate_word === row.user_answer);
+                if (existingCandidate) {
+                    existingCandidate.log_id.push(parseInt(row.user_id));
+                    existingCandidate.frequency += 1;
+                } else {
+                    grouped[key].candidates.push({
+                        log_id: [parseInt(row.user_id)],
+                        candidate_word: row.user_answer,
+                        similarity: 0, // 임베딩 계산 후 업데이트
+                        origin_judge: row.origin_judge ? "true" : "false",
+                        frequency: 1
+                    });
+                }
+            }
+
+            return Object.values(grouped);
+        }
+
+        // 문장 데이터를 그룹핑하는 함수 (키워드별로 그룹핑)
+        function groupSentenceData(data) {
+            const grouped = {};
+
+            for (const row of data) {
+                if (!row.answer || !row.user_answer || !row.keyword) continue;
+
+                const key = row.keyword; // 키워드로 그룹핑
+                if (!grouped[key]) {
+                    grouped[key] = {
+                        expected_answer: row.answer,
+                        keyword: row.keyword,
+                        candidates: []
+                    };
+                }
+
+                // 중복 제거를 위해 기존 후보 중에서 같은 user_answer가 있는지 확인
+                const existingCandidate = grouped[key].candidates.find(c => c.candidate_word === row.user_answer);
+                if (existingCandidate) {
+                    existingCandidate.log_id.push(parseInt(row.user_id));
+                    existingCandidate.frequency += 1;
+                } else {
+                    grouped[key].candidates.push({
+                        log_id: [parseInt(row.user_id)],
+                        candidate_word: row.user_answer,
+                        keyword: row.keyword,
+                        keyword_included: false, // 키워드 포함 여부 (나중에 계산)
+                        similarity: 0, // 임베딩 계산 후 업데이트
+                        origin_judge: row.origin_judge ? "true" : "false",
+                        frequency: 1
+                    });
+                }
+            }
+
+            return Object.values(grouped);
+        }
+
+        // 키워드 유사도 검증 함수 (키워드가 문장에 포함되어 있는지 유사도로 확인)
+        async function checkKeywordSimilarity(keyword, sentence, apiKey, threshold = 0.8) {
+            try {
+                // 키워드와 문장에서 키워드 부분을 추출하여 비교
+                const keywordEmbedding = await getEmbedding(keyword, apiKey);
+
+                // 문장을 단어로 분리하여 각 단어와 키워드의 유사도 확인
+                const words = sentence.split(/\s+/);
+                let maxSimilarity = 0;
+
+                for (const word of words) {
+                    const wordEmbedding = await getEmbedding(word.trim(), apiKey);
+                    const similarity = fastCosineSimilarity(keywordEmbedding, wordEmbedding);
+                    maxSimilarity = Math.max(maxSimilarity, similarity);
+                }
+
+                return maxSimilarity >= threshold;
+            } catch (error) {
+                console.error('키워드 유사도 검증 오류:', error);
+                // 오류 시 문자열 포함 여부로 대체
+                return sentence.toLowerCase().includes(keyword.toLowerCase());
+            }
+        }
+
+        // OpenAI 임베딩 API 호출 (단일 텍스트)
+        async function getEmbedding(text, apiKey) {
+            // todo 일단 주석
+            // const response = await fetch('https://api.openai.com/v1/embeddings', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //         'Authorization': `Bearer ${apiKey}`
+            //     },
+            //     body: JSON.stringify({
+            //         // text-embedding-3-small
+            //         // text-embedding-3-large
+            //         model: 'text-embedding-3-small',
+            //         input: text,
+            //         dimensions: 1024  // 더 높은 차원으로 더 정확한 임베딩
+            //     })
+            // });
+
+            if (!response.ok) {
+                throw new Error(`OpenAI API 오류: ${response.status}`);
+            }
+
+            const data = await response.json();
+            return data.data[0].embedding;
+        }
+
+        // 텍스트 배열 검증 및 정리 함수
+        function validateAndCleanTexts(texts) {
+            if (!texts || !Array.isArray(texts) || texts.length === 0) {
+                throw new Error('유효한 텍스트 배열이 필요합니다.');
+            }
+
+            const validTexts = texts.filter(text => text && typeof text === 'string' && text.trim().length > 0);
+
+            if (validTexts.length === 0) {
+                throw new Error('유효한 텍스트가 없습니다.');
+            }
+
+            if (validTexts.length !== texts.length) {
+                console.warn(`${texts.length - validTexts.length}개의 유효하지 않은 텍스트가 제거되었습니다.`);
+            }
+
+            return validTexts;
+        }
+
+        // 디버깅용 텍스트 배열 분석 함수
+        function logTextAnalysis(validTexts) {
+            console.log('=== 텍스트 배열 분석 ===');
+            console.log('배열 타입:', Array.isArray(validTexts));
+            console.log('배열 길이:', validTexts.length);
+
+            // 각 텍스트의 타입과 길이 확인
+            const textAnalysis = validTexts.slice(0, 10).map((text, index) => ({
+                index,
+                type: typeof text,
+                length: text ? text.length : 0,
+                isEmpty: text === '',
+                isNull: text === null,
+                isUndefined: text === undefined,
+                content: text ? `"${text.substring(0, 50)}..."` : text
+            }));
+            console.log('처음 10개 텍스트 분석:', textAnalysis);
+
+            // 빈 문자열이나 문제가 될 수 있는 텍스트 찾기
+            const problematicTexts = validTexts.filter((text, index) => {
+                return !text || typeof text !== 'string' || text.trim() === '';
+            });
+
+            if (problematicTexts.length > 0) {
+                console.warn('문제가 될 수 있는 텍스트들:', problematicTexts);
+            }
+            console.log('========================');
+        }
+
+        // API 요청 페이로드 로깅 함수
+        function logRequestPayload(requestPayload) {
+            console.log('API 요청 페이로드 미리보기:', {
+                model: requestPayload.model,
+                inputType: Array.isArray(requestPayload.input),
+                inputLength: requestPayload.input.length,
+                dimensions: requestPayload.dimensions,
+                firstThreeInputs: requestPayload.input.slice(0, 3)
+            });
+        }
+
+        // API 오류 로깅 함수
+        async function logApiError(response, requestPayload) {
+            console.error('API 요청 실패!');
+            console.error('응답 상태:', response.status);
+            console.error('응답 헤더:', Object.fromEntries(response.headers.entries()));
+
+            const errorText = await response.text();
+            console.error('응답 본문 (텍스트):', errorText);
+
+            let errorData;
+            try {
+                errorData = JSON.parse(errorText);
+                console.error('파싱된 오류 데이터:', errorData);
+            } catch (parseError) {
+                console.error('응답을 JSON으로 파싱할 수 없음:', parseError);
+                errorData = { message: errorText };
+            }
+
+            // 요청했던 데이터도 함께 로깅
+            console.error('실패한 요청의 input 샘플 (처음 3개):', requestPayload.input.slice(0, 3));
+            console.error('실패한 요청의 전체 페이로드:', {
+                model: requestPayload.model,
+                inputCount: requestPayload.input.length,
+                dimensions: requestPayload.dimensions
+            });
+
+            return errorData;
+        }
+
+        // OpenAI 임베딩 API 배치 호출 (여러 텍스트 한 번에)
+        async function getBatchEmbeddings(texts, apiKey) {
+
+
+            // // // todo temp - embedding // word_under70_yellow_false.csv
+            // // // console.log('embedding_response_word_under70_yellow_false.txt 파일에서 임베딩 데이터를 로드합니다...');
+            // // // // embedding_response.txt 파일에서 데이터 로드
+            // // // const response = await fetch('./embedding_response_word_under70_yellow_false.txt');
+            // //
+            // // // console.log('embedding_response_word_under70_yellow_true.txt 파일에서 임베딩 데이터를 로드합니다...');
+            // // // const response = await fetch('./embedding_response_word_under70_yellow_true.txt');
+            // //
+            // console.log('embding_8inch.txt 파일에서 임베딩 데이터를 로드합니다...');
+            // const response = await fetch('./embding_8inch.txt');
+
+
+            // todo openai - embedding /
+            // todo 전처리를 추가했으니, 전체 데이터를 넣고, 분석 데이터를 뽑아보자!!
+
+            // 1. 텍스트 검증 및 정리
+            const validTexts = validateAndCleanTexts(texts);
+
+            // 2. 디버깅 로그
+            console.log('API를 통해 임베딩 데이터를 로드합니다...');
+            console.log(`유효한 텍스트 ${validTexts.length}개:`, validTexts.slice(0, 5), '...');
+            logTextAnalysis(validTexts);
+
+            // 3. API 요청 준비
+            const requestPayload = {
+                model: 'text-embedding-3-small',
+                input: validTexts,
+                dimensions: 1024
+            };
+
+            logRequestPayload(requestPayload);
+
+            // 4. API 호출
+            const response = await fetch('https://api.openai.com/v1/embeddings', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify(requestPayload)
+            });
+
+            console.log('API 응답 상태:', response.status, response.statusText);
+
+            // 5. 오류 처리
+            if (!response.ok) {
+                const errorData = await logApiError(response, requestPayload);
+                throw new Error(`OpenAI API 오류: ${response.status} - ${JSON.stringify(errorData)}`);
+            }
+            /////////
+
+            // 6. 성공 응답 처리
+            const data = await response.json();
+            console.log(`${data.data.length}개의 임베딩을 로드했습니다.`);
+            return data.data.map(item => item.embedding);
+        }
+
+        // 기존 함수들은 similarity.js로 이동됨
+
+        // 메인 분석 함수
+        async function analyzeData() {
+            const apiKey = document.getElementById('apiKey').value.trim();
+            const csvData = document.getElementById('csvData').value.trim();
+            const dataType = document.querySelector('input[name="dataType"]:checked').value;
+            const useOpenAI = document.querySelector('input[name="useOpenAI"]:checked').value === 'true';
+
+            if (useOpenAI && !apiKey) {
+                alert('OpenAI API를 사용하려면 API 키를 입력해주세요.');
+                return;
+            }
+
+            if (!csvData) {
+                alert('분석할 데이터를 입력해주세요.');
+                return;
+            }
+
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('resultsSection').style.display = 'none';
+
+            try {
+                // 1. 선택된 타입에 따라 데이터 파싱
+                let parsedData;
+                if (dataType === 'word') {
+                    console.log('단어 데이터 파싱 시작...');
+                    parsedData = parseWordData(csvData);
+                } else if (dataType === 'sentence') {
+                    console.log('문장 데이터 파싱 시작...');
+                    parsedData = parseSentenceData(csvData);
+                }
+                console.log('파싱된 데이터:', JSON.stringify(parsedData));
+
+                // 2. 선택된 타입에 따라 데이터 그룹핑
+                let groupedData;
+                if (dataType === 'word') {
+                    groupedData = groupWordData(parsedData);
+                } else if (dataType === 'sentence') {
+                    groupedData = groupSentenceData(parsedData);
+                }
+                console.log('그룹핑된 데이터:', JSON.stringify(groupedData));
+
+                // 3. 배치로 임베딩 계산 및 유사도 분석
+                analysisResults = [];
+                let idCounter = 1;
+
+                // 모든 텍스트를 한 번에 수집
+                const allTexts = [];
+                const textIndexMap = new Map();
+                let textIndex = 0;
+
+                // 텍스트 유효성 검증 함수
+                function isValidText(text) {
+                    return text && typeof text === 'string' && text.trim().length > 0;
+                }
+
+                // UI에서 전처리 옵션 가져오기
+                const enablePreprocessing = document.getElementById('enablePreprocessing').checked;
+                const preprocessingOptions = {
+                    numericNormalization: true, // STT 숫자 표현 정규화 항상 활성화
+                    normalize: document.getElementById('basicNormalization').checked,
+                    korean: document.getElementById('koreanProcessing').checked,
+                    clean: document.getElementById('basicNormalization').checked, // 기본 정규화에 포함
+                    domainProcessing: document.getElementById('domainSpecific').checked,
+                    domain: document.getElementById('domainSelect').value === 'auto' ? null : document.getElementById('domainSelect').value,
+                    debug: true // 디버깅 활성화로 전처리 과정 확인
+                };
+
+                console.log('전처리 설정:', { enablePreprocessing, ...preprocessingOptions });
+
+                // todo --- 여기 이어서 진행
+
+
+                //// 전처리 시작
+                // 정답들 먼저 수집 (전처리 적용)
+                const expectedAnswers = groupedData.map(group => group.expected_answer);
+                expectedAnswers.forEach(answer => {
+                    if (isValidText(answer)) {
+                        const preprocessedAnswer = enablePreprocessing ?
+                            TextPreprocessor.preprocessText(answer.trim(), preprocessingOptions) :
+                            answer.trim();
+
+                        // 전처리 후에도 유효한지 재확인
+                        if (isValidText(preprocessedAnswer)) {
+                            allTexts.push(preprocessedAnswer);
+                            textIndexMap.set(`expected_${answer}`, textIndex++);
+                        } else {
+                            console.warn(`전처리 후 빈 텍스트가 됨:`, answer, '→', preprocessedAnswer);
+                            // 전처리 없이 원본 사용
+                            allTexts.push(answer.trim());
+                            textIndexMap.set(`expected_${answer}`, textIndex++);
+                        }
+                    } else {
+                        console.warn(`유효하지 않은 정답 텍스트:`, answer);
+                    }
+                });
+
+                console.log('정답들 > 전처리 적용:', { ...allTexts });
+
+                // 모든 후보 단어들 수집 (전처리 적용)
+                groupedData.forEach(group => {
+                    group.candidates.forEach(candidate => {
+                        if (isValidText(candidate.candidate_word)) {
+                            const preprocessedCandidate = enablePreprocessing ?
+                                TextPreprocessor.preprocessText(candidate.candidate_word.trim(), preprocessingOptions) :
+                                candidate.candidate_word.trim();
+
+                            // 전처리 후에도 유효한지 재확인
+                            if (isValidText(preprocessedCandidate)) {
+                                allTexts.push(preprocessedCandidate);
+                                textIndexMap.set(`candidate_${group.expected_answer}_${candidate.candidate_word}`, textIndex++);
+                            } else {
+                                console.warn(`전처리 후 빈 텍스트가 됨:`, candidate.candidate_word, '→', preprocessedCandidate);
+                                // 전처리 없이 원본 사용
+                                allTexts.push(candidate.candidate_word.trim());
+                                textIndexMap.set(`candidate_${group.expected_answer}_${candidate.candidate_word}`, textIndex++);
+                            }
+                        } else {
+                            console.warn(`유효하지 않은 후보 텍스트:`, candidate.candidate_word);
+                        }
+                    });
+                });
+                console.log('모든 후보 단어들 > 전처리 적용:', { ...allTexts });
+
+                console.log(`총 ${allTexts.length}개 유효한 텍스트를 배치로 임베딩 처리합니다.`);
+
+                // 빈 텍스트가 있는지 최종 확인
+                const emptyTexts = allTexts.filter(text => !text || text.trim().length === 0);
+                if (emptyTexts.length > 0) {
+                    console.error(`빈 텍스트 ${emptyTexts.length}개 발견:`, emptyTexts);
+                    throw new Error(`유효하지 않은 텍스트가 ${emptyTexts.length}개 포함되어 있습니다.`);
+                }
+
+                //// 전처리 끝
+
+                // OpenAI API 사용 여부에 따라 분기 처리
+                let allEmbeddings = [];
+                if (useOpenAI) {
+                    // OpenAI API를 통한 임베딩 계산
+                    console.log('OpenAI API를 통해 임베딩을 계산합니다...');
+                    allEmbeddings = await getBatchEmbeddings(allTexts, apiKey);
+                } else {
+                    // OpenAI API 없이 전처리만 수행 - 더미 임베딩 데이터 생성
+                    console.log('전처리만 수행합니다. OpenAI API는 사용하지 않습니다.');
+                    console.log('전처리된 텍스트들:', allTexts);
+
+                    // 더미 임베딩 데이터 (모든 값이 0.5인 1024차원 벡터)
+                    allEmbeddings = allTexts.map(() => new Array(1024).fill(0.5));
+                }
+
+                // 각 그룹에 대해 유사도 계산
+                for (const group of groupedData) {
+                    const expectedEmbedding = allEmbeddings[textIndexMap.get(`expected_${group.expected_answer}`)];
+
+                    // 각 후보에 대해 유사도 계산
+                    for (const candidate of group.candidates) {
+                        const candidateEmbedding = allEmbeddings[textIndexMap.get(`candidate_${group.expected_answer}_${candidate.candidate_word}`)];
+
+                        // 다양한 유사도 계산 방법 사용
+                        const similarities = SimilarityCalculator.calculateAllSimilarities(expectedEmbedding, candidateEmbedding);
+
+                        // 각 유사도 결과를 저장
+                        candidate.similarities = similarities;
+
+                        // 기본 유사도는 코사인 유사도 사용 (기존 호환성 유지)
+                        candidate.similarity = similarities.cosine;
+
+                        // todo test - checkKeywordSimilarity 일단 패스
+                        // // 문장 타입인 경우 키워드 포함 여부 확인
+                        // if (dataType === 'sentence' && candidate.keyword) {
+                        //     candidate.keyword_included = await checkKeywordSimilarity(candidate.keyword, candidate.candidate_word, apiKey);
+                        // }
+
+                        // 유사도가 너무 낮다면 디버깅 정보 출력
+                        if (candidate.similarity < 0.3) {
+                            const expectedMag = SimilarityCalculator.vectorMagnitude(expectedEmbedding);
+                            const candidateMag = SimilarityCalculator.vectorMagnitude(candidateEmbedding);
+                            console.log(`낮은 유사도 감지:`, {
+                                expected: group.expected_answer,
+                                candidate: candidate.candidate_word,
+                                similarity: candidate.similarity,
+                                expectedMag: expectedMag.toFixed(6),
+                                candidateMag: candidateMag.toFixed(6)
+                            });
+                        }
+                    }
+
+                    // 유사도와 빈도수로 정렬
+                    group.candidates.sort((a, b) => {
+                        if (b.similarity !== a.similarity) {
+                            return b.similarity - a.similarity;
+                        }
+                        return b.frequency - a.frequency;
+                    });
+
+                    // 결과 구조 생성 (문장/단어 타입에 따라 다름)
+                    const resultItem = {
+                        id: idCounter++,
+                        expected_answer: group.expected_answer,
+                        candidates: group.candidates
+                    };
+
+                    if (dataType === 'sentence') {
+                        resultItem.keyword = group.keyword;
+                    }
+
+                    analysisResults.push(resultItem);
+                }
+
+                console.log('결과 데이터:', JSON.stringify(analysisResults));
+                // 4. 선택된 타입에 따라 결과 표시
+                if (dataType === 'word') {
+                    displayWordResults();
+                } else if (dataType === 'sentence') {
+                    displaySentenceResults();
+                }
+
+            } catch (error) {
+                console.error('분석 중 오류:', error);
+                document.getElementById('loading').innerHTML = `<div class="error">오류가 발생했습니다: ${error.message}</div>`;
+            }
+        }
+
+        // 단어용 결과 표시 함수
+        function displayWordResults() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('resultsSection').style.display = 'block';
+
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = '';
+
+            analysisResults.forEach(result => {
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'result-item';
+
+                const candidatesHTML = result.candidates.map(candidate => {
+                    const similarityClass = candidate.similarity >= 0.8 ? 'similarity-high' :
+                                           candidate.similarity >= 0.6 ? 'similarity-medium' : 'similarity-low';
+
+                    const candidateId = `${result.id}_${candidate.candidate_word}`;
+                    const status = approvalStatus[candidateId] || '';
+
+                    // 유사도 상세 정보 생성
+                    const similarities = candidate.similarities || {};
+                    const analysis = SimilarityCalculator.analyzeSimilarities(similarities);
+
+                    const similarityDetailsHTML = Object.keys(similarities).map(method => {
+                        const value = similarities[method];
+                        let className = 'similarity-method';
+                        if (analysis.highest && method === analysis.highest.method) {
+                            className += ' best';
+                        } else if (analysis.lowest && method === analysis.lowest.method) {
+                            className += ' worst';
+                        }
+                        return `<span class="${className}">${method}: ${value}</span>`;
+                    }).join(' ');
+
+                    return `
+                        <div class="candidate-item ${status}" id="candidate_${candidateId}">
+                            <div class="candidate-info">
+                                <div class="candidate-word">${candidate.candidate_word}</div>
+                                <div class="candidate-stats">
+                                    Log ID: [${candidate.log_id.join(', ')}] |
+                                    주요 유사도: <span class="${similarityClass}">${candidate.similarity}</span>
+                                    <button class="similarity-toggle" onclick="toggleSimilarityDetails('${candidateId}')">상세보기</button>
+                                    <br>
+                                    출현횟수: ${candidate.frequency}회 |
+                                    원본판정: <span class="${candidate.origin_judge === 'true' ? 'similarity-high' : 'similarity-low'}">${candidate.origin_judge}</span>
+                                </div>
+                                <div class="similarity-details" id="similarity_${candidateId}" style="display: none;">
+                                    <strong>모든 유사도 계산 결과:</strong><br>
+                                    ${similarityDetailsHTML}
+                                    <br><br>
+                                    <strong>분석:</strong><br>
+                                    • 최고점: ${analysis.highest ? `${analysis.highest.method} (${analysis.highest.value})` : 'N/A'}<br>
+                                    • 최저점: ${analysis.lowest ? `${analysis.lowest.method} (${analysis.lowest.value})` : 'N/A'}<br>
+                                    • 평균: ${analysis.average ? analysis.average.toFixed(3) : 'N/A'}<br>
+                                    • 분산: ${analysis.variance ? analysis.variance.toFixed(3) : 'N/A'}
+                                </div>
+                            </div>
+                            <div class="candidate-actions">
+                                <button class="btn-approve" onclick="approveCandidate('${candidateId}')">승인</button>
+                                <button class="btn-reject" onclick="rejectCandidate('${candidateId}')">거절</button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                resultDiv.innerHTML = `
+                    <div class="result-header">
+                        <h3>ID: ${result.id}</h3>
+                        <div class="expected">정답: "${result.expected_answer}"</div>
+                    </div>
+                    <div class="candidates-list">
+                        ${candidatesHTML}
+                    </div>
+                `;
+
+                resultsContainer.appendChild(resultDiv);
+            });
+        }
+
+        // 문장용 결과 표시 함수
+        function displaySentenceResults() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('resultsSection').style.display = 'block';
+
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = '';
+
+            analysisResults.forEach(result => {
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'result-item';
+
+                const candidatesHTML = result.candidates.map(candidate => {
+                    const similarityClass = candidate.similarity >= 0.8 ? 'similarity-high' :
+                                           candidate.similarity >= 0.6 ? 'similarity-medium' : 'similarity-low';
+
+                    const keywordClass = candidate.keyword_included ? 'similarity-high' : 'similarity-low';
+
+                    const candidateId = `${result.id}_${candidate.candidate_word}`;
+                    const status = approvalStatus[candidateId] || '';
+
+                    // 유사도 상세 정보 생성
+                    const similarities = candidate.similarities || {};
+                    const analysis = SimilarityCalculator.analyzeSimilarities(similarities);
+
+                    const similarityDetailsHTML = Object.keys(similarities).map(method => {
+                        const value = similarities[method];
+                        let className = 'similarity-method';
+                        if (analysis.highest && method === analysis.highest.method) {
+                            className += ' best';
+                        } else if (analysis.lowest && method === analysis.lowest.method) {
+                            className += ' worst';
+                        }
+                        return `<span class="${className}">${method}: ${value}</span>`;
+                    }).join(' ');
+
+                    return `
+                        <div class="candidate-item ${status}" id="candidate_${candidateId}">
+                            <div class="candidate-info">
+                                <div class="candidate-word" style="font-size: 0.95rem; line-height: 1.4;">${candidate.candidate_word}</div>
+                                <div class="candidate-stats">
+                                    Log ID: [${candidate.log_id.join(', ')}] |
+                                    키워드: <strong>${candidate.keyword}</strong> |
+                                    키워드 포함: <span class="${keywordClass}">${candidate.keyword_included ? 'YES' : 'NO'}</span>
+                                    <br>
+                                    주요 유사도: <span class="${similarityClass}">${candidate.similarity}</span>
+                                    <button class="similarity-toggle" onclick="toggleSimilarityDetails('${candidateId}')">상세보기</button>
+                                    <br>
+                                    출현횟수: ${candidate.frequency}회 |
+                                    원본판정: <span class="${candidate.origin_judge === 'true' ? 'similarity-high' : 'similarity-low'}">${candidate.origin_judge}</span>
+                                </div>
+                                <div class="similarity-details" id="similarity_${candidateId}" style="display: none;">
+                                    <strong>모든 유사도 계산 결과:</strong><br>
+                                    ${similarityDetailsHTML}
+                                    <br><br>
+                                    <strong>분석:</strong><br>
+                                    • 최고점: ${analysis.highest ? `${analysis.highest.method} (${analysis.highest.value})` : 'N/A'}<br>
+                                    • 최저점: ${analysis.lowest ? `${analysis.lowest.method} (${analysis.lowest.value})` : 'N/A'}<br>
+                                    • 평균: ${analysis.average ? analysis.average.toFixed(3) : 'N/A'}<br>
+                                    • 분산: ${analysis.variance ? analysis.variance.toFixed(3) : 'N/A'}
+                                </div>
+                            </div>
+                            <div class="candidate-actions">
+                                <button class="btn-approve" onclick="approveCandidate('${candidateId}')">승인</button>
+                                <button class="btn-reject" onclick="rejectCandidate('${candidateId}')">거절</button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                resultDiv.innerHTML = `
+                    <div class="result-header">
+                        <h3>ID: ${result.id} | 키워드: "${result.keyword || result.expected_answer}"</h3>
+                        <div class="expected" style="font-size: 0.95rem; line-height: 1.4; margin-top: 10px;">정답: "${result.expected_answer}"</div>
+                    </div>
+                    <div class="candidates-list">
+                        ${candidatesHTML}
+                    </div>
+                `;
+
+                resultsContainer.appendChild(resultDiv);
+            });
+        }
+
+        // 승인 처리
+        function approveCandidate(candidateId) {
+            approvalStatus[candidateId] = 'approved';
+            const element = document.getElementById(`candidate_${candidateId}`);
+            element.className = 'candidate-item approved';
+            console.log(`승인됨: ${candidateId}`);
+
+            // 승인/거절 상태 업데이트 후 최종 결과 출력
+            updateFinalResults();
+        }
+
+        // 거절 처리
+        function rejectCandidate(candidateId) {
+            approvalStatus[candidateId] = 'rejected';
+            const element = document.getElementById(`candidate_${candidateId}`);
+            element.className = 'candidate-item rejected';
+            console.log(`거절됨: ${candidateId}`);
+
+            // 승인/거절 상태 업데이트 후 최종 결과 출력
+            updateFinalResults();
+        }
+
+        // 최종 결과 업데이트 (요청하신 JSON 형태로)
+        function updateFinalResults() {
+            const finalResults = analysisResults.map(result => {
+                const approvedCandidates = result.candidates.filter(candidate => {
+                    const candidateId = `${result.id}_${candidate.candidate_word}`;
+                    return approvalStatus[candidateId] === 'approved';
+                });
+
+                return {
+                    id: result.id,
+                    expected_answer: result.expected_answer,
+                    candidates: result.candidates.map(candidate => ({
+                        log_id: candidate.log_id,
+                        candidate_word: candidate.candidate_word,
+                        similarity: candidate.similarity,
+                        similarities: candidate.similarities, // 모든 유사도 점수 포함
+                        origin_judge: candidate.origin_judge,
+                        frequency: candidate.frequency,
+                        approval_status: approvalStatus[`${result.id}_${candidate.candidate_word}`] || 'pending'
+                    }))
+                };
+            });
+
+            console.log('최종 결과 (요청 형태):', JSON.stringify(finalResults, null, 2));
+        }
+
+        // 모든 결과 승인
+        function approveAll() {
+            analysisResults.forEach(result => {
+                result.candidates.forEach(candidate => {
+                    const candidateId = `${result.id}_${candidate.candidate_word}`;
+                    approveCandidate(candidateId);
+                });
+            });
+        }
+
+        // 모든 결과 거절
+        function rejectAll() {
+            analysisResults.forEach(result => {
+                result.candidates.forEach(candidate => {
+                    const candidateId = `${result.id}_${candidate.candidate_word}`;
+                    rejectCandidate(candidateId);
+                });
+            });
+        }
+
+        // 결과 내보내기 (JSON 파일로 다운로드)
+        function exportResults() {
+            const finalResults = analysisResults.map(result => {
+                return {
+                    id: result.id,
+                    expected_answer: result.expected_answer,
+                    candidates: result.candidates.map(candidate => ({
+                        log_id: candidate.log_id,
+                        candidate_word: candidate.candidate_word,
+                        similarity: candidate.similarity,
+                        similarities: candidate.similarities, // 모든 유사도 점수 포함
+                        origin_judge: candidate.origin_judge,
+                        frequency: candidate.frequency,
+                        approval_status: approvalStatus[`${result.id}_${candidate.candidate_word}`] || 'pending'
+                    }))
+                };
+            });
+
+            // JSON 파일로 다운로드
+            const dataStr = JSON.stringify(finalResults, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `similarity_analysis_results_${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            console.log('결과가 JSON 파일로 내보내졌습니다.');
+        }
+
+        // 유사도 상세정보 토글 함수
+        function toggleSimilarityDetails(candidateId) {
+            const detailsElement = document.getElementById(`similarity_${candidateId}`);
+            const toggleButton = event.target;
+
+            if (detailsElement.style.display === 'none') {
+                detailsElement.style.display = 'block';
+                toggleButton.textContent = '숨기기';
+            } else {
+                detailsElement.style.display = 'none';
+                toggleButton.textContent = '상세보기';
+            }
+        }
+    </script>
+</body>
+</html>
