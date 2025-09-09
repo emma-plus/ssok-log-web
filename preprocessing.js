@@ -456,26 +456,46 @@ function preprocessLearningText(text) {
     // Step 3. 단위 정규화 (한국에서 주로 사용되는 단위들)
     const beforeStep3 = t;
     
-    // 길이/거리 단위
-    t = t.replace(/\b(mm|밀리미터)\b/gi, "미리");
-    t = t.replace(/\b(cm|센티미터)\b/gi, "센치");
-    t = t.replace(/\b(m|meter|미터)\b/gi, "미터");
-    t = t.replace(/\b(km|킬로미터)\b/gi, "킬로미터");
+    // 길이/거리 단위 (독립된 단어)
+    t = t.replace(/\b(밀리미터)\b/gi, "미리");
+    t = t.replace(/\b(센티미터)\b/gi, "센치");
+    t = t.replace(/\b(meter|미터)\b/gi, "미터");
+    t = t.replace(/\b(킬로미터)\b/gi, "킬로미터");
     t = t.replace(/\b(inch|인치)\b/gi, "인치");
     
-    // 무게 단위
-    t = t.replace(/\b(g|gram|그램)\b/gi, "그램");
-    t = t.replace(/\b(kg|킬로그램)\b/gi, "킬로그램");
-    t = t.replace(/\b(mg|밀리그램)\b/gi, "밀리그램");
+    // 길이/거리 단위 (숫자 뒤 붙는 경우)
+    t = t.replace(/(\d+)\s*mm\b/gi, "$1미리");
+    t = t.replace(/(\d+)\s*cm\b/gi, "$1센치");
+    t = t.replace(/(\d+)\s*m\b/gi, "$1미터");
+    t = t.replace(/(\d+)\s*km\b/gi, "$1킬로미터");
     
-    // 시간 단위
-    t = t.replace(/\b(sec|second|초)\b/gi, "초");
-    t = t.replace(/\b(min|minute|분)\b/gi, "분");
-    t = t.replace(/\b(hr|hour|시간)\b/gi, "시간");
+    // 무게 단위 (독립된 단어)
+    t = t.replace(/\b(gram|그램)\b/gi, "그램");
+    t = t.replace(/\b(킬로그램)\b/gi, "킬로그램");
+    t = t.replace(/\b(밀리그램)\b/gi, "밀리그램");
     
-    // 용량/부피 단위
-    t = t.replace(/\b(ml|밀리리터)\b/gi, "밀리리터");
-    t = t.replace(/\b(l|liter|리터)\b/gi, "리터");
+    // 무게 단위 (숫자 뒤 붙는 경우)
+    t = t.replace(/(\d+)\s*g\b/gi, "$1그램");
+    t = t.replace(/(\d+)\s*kg\b/gi, "$1킬로그램");
+    t = t.replace(/(\d+)\s*mg\b/gi, "$1밀리그램");
+    
+    // 시간 단위 (독립된 단어)
+    t = t.replace(/\b(second|초)\b/gi, "초");
+    t = t.replace(/\b(minute|분)\b/gi, "분");
+    t = t.replace(/\b(hour|시간)\b/gi, "시간");
+    
+    // 시간 단위 (숫자 뒤 붙는 경우)
+    t = t.replace(/(\d+)\s*sec\b/gi, "$1초");
+    t = t.replace(/(\d+)\s*min\b/gi, "$1분");
+    t = t.replace(/(\d+)\s*hr\b/gi, "$1시간");
+    
+    // 용량/부피 단위 (독립된 단어)
+    t = t.replace(/\b(밀리리터)\b/gi, "밀리리터");
+    t = t.replace(/\b(liter|리터)\b/gi, "리터");
+    
+    // 용량/부피 단위 (숫자 뒤 붙는 경우)
+    t = t.replace(/(\d+)\s*ml\b/gi, "$1밀리리터");
+    t = t.replace(/(\d+)\s*l\b/gi, "$1리터");
     
     // 온도 단위 (한국식 표현)
     t = t.replace(/\b도\b/gi, "도");
@@ -484,11 +504,17 @@ function preprocessLearningText(text) {
     t = t.replace(/\b(percent|퍼센트)\b/gi, "퍼센트");
     t = t.replace(/%/g, "퍼센트");
     
-    // 디지털 용량 단위
-    t = t.replace(/\b(gb|기가)\b/gi, "기가");
-    t = t.replace(/\b(mb|메가)\b/gi, "메가");
-    t = t.replace(/\b(kb|킬로)\b/gi, "킬로");
-    t = t.replace(/\b(tb|테라)\b/gi, "테라");
+    // 디지털 용량 단위 (독립된 단어)
+    t = t.replace(/\b기가\b/gi, "기가");
+    t = t.replace(/\b메가\b/gi, "메가");
+    t = t.replace(/\b킬로\b/gi, "킬로");
+    t = t.replace(/\b테라\b/gi, "테라");
+    
+    // 디지털 용량 단위 (숫자 뒤 붙는 경우)
+    t = t.replace(/(\d+)\s*gb\b/gi, "$1기가");
+    t = t.replace(/(\d+)\s*mb\b/gi, "$1메가");
+    t = t.replace(/(\d+)\s*kb\b/gi, "$1킬로");
+    t = t.replace(/(\d+)\s*tb\b/gi, "$1테라");
     
     if (beforeStep3 !== t) {
         console.log(`  Step 3 (단위): "${beforeStep3}" → "${t}"`);
