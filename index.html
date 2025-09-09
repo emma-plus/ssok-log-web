@@ -303,8 +303,7 @@
         <div class="input-section">
             <div class="input-group">
                 <label for="apiKey">OpenAI API 키</label>
-                <!-- todo test 임 :: key 삭제 필요 -->
-                <input type="password" id="apiKey" placeholder="sk-...">
+                <input type="password" id="apiKey" placeholder="sk-..." value="">
             </div>
 
             <div class="input-group">
@@ -389,6 +388,8 @@
         </div>
     </div>
 
+    <!-- config.js 모듈 로드 (키 설정) -->
+    <script src="./config.js"></script>
     <!-- similarity.js 모듈 로드 -->
     <script src="./similarity.js"></script>
     <!-- preprocessing.js 모듈 로드 -->
@@ -396,6 +397,14 @@
     <script>
         let analysisResults = [];
         let approvalStatus = {};
+
+        // 페이지 로드 시 config.js에서 API 키 자동 로드
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof CONFIG !== 'undefined' && CONFIG.OPENAI_API_KEY) {
+                document.getElementById('apiKey').value = CONFIG.OPENAI_API_KEY;
+                console.log('API 키가 config.js에서 자동으로 로드되었습니다.');
+            }
+        });
 
         // CSV/TSV 단어 데이터를 파싱하는 함수
         function parseWordData(dataText) {

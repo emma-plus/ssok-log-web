@@ -1,0 +1,22 @@
+# API 설정 파일 (민감한 정보 포함)
+config.js
+
+# Node modules
+node_modules/
+
+# 로그 파일
+*.log
+
+# 임시 파일
+*.tmp
+*.temp
+*.txt
+*.json
+
+# OS 생성 파일
+.DS_Store
+Thumbs.db
+
+# IDE 설정 파일
+.vscode/
+.idea/
