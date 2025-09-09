@@ -418,10 +418,10 @@ function preprocessLearningText(text) {
     let t = text.trim();
     console.log(`전처리 시작: "${t}"`);
 
-    // Step 1. 한글 숫자 → 아라비아 숫자
+    // Step 1. 독립된 한글 숫자만 → 아라비아 숫자 (단어 경계 고려)
     const mapKoreanToDigit = {
         "영": "0", "공": "0",
-        "일": "1", "하나": "1",
+        "일": "1", "하나": "1", 
         "이": "2", "둘": "2",
         "삼": "3", "셋": "3",
         "사": "4", "넷": "4",
@@ -432,27 +432,64 @@ function preprocessLearningText(text) {
         "구": "9", "아홉": "9",
         "십": "10", "열": "10"
     };
+    
+    // 단어 경계를 고려한 안전한 변환 (완전한 단어로만 매칭)
     for (const [k, v] of Object.entries(mapKoreanToDigit)) {
         const before = t;
-        t = t.replace(new RegExp(k, "g"), v);
+        // 공백이나 문장 시작/끝에서만 매칭되도록 수정
+        t = t.replace(new RegExp(`\\b${k}\\b|(?<=\\s)${k}(?=\\s)|^${k}(?=\\s)|(?<=\\s)${k}$|^${k}$`, "g"), v);
         if (before !== t) {
             console.log(`  Step 1 (한글→숫자): "${before}" → "${t}"`);
         }
     }
 
-    // Step 2. 소수점 표현 정규화
+    // Step 2. 소수점 표현 정규화 (숫자 사이의 점/쩜 등을 . 으로 변환)
     const beforeStep2 = t;
+    // 숫자 사이에 있는 점/쩜 등을 소수점으로 변환
+    t = t.replace(/(\d+)\s*(점|쩜|dot|point)\s*(\d+)/gi, "$1.$3");
+    // 독립적인 점/쩜도 변환 (단어 경계 고려)
     t = t.replace(/\b(점|쩜|dot|point)\b/gi, ".");
     if (beforeStep2 !== t) {
         console.log(`  Step 2 (소수점): "${beforeStep2}" → "${t}"`);
     }
 
-    // Step 3. 단위 정규화
+    // Step 3. 단위 정규화 (한국에서 주로 사용되는 단위들)
     const beforeStep3 = t;
+    
+    // 길이/거리 단위
     t = t.replace(/\b(mm|밀리미터)\b/gi, "미리");
     t = t.replace(/\b(cm|센티미터)\b/gi, "센치");
+    t = t.replace(/\b(m|meter|미터)\b/gi, "미터");
+    t = t.replace(/\b(km|킬로미터)\b/gi, "킬로미터");
     t = t.replace(/\b(inch|인치)\b/gi, "인치");
-    t = t.replace(/\b(g|그램)\b/gi, "그램");
+    
+    // 무게 단위
+    t = t.replace(/\b(g|gram|그램)\b/gi, "그램");
+    t = t.replace(/\b(kg|킬로그램)\b/gi, "킬로그램");
+    t = t.replace(/\b(mg|밀리그램)\b/gi, "밀리그램");
+    
+    // 시간 단위
+    t = t.replace(/\b(sec|second|초)\b/gi, "초");
+    t = t.replace(/\b(min|minute|분)\b/gi, "분");
+    t = t.replace(/\b(hr|hour|시간)\b/gi, "시간");
+    
+    // 용량/부피 단위
+    t = t.replace(/\b(ml|밀리리터)\b/gi, "밀리리터");
+    t = t.replace(/\b(l|liter|리터)\b/gi, "리터");
+    
+    // 온도 단위 (한국식 표현)
+    t = t.replace(/\b도\b/gi, "도");
+    
+    // 퍼센트 단위
+    t = t.replace(/\b(percent|퍼센트)\b/gi, "퍼센트");
+    t = t.replace(/%/g, "퍼센트");
+    
+    // 디지털 용량 단위
+    t = t.replace(/\b(gb|기가)\b/gi, "기가");
+    t = t.replace(/\b(mb|메가)\b/gi, "메가");
+    t = t.replace(/\b(kb|킬로)\b/gi, "킬로");
+    t = t.replace(/\b(tb|테라)\b/gi, "테라");
+    
     if (beforeStep3 !== t) {
         console.log(`  Step 3 (단위): "${beforeStep3}" → "${t}"`);
     }
@@ -475,9 +512,10 @@ function numberToKorean(text) {
     }
 
     // 숫자 패턴을 찾아서 한글로 변환 (정수와 소수점 모두 지원)
-    return text.replace(/\b\d+(\.\d+)?\b/g, (match) => {
+    // 단어에 붙어있는 숫자도 포함 (AI6, 8.9m 등)
+    return text.replace(/\d+(\.\d+)?/g, (match) => {
         const korean = convertSingleNumberToKorean(match);
-        console.log(`  숫자→한글 변환: "${match}" → "${korean}"`);
+        console.log(`    숫자→한글 변환: "${match}" → "${korean}"`);
         return korean;
     });
 }
