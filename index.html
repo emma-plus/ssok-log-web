@@ -4,294 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 분석 파이프라인 - 유사어 분석</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #1a1a1a;
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            background: #2d2d2d;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            margin-bottom: 30px;
-            border: 1px solid #404040;
-        }
-
-        .header h1 {
-            color: #4fc3f7;
-            margin-bottom: 10px;
-            font-size: 2rem;
-        }
-
-        .header p {
-            color: #b0b0b0;
-            font-size: 1.1rem;
-        }
-
-        .input-section {
-            background: #2d2d2d;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            margin-bottom: 30px;
-            border: 1px solid #404040;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #e0e0e0;
-        }
-
-        .input-group input, .input-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #555;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: border-color 0.3s;
-            background: #3a3a3a;
-            color: #e0e0e0;
-        }
-
-        .input-group input:focus, .input-group textarea:focus {
-            outline: none;
-            border-color: #4fc3f7;
-        }
-
-        .input-group textarea {
-            height: 120px;
-            resize: vertical;
-            font-family: monospace;
-        }
-
-        .btn {
-            background: #4fc3f7;
-            color: #1a1a1a;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background: #29b6f6;
-        }
-
-        .btn:disabled {
-            background: #555;
-            color: #888;
-            cursor: not-allowed;
-        }
-
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 20px;
-            color: #b0b0b0;
-        }
-
-        .results-section {
-            display: none;
-        }
-
-        .result-item {
-            background: #2d2d2d;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            margin-bottom: 20px;
-            overflow: hidden;
-            border: 1px solid #404040;
-        }
-
-        .result-header {
-            background: #3a3a3a;
-            color: #e0e0e0;
-            padding: 20px;
-        }
-
-        .result-header h3 {
-            margin-bottom: 5px;
-        }
-
-        .result-header .expected {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #b0b0b0;
-        }
-
-        .candidates-list {
-            padding: 20px;
-        }
-
-        .candidate-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            border: 2px solid #555;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            transition: all 0.3s;
-            background: #3a3a3a;
-        }
-
-        .candidate-item:hover {
-            border-color: #4fc3f7;
-            background: #404040;
-        }
-
-        .candidate-info {
-            flex: 1;
-        }
-
-        .candidate-word {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #e0e0e0;
-            margin-bottom: 5px;
-        }
-
-        .candidate-stats {
-            color: #b0b0b0;
-            font-size: 0.9rem;
-        }
-
-        .candidate-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn-approve {
-            background: #27ae60;
-            color: white;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background 0.3s;
-        }
-
-        .btn-approve:hover {
-            background: #219a52;
-        }
-
-        .btn-reject {
-            background: #e74c3c;
-            color: white;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background 0.3s;
-        }
-
-        .btn-reject:hover {
-            background: #c0392b;
-        }
-
-        .approved {
-            border-color: #4caf50 !important;
-            background: #2d4a2d !important;
-        }
-
-        .rejected {
-            border-color: #f44336 !important;
-            background: #4a2d2d !important;
-        }
-
-        .similarity-high {
-            color: #4caf50;
-            font-weight: 600;
-        }
-
-        .similarity-medium {
-            color: #ff9800;
-            font-weight: 600;
-        }
-
-        .similarity-low {
-            color: #f44336;
-            font-weight: 600;
-        }
-
-        .similarity-details {
-            margin-top: 10px;
-            padding: 10px;
-            background: #404040;
-            border-radius: 5px;
-            font-size: 0.85rem;
-            line-height: 1.4;
-        }
-
-        .similarity-method {
-            display: inline-block;
-            margin: 2px;
-            padding: 3px 8px;
-            border-radius: 3px;
-            background: #555;
-            color: #e0e0e0;
-        }
-
-        .similarity-method.best {
-            background: #4caf50;
-            color: white;
-        }
-
-        .similarity-method.worst {
-            background: #f44336;
-            color: white;
-        }
-
-        .similarity-toggle {
-            background: #666;
-            color: #e0e0e0;
-            padding: 4px 8px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            margin-left: 10px;
-        }
-
-        .similarity-toggle:hover {
-            background: #777;
-        }
-
-        .error {
-            background: #f44336;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 10px 0;
-        }
-    </style>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <div class="container">
@@ -409,8 +122,8 @@
                     <label for="debugLevel" style="color: #e0e0e0; font-weight: 600; white-space: nowrap;">로그 레벨:</label>
                     <select id="debugLevel" style="padding: 8px; border: 2px solid #555; border-radius: 8px; background: #3a3a3a; color: #e0e0e0; font-size: 14px;">
                         <option value="0">0: 기본</option>
-                        <option value="1">1: 상세</option>
-                        <option value="2" selected>2: 모든 로그</option>
+                        <option value="1" selected>1: 상세</option>
+                        <option value="2">2: 모든 로그</option>
                     </select>
                 </div>
             </div>
@@ -424,21 +137,28 @@
             <div class="results-controls" style="margin-bottom: 20px; text-align: center;">
                 <button class="btn" onclick="approveAll()" style="background: #27ae60; margin-right: 10px;">모두 승인</button>
                 <button class="btn" onclick="rejectAll()" style="background: #e74c3c; margin-right: 10px;">모두 거절</button>
-                <button class="btn" onclick="exportResults()" style="background: #9b59b6;">결과 내보내기</button>
+                <button class="btn" onclick="exportResults()" style="background: #9b59b6; margin-right: 10px;">JSON 내보내기</button>
+                <button class="btn" onclick="exportExcel()" style="background: #2e7d32;">📊 엑셀 내보내기</button>
             </div>
             <div id="results"></div>
         </div>
     </div>
 
+    <!-- SheetJS 라이브러리 (엑셀 생성용) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    
     <!-- config.js 모듈 로드 (키 설정) -->
     <script src="./config.js"></script>
     <!-- similarity.js 모듈 로드 -->
     <script src="./similarity.js"></script>
     <!-- preprocessing.js 모듈 로드 -->
     <script src="./preprocessing.js"></script>
+    <!-- management.js 모듈 로드 (관리 기능) -->
+    <script src="./management.js"></script>
     <script>
         let analysisResults = [];
         let approvalStatus = {};
+        let originalInputData = []; // 원본 입력 데이터 저장
 
         // 디버그 레벨 설정 (0: 기본, 1: 상세, 2: 모든 로그)
         function getDebugLevel() {
@@ -489,6 +209,7 @@
         function parseWordData(dataText, debugLevel = 2) {
             const lines = dataText.trim().split('\n');
             const data = [];
+            originalInputData = []; // 원본 데이터 초기화
 
             // 카운터 변수들
             let skippedEmptyLines = 0;
@@ -542,6 +263,24 @@
                         answer: parts[7].trim(),
                         user_answer: parts[9].trim()
                     });
+                    
+                    // 원본 입력 데이터 저장
+                    originalInputData.push({
+                        row_number: originalInputData.length + 1,
+                        id: parts[0]?.trim() || '',
+                        user_id: parts[1]?.trim() || '',
+                        data_type: 'word',
+                        version: parts[2]?.trim() || '',
+                        pass: parts[3]?.trim() || '',
+                        fail_reason: parts[4]?.trim() || '',
+                        prompt_type: parts[5]?.trim() || '',
+                        keywords: parts[6]?.trim() || '',
+                        word: parts[7]?.trim() || '',
+                        sentence: parts[8]?.trim() || '',
+                        user_response: parts[9]?.trim() || '',
+                        parsing_status: '성공',
+                        original_line: trimmedLine
+                    });
                 } else {
                     skippedInvalidLines++;
                     if (debugLevel >= 1) {
@@ -567,6 +306,7 @@
         function parseSentenceData(dataText, debugLevel = 2) {
             const lines = dataText.trim().split('\n');
             const data = [];
+            originalInputData = []; // 원본 데이터 초기화
 
             // 카운터 변수들
             let skippedEmptyLines = 0;
@@ -625,6 +365,24 @@
                         empty1: parts[7].trim(),
                         answer: parts[8].trim(), // 원본 문장
                         user_answer: parts[9].trim() // 사용자 답변 문장
+                    });
+                    
+                    // 원본 입력 데이터 저장
+                    originalInputData.push({
+                        row_number: originalInputData.length + 1,
+                        id: parts[0]?.trim() || '',
+                        user_id: parts[1]?.trim() || '',
+                        data_type: 'sentence',
+                        version: parts[2]?.trim() || '',
+                        pass: parts[3]?.trim() || '',
+                        fail_reason: parts[4]?.trim() || '',
+                        prompt_type: parts[5]?.trim() || '',
+                        keywords: parts[6]?.trim() || '',
+                        word: parts[7]?.trim() || '',
+                        sentence: parts[8]?.trim() || '',
+                        user_response: parts[9]?.trim() || '',
+                        parsing_status: '성공',
+                        original_line: trimmedLine
                     });
                 } else {
                     skippedInvalidLines++;
@@ -1007,6 +765,10 @@
 
                 console.log('전처리 설정:', { enablePreprocessing, selectedStages });
 
+                // 중복 텍스트 관리를 위한 맵 (processedText -> embeddingIndex)
+                const uniqueTexts = new Map();
+                let duplicateCount = 0;
+
                 //// 선택된 전처리 단계에 따른 텍스트 수집 시작
                 /**
                  * 임베딩 생성을 위한 텍스트 수집 과정
@@ -1049,13 +811,28 @@
                                     return;
                             }
 
-                            // 전처리된 정답 텍스트를 임베딩 대상 배열에 추가
-                            allTexts.push(processedText);
-                            // 나중에 임베딩을 찾기 위한 인덱스 매핑 (키: expected_정답_단계)
-                            textIndexMap.set(`expected_${answer}_${stageKey}`, textIndex++);
+                            const keyMapping = `expected_${answer}_${stageKey}`;
 
-                            if (DEBUG_LEVEL >= 2) {
-                                console.log(`정답 ${stage} 전처리: "${answer}" → "${processedText}"`);
+                            // 중복 검사: 이미 동일한 전처리 결과가 있는지 확인
+                            if (uniqueTexts.has(processedText)) {
+                                // 중복된 텍스트인 경우, 기존 임베딩 인덱스 재사용
+                                const existingIndex = uniqueTexts.get(processedText);
+                                textIndexMap.set(keyMapping, existingIndex);
+                                duplicateCount++;
+
+                                if (DEBUG_LEVEL >= 2) {
+                                    console.log(`정답 ${stage} 중복 감지: "${answer}" → "${processedText}" (기존 인덱스 ${existingIndex} 재사용)`);
+                                }
+                            } else {
+                                // 새로운 텍스트인 경우, 임베딩 대상에 추가
+                                allTexts.push(processedText);
+                                uniqueTexts.set(processedText, textIndex);
+                                textIndexMap.set(keyMapping, textIndex);
+                                textIndex++;
+
+                                if (DEBUG_LEVEL >= 2) {
+                                    console.log(`정답 ${stage} 전처리: "${answer}" → "${processedText}" (새 인덱스 ${textIndex-1})`);
+                                }
                             }
                         });
                     } else {
@@ -1103,13 +880,28 @@
                                         return;
                                 }
 
-                                // 전처리된 후보 텍스트를 임베딩 대상 배열에 추가
-                                allTexts.push(processedText);
-                                // 나중에 임베딩을 찾기 위한 인덱스 매핑 (키: candidate_정답_후보_단계)
-                                textIndexMap.set(`candidate_${group.expected_answer}_${candidate.candidate_word}_${stageKey}`, textIndex++);
+                                const keyMapping = `candidate_${group.expected_answer}_${candidate.candidate_word}_${stageKey}`;
 
-                                if (DEBUG_LEVEL >= 2) {
-                                    console.log(`후보 ${stage} 전처리: "${candidate.candidate_word}" → "${processedText}"`);
+                                // 중복 검사: 이미 동일한 전처리 결과가 있는지 확인
+                                if (uniqueTexts.has(processedText)) {
+                                    // 중복된 텍스트인 경우, 기존 임베딩 인덱스 재사용
+                                    const existingIndex = uniqueTexts.get(processedText);
+                                    textIndexMap.set(keyMapping, existingIndex);
+                                    duplicateCount++;
+
+                                    if (DEBUG_LEVEL >= 2) {
+                                        console.log(`후보 ${stage} 중복 감지: "${candidate.candidate_word}" → "${processedText}" (기존 인덱스 ${existingIndex} 재사용)`);
+                                    }
+                                } else {
+                                    // 새로운 텍스트인 경우, 임베딩 대상에 추가
+                                    allTexts.push(processedText);
+                                    uniqueTexts.set(processedText, textIndex);
+                                    textIndexMap.set(keyMapping, textIndex);
+                                    textIndex++;
+
+                                    if (DEBUG_LEVEL >= 2) {
+                                        console.log(`후보 ${stage} 전처리: "${candidate.candidate_word}" → "${processedText}" (새 인덱스 ${textIndex-1})`);
+                                    }
                                 }
                             });
                         } else {
@@ -1118,6 +910,15 @@
                     });
                 });
                 console.log('모든 후보 단어들 > 선택된 단계 전처리 적용 완료');
+
+                // 중복 제거 결과 로그 출력
+                const totalRequested = textIndex + duplicateCount;
+                console.log(`=== 중복 제거 최적화 결과 ===`);
+                console.log(`총 요청된 텍스트: ${totalRequested}개`);
+                console.log(`중복 제거된 텍스트: ${duplicateCount}개`);
+                console.log(`실제 임베딩 처리 텍스트: ${allTexts.length}개`);
+                console.log(`API 호출 절약률: ${(duplicateCount / totalRequested * 100).toFixed(1)}%`);
+                console.log('===============================');
 
                 console.log(`총 ${allTexts.length}개 유효한 텍스트를 배치로 임베딩 처리합니다.`);
                 console.log('전처리된 텍스트들:', allTexts.slice(0, 10).map((text, i) => `${i}: "${text}"`), allTexts.length > 10 ? `... 외 ${allTexts.length - 10}개` : '');
@@ -1521,120 +1322,7 @@
             });
         }
 
-        // 승인 처리
-        function approveCandidate(candidateId) {
-            approvalStatus[candidateId] = 'approved';
-            const element = document.getElementById(`candidate_${candidateId}`);
-            element.className = 'candidate-item approved';
-            console.log(`승인됨: ${candidateId}`);
 
-            // 승인/거절 상태 업데이트 후 최종 결과 출력
-            updateFinalResults();
-        }
-
-        // 거절 처리
-        function rejectCandidate(candidateId) {
-            approvalStatus[candidateId] = 'rejected';
-            const element = document.getElementById(`candidate_${candidateId}`);
-            element.className = 'candidate-item rejected';
-            console.log(`거절됨: ${candidateId}`);
-
-            // 승인/거절 상태 업데이트 후 최종 결과 출력
-            updateFinalResults();
-        }
-
-        // 최종 결과 업데이트 (요청하신 JSON 형태로)
-        function updateFinalResults() {
-            const finalResults = analysisResults.map(result => {
-                const approvedCandidates = result.candidates.filter(candidate => {
-                    const candidateId = `${result.id}_${candidate.candidate_word}`;
-                    return approvalStatus[candidateId] === 'approved';
-                });
-
-                return {
-                    id: result.id,
-                    expected_answer: result.expected_answer,
-                    candidates: result.candidates.map(candidate => ({
-                        log_id: candidate.log_id,
-                        candidate_word: candidate.candidate_word,
-                        similarity: candidate.similarity,
-                        similarities: candidate.similarities, // 모든 유사도 점수 포함
-                        origin_judge: candidate.origin_judge,
-                        frequency: candidate.frequency,
-                        approval_status: approvalStatus[`${result.id}_${candidate.candidate_word}`] || 'pending'
-                    }))
-                };
-            });
-
-            console.log('최종 결과 (요청 형태):', JSON.stringify(finalResults, null, 2));
-        }
-
-        // 모든 결과 승인
-        function approveAll() {
-            analysisResults.forEach(result => {
-                result.candidates.forEach(candidate => {
-                    const candidateId = `${result.id}_${candidate.candidate_word}`;
-                    approveCandidate(candidateId);
-                });
-            });
-        }
-
-        // 모든 결과 거절
-        function rejectAll() {
-            analysisResults.forEach(result => {
-                result.candidates.forEach(candidate => {
-                    const candidateId = `${result.id}_${candidate.candidate_word}`;
-                    rejectCandidate(candidateId);
-                });
-            });
-        }
-
-        // 결과 내보내기 (JSON 파일로 다운로드)
-        function exportResults() {
-            const finalResults = analysisResults.map(result => {
-                return {
-                    id: result.id,
-                    expected_answer: result.expected_answer,
-                    candidates: result.candidates.map(candidate => ({
-                        log_id: candidate.log_id,
-                        candidate_word: candidate.candidate_word,
-                        similarity: candidate.similarity,
-                        similarities: candidate.similarities, // 모든 유사도 점수 포함
-                        origin_judge: candidate.origin_judge,
-                        frequency: candidate.frequency,
-                        approval_status: approvalStatus[`${result.id}_${candidate.candidate_word}`] || 'pending'
-                    }))
-                };
-            });
-
-            // JSON 파일로 다운로드
-            const dataStr = JSON.stringify(finalResults, null, 2);
-            const dataBlob = new Blob([dataStr], {type: 'application/json'});
-            const url = URL.createObjectURL(dataBlob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = `similarity_analysis_results_${new Date().toISOString().split('T')[0]}.json`;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            URL.revokeObjectURL(url);
-
-            console.log('결과가 JSON 파일로 내보내졌습니다.');
-        }
-
-        // 유사도 상세정보 토글 함수
-        function toggleSimilarityDetails(candidateId) {
-            const detailsElement = document.getElementById(`similarity_${candidateId}`);
-            const toggleButton = event.target;
-
-            if (detailsElement.style.display === 'none') {
-                detailsElement.style.display = 'block';
-                toggleButton.textContent = '숨기기';
-            } else {
-                detailsElement.style.display = 'none';
-                toggleButton.textContent = '상세보기';
-            }
-        }
     </script>
 </body>
 </html>
