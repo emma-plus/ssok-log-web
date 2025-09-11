@@ -85,7 +85,11 @@
                         <span style="color: #4fc3f7;">Step 1:</span> 한글 숫자 → 아라비아 숫자 (일→1, 이→2, 팔→8 등)<br>
                         <span style="color: #4fc3f7;">Step 2:</span> 소수점 표현 정규화 (점/쩜→., 8점9→8.9)<br>
                         <span style="color: #4fc3f7;">Step 3:</span> 단위 정규화 (m→미터, %→퍼센트, g→그램 등)<br>
-                        <span style="color: #4fc3f7;">Step 4:</span> 숫자 → 한글 변환 (8.9→팔점구, 4400→사천사백)
+                        <span style="color: #4fc3f7;">Step 4:</span> 숫자 → 한글 변환 (8.9→팔점구, 4400→사천사백)<br>
+                        <br>
+                        <strong style="color: #ff6b6b;">(미사용) 역방향 전처리:</strong><br>
+                        <span style="color: #ff6b6b;">R1-R3:</span> 한글→숫자, 소수점 정규화, 한글단위→영문 (미터→m, 그램→g)<br>
+                        <span style="color: #ff6b6b;">R1-R4:</span> R1-R3 + 복합 한글숫자→아라비아 (사천사백→4400)
                     </div>
 
                     <div style="color: #e0e0e0; margin-bottom: 10px;">
@@ -103,6 +107,14 @@
                         <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer;">
                             <input type="checkbox" name="preprocessingStages" value="step14" checked style="margin-right: 8px;">
                             1-4단계 (한글 변환)
+                        </label>
+                        <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer; opacity: 0.5;">
+                            <input type="checkbox" name="preprocessingStages" value="reverseR13" style="margin-right: 8px;" disabled>
+                            <span style="color: #ff6b6b;">R1-R3단계 (역방향 기본) - 비활성화</span>
+                        </label>
+                        <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer; opacity: 0.5;">
+                            <input type="checkbox" name="preprocessingStages" value="reverseR14" style="margin-right: 8px;" disabled>
+                            <span style="color: #ff6b6b;">R1-R4단계 (역방향 완전) - 비활성화</span>
                         </label>
                     </div>
                     <div style="color: #888; font-size: 0.8rem; margin-top: 10px;">
@@ -155,6 +167,8 @@
     <script src="./preprocessing.js"></script>
     <!-- management.js 모듈 로드 (관리 기능) -->
     <script src="./management.js"></script>
+    <!-- reverse-preprocessing.js 모듈 로드 (역방향 전처리) -->
+    <script src="./reverse-preprocessing.js"></script>
     <script>
         let analysisResults = [];
         let approvalStatus = {};
@@ -849,6 +863,14 @@
                                     processedText = TextPreprocessor.preprocessLearningText(answer.trim(), DEBUG_LEVEL);
                                     stageKey = 'step14';
                                     break;
+                                case 'reverseR13':
+                                    processedText = ReversePreprocessor.applyReversePreprocessing(answer.trim());
+                                    stageKey = 'reverseR13';
+                                    break;
+                                case 'reverseR14':
+                                    processedText = ReversePreprocessor.preprocessReverseComplete(answer.trim(), DEBUG_LEVEL);
+                                    stageKey = 'reverseR14';
+                                    break;
                                 default:
                                     console.warn(`알 수 없는 전처리 단계: ${stage}`);
                                     return;
@@ -917,6 +939,14 @@
                                     case 'step14':
                                         processedText = TextPreprocessor.preprocessLearningText(candidate.candidate_word.trim(), DEBUG_LEVEL);
                                         stageKey = 'step14';
+                                        break;
+                                    case 'reverseR13':
+                                        processedText = ReversePreprocessor.applyReversePreprocessing(candidate.candidate_word.trim());
+                                        stageKey = 'reverseR13';
+                                        break;
+                                    case 'reverseR14':
+                                        processedText = ReversePreprocessor.preprocessReverseComplete(candidate.candidate_word.trim(), DEBUG_LEVEL);
+                                        stageKey = 'reverseR14';
                                         break;
                                     default:
                                         console.warn(`알 수 없는 전처리 단계: ${stage}`);
@@ -1062,6 +1092,14 @@
                                         expectedText = TextPreprocessor.preprocessLearningText(group.expected_answer);
                                         candidateText = TextPreprocessor.preprocessLearningText(candidate.candidate_word);
                                         break;
+                                    case 'reverseR13':
+                                        expectedText = ReversePreprocessor.applyReversePreprocessing(group.expected_answer);
+                                        candidateText = ReversePreprocessor.applyReversePreprocessing(candidate.candidate_word);
+                                        break;
+                                    case 'reverseR14':
+                                        expectedText = ReversePreprocessor.preprocessReverseComplete(group.expected_answer);
+                                        candidateText = ReversePreprocessor.preprocessReverseComplete(candidate.candidate_word);
+                                        break;
                                 }
 
                                 candidate.preprocessingComparison[stage] = {
@@ -1196,7 +1234,9 @@
                         const stageNames = {
                             'original': '원본',
                             'step13': '1-3단계',
-                            'step14': '1-4단계'
+                            'step14': '1-4단계',
+                            'reverseR13': 'R1-R3단계',
+                            'reverseR14': 'R1-R4단계'
                         };
 
                         preprocessingComparisonHTML = `
@@ -1310,7 +1350,9 @@
                         const stageNames = {
                             'original': '원본',
                             'step13': '1-3단계',
-                            'step14': '1-4단계'
+                            'step14': '1-4단계',
+                            'reverseR13': 'R1-R3단계',
+                            'reverseR14': 'R1-R4단계'
                         };
 
                         preprocessingComparisonHTML = `
