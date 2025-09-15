@@ -262,6 +262,32 @@ body {
     color: white;
 }
 
+/* STT 특화 메트릭 스타일 */
+.similarity-method.stt-metric {
+    background: linear-gradient(135deg, #4caf50, #2e7d32);
+    color: white;
+    border: 1px solid #66bb6a;
+    font-weight: 600;
+    position: relative;
+}
+
+.similarity-method.stt-metric::before {
+    content: "🎯";
+    margin-right: 4px;
+    font-size: 0.8em;
+}
+
+.similarity-method.stt-metric.best {
+    background: linear-gradient(135deg, #ff9800, #f57c00);
+    border: 1px solid #ffb74d;
+    box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3);
+}
+
+.similarity-method.stt-metric.worst {
+    background: linear-gradient(135deg, #607d8b, #455a64);
+    border: 1px solid #78909c;
+}
+
 .similarity-toggle {
     background: #666;
     color: #e0e0e0;

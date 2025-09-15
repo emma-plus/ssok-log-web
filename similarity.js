@@ -204,6 +204,57 @@ function calculateAllSimilarities(vec1, vec2, options = {}) {
     return similarities;
 }
 
+// STT 특화 하이브리드 유사도 계산 함수
+function calculateSTTEnhancedSimilarities(vec1, vec2, text1, text2, options = {}) {
+    if (vec1.length !== vec2.length) {
+        throw new Error("벡터 길이가 다릅니다.");
+    }
+    
+    // 1. 기존 임베딩 유사도 계산
+    const semanticSimilarities = calculateAllSimilarities(vec1, vec2, options);
+    
+    // 2. STT 특화 메트릭 계산 (STTSimilarity 모듈 사용)
+    let sttMetrics = {};
+    if (typeof STTSimilarity !== 'undefined') {
+        sttMetrics = {
+            jaroWinkler: STTSimilarity.jaroWinklerSimilarity(text1, text2),
+            levenshtein: STTSimilarity.levenshteinSimilarity(text1, text2),
+            phonetic: STTSimilarity.koreanPhoneticSimilarity(text1, text2)
+        };
+    } else {
+        console.warn('STTSimilarity 모듈을 찾을 수 없습니다. STT 메트릭이 비활성화됩니다.');
+        sttMetrics = {
+            jaroWinkler: 0,
+            levenshtein: 0,
+            phonetic: 0
+        };
+    }
+    
+    // 3. 가중 앙상블 점수 (실험적 가중치)
+    const weights = {
+        semantic: 0.4,      // 의미적 유사성 (코사인)
+        jaroWinkler: 0.25,  // 부분 일치
+        phonetic: 0.20,     // 음성학적 유사성
+        levenshtein: 0.15   // 편집 거리
+    };
+    
+    const sttScore = (
+        weights.semantic * semanticSimilarities.cosine +
+        weights.jaroWinkler * sttMetrics.jaroWinkler +
+        weights.phonetic * sttMetrics.phonetic +
+        weights.levenshtein * sttMetrics.levenshtein
+    );
+    
+    // 4. 모든 메트릭을 포함한 결과 반환
+    return {
+        ...semanticSimilarities,
+        stt_jaro_winkler: Math.round(sttMetrics.jaroWinkler * 1000) / 1000,
+        stt_levenshtein: Math.round(sttMetrics.levenshtein * 1000) / 1000,
+        stt_phonetic: Math.round(sttMetrics.phonetic * 1000) / 1000,
+        stt_ensemble: Math.round(sttScore * 1000) / 1000
+    };
+}
+
 // 유사도 결과 분석 함수
 function analyzeSimilarities(similarities) {
     const methods = Object.keys(similarities);
@@ -240,6 +291,7 @@ if (typeof module !== 'undefined' && module.exports) {
         ensembleSimilarity,
         jaccardSimilarity,
         calculateAllSimilarities,
+        calculateSTTEnhancedSimilarities,
         analyzeSimilarities
     };
 } else {
@@ -255,6 +307,7 @@ if (typeof module !== 'undefined' && module.exports) {
         ensembleSimilarity,
         jaccardSimilarity,
         calculateAllSimilarities,
+        calculateSTTEnhancedSimilarities,
         analyzeSimilarities
     };
 }
