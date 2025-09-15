@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유사도 분석 결과 뷰어 - JSON 로드</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 유사도 분석 결과 뷰어</h1>
+            <p>JSON 파일을 업로드하여 분석 결과를 확인하세요</p>
+        </div>
+
+        <div class="input-section">
+            <div class="input-group">
+                <label for="jsonFileInput">JSON 파일 선택</label>
+                <input type="file" id="jsonFileInput" accept=".json" onchange="loadJSONFile(event)">
+            </div>
+
+            <div class="input-group">
+                <label for="jsonTextInput">또는 JSON 텍스트 직접 입력</label>
+                <textarea id="jsonTextInput" placeholder="JSON 데이터를 여기에 붙여넣기..." style="height: 200px;"></textarea>
+                <button class="btn" onclick="loadJSONText()" style="margin-top: 10px;">JSON 텍스트 로드</button>
+            </div>
+        </div>
+
+        <div class="loading" id="loading" style="display: none;">
+            <p>🔄 JSON 데이터를 처리 중입니다...</p>
+        </div>
+
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <div class="results-controls" style="margin-bottom: 20px; text-align: center;">
+                <button class="btn" onclick="approveAll()" style="background: #27ae60; margin-right: 10px;">모두 승인</button>
+                <button class="btn" onclick="rejectAll()" style="background: #e74c3c; margin-right: 10px;">모두 거절</button>
+                <button class="btn" onclick="exportResults()" style="background: #9b59b6; margin-right: 10px;">JSON 내보내기</button>
+                <button class="btn" onclick="exportExcel()" style="background: #2e7d32; margin-right: 10px;">📊 엑셀 내보내기</button>
+                <button class="btn" onclick="exportPDF()" style="background: #e91e63;">📄 PDF 내보내기</button>
+            </div>
+            
+            <!-- 필터 패널 -->
+            <div class="filter-panel" style="background: #2a2a2a; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; align-items: center;">
+                    <div>
+                        <label style="color: #4fc3f7; font-weight: bold; margin-bottom: 5px; display: block;">주요 유사도 필터</label>
+                        <select id="mainSimilarityFilter" onchange="applyFilters()" style="width: 100%; padding: 8px; border: 2px solid #555; border-radius: 8px; background: #3a3a3a; color: #e0e0e0;">
+                            <option value="all">전체</option>
+                            <optgroup label="이상 (≥)">
+                                <option value="gte_0.9">0.9 이상</option>
+                                <option value="gte_0.8">0.8 이상</option>
+                                <option value="gte_0.7">0.7 이상</option>
+                                <option value="gte_0.6">0.6 이상</option>
+                                <option value="gte_0.5">0.5 이상</option>
+                                <option value="gte_0.4">0.4 이상</option>
+                                <option value="gte_0.3">0.3 이상</option>
+                                <option value="gte_0.2">0.2 이상</option>
+                                <option value="gte_0.1">0.1 이상</option>
+                                <option value="gte_0.0">0.0 이상</option>
+                            </optgroup>
+                            <optgroup label="이하 (≤) - 원본판정 true용">
+                                <option value="lte_1.0">1.0 이하</option>
+                                <option value="lte_0.9">0.9 이하</option>
+                                <option value="lte_0.8">0.8 이하</option>
+                                <option value="lte_0.7">0.7 이하</option>
+                                <option value="lte_0.6">0.6 이하</option>
+                                <option value="lte_0.5">0.5 이하</option>
+                                <option value="lte_0.4">0.4 이하</option>
+                                <option value="lte_0.3">0.3 이하</option>
+                                <option value="lte_0.2">0.2 이하</option>
+                                <option value="lte_0.1">0.1 이하</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="color: #4caf50; font-weight: bold; margin-bottom: 5px; display: block;">STT Ensemble 필터</label>
+                        <select id="sttEnsembleFilter" onchange="applyFilters()" style="width: 100%; padding: 8px; border: 2px solid #555; border-radius: 8px; background: #3a3a3a; color: #e0e0e0;">
+                            <option value="all">전체</option>
+                            <optgroup label="이상 (≥)">
+                                <option value="gte_0.9">0.9 이상</option>
+                                <option value="gte_0.8">0.8 이상</option>
+                                <option value="gte_0.7">0.7 이상</option>
+                                <option value="gte_0.6">0.6 이상</option>
+                                <option value="gte_0.5">0.5 이상</option>
+                                <option value="gte_0.4">0.4 이상</option>
+                                <option value="gte_0.3">0.3 이상</option>
+                                <option value="gte_0.2">0.2 이상</option>
+                                <option value="gte_0.1">0.1 이상</option>
+                                <option value="gte_0.0">0.0 이상</option>
+                            </optgroup>
+                            <optgroup label="이하 (≤) - 원본판정 true용">
+                                <option value="lte_1.0">1.0 이하</option>
+                                <option value="lte_0.9">0.9 이하</option>
+                                <option value="lte_0.8">0.8 이하</option>
+                                <option value="lte_0.7">0.7 이하</option>
+                                <option value="lte_0.6">0.6 이하</option>
+                                <option value="lte_0.5">0.5 이하</option>
+                                <option value="lte_0.4">0.4 이하</option>
+                                <option value="lte_0.3">0.3 이하</option>
+                                <option value="lte_0.2">0.2 이하</option>
+                                <option value="lte_0.1">0.1 이하</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="color: #ff9800; font-weight: bold; margin-bottom: 5px; display: block;">원본판정 필터</label>
+                        <select id="originJudgeFilter" onchange="applyFilters()" style="width: 100%; padding: 8px; border: 2px solid #555; border-radius: 8px; background: #3a3a3a; color: #e0e0e0;">
+                            <option value="all">전체</option>
+                            <option value="true">True만</option>
+                            <option value="false">False만</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button class="btn" onclick="resetFilters()" style="background: #6c757d; padding: 8px 16px;">필터 초기화</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 승인 추천 패널 -->
+            <div id="recommendationPanel" style="display: none; background: #1e3a2e; border: 2px solid #4caf50; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <span style="color: #4caf50; font-weight: bold; font-size: 1.1rem;">🎯 승인 추천 항목</span>
+                    <span id="recommendationCount" style="color: #4caf50; margin-left: 10px; font-size: 0.9rem;"></span>
+                </div>
+                <div id="recommendationList"></div>
+            </div>
+
+            <div class="info-panel" style="background: #2a2a2a; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <div id="dataInfo"></div>
+            </div>
+            <div id="results"></div>
+        </div>
+    </div>
+
+    <!-- SheetJS 라이브러리 (엑셀 생성용) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <!-- jsPDF 라이브러리 (PDF 생성용) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- html2canvas 라이브러리 (HTML을 Canvas로 변환) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- similarity.js 모듈 로드 -->
+    <script src="./similarity.js"></script>
+    <!-- management.js 모듈 로드 (관리 기능) -->
+    <script src="./management.js"></script>
+
+    <script>
+        let analysisResults = [];
+        let approvalStatus = {};
+        let originalInputData = []; // 원본 입력 데이터 저장
+        let filteredResults = []; // 필터링된 결과
+        let currentFilters = {
+            mainSimilarity: 'all',
+            sttEnsemble: 'all',
+            originJudge: 'all'
+        };
+
+        // JSON 파일 로드
+        function loadJSONFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            if (!file.name.endsWith('.json')) {
+                alert('JSON 파일만 선택해주세요.');
+                return;
+            }
+
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('resultsSection').style.display = 'none';
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const jsonData = JSON.parse(e.target.result);
+                    processJSONData(jsonData, file.name);
+                } catch (error) {
+                    console.error('JSON 파싱 오류:', error);
+                    alert('JSON 파일을 읽는 중 오류가 발생했습니다: ' + error.message);
+                    document.getElementById('loading').style.display = 'none';
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // JSON 텍스트 로드
+        function loadJSONText() {
+            const jsonText = document.getElementById('jsonTextInput').value.trim();
+            if (!jsonText) {
+                alert('JSON 데이터를 입력해주세요.');
+                return;
+            }
+
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('resultsSection').style.display = 'none';
+
+            try {
+                const jsonData = JSON.parse(jsonText);
+                processJSONData(jsonData, '직접 입력');
+            } catch (error) {
+                console.error('JSON 파싱 오류:', error);
+                alert('JSON 데이터를 파싱하는 중 오류가 발생했습니다: ' + error.message);
+                document.getElementById('loading').style.display = 'none';
+            }
+        }
+
+        // JSON 데이터 처리
+        function processJSONData(jsonData, fileName) {
+            try {
+                console.log('JSON 데이터 처리 시작:', fileName);
+                
+                // 데이터 검증
+                if (!Array.isArray(jsonData)) {
+                    throw new Error('JSON 데이터는 배열 형태여야 합니다.');
+                }
+
+                if (jsonData.length === 0) {
+                    throw new Error('빈 데이터입니다.');
+                }
+
+                // analysisResults에 데이터 할당
+                analysisResults = jsonData;
+                
+                // 승인 상태 초기화
+                approvalStatus = {};
+                analysisResults.forEach(result => {
+                    result.candidates.forEach(candidate => {
+                        const candidateId = `${result.id}_${candidate.candidate_word}`;
+                        approvalStatus[candidateId] = candidate.approval_status || 'pending';
+                    });
+                });
+
+                // 통계 정보 표시
+                displayDataInfo(fileName);
+
+                // 필터링된 결과 초기화
+                filteredResults = [...analysisResults];
+
+                // 승인 추천 항목 생성
+                generateRecommendations();
+
+                // 결과 화면 표시
+                displayWordResults();
+
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('resultsSection').style.display = 'block';
+
+                console.log('JSON 데이터 처리 완료');
+
+            } catch (error) {
+                console.error('데이터 처리 오류:', error);
+                alert('데이터 처리 중 오류가 발생했습니다: ' + error.message);
+                document.getElementById('loading').style.display = 'none';
+            }
+        }
+
+        // 데이터 정보 표시
+        function displayDataInfo(fileName) {
+            const totalGroups = analysisResults.length;
+            const totalCandidates = analysisResults.reduce((sum, result) => sum + result.candidates.length, 0);
+            
+            const approvedCount = Object.values(approvalStatus).filter(status => status === 'approved').length;
+            const rejectedCount = Object.values(approvalStatus).filter(status => status === 'rejected').length;
+            const pendingCount = totalCandidates - approvedCount - rejectedCount;
+
+            // STT 메트릭 사용 여부 확인
+            const hasSTTMetrics = analysisResults.some(result => 
+                result.candidates.some(candidate => 
+                    candidate.similarities && Object.keys(candidate.similarities).some(key => key.startsWith('stt_'))
+                )
+            );
+
+            const infoHTML = `
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div style="text-align: center;">
+                        <div style="color: #4fc3f7; font-size: 0.9rem;">파일명</div>
+                        <div style="font-weight: bold; margin-top: 5px;">${fileName}</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: #4fc3f7; font-size: 0.9rem;">총 그룹 수</div>
+                        <div style="font-weight: bold; margin-top: 5px;">${totalGroups}개</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: #4fc3f7; font-size: 0.9rem;">총 후보 수</div>
+                        <div style="font-weight: bold; margin-top: 5px;">${totalCandidates}개</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: #27ae60; font-size: 0.9rem;">승인</div>
+                        <div style="font-weight: bold; margin-top: 5px; color: #27ae60;">${approvedCount}개</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: #e74c3c; font-size: 0.9rem;">거절</div>
+                        <div style="font-weight: bold; margin-top: 5px; color: #e74c3c;">${rejectedCount}개</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: #f39c12; font-size: 0.9rem;">대기</div>
+                        <div style="font-weight: bold; margin-top: 5px; color: #f39c12;">${pendingCount}개</div>
+                    </div>
+                    ${hasSTTMetrics ? `
+                    <div style="text-align: center;">
+                        <div style="color: #4caf50; font-size: 0.9rem;">STT 메트릭</div>
+                        <div style="font-weight: bold; margin-top: 5px; color: #4caf50;">포함됨</div>
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+
+            document.getElementById('dataInfo').innerHTML = infoHTML;
+        }
+
+        // 필터링된 데이터 정보 업데이트
+        function updateFilteredDataInfo() {
+            const totalGroups = filteredResults.length;
+            const totalCandidates = filteredResults.reduce((sum, result) => sum + result.candidates.length, 0);
+            
+            // 현재 필터링된 결과에서 승인 상태 계산
+            let approvedCount = 0;
+            let rejectedCount = 0;
+            
+            filteredResults.forEach(result => {
+                result.candidates.forEach(candidate => {
+                    const candidateId = `${result.id}_${candidate.candidate_word}`;
+                    const status = approvalStatus[candidateId] || 'pending';
+                    if (status === 'approved') approvedCount++;
+                    else if (status === 'rejected') rejectedCount++;
+                });
+            });
+            
+            const pendingCount = totalCandidates - approvedCount - rejectedCount;
+
+            // STT 메트릭 사용 여부 확인
+            const hasSTTMetrics = filteredResults.some(result => 
+                result.candidates.some(candidate => 
+                    candidate.similarities && Object.keys(candidate.similarities).some(key => key.startsWith('stt_'))
+                )
+            );
+
+            // 필터 상태 정보
+            const filterInfo = [];
+            
+            if (currentFilters.mainSimilarity !== 'all') {
+                const mainFilter = parseFilterValue(currentFilters.mainSimilarity);
+                if (mainFilter.type === 'gte') {
+                    filterInfo.push(`주요 유사도 ≥ ${mainFilter.value}`);
+                } else if (mainFilter.type === 'lte') {
+                    filterInfo.push(`주요 유사도 ≤ ${mainFilter.value}`);
+                }
+            }
+            
+            if (currentFilters.sttEnsemble !== 'all') {
+                const sttFilter = parseFilterValue(currentFilters.sttEnsemble);
+                if (sttFilter.type === 'gte') {
+                    filterInfo.push(`STT Ensemble ≥ ${sttFilter.value}`);
+                } else if (sttFilter.type === 'lte') {
+                    filterInfo.push(`STT Ensemble ≤ ${sttFilter.value}`);
+                }
+            }
+            
+            if (currentFilters.originJudge !== 'all') {
+                filterInfo.push(`원본판정 = ${currentFilters.originJudge}`);
+            }
+
+            const infoHTML = `
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    ${filterInfo.length > 0 ? `
+                    <div style="text-align: center; grid-column: 1 / -1;">
+                        <div style="color: #ff9800; font-size: 0.9rem;">적용된 필터</div>
+                        <div style="font-weight: bold; margin-top: 5px; color: #ff9800;">${filterInfo.join(' & ')}</div>
+                    </div>
+                    ` : ''}
+                    <div style="text-align: center;">
+                        <div style="color: #4fc3f7; font-size: 0.9rem;">그룹 수</div>
+                        <div style="font-weight: bold; margin-top: 5px;">${totalGroups}개</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: #4fc3f7; font-size: 0.9rem;">후보 수</div>
+                        <div style="font-weight: bold; margin-top: 5px;">${totalCandidates}개</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: #27ae60; font-size: 0.9rem;">승인</div>
+                        <div style="font-weight: bold; margin-top: 5px; color: #27ae60;">${approvedCount}개</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: #e74c3c; font-size: 0.9rem;">거절</div>
+                        <div style="font-weight: bold; margin-top: 5px; color: #e74c3c;">${rejectedCount}개</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: #f39c12; font-size: 0.9rem;">대기</div>
+                        <div style="font-weight: bold; margin-top: 5px; color: #f39c12;">${pendingCount}개</div>
+                    </div>
+                    ${hasSTTMetrics ? `
+                    <div style="text-align: center;">
+                        <div style="color: #4caf50; font-size: 0.9rem;">STT 메트릭</div>
+                        <div style="font-weight: bold; margin-top: 5px; color: #4caf50;">포함됨</div>
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+
+            document.getElementById('dataInfo').innerHTML = infoHTML;
+        }
+
+        // 승인 추천 항목 생성
+        function generateRecommendations() {
+            const recommendations = [];
+            
+            analysisResults.forEach(result => {
+                result.candidates.forEach(candidate => {
+                    const mainSimilarity = candidate.similarity || 0;
+                    const sttEnsemble = candidate.similarities?.stt_ensemble || 0;
+                    
+                    // 주요 유사도와 STT Ensemble 모두 0.9 이상인 항목
+                    if (mainSimilarity >= 0.9 && sttEnsemble >= 0.9) {
+                        const candidateId = `${result.id}_${candidate.candidate_word}`;
+                        recommendations.push({
+                            candidateId: candidateId,
+                            resultId: result.id,
+                            expectedAnswer: result.expected_answer,
+                            candidateWord: candidate.candidate_word,
+                            mainSimilarity: mainSimilarity,
+                            sttEnsemble: sttEnsemble,
+                            frequency: candidate.frequency
+                        });
+                    }
+                });
+            });
+
+            // 추천 패널 표시/숨김
+            const recommendationPanel = document.getElementById('recommendationPanel');
+            const recommendationList = document.getElementById('recommendationList');
+            const recommendationCount = document.getElementById('recommendationCount');
+
+            if (recommendations.length > 0) {
+                recommendationPanel.style.display = 'block';
+                recommendationCount.textContent = `(${recommendations.length}개 항목)`;
+                
+                // 추천 항목을 유사도 순으로 정렬
+                recommendations.sort((a, b) => {
+                    if (b.mainSimilarity !== a.mainSimilarity) {
+                        return b.mainSimilarity - a.mainSimilarity;
+                    }
+                    return b.sttEnsemble - a.sttEnsemble;
+                });
+
+                const recommendationHTML = recommendations.map(rec => `
+                    <div style="background: #2a4a32; border: 1px solid #4caf50; border-radius: 5px; padding: 10px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;">
+                        <div style="flex: 1;">
+                            <div style="color: #e0e0e0; font-weight: bold;">
+                                ID ${rec.resultId}: "${rec.expectedAnswer}" → "${rec.candidateWord}"
+                            </div>
+                            <div style="color: #b0b0b0; font-size: 0.9rem; margin-top: 3px;">
+                                주요 유사도: <span style="color: #4fc3f7;">${rec.mainSimilarity}</span> | 
+                                STT Ensemble: <span style="color: #4caf50;">${rec.sttEnsemble}</span> | 
+                                출현: ${rec.frequency}회
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <button class="btn" onclick="goToCandidate('${rec.candidateId}')" style="background: #2196f3; padding: 5px 10px; font-size: 0.8rem;">바로가기</button>
+                            <button class="btn" onclick="approveCandidate('${rec.candidateId}')" style="background: #4caf50; padding: 5px 10px; font-size: 0.8rem;">승인</button>
+                        </div>
+                    </div>
+                `).join('');
+
+                recommendationList.innerHTML = recommendationHTML;
+            } else {
+                recommendationPanel.style.display = 'none';
+            }
+        }
+
+        // 특정 후보로 이동
+        function goToCandidate(candidateId) {
+            const element = document.getElementById(`candidate_${candidateId}`);
+            if (element) {
+                element.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+                
+                // 하이라이트 효과
+                element.style.boxShadow = '0 0 20px #4caf50';
+                setTimeout(() => {
+                    element.style.boxShadow = '';
+                }, 2000);
+            }
+        }
+
+        // 필터 값 파싱 함수
+        function parseFilterValue(filterValue) {
+            if (filterValue === 'all') return { type: 'all' };
+            
+            if (filterValue.startsWith('gte_')) {
+                return { type: 'gte', value: parseFloat(filterValue.substring(4)) };
+            } else if (filterValue.startsWith('lte_')) {
+                return { type: 'lte', value: parseFloat(filterValue.substring(4)) };
+            }
+            
+            // 레거시 지원 (이전 버전과의 호환성)
+            return { type: 'gte', value: parseFloat(filterValue) };
+        }
+
+        // 필터 적용
+        function applyFilters() {
+            const mainSimilarityFilter = document.getElementById('mainSimilarityFilter').value;
+            const sttEnsembleFilter = document.getElementById('sttEnsembleFilter').value;
+            const originJudgeFilter = document.getElementById('originJudgeFilter').value;
+            
+            currentFilters.mainSimilarity = mainSimilarityFilter;
+            currentFilters.sttEnsemble = sttEnsembleFilter;
+            currentFilters.originJudge = originJudgeFilter;
+
+            // 필터 값들 파싱
+            const mainFilter = parseFilterValue(mainSimilarityFilter);
+            const sttFilter = parseFilterValue(sttEnsembleFilter);
+
+            // 필터링 로직
+            filteredResults = analysisResults.filter(result => {
+                // 그룹 내에서 필터 조건을 만족하는 후보가 있는지 확인
+                const hasMatchingCandidate = result.candidates.some(candidate => {
+                    const mainSimilarity = candidate.similarity || 0;
+                    const sttEnsemble = candidate.similarities?.stt_ensemble || 0;
+                    const originJudge = candidate.origin_judge;
+                    
+                    // 주요 유사도 필터 확인
+                    let mainMatch = true;
+                    if (mainFilter.type === 'gte') {
+                        mainMatch = mainSimilarity >= mainFilter.value;
+                    } else if (mainFilter.type === 'lte') {
+                        mainMatch = mainSimilarity <= mainFilter.value;
+                    }
+                    
+                    // STT Ensemble 필터 확인
+                    let sttMatch = true;
+                    if (sttFilter.type === 'gte') {
+                        sttMatch = sttEnsemble >= sttFilter.value;
+                    } else if (sttFilter.type === 'lte') {
+                        sttMatch = sttEnsemble <= sttFilter.value;
+                    }
+                    
+                    // 원본판정 필터 확인
+                    let originMatch = true;
+                    if (originJudgeFilter === 'true') {
+                        originMatch = originJudge === 'true' || originJudge === true;
+                    } else if (originJudgeFilter === 'false') {
+                        originMatch = originJudge === 'false' || originJudge === false;
+                    }
+                    
+                    return mainMatch && sttMatch && originMatch;
+                });
+                
+                return hasMatchingCandidate;
+            }).map(result => {
+                // 각 그룹에서 필터 조건을 만족하는 후보만 포함
+                const filteredCandidates = result.candidates.filter(candidate => {
+                    const mainSimilarity = candidate.similarity || 0;
+                    const sttEnsemble = candidate.similarities?.stt_ensemble || 0;
+                    const originJudge = candidate.origin_judge;
+                    
+                    // 주요 유사도 필터 확인
+                    let mainMatch = true;
+                    if (mainFilter.type === 'gte') {
+                        mainMatch = mainSimilarity >= mainFilter.value;
+                    } else if (mainFilter.type === 'lte') {
+                        mainMatch = mainSimilarity <= mainFilter.value;
+                    }
+                    
+                    // STT Ensemble 필터 확인
+                    let sttMatch = true;
+                    if (sttFilter.type === 'gte') {
+                        sttMatch = sttEnsemble >= sttFilter.value;
+                    } else if (sttFilter.type === 'lte') {
+                        sttMatch = sttEnsemble <= sttFilter.value;
+                    }
+                    
+                    // 원본판정 필터 확인
+                    let originMatch = true;
+                    if (originJudgeFilter === 'true') {
+                        originMatch = originJudge === 'true' || originJudge === true;
+                    } else if (originJudgeFilter === 'false') {
+                        originMatch = originJudge === 'false' || originJudge === false;
+                    }
+                    
+                    return mainMatch && sttMatch && originMatch;
+                });
+                
+                return {
+                    ...result,
+                    candidates: filteredCandidates
+                };
+            });
+
+            // 결과 다시 표시
+            displayWordResults();
+            
+            // 필터링된 데이터 정보 업데이트
+            updateFilteredDataInfo();
+            
+            console.log(`필터 적용:`, {
+                mainSimilarity: mainSimilarityFilter,
+                sttEnsemble: sttEnsembleFilter,
+                originJudge: originJudgeFilter
+            });
+            console.log(`필터링 결과: ${filteredResults.length}개 그룹, 총 ${filteredResults.reduce((sum, r) => sum + r.candidates.length, 0)}개 후보`);
+        }
+
+        // 필터 초기화
+        function resetFilters() {
+            document.getElementById('mainSimilarityFilter').value = 'all';
+            document.getElementById('sttEnsembleFilter').value = 'all';
+            document.getElementById('originJudgeFilter').value = 'all';
+            currentFilters.mainSimilarity = 'all';
+            currentFilters.sttEnsemble = 'all';
+            currentFilters.originJudge = 'all';
+            filteredResults = [...analysisResults];
+            displayWordResults();
+            updateFilteredDataInfo();
+            console.log('필터가 초기화되었습니다.');
+        }
+
+        // index.html의 displayWordResults() 함수와 동일한 로직 (필터링된 결과 사용)
+        function displayWordResults() {
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = '';
+
+            // 필터링된 결과가 없는 경우
+            if (filteredResults.length === 0) {
+                resultsContainer.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: #888;">
+                        <h3>필터 조건에 맞는 결과가 없습니다</h3>
+                        <p>필터 조건을 조정해주세요.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filteredResults.forEach(result => {
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'result-item';
+
+                const candidatesHTML = result.candidates.map(candidate => {
+                    const similarityClass = candidate.similarity >= 0.8 ? 'similarity-high' :
+                                           candidate.similarity >= 0.6 ? 'similarity-medium' : 'similarity-low';
+
+                    const candidateId = `${result.id}_${candidate.candidate_word}`;
+                    const status = approvalStatus[candidateId] || '';
+
+                    // 유사도 상세 정보 생성 (단어용)
+                    const similarities = candidate.similarities || {};
+                    const analysis = SimilarityCalculator.analyzeSimilarities(similarities);
+
+                    // STT 외의 최고 유사도 메트릭 찾기
+                    const nonSTTSimilarities = Object.keys(similarities)
+                        .filter(method => !method.startsWith('stt_'))
+                        .reduce((obj, method) => {
+                            obj[method] = similarities[method];
+                            return obj;
+                        }, {});
+                    
+                    const nonSTTAnalysis = Object.keys(nonSTTSimilarities).length > 0 ? 
+                        SimilarityCalculator.analyzeSimilarities(nonSTTSimilarities) : null;
+                    
+                    // STT Ensemble 점수 가져오기
+                    const sttEnsembleScore = similarities.stt_ensemble || null;
+
+                    const similarityDetailsHTML = Object.keys(similarities).map(method => {
+                        const value = similarities[method];
+                        let className = 'similarity-method';
+
+                        // STT 메트릭 구분 표시
+                        if (method.startsWith('stt_')) {
+                            className += ' stt-metric';
+                        }
+
+                        if (analysis.highest && method === analysis.highest.method) {
+                            className += ' best';
+                        } else if (analysis.lowest && method === analysis.lowest.method) {
+                            className += ' worst';
+                        }
+
+                        // STT 메트릭의 경우 더 친숙한 이름으로 표시
+                        let displayName = method;
+                        if (method === 'stt_jaro_winkler') displayName = 'STT Jaro-Winkler';
+                        else if (method === 'stt_levenshtein') displayName = 'STT Levenshtein';
+                        else if (method === 'stt_phonetic') displayName = 'STT Korean Phonetic';
+                        else if (method === 'stt_ensemble') displayName = 'STT Ensemble ⭐';
+
+                        return `<span class="${className}">${displayName}: ${value}</span>`;
+                    }).join(' ');
+
+                    // 전처리 비교 결과 HTML 생성 (선택된 단계만) - 단어용
+                    let preprocessingComparisonHTML = '';
+                    if (candidate.preprocessing_comparison && Object.keys(candidate.preprocessing_comparison).length > 0) {
+                        const stageNames = {
+                            'original': '원본',
+                            'step13': '1-3단계',
+                            'step14': '1-4단계',
+                            'reverseR13': 'R1-R3단계',
+                            'reverseR14': 'R1-R4단계'
+                        };
+
+                        preprocessingComparisonHTML = `
+                            <div style="margin-top: 15px; padding: 10px; background: #333; border-radius: 5px;">
+                                <strong>전처리 비교 결과:</strong><br>
+                                ${Object.keys(candidate.preprocessing_comparison).map(stage => {
+                                    const comparison = candidate.preprocessing_comparison[stage];
+                                    const stageName = stageNames[stage] || stage;
+                                    const isBest = candidate.best_preprocessing_method === stage;
+
+                                    // 각 단계별 주요 유사도만 표시 (코사인 + STT Ensemble)
+                                    let stageMetrics = `<span class="similarity-method${isBest ? ' best' : ''}">${stageName}: ${comparison.similarity.toFixed(3)}</span>`;
+
+                                    // STT Ensemble 점수가 있다면 추가 표시
+                                    if (comparison.similarities && comparison.similarities.stt_ensemble) {
+                                        stageMetrics += ` <span class="similarity-method stt-metric" style="color: #4caf50;">STT: ${comparison.similarities.stt_ensemble}</span>`;
+                                    }
+
+                                    return `
+                                        <div style="margin-bottom: 8px;">
+                                            ${stageMetrics}
+                                            <span style="color: #888; font-size: 0.8rem; display: block; margin-left: 10px;">
+                                                ("${comparison.expected_text}" vs "${comparison.candidate_text}")
+                                            </span>
+                                            ${comparison.similarities && Object.keys(comparison.similarities).filter(k => k.startsWith('stt_')).length > 1 ? `
+                                                <div style="margin-left: 10px; margin-top: 3px;">
+                                                    <button class="similarity-toggle" onclick="toggleStageSTTDetails('${candidateId}_${stage}')" style="font-size: 0.75rem; padding: 2px 6px;">STT 상세</button>
+                                                    <div id="stt_details_${candidateId}_${stage}" style="display: none; margin-top: 5px; font-size: 0.8rem;">
+                                                        ${Object.keys(comparison.similarities).filter(k => k.startsWith('stt_')).map(method => {
+                                                            const value = comparison.similarities[method];
+                                                            let displayName = method;
+                                                            if (method === 'stt_jaro_winkler') displayName = 'Jaro-Winkler';
+                                                            else if (method === 'stt_levenshtein') displayName = 'Levenshtein';
+                                                            else if (method === 'stt_phonetic') displayName = 'Korean Phonetic';
+                                                            else if (method === 'stt_ensemble') displayName = 'Ensemble ⭐';
+                                                            return `<span class="stt-metric" style="color: #4caf50;">${displayName}: ${value}</span>`;
+                                                        }).join(' ')}
+                                                    </div>
+                                                </div>
+                                            ` : ''}
+                                        </div>
+                                    `;
+                                }).join('')}
+                                ${candidate.best_preprocessing_method ? `
+                                    <span style="color: #4fc3f7; font-weight: bold; margin-top: 5px; display: block;">
+                                        최적 방법: ${stageNames[candidate.best_preprocessing_method] || candidate.best_preprocessing_method}
+                                    </span>
+                                ` : ''}
+                            </div>
+                        `;
+                    }
+
+                    return `
+                        <div class="candidate-item ${status}" id="candidate_${candidateId}">
+                            <div class="candidate-info">
+                                <div class="candidate-word">${candidate.candidate_word}</div>
+                                <div class="candidate-stats">
+                                    Log ID: [${candidate.log_id.join(', ')}] |
+                                    주요 유사도: <span class="${similarityClass}">${nonSTTAnalysis && nonSTTAnalysis.highest ? `${candidate.similarity} (${nonSTTAnalysis.highest.method})` : candidate.similarity}</span>${sttEnsembleScore ? ` / STT Ensemble: <span class="similarity-method stt-metric" style="color: #4caf50;">${sttEnsembleScore}</span>` : ''}
+                                    <button class="similarity-toggle" onclick="toggleSimilarityDetails('${candidateId}')">상세보기</button>
+                                    <br>
+                                    출현횟수: ${candidate.frequency}회 |
+                                    원본판정: <span class="${candidate.origin_judge === 'true' ? 'similarity-high' : 'similarity-low'}">${candidate.origin_judge}</span>
+                                </div>
+                                <div class="similarity-details" id="similarity_${candidateId}" style="display: none;">
+                                    <strong>모든 유사도 계산 결과:</strong><br>
+                                    ${similarityDetailsHTML}
+                                    <br><br>
+                                    <strong>분석:</strong><br>
+                                    • 최고점: ${analysis.highest ? `${analysis.highest.method} (${analysis.highest.value})` : 'N/A'}<br>
+                                    • 최저점: ${analysis.lowest ? `${analysis.lowest.method} (${analysis.lowest.value})` : 'N/A'}<br>
+                                    • 평균: ${analysis.average ? analysis.average.toFixed(3) : 'N/A'}<br>
+                                    • 분산: ${analysis.variance ? analysis.variance.toFixed(3) : 'N/A'}
+                                    ${preprocessingComparisonHTML}
+                                </div>
+                            </div>
+                            <div class="candidate-actions">
+                                <button class="btn-approve" onclick="approveCandidate('${candidateId}')">승인</button>
+                                <button class="btn-reject" onclick="rejectCandidate('${candidateId}')">거절</button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                resultDiv.innerHTML = `
+                    <div class="result-header">
+                        <h3>ID: ${result.id}</h3>
+                        <div class="expected">정답: "${result.expected_answer}"</div>
+                    </div>
+                    <div class="candidates-list">
+                        ${candidatesHTML}
+                    </div>
+                `;
+
+                resultsContainer.appendChild(resultDiv);
+            });
+        }
+
+        // 유사도 상세정보 토글 함수
+        function toggleSimilarityDetails(candidateId) {
+            const detailsElement = document.getElementById(`similarity_${candidateId}`);
+            const toggleButton = event.target;
+
+            if (detailsElement.style.display === 'none') {
+                detailsElement.style.display = 'block';
+                toggleButton.textContent = '숨기기';
+            } else {
+                detailsElement.style.display = 'none';
+                toggleButton.textContent = '상세보기';
+            }
+        }
+
+        // STT 상세 정보 토글 함수 (전처리 비교용)
+        function toggleStageSTTDetails(stageId) {
+            const element = document.getElementById(`stt_details_${stageId}`);
+            if (element) {
+                element.style.display = element.style.display === 'none' ? 'block' : 'none';
+            }
+        }
+
+        // PDF 내보내기 함수 (index.html과 동일)
+        async function exportPDF() {
+            if (analysisResults.length === 0) {
+                alert('분석 결과가 없습니다. 먼저 JSON 데이터를 로드해주세요.');
+                return;
+            }
+
+            try {
+                console.log('PDF 내보내기 시작...');
+
+                // 모든 상세보기 펼치기
+                const allDetailElements = document.querySelectorAll('.similarity-details');
+                const originalDisplayStates = [];
+                
+                allDetailElements.forEach((element, index) => {
+                    originalDisplayStates[index] = element.style.display;
+                    element.style.display = 'block';
+                });
+
+                // 모든 STT 상세 정보도 펼치기
+                const allSTTDetails = document.querySelectorAll('[id^="stt_details_"]');
+                const originalSTTStates = [];
+                
+                allSTTDetails.forEach((element, index) => {
+                    originalSTTStates[index] = element.style.display;
+                    element.style.display = 'block';
+                });
+
+                // 약간의 대기 시간으로 렌더링 완료 보장
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+                // 결과 영역만 캡처
+                const resultsElement = document.getElementById('results');
+                if (!resultsElement) {
+                    throw new Error('결과 영역을 찾을 수 없습니다.');
+                }
+
+                // html2canvas로 캡처
+                const canvas = await html2canvas(resultsElement, {
+                    useCORS: true,
+                    allowTaint: true,
+                    scale: 1.5,
+                    backgroundColor: '#1a1a1a',
+                    logging: false
+                });
+
+                // PDF 생성
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    format: 'a4'
+                });
+
+                const imgData = canvas.toDataURL('image/png');
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = pdf.internal.pageSize.getHeight();
+                const imgWidth = canvas.width;
+                const imgHeight = canvas.height;
+                
+                const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+                const scaledWidth = imgWidth * ratio;
+                const scaledHeight = imgHeight * ratio;
+
+                const x = (pdfWidth - scaledWidth) / 2;
+                const y = 10;
+
+                if (scaledHeight > pdfHeight - 20) {
+                    const pageHeight = pdfHeight - 20;
+                    const totalPages = Math.ceil(scaledHeight / pageHeight);
+                    
+                    for (let page = 0; page < totalPages; page++) {
+                        if (page > 0) {
+                            pdf.addPage();
+                        }
+                        
+                        const sourceY = (page * pageHeight) / ratio;
+                        const sourceHeight = Math.min(pageHeight / ratio, imgHeight - sourceY);
+                        
+                        const partCanvas = document.createElement('canvas');
+                        partCanvas.width = imgWidth;
+                        partCanvas.height = sourceHeight;
+                        const partCtx = partCanvas.getContext('2d');
+                        
+                        const img = new Image();
+                        await new Promise((resolve) => {
+                            img.onload = () => {
+                                partCtx.drawImage(img, 0, sourceY, imgWidth, sourceHeight, 0, 0, imgWidth, sourceHeight);
+                                resolve();
+                            };
+                            img.src = imgData;
+                        });
+                        
+                        const partImgData = partCanvas.toDataURL('image/png');
+                        pdf.addImage(partImgData, 'PNG', x, y, scaledWidth, sourceHeight * ratio);
+                    }
+                } else {
+                    pdf.addImage(imgData, 'PNG', x, y, scaledWidth, scaledHeight);
+                }
+
+                pdf.setProperties({
+                    title: `유사도 분석 결과 뷰어 - ${new Date().toISOString().split('T')[0]}`,
+                    subject: 'JSON 로드 분석 결과',
+                    author: 'AI 분석 시스템',
+                    creator: 'Claude Code'
+                });
+
+                const fileName = `loaded_similarity_results_${new Date().toISOString().split('T')[0]}.pdf`;
+                pdf.save(fileName);
+
+                console.log('PDF 파일이 성공적으로 생성되었습니다.');
+
+                // 원래 상태로 복원
+                allDetailElements.forEach((element, index) => {
+                    element.style.display = originalDisplayStates[index];
+                });
+
+                allSTTDetails.forEach((element, index) => {
+                    element.style.display = originalSTTStates[index];
+                });
+
+            } catch (error) {
+                console.error('PDF 생성 중 오류:', error);
+                alert('PDF 파일 생성 중 오류가 발생했습니다: ' + error.message);
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -78,14 +78,27 @@ function exportResults() {
         return {
             id: result.id,
             expected_answer: result.expected_answer,
+            keyword: result.keyword || null,
             candidates: result.candidates.map(candidate => ({
                 log_id: candidate.log_id,
                 candidate_word: candidate.candidate_word,
                 similarity: candidate.similarity,
-                similarities: candidate.similarities, // 모든 유사도 점수 포함
+                similarities: candidate.similarities, // 모든 유사도 점수 포함 (STT 메트릭 포함)
                 origin_judge: candidate.origin_judge,
                 frequency: candidate.frequency,
-                approval_status: approvalStatus[`${result.id}_${candidate.candidate_word}`] || 'pending'
+                approval_status: approvalStatus[`${result.id}_${candidate.candidate_word}`] || 'pending',
+                best_preprocessing_method: candidate.bestPreprocessingMethod || null,
+                preprocessing_comparison: candidate.preprocessingComparison ? 
+                    Object.keys(candidate.preprocessingComparison).reduce((acc, stage) => {
+                        const comparison = candidate.preprocessingComparison[stage];
+                        acc[stage] = {
+                            similarity: comparison.similarity,
+                            similarities: comparison.similarities, // STT 메트릭 포함
+                            expected_text: comparison.expectedText,
+                            candidate_text: comparison.candidateText
+                        };
+                        return acc;
+                    }, {}) : null
             }))
         };
     });
@@ -191,15 +204,31 @@ function createDetailsSheet() {
             
             const similarities = candidate.similarities || {};
             
-            detailsData.push({
+            // 기본 데이터
+            const rowData = {
                 '그룹_ID': result.id,
                 '정답': result.expected_answer,
                 '키워드': result.keyword || '',
                 '후보_답변': candidate.candidate_word,
-                '유사도_점수': candidate.similarity?.toFixed(3) || '0.000',
+                '주요_유사도_점수': candidate.similarity?.toFixed(3) || '0.000',
                 '코사인_유사도': similarities.cosine?.toFixed(3) || '',
                 '유클리디안_거리': similarities.euclidean?.toFixed(3) || '',
                 '맨하탄_거리': similarities.manhattan?.toFixed(3) || '',
+                '피어슨_상관계수': similarities.pearson?.toFixed(3) || '',
+                '자카드_유사도': similarities.jaccard?.toFixed(3) || '',
+                '앙상블_점수': similarities.ensemble?.toFixed(3) || ''
+            };
+
+            // STT 메트릭 추가
+            if (similarities.stt_jaro_winkler !== undefined) {
+                rowData['STT_Jaro_Winkler'] = similarities.stt_jaro_winkler?.toFixed(3) || '';
+                rowData['STT_Levenshtein'] = similarities.stt_levenshtein?.toFixed(3) || '';
+                rowData['STT_Korean_Phonetic'] = similarities.stt_phonetic?.toFixed(3) || '';
+                rowData['STT_Ensemble'] = similarities.stt_ensemble?.toFixed(3) || '';
+            }
+
+            // 나머지 정보 추가
+            Object.assign(rowData, {
                 '출현_횟수': candidate.frequency || 1,
                 '원본_판정': candidate.origin_judge,
                 '승인_상태': statusMap[approvalStatus_val] || '대기중',
@@ -208,6 +237,8 @@ function createDetailsSheet() {
                 '원본_텍스트': candidate.candidate_word,
                 '전처리_텍스트': candidate.preprocessingComparison?.[candidate.bestPreprocessingMethod]?.candidateText || candidate.candidate_word
             });
+            
+            detailsData.push(rowData);
         });
     });
     
@@ -222,19 +253,43 @@ function createPreprocessingSheet() {
         result.candidates.forEach(candidate => {
             if (candidate.preprocessingComparison && Object.keys(candidate.preprocessingComparison).length > 0) {
                 const comparison = candidate.preprocessingComparison;
-                const stageNames = { 'original': '원본', 'step13': 'Step1-3', 'step14': 'Step1-4' };
+                const stageNames = { 
+                    'original': '원본', 
+                    'step13': 'Step1-3', 
+                    'step14': 'Step1-4',
+                    'reverseR13': 'R1-R3',
+                    'reverseR14': 'R1-R4'
+                };
                 
                 const row = {
                     '그룹_ID': result.id,
                     '정답': result.expected_answer,
-                    '후보_답변': candidate.candidate_word
+                    '키워드': result.keyword || '',
+                    '후보_답변': candidate.candidate_word,
+                    '최적_전처리_방법': candidate.bestPreprocessingMethod ? 
+                        (stageNames[candidate.bestPreprocessingMethod] || candidate.bestPreprocessingMethod) : ''
                 };
                 
-                // 각 전처리 단계별 유사도 추가
+                // 각 전처리 단계별 유사도 및 STT 메트릭 추가
                 Object.keys(comparison).forEach(stage => {
                     const stageName = stageNames[stage] || stage;
-                    row[`${stageName}_유사도`] = comparison[stage].similarity?.toFixed(3) || '';
-                    row[`${stageName}_텍스트`] = comparison[stage].candidateText || '';
+                    const stageData = comparison[stage];
+                    
+                    // 기본 유사도 (코사인)
+                    row[`${stageName}_코사인_유사도`] = stageData.similarity?.toFixed(3) || '';
+                    row[`${stageName}_텍스트`] = stageData.candidateText || '';
+                    row[`${stageName}_정답_텍스트`] = stageData.expectedText || '';
+                    
+                    // STT 메트릭 (있는 경우만)
+                    if (stageData.similarities) {
+                        const similarities = stageData.similarities;
+                        if (similarities.stt_jaro_winkler !== undefined) {
+                            row[`${stageName}_STT_Jaro_Winkler`] = similarities.stt_jaro_winkler?.toFixed(3) || '';
+                            row[`${stageName}_STT_Levenshtein`] = similarities.stt_levenshtein?.toFixed(3) || '';
+                            row[`${stageName}_STT_Korean_Phonetic`] = similarities.stt_phonetic?.toFixed(3) || '';
+                            row[`${stageName}_STT_Ensemble`] = similarities.stt_ensemble?.toFixed(3) || '';
+                        }
+                    }
                 });
                 
                 preprocessingData.push(row);
@@ -276,5 +331,179 @@ function toggleSimilarityDetails(candidateId) {
     } else {
         detailsElement.style.display = 'none';
         toggleButton.textContent = '상세보기';
+    }
+}
+
+// PDF 내보내기 함수
+async function exportPDF() {
+    if (analysisResults.length === 0) {
+        alert('분석 결과가 없습니다. 먼저 데이터를 분석해주세요.');
+        return;
+    }
+
+    try {
+        console.log('PDF 내보내기 시작...');
+
+        // 로딩 표시
+        const originalButtonText = event.target.textContent;
+        event.target.textContent = '📄 PDF 생성중...';
+        event.target.disabled = true;
+
+        // 모든 상세보기 펼치기
+        const allDetailElements = document.querySelectorAll('.similarity-details');
+        const originalDisplayStates = [];
+        
+        allDetailElements.forEach((element, index) => {
+            originalDisplayStates[index] = element.style.display;
+            element.style.display = 'block';
+        });
+
+        // 모든 STT 상세 정보도 펼치기
+        const allSTTDetails = document.querySelectorAll('[id^="stt_details_"]');
+        const originalSTTStates = [];
+        
+        allSTTDetails.forEach((element, index) => {
+            originalSTTStates[index] = element.style.display;
+            element.style.display = 'block';
+        });
+
+        // 렌더링 완료를 위한 대기
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        // 결과 영역만 캡처
+        const resultsElement = document.getElementById('results');
+        if (!resultsElement) {
+            throw new Error('결과 영역을 찾을 수 없습니다.');
+        }
+
+        // html2canvas 옵션 개선
+        const canvas = await html2canvas(resultsElement, {
+            useCORS: true,
+            allowTaint: false,
+            scale: 1.2,
+            backgroundColor: '#1a1a1a',
+            logging: false,
+            height: resultsElement.scrollHeight,
+            width: resultsElement.scrollWidth,
+            scrollX: 0,
+            scrollY: 0,
+            windowWidth: resultsElement.scrollWidth,
+            windowHeight: resultsElement.scrollHeight,
+            // document.write 문제 해결을 위한 옵션
+            foreignObjectRendering: false,
+            removeContainer: true
+        });
+
+        console.log('캔버스 캡처 완료:', canvas.width, 'x', canvas.height);
+
+        // PDF 생성
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF({
+            orientation: 'portrait',
+            unit: 'mm',
+            format: 'a4'
+        });
+
+        // 캔버스를 이미지로 변환
+        const imgData = canvas.toDataURL('image/png', 0.8); // 압축률 추가
+        
+        // A4 크기 계산
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = pdf.internal.pageSize.getHeight();
+        const imgWidth = canvas.width;
+        const imgHeight = canvas.height;
+        
+        // 여백을 고려한 실제 사용 가능 영역
+        const margin = 10;
+        const availableWidth = pdfWidth - (margin * 2);
+        const availableHeight = pdfHeight - (margin * 2);
+        
+        // 비율 계산
+        const ratio = Math.min(availableWidth / imgWidth, availableHeight / imgHeight);
+        const scaledWidth = imgWidth * ratio;
+        const scaledHeight = imgHeight * ratio;
+
+        // 페이지 중앙에 이미지 배치
+        const x = (pdfWidth - scaledWidth) / 2;
+        const y = margin;
+
+        // 이미지가 한 페이지를 벗어나는 경우 여러 페이지로 분할
+        if (scaledHeight > availableHeight) {
+            console.log('다중 페이지 PDF 생성...');
+            
+            const pageHeight = availableHeight;
+            const totalPages = Math.ceil(scaledHeight / pageHeight);
+            
+            for (let page = 0; page < totalPages; page++) {
+                if (page > 0) {
+                    pdf.addPage();
+                }
+                
+                // 소스 이미지에서 잘라낼 영역 계산
+                const sourceY = (page * pageHeight) / ratio;
+                const sourceHeight = Math.min(pageHeight / ratio, imgHeight - sourceY);
+                
+                if (sourceHeight > 0) {
+                    // 임시 캔버스에 부분 이미지 그리기
+                    const tempCanvas = document.createElement('canvas');
+                    tempCanvas.width = imgWidth;
+                    tempCanvas.height = sourceHeight;
+                    const tempCtx = tempCanvas.getContext('2d');
+                    
+                    // 원본 캔버스에서 부분 복사
+                    tempCtx.drawImage(canvas, 0, sourceY, imgWidth, sourceHeight, 0, 0, imgWidth, sourceHeight);
+                    
+                    const partImgData = tempCanvas.toDataURL('image/png', 0.8);
+                    pdf.addImage(partImgData, 'PNG', x, y, scaledWidth, sourceHeight * ratio);
+                }
+            }
+        } else {
+            // 한 페이지에 들어가는 경우
+            pdf.addImage(imgData, 'PNG', x, y, scaledWidth, scaledHeight);
+        }
+
+        // 메타데이터 추가
+        pdf.setProperties({
+            title: `유사도 분석 결과 - ${new Date().toISOString().split('T')[0]}`,
+            subject: 'AI 분석 파이프라인 결과',
+            author: 'AI 분석 시스템',
+            creator: 'Claude Code'
+        });
+
+        // PDF 다운로드
+        const fileName = `similarity_analysis_results_${new Date().toISOString().split('T')[0]}.pdf`;
+        pdf.save(fileName);
+
+        console.log('PDF 파일이 성공적으로 생성되었습니다.');
+
+        // 원래 상태로 복원
+        allDetailElements.forEach((element, index) => {
+            element.style.display = originalDisplayStates[index];
+        });
+
+        allSTTDetails.forEach((element, index) => {
+            element.style.display = originalSTTStates[index];
+        });
+
+        // 버튼 상태 복원
+        event.target.textContent = originalButtonText;
+        event.target.disabled = false;
+
+    } catch (error) {
+        console.error('PDF 생성 중 오류:', error);
+        
+        // 사용자 친화적인 오류 메시지
+        let errorMessage = 'PDF 파일 생성 중 오류가 발생했습니다.';
+        if (error.message.includes('html2canvas')) {
+            errorMessage += ' 브라우저 호환성 문제일 수 있습니다. Chrome 브라우저 사용을 권장합니다.';
+        }
+        
+        alert(errorMessage);
+        
+        // 버튼 상태 복원
+        if (event && event.target) {
+            event.target.textContent = originalButtonText || '📄 PDF 내보내기';
+            event.target.disabled = false;
+        }
     }
 }

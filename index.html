@@ -165,7 +165,8 @@
                 <button class="btn" onclick="approveAll()" style="background: #27ae60; margin-right: 10px;">모두 승인</button>
                 <button class="btn" onclick="rejectAll()" style="background: #e74c3c; margin-right: 10px;">모두 거절</button>
                 <button class="btn" onclick="exportResults()" style="background: #9b59b6; margin-right: 10px;">JSON 내보내기</button>
-                <button class="btn" onclick="exportExcel()" style="background: #2e7d32;">📊 엑셀 내보내기</button>
+                <button class="btn" onclick="exportExcel()" style="background: #2e7d32; margin-right: 10px;">📊 엑셀 내보내기</button>
+                <button class="btn" onclick="exportPDF()" style="background: #e91e63;">📄 PDF 내보내기</button>
             </div>
             <div id="results"></div>
         </div>
@@ -173,6 +174,10 @@
 
     <!-- SheetJS 라이브러리 (엑셀 생성용) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <!-- jsPDF 라이브러리 (PDF 생성용) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- html2canvas 라이브러리 (HTML을 Canvas로 변환) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <!-- config.js 모듈 로드 (키 설정) -->
     <script src="./config.js"></script>
@@ -1248,9 +1253,23 @@
                     const candidateId = `${result.id}_${candidate.candidate_word}`;
                     const status = approvalStatus[candidateId] || '';
 
-                    // 유사도 상세 정보 생성
+                    // 유사도 상세 정보 생성 (단어용)
                     const similarities = candidate.similarities || {};
                     const analysis = SimilarityCalculator.analyzeSimilarities(similarities);
+
+                    // STT 외의 최고 유사도 메트릭 찾기
+                    const nonSTTSimilarities = Object.keys(similarities)
+                        .filter(method => !method.startsWith('stt_'))
+                        .reduce((obj, method) => {
+                            obj[method] = similarities[method];
+                            return obj;
+                        }, {});
+                    
+                    const nonSTTAnalysis = Object.keys(nonSTTSimilarities).length > 0 ? 
+                        SimilarityCalculator.analyzeSimilarities(nonSTTSimilarities) : null;
+                    
+                    // STT Ensemble 점수 가져오기
+                    const sttEnsembleScore = similarities.stt_ensemble || null;
 
                     const similarityDetailsHTML = Object.keys(similarities).map(method => {
                         const value = similarities[method];
@@ -1344,7 +1363,7 @@
                                 <div class="candidate-word">${candidate.candidate_word}</div>
                                 <div class="candidate-stats">
                                     Log ID: [${candidate.log_id.join(', ')}] |
-                                    주요 유사도: <span class="${similarityClass}">${candidate.similarity}</span>
+                                    주요 유사도: <span class="${similarityClass}">${nonSTTAnalysis && nonSTTAnalysis.highest ? `${candidate.similarity} (${nonSTTAnalysis.highest.method})` : candidate.similarity}</span>${sttEnsembleScore ? ` / STT Ensemble: <span class="similarity-method stt-metric" style="color: #4caf50;">${sttEnsembleScore}</span>` : ''}
                                     <button class="similarity-toggle" onclick="toggleSimilarityDetails('${candidateId}')">상세보기</button>
                                     <br>
                                     출현횟수: ${candidate.frequency}회 |
@@ -1405,9 +1424,23 @@
                     const candidateId = `${result.id}_${candidate.candidate_word}`;
                     const status = approvalStatus[candidateId] || '';
 
-                    // 유사도 상세 정보 생성
+                    // 유사도 상세 정보 생성 (문장용)
                     const similarities = candidate.similarities || {};
                     const analysis = SimilarityCalculator.analyzeSimilarities(similarities);
+
+                    // STT 외의 최고 유사도 메트릭 찾기
+                    const nonSTTSimilarities = Object.keys(similarities)
+                        .filter(method => !method.startsWith('stt_'))
+                        .reduce((obj, method) => {
+                            obj[method] = similarities[method];
+                            return obj;
+                        }, {});
+                    
+                    const nonSTTAnalysis = Object.keys(nonSTTSimilarities).length > 0 ? 
+                        SimilarityCalculator.analyzeSimilarities(nonSTTSimilarities) : null;
+                    
+                    // STT Ensemble 점수 가져오기
+                    const sttEnsembleScore = similarities.stt_ensemble || null;
 
                     const similarityDetailsHTML = Object.keys(similarities).map(method => {
                         const value = similarities[method];
@@ -1504,7 +1537,7 @@
                                     키워드: <strong>${candidate.keyword}</strong> |
                                     키워드 포함: <span class="${keywordClass}">${candidate.keyword_included ? 'YES' : 'NO'}</span>
                                     <br>
-                                    주요 유사도: <span class="${similarityClass}">${candidate.similarity}</span>
+                                    주요 유사도: <span class="${similarityClass}">${nonSTTAnalysis && nonSTTAnalysis.highest ? `${candidate.similarity} (${nonSTTAnalysis.highest.method})` : candidate.similarity}</span>${sttEnsembleScore ? ` / STT Ensemble: <span class="similarity-method stt-metric" style="color: #4caf50;">${sttEnsembleScore}</span>` : ''}
                                     <button class="similarity-toggle" onclick="toggleSimilarityDetails('${candidateId}')">상세보기</button>
                                     <br>
                                     출현횟수: ${candidate.frequency}회 |
