@@ -302,7 +302,7 @@ function createPreprocessingSheet() {
 
 // 시트 4: 원본 입력 데이터 생성
 function createInputDataSheet() {
-    return originalInputData.map(item => ({
+    return DataParser.getOriginalInputData().map(item => ({
         '행_번호': item.row_number,
         'ID': item.id,
         '사용자_ID': item.user_id,

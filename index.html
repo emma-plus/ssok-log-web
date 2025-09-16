@@ -86,10 +86,6 @@
                         <span style="color: #4fc3f7;">Step 2:</span> 소수점 표현 정규화 (점/쩜→., 8점9→8.9)<br>
                         <span style="color: #4fc3f7;">Step 3:</span> 단위 정규화 (m→미터, %→퍼센트, g→그램 등)<br>
                         <span style="color: #4fc3f7;">Step 4:</span> 숫자 → 한글 변환 (8.9→팔점구, 4400→사천사백)<br>
-                        <br>
-                        <strong style="color: #ff6b6b;">(미사용) 역방향 전처리:</strong><br>
-                        <span style="color: #ff6b6b;">R1-R3:</span> 한글→숫자, 소수점 정규화, 한글단위→영문 (미터→m, 그램→g)<br>
-                        <span style="color: #ff6b6b;">R1-R4:</span> R1-R3 + 복합 한글숫자→아라비아 (사천사백→4400)
                     </div>
 
                     <div style="color: #e0e0e0; margin-bottom: 10px;">
@@ -108,14 +104,6 @@
                             <input type="checkbox" name="preprocessingStages" value="step14" checked style="margin-right: 8px;">
                             1-4단계 (한글 변환)
                         </label>
-                        <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer; opacity: 0.5;">
-                            <input type="checkbox" name="preprocessingStages" value="reverseR13" style="margin-right: 8px;" disabled>
-                            <span style="color: #ff6b6b;">R1-R3단계 (역방향 기본) - 비활성화</span>
-                        </label>
-                        <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer; opacity: 0.5;">
-                            <input type="checkbox" name="preprocessingStages" value="reverseR14" style="margin-right: 8px;" disabled>
-                            <span style="color: #ff6b6b;">R1-R4단계 (역방향 완전) - 비활성화</span>
-                        </label>
                     </div>
                     <div style="color: #888; font-size: 0.8rem; margin-top: 10px;">
                         * 선택된 단계들에 대해서만 임베딩을 계산하고 비교합니다. 최소 1개는 선택해야 합니다.
@@ -123,19 +111,49 @@
                 </div>
 
                 <!-- STT 특화 메트릭 옵션 -->
-                <div style="margin-top: 15px; padding: 15px; background: #2a2a2a; border-radius: 8px; border-left: 4px solid #4caf50;">
-                    <label style="display: flex; align-items: center; font-weight: 600; cursor: pointer; margin-bottom: 10px;">
+                <div style="display: flex; align-items: center; margin-top: 15px; padding: 15px; background: #2a2a2a; border-radius: 8px; border-left: 4px solid #4caf50;">
+                    <label style="display: flex; align-items: center; font-weight: 600; cursor: pointer;">
                         <input type="checkbox" name="enableSTTMetrics" checked style="margin-right: 12px; transform: scale(1.2);">
                         <span style="color: #4caf50;">🎯 STT 특화 메트릭 활성화</span>
                     </label>
-                    <div style="color: #b0b0b0; font-size: 0.85rem; line-height: 1.4; margin-left: 20px;">
-                        음성 인식 특화 유사도 계산을 추가로 수행합니다:<br>
-                        • <strong>Jaro-Winkler</strong>: 부분 일치 및 접두사 가중치<br>
-                        • <strong>Levenshtein</strong>: 편집 거리 기반 유사도<br>
-                        • <strong>Korean Phonetic</strong>: 한국어 음성학적 혼동 패턴 (ㅍ↔ㅋ, ㅌ↔ㄷ 등)<br>
-                        • <strong>STT Ensemble</strong>: 임베딩 + STT 메트릭 앙상블 점수
+                    <div style="position: relative; margin-left: 10px;">
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; background: #4caf50; color: white; border-radius: 50%; font-size: 12px; font-weight: bold; cursor: help;">i</span>
+                        <div style="position: absolute; top: 25px; left: -150px; background: #333; color: #e0e0e0; padding: 12px; border-radius: 8px; font-size: 0.85rem; line-height: 1.4; width: 300px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; z-index: 1000; border: 1px solid #555;">
+                            <strong style="color: #4caf50;">음성 인식 특화 유사도 계산을 추가로 수행합니다:</strong><br><br>
+                            • <strong>Jaro-Winkler</strong>: 부분 일치 및 접두사 가중치<br>
+                            • <strong>Levenshtein</strong>: 편집 거리 기반 유사도<br>
+                            • <strong>Korean Phonetic</strong>: 한국어 음성학적 혼동 패턴 (ㅍ↔ㅋ, ㅌ↔ㄷ 등)<br>
+                            • <strong>STT Ensemble</strong>: 임베딩 + STT 메트릭 앙상블 점수
+                        </div>
                     </div>
                 </div>
+
+                <style>
+                .stt-info-container:hover .stt-tooltip {
+                    opacity: 1 !important;
+                    visibility: visible !important;
+                }
+                </style>
+
+                <script>
+                // STT 정보 아이콘에 hover 이벤트 추가
+                document.addEventListener('DOMContentLoaded', function() {
+                    const infoIcon = document.querySelector('div[style*="position: relative"] span');
+                    const tooltip = document.querySelector('div[style*="position: absolute"]');
+
+                    if (infoIcon && tooltip) {
+                        infoIcon.addEventListener('mouseenter', function() {
+                            tooltip.style.opacity = '1';
+                            tooltip.style.visibility = 'visible';
+                        });
+
+                        infoIcon.addEventListener('mouseleave', function() {
+                            tooltip.style.opacity = '0';
+                            tooltip.style.visibility = 'hidden';
+                        });
+                    }
+                });
+                </script>
             </div>
 
             <div class="input-group">
@@ -185,16 +203,17 @@
     <script src="./similarity.js"></script>
     <!-- preprocessing.js 모듈 로드 -->
     <script src="./preprocessing.js"></script>
+    <!-- parser.js 모듈 로드 (데이터 파싱 및 그룹핑) -->
+    <script src="./parser.js"></script>
     <!-- management.js 모듈 로드 (관리 기능) -->
     <script src="./management.js"></script>
-    <!-- reverse-preprocessing.js 모듈 로드 (역방향 전처리) -->
-    <script src="./reverse-preprocessing.js"></script>
     <!-- stt-similarity.js 모듈 로드 (STT 특화 유사도) -->
     <script src="./stt-similarity.js"></script>
+    <!-- displayResults.js 모듈 로드 (결과 표시 및 렌더링) -->
+    <script src="./displayResults.js"></script>
     <script>
         let analysisResults = [];
         let approvalStatus = {};
-        let originalInputData = []; // 원본 입력 데이터 저장
 
         // 디버그 레벨 설정 (0: 기본, 1: 상세, 2: 모든 로그)
         function getDebugLevel() {
@@ -241,275 +260,9 @@
         });
 
 
-        // CSV/TSV 단어 데이터를 파싱하는 함수
-        function parseWordData(dataText, debugLevel = 2) {
-            const lines = dataText.trim().split('\n');
-            const data = [];
-            originalInputData = []; // 원본 데이터 초기화
 
-            // 카운터 변수들
-            let skippedEmptyLines = 0;
-            let skippedCommentLines = 0;
-            let skippedInvalidLines = 0;
-            let totalLines = lines.length;
 
-            // 데이터 형태 자동 감지 (첫 번째 유효한 라인으로 판단)
-            let delimiter = ','; // 기본값은 CSV
 
-            for (const line of lines) {
-                const trimmedLine = line.trim();
-                if (trimmedLine && !trimmedLine.startsWith('--') && !trimmedLine.startsWith('-')) {
-                    // 탭과 쉼표 개수를 세어서 더 많은 쪽으로 결정
-                    const tabCount = (trimmedLine.match(/\t/g) || []).length;
-                    const commaCount = (trimmedLine.match(/,/g) || []).length;
-
-                    if (tabCount > commaCount) {
-                        delimiter = '\t';
-                        console.log('TSV 형태로 감지되었습니다.');
-                    } else {
-                        delimiter = ',';
-                        console.log('CSV 형태로 감지되었습니다.');
-                    }
-                    break;
-                }
-            }
-
-            for (const line of lines) {
-                const trimmedLine = line.trim();
-
-                // 빈 줄 체크
-                if (!trimmedLine) {
-                    skippedEmptyLines++;
-                    continue;
-                }
-
-                // 주석 라인 체크
-                if (trimmedLine.startsWith('--') || trimmedLine.startsWith('-')) {
-                    skippedCommentLines++;
-                    console.log(`주석 라인 건너뛰기: ${trimmedLine}`);
-                    continue;
-                }
-
-                const parts = trimmedLine.split(delimiter);
-                if (parts.length >= 10) {
-                    data.push({
-                        id: parts[0].trim(),
-                        user_id: parts[1].trim(),
-                        origin_judge: parts[3].trim().toLowerCase() === 'true',
-                        answer: parts[7].trim(),
-                        user_answer: parts[9].trim()
-                    });
-
-                    // 원본 입력 데이터 저장
-                    originalInputData.push({
-                        row_number: originalInputData.length + 1,
-                        id: parts[0]?.trim() || '',
-                        user_id: parts[1]?.trim() || '',
-                        data_type: 'word',
-                        version: parts[2]?.trim() || '',
-                        pass: parts[3]?.trim() || '',
-                        fail_reason: parts[4]?.trim() || '',
-                        prompt_type: parts[5]?.trim() || '',
-                        keywords: parts[6]?.trim() || '',
-                        word: parts[7]?.trim() || '',
-                        sentence: parts[8]?.trim() || '',
-                        user_response: parts[9]?.trim() || '',
-                        parsing_status: '성공',
-                        original_line: trimmedLine
-                    });
-                } else {
-                    skippedInvalidLines++;
-                    if (debugLevel >= 1) {
-                        console.log(`유효하지 않은 라인 (컬럼 수 부족): ${trimmedLine}`);
-                    }
-
-                }
-            }
-
-            console.log('=== 파싱 결과 요약 ===');
-            console.log(`전체 라인 수: ${totalLines}`);
-            console.log(`성공적으로 파싱된 레코드: ${data.length}`);
-            console.log(`건너뛴 빈 줄: ${skippedEmptyLines}`);
-            console.log(`건너뛴 주석 라인: ${skippedCommentLines}`);
-            console.log(`건너뛴 유효하지 않은 라인: ${skippedInvalidLines}`);
-            console.log(`사용된 구분자: '${delimiter === '\t' ? 'TAB' : 'COMMA'}'`);
-            console.log('====================');
-
-            return data;
-        }
-
-        // CSV/TSV 문장 데이터를 파싱하는 함수
-        function parseSentenceData(dataText, debugLevel = 2) {
-            const lines = dataText.trim().split('\n');
-            const data = [];
-            originalInputData = []; // 원본 데이터 초기화
-
-            // 카운터 변수들
-            let skippedEmptyLines = 0;
-            let skippedCommentLines = 0;
-            let skippedInvalidLines = 0;
-            let totalLines = lines.length;
-
-            // 데이터 형태 자동 감지 (첫 번째 유효한 라인으로 판단)
-            let delimiter = ','; // 기본값은 CSV
-
-            for (const line of lines) {
-                const trimmedLine = line.trim();
-                if (trimmedLine && !trimmedLine.startsWith('--') && !trimmedLine.startsWith('-')) {
-                    // 탭과 쉼표 개수를 세어서 더 많은 쪽으로 결정
-                    const tabCount = (trimmedLine.match(/\t/g) || []).length;
-                    const commaCount = (trimmedLine.match(/,/g) || []).length;
-
-                    if (tabCount > commaCount) {
-                        delimiter = '\t';
-                        console.log('TSV 형태로 감지되었습니다.');
-                    } else {
-                        delimiter = ',';
-                        console.log('CSV 형태로 감지되었습니다.');
-                    }
-                    break;
-                }
-            }
-
-            for (const line of lines) {
-                const trimmedLine = line.trim();
-
-                // 빈 줄 체크
-                if (!trimmedLine) {
-                    skippedEmptyLines++;
-                    continue;
-                }
-
-                // 주석 라인 체크
-                if (trimmedLine.startsWith('--') || trimmedLine.startsWith('-')) {
-                    skippedCommentLines++;
-                    console.log(`주석 라인 건너뛰기: ${trimmedLine}`);
-                    continue;
-                }
-
-                const parts = trimmedLine.split(delimiter);
-                // 문장 데이터는 최소 10개 컬럼이 필요 (id, user_id, version, judge, description, type, keyword, empty, original_sentence, user_sentence)
-                if (parts.length >= 10) {
-                    data.push({
-                        id: parts[0].trim(),
-                        user_id: parts[1].trim(),
-                        version: parts[2].trim(),
-                        origin_judge: parts[3].trim().toLowerCase() === 'true',
-                        description: parts[4].trim(),
-                        type: parts[5].trim(),
-                        keyword: parts[6].trim(),
-                        empty1: parts[7].trim(),
-                        answer: parts[8].trim(), // 원본 문장
-                        user_answer: parts[9].trim() // 사용자 답변 문장
-                    });
-
-                    // 원본 입력 데이터 저장
-                    originalInputData.push({
-                        row_number: originalInputData.length + 1,
-                        id: parts[0]?.trim() || '',
-                        user_id: parts[1]?.trim() || '',
-                        data_type: 'sentence',
-                        version: parts[2]?.trim() || '',
-                        pass: parts[3]?.trim() || '',
-                        fail_reason: parts[4]?.trim() || '',
-                        prompt_type: parts[5]?.trim() || '',
-                        keywords: parts[6]?.trim() || '',
-                        word: parts[7]?.trim() || '',
-                        sentence: parts[8]?.trim() || '',
-                        user_response: parts[9]?.trim() || '',
-                        parsing_status: '성공',
-                        original_line: trimmedLine
-                    });
-                } else {
-                    skippedInvalidLines++;
-                    if (debugLevel >= 1) {
-                        console.log(`유효하지 않은 라인 (컬럼 수 부족): ${trimmedLine}`);
-                    }
-                }
-            }
-
-            console.log('=== 문장 데이터 파싱 결과 요약 ===');
-            console.log(`전체 라인 수: ${totalLines}`);
-            console.log(`성공적으로 파싱된 레코드: ${data.length}`);
-            console.log(`건너뛴 빈 줄: ${skippedEmptyLines}`);
-            console.log(`건너뛴 주석 라인: ${skippedCommentLines}`);
-            console.log(`건너뛴 유효하지 않은 라인: ${skippedInvalidLines}`);
-            console.log(`사용된 구분자: '${delimiter === '\t' ? 'TAB' : 'COMMA'}'`);
-            console.log('====================');
-
-            return data;
-        }
-
-        // 단어 데이터를 그룹핑하는 함수 (expected_answer별로 그룹핑)
-        function groupWordData(data) {
-            const grouped = {};
-
-            for (const row of data) {
-                if (!row.answer || !row.user_answer) continue;
-
-                const key = row.answer;
-                if (!grouped[key]) {
-                    grouped[key] = {
-                        expected_answer: row.answer,
-                        candidates: []
-                    };
-                }
-
-                // 중복 제거를 위해 기존 후보 중에서 같은 user_answer가 있는지 확인
-                const existingCandidate = grouped[key].candidates.find(c => c.candidate_word === row.user_answer);
-                if (existingCandidate) {
-                    existingCandidate.log_id.push(parseInt(row.user_id));
-                    existingCandidate.frequency += 1;
-                } else {
-                    grouped[key].candidates.push({
-                        log_id: [parseInt(row.user_id)],
-                        candidate_word: row.user_answer,
-                        similarity: 0, // 임베딩 계산 후 업데이트
-                        origin_judge: row.origin_judge ? "true" : "false",
-                        frequency: 1
-                    });
-                }
-            }
-
-            return Object.values(grouped);
-        }
-
-        // 문장 데이터를 그룹핑하는 함수 (키워드별로 그룹핑)
-        function groupSentenceData(data) {
-            const grouped = {};
-
-            for (const row of data) {
-                if (!row.answer || !row.user_answer || !row.keyword) continue;
-
-                const key = row.keyword; // 키워드로 그룹핑
-                if (!grouped[key]) {
-                    grouped[key] = {
-                        expected_answer: row.answer,
-                        keyword: row.keyword,
-                        candidates: []
-                    };
-                }
-
-                // 중복 제거를 위해 기존 후보 중에서 같은 user_answer가 있는지 확인
-                const existingCandidate = grouped[key].candidates.find(c => c.candidate_word === row.user_answer);
-                if (existingCandidate) {
-                    existingCandidate.log_id.push(parseInt(row.user_id));
-                    existingCandidate.frequency += 1;
-                } else {
-                    grouped[key].candidates.push({
-                        log_id: [parseInt(row.user_id)],
-                        candidate_word: row.user_answer,
-                        keyword: row.keyword,
-                        keyword_included: false, // 키워드 포함 여부 (나중에 계산)
-                        similarity: 0, // 임베딩 계산 후 업데이트
-                        origin_judge: row.origin_judge ? "true" : "false",
-                        frequency: 1
-                    });
-                }
-            }
-
-            return Object.values(grouped);
-        }
 
         // 키워드 유사도 검증 함수 (키워드가 문장에 포함되어 있는지 유사도로 확인)
         async function checkKeywordSimilarity(keyword, sentence, apiKey, threshold = 0.8) {
@@ -792,19 +545,19 @@
                 let parsedData;
                 if (dataType === 'word') {
                     console.log('단어 데이터 파싱 시작...');
-                    parsedData = parseWordData(csvData, DEBUG_LEVEL);
+                    parsedData = DataParser.parseWordData(csvData, DEBUG_LEVEL);
                 } else if (dataType === 'sentence') {
                     console.log('문장 데이터 파싱 시작...');
-                    parsedData = parseSentenceData(csvData, DEBUG_LEVEL);
+                    parsedData = DataParser.parseSentenceData(csvData, DEBUG_LEVEL);
                 }
                 console.log('파싱된 데이터:', JSON.stringify(parsedData));
 
                 // 2. 선택된 타입에 따라 데이터 그룹핑
                 let groupedData;
                 if (dataType === 'word') {
-                    groupedData = groupWordData(parsedData);
+                    groupedData = DataParser.groupWordData(parsedData);
                 } else if (dataType === 'sentence') {
-                    groupedData = groupSentenceData(parsedData);
+                    groupedData = DataParser.groupSentenceData(parsedData);
                 }
                 console.log('그룹핑된 데이터:', JSON.stringify(groupedData));
 
@@ -885,14 +638,6 @@
                                     processedText = TextPreprocessor.preprocessLearningText(answer.trim(), DEBUG_LEVEL);
                                     stageKey = 'step14';
                                     break;
-                                case 'reverseR13':
-                                    processedText = ReversePreprocessor.applyReversePreprocessing(answer.trim());
-                                    stageKey = 'reverseR13';
-                                    break;
-                                case 'reverseR14':
-                                    processedText = ReversePreprocessor.preprocessReverseComplete(answer.trim(), DEBUG_LEVEL);
-                                    stageKey = 'reverseR14';
-                                    break;
                                 default:
                                     console.warn(`알 수 없는 전처리 단계: ${stage}`);
                                     return;
@@ -961,14 +706,6 @@
                                     case 'step14':
                                         processedText = TextPreprocessor.preprocessLearningText(candidate.candidate_word.trim(), DEBUG_LEVEL);
                                         stageKey = 'step14';
-                                        break;
-                                    case 'reverseR13':
-                                        processedText = ReversePreprocessor.applyReversePreprocessing(candidate.candidate_word.trim());
-                                        stageKey = 'reverseR13';
-                                        break;
-                                    case 'reverseR14':
-                                        processedText = ReversePreprocessor.preprocessReverseComplete(candidate.candidate_word.trim(), DEBUG_LEVEL);
-                                        stageKey = 'reverseR14';
                                         break;
                                     default:
                                         console.warn(`알 수 없는 전처리 단계: ${stage}`);
@@ -1116,14 +853,6 @@
                                         expectedText = TextPreprocessor.preprocessLearningText(group.expected_answer);
                                         candidateText = TextPreprocessor.preprocessLearningText(candidate.candidate_word);
                                         break;
-                                    case 'reverseR13':
-                                        expectedText = ReversePreprocessor.applyReversePreprocessing(group.expected_answer);
-                                        candidateText = ReversePreprocessor.applyReversePreprocessing(candidate.candidate_word);
-                                        break;
-                                    case 'reverseR14':
-                                        expectedText = ReversePreprocessor.preprocessReverseComplete(group.expected_answer);
-                                        candidateText = ReversePreprocessor.preprocessReverseComplete(candidate.candidate_word);
-                                        break;
                                 }
 
                                 // 유사도 계산 분기
@@ -1190,12 +919,6 @@
                             candidate.bestPreprocessingMethod = 'none';
                         }
 
-                        // todo test - checkKeywordSimilarity 일단 패스
-                        // // 문장 타입인 경우 키워드 포함 여부 확인
-                        // if (dataType === 'sentence' && candidate.keyword) {
-                        //     candidate.keyword_included = await checkKeywordSimilarity(candidate.keyword, candidate.candidate_word, apiKey);
-                        // }
-
                     }
 
                     // 유사도와 빈도수로 정렬
@@ -1223,9 +946,9 @@
                 console.log('결과 데이터:', JSON.stringify(analysisResults));
                 // 4. 선택된 타입에 따라 결과 표시
                 if (dataType === 'word') {
-                    displayWordResults();
+                    DisplayResults.displayWordResults(analysisResults, approvalStatus);
                 } else if (dataType === 'sentence') {
-                    displaySentenceResults();
+                    DisplayResults.displaySentenceResults(analysisResults, approvalStatus);
                 }
 
             } catch (error) {
@@ -1234,370 +957,9 @@
             }
         }
 
-        // 단어용 결과 표시 함수
-        function displayWordResults() {
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('resultsSection').style.display = 'block';
-
-            const resultsContainer = document.getElementById('results');
-            resultsContainer.innerHTML = '';
-
-            analysisResults.forEach(result => {
-                const resultDiv = document.createElement('div');
-                resultDiv.className = 'result-item';
-
-                const candidatesHTML = result.candidates.map(candidate => {
-                    const similarityClass = candidate.similarity >= 0.8 ? 'similarity-high' :
-                                           candidate.similarity >= 0.6 ? 'similarity-medium' : 'similarity-low';
-
-                    const candidateId = `${result.id}_${candidate.candidate_word}`;
-                    const status = approvalStatus[candidateId] || '';
-
-                    // 유사도 상세 정보 생성 (단어용)
-                    const similarities = candidate.similarities || {};
-                    const analysis = SimilarityCalculator.analyzeSimilarities(similarities);
-
-                    // STT 외의 최고 유사도 메트릭 찾기
-                    const nonSTTSimilarities = Object.keys(similarities)
-                        .filter(method => !method.startsWith('stt_'))
-                        .reduce((obj, method) => {
-                            obj[method] = similarities[method];
-                            return obj;
-                        }, {});
-                    
-                    const nonSTTAnalysis = Object.keys(nonSTTSimilarities).length > 0 ? 
-                        SimilarityCalculator.analyzeSimilarities(nonSTTSimilarities) : null;
-                    
-                    // STT Ensemble 점수 가져오기
-                    const sttEnsembleScore = similarities.stt_ensemble || null;
-
-                    const similarityDetailsHTML = Object.keys(similarities).map(method => {
-                        const value = similarities[method];
-                        let className = 'similarity-method';
-
-                        // STT 메트릭 구분 표시
-                        if (method.startsWith('stt_')) {
-                            className += ' stt-metric';
-                        }
-
-                        if (analysis.highest && method === analysis.highest.method) {
-                            className += ' best';
-                        } else if (analysis.lowest && method === analysis.lowest.method) {
-                            className += ' worst';
-                        }
-
-                        // STT 메트릭의 경우 더 친숙한 이름으로 표시
-                        let displayName = method;
-                        if (method === 'stt_jaro_winkler') displayName = 'STT Jaro-Winkler';
-                        else if (method === 'stt_levenshtein') displayName = 'STT Levenshtein';
-                        else if (method === 'stt_phonetic') displayName = 'STT Korean Phonetic';
-                        else if (method === 'stt_ensemble') displayName = 'STT Ensemble ⭐';
-
-                        return `<span class="${className}">${displayName}: ${value}</span>`;
-                    }).join(' ');
-
-                    // 전처리 비교 결과 HTML 생성 (선택된 단계만) - 단어용
-                    let preprocessingComparisonHTML = '';
-                    if (candidate.preprocessingComparison && Object.keys(candidate.preprocessingComparison).length > 0) {
-                        const stageNames = {
-                            'original': '원본',
-                            'step13': '1-3단계',
-                            'step14': '1-4단계',
-                            'reverseR13': 'R1-R3단계',
-                            'reverseR14': 'R1-R4단계'
-                        };
-
-                        preprocessingComparisonHTML = `
-                            <div style="margin-top: 15px; padding: 10px; background: #333; border-radius: 5px;">
-                                <strong>전처리 비교 결과:</strong><br>
-                                ${Object.keys(candidate.preprocessingComparison).map(stage => {
-                                    const comparison = candidate.preprocessingComparison[stage];
-                                    const stageName = stageNames[stage] || stage;
-                                    const isBest = candidate.bestPreprocessingMethod === stage;
-
-                                    // 각 단계별 주요 유사도만 표시 (코사인 + STT Ensemble)
-                                    let stageMetrics = `<span class="similarity-method${isBest ? ' best' : ''}">${stageName}: ${comparison.similarity.toFixed(3)}</span>`;
-
-                                    // STT Ensemble 점수가 있다면 추가 표시
-                                    if (comparison.similarities && comparison.similarities.stt_ensemble) {
-                                        stageMetrics += ` <span class="similarity-method stt-metric" style="color: #4caf50;">STT: ${comparison.similarities.stt_ensemble}</span>`;
-                                    }
-
-                                    return `
-                                        <div style="margin-bottom: 8px;">
-                                            ${stageMetrics}
-                                            <span style="color: #888; font-size: 0.8rem; display: block; margin-left: 10px;">
-                                                ("${comparison.expectedText}" vs "${comparison.candidateText}")
-                                            </span>
-                                            ${comparison.similarities && Object.keys(comparison.similarities).filter(k => k.startsWith('stt_')).length > 1 ? `
-                                                <div style="margin-left: 10px; margin-top: 3px;">
-                                                    <button class="similarity-toggle" onclick="toggleStageSTTDetails('${candidateId}_${stage}')" style="font-size: 0.75rem; padding: 2px 6px;">STT 상세</button>
-                                                    <div id="stt_details_${candidateId}_${stage}" style="display: none; margin-top: 5px; font-size: 0.8rem;">
-                                                        ${Object.keys(comparison.similarities).filter(k => k.startsWith('stt_')).map(method => {
-                                                            const value = comparison.similarities[method];
-                                                            let displayName = method;
-                                                            if (method === 'stt_jaro_winkler') displayName = 'Jaro-Winkler';
-                                                            else if (method === 'stt_levenshtein') displayName = 'Levenshtein';
-                                                            else if (method === 'stt_phonetic') displayName = 'Korean Phonetic';
-                                                            else if (method === 'stt_ensemble') displayName = 'Ensemble ⭐';
-                                                            return `<span class="stt-metric" style="color: #4caf50;">${displayName}: ${value}</span>`;
-                                                        }).join(' ')}
-                                                    </div>
-                                                </div>
-                                            ` : ''}
-                                        </div>
-                                    `;
-                                }).join('')}
-                                ${candidate.bestPreprocessingMethod ? `
-                                    <span style="color: #4fc3f7; font-weight: bold; margin-top: 5px; display: block;">
-                                        최적 방법: ${stageNames[candidate.bestPreprocessingMethod] || candidate.bestPreprocessingMethod}
-                                    </span>
-                                ` : ''}
-                            </div>
-                        `;
-                    }
-
-                    return `
-                        <div class="candidate-item ${status}" id="candidate_${candidateId}">
-                            <div class="candidate-info">
-                                <div class="candidate-word">${candidate.candidate_word}</div>
-                                <div class="candidate-stats">
-                                    Log ID: [${candidate.log_id.join(', ')}] |
-                                    주요 유사도: <span class="${similarityClass}">${nonSTTAnalysis && nonSTTAnalysis.highest ? `${candidate.similarity} (${nonSTTAnalysis.highest.method})` : candidate.similarity}</span>${sttEnsembleScore ? ` / STT Ensemble: <span class="similarity-method stt-metric" style="color: #4caf50;">${sttEnsembleScore}</span>` : ''}
-                                    <button class="similarity-toggle" onclick="toggleSimilarityDetails('${candidateId}')">상세보기</button>
-                                    <br>
-                                    출현횟수: ${candidate.frequency}회 |
-                                    원본판정: <span class="${candidate.origin_judge === 'true' ? 'similarity-high' : 'similarity-low'}">${candidate.origin_judge}</span>
-                                </div>
-                                <div class="similarity-details" id="similarity_${candidateId}" style="display: none;">
-                                    <strong>모든 유사도 계산 결과:</strong><br>
-                                    ${similarityDetailsHTML}
-                                    <br><br>
-                                    <strong>분석:</strong><br>
-                                    • 최고점: ${analysis.highest ? `${analysis.highest.method} (${analysis.highest.value})` : 'N/A'}<br>
-                                    • 최저점: ${analysis.lowest ? `${analysis.lowest.method} (${analysis.lowest.value})` : 'N/A'}<br>
-                                    • 평균: ${analysis.average ? analysis.average.toFixed(3) : 'N/A'}<br>
-                                    • 분산: ${analysis.variance ? analysis.variance.toFixed(3) : 'N/A'}
-                                    ${preprocessingComparisonHTML}
-                                </div>
-                            </div>
-                            <div class="candidate-actions">
-                                <button class="btn-approve" onclick="approveCandidate('${candidateId}')">승인</button>
-                                <button class="btn-reject" onclick="rejectCandidate('${candidateId}')">거절</button>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-
-                resultDiv.innerHTML = `
-                    <div class="result-header">
-                        <h3>ID: ${result.id}</h3>
-                        <div class="expected">정답: "${result.expected_answer}"</div>
-                    </div>
-                    <div class="candidates-list">
-                        ${candidatesHTML}
-                    </div>
-                `;
-
-                resultsContainer.appendChild(resultDiv);
-            });
-        }
-
-        // 문장용 결과 표시 함수
-        function displaySentenceResults() {
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('resultsSection').style.display = 'block';
-
-            const resultsContainer = document.getElementById('results');
-            resultsContainer.innerHTML = '';
-
-            analysisResults.forEach(result => {
-                const resultDiv = document.createElement('div');
-                resultDiv.className = 'result-item';
-
-                const candidatesHTML = result.candidates.map(candidate => {
-                    const similarityClass = candidate.similarity >= 0.8 ? 'similarity-high' :
-                                           candidate.similarity >= 0.6 ? 'similarity-medium' : 'similarity-low';
-
-                    const keywordClass = candidate.keyword_included ? 'similarity-high' : 'similarity-low';
-
-                    const candidateId = `${result.id}_${candidate.candidate_word}`;
-                    const status = approvalStatus[candidateId] || '';
-
-                    // 유사도 상세 정보 생성 (문장용)
-                    const similarities = candidate.similarities || {};
-                    const analysis = SimilarityCalculator.analyzeSimilarities(similarities);
-
-                    // STT 외의 최고 유사도 메트릭 찾기
-                    const nonSTTSimilarities = Object.keys(similarities)
-                        .filter(method => !method.startsWith('stt_'))
-                        .reduce((obj, method) => {
-                            obj[method] = similarities[method];
-                            return obj;
-                        }, {});
-                    
-                    const nonSTTAnalysis = Object.keys(nonSTTSimilarities).length > 0 ? 
-                        SimilarityCalculator.analyzeSimilarities(nonSTTSimilarities) : null;
-                    
-                    // STT Ensemble 점수 가져오기
-                    const sttEnsembleScore = similarities.stt_ensemble || null;
-
-                    const similarityDetailsHTML = Object.keys(similarities).map(method => {
-                        const value = similarities[method];
-                        let className = 'similarity-method';
-
-                        // STT 메트릭 구분 표시
-                        if (method.startsWith('stt_')) {
-                            className += ' stt-metric';
-                        }
-
-                        if (analysis.highest && method === analysis.highest.method) {
-                            className += ' best';
-                        } else if (analysis.lowest && method === analysis.lowest.method) {
-                            className += ' worst';
-                        }
-
-                        // STT 메트릭의 경우 더 친숙한 이름으로 표시
-                        let displayName = method;
-                        if (method === 'stt_jaro_winkler') displayName = 'STT Jaro-Winkler';
-                        else if (method === 'stt_levenshtein') displayName = 'STT Levenshtein';
-                        else if (method === 'stt_phonetic') displayName = 'STT Korean Phonetic';
-                        else if (method === 'stt_ensemble') displayName = 'STT Ensemble ⭐';
-
-                        return `<span class="${className}">${displayName}: ${value}</span>`;
-                    }).join(' ');
-
-                    // 전처리 비교 결과 HTML 생성 (선택된 단계만) - 문장용
-                    let preprocessingComparisonHTML = '';
-                    if (candidate.preprocessingComparison && Object.keys(candidate.preprocessingComparison).length > 0) {
-                        const stageNames = {
-                            'original': '원본',
-                            'step13': '1-3단계',
-                            'step14': '1-4단계',
-                            'reverseR13': 'R1-R3단계',
-                            'reverseR14': 'R1-R4단계'
-                        };
-
-                        preprocessingComparisonHTML = `
-                            <div style="margin-top: 15px; padding: 10px; background: #333; border-radius: 5px;">
-                                <strong>전처리 비교 결과:</strong><br>
-                                ${Object.keys(candidate.preprocessingComparison).map(stage => {
-                                    const comparison = candidate.preprocessingComparison[stage];
-                                    const stageName = stageNames[stage] || stage;
-                                    const isBest = candidate.bestPreprocessingMethod === stage;
-
-                                    // 각 단계별 주요 유사도만 표시 (코사인 + STT Ensemble)
-                                    let stageMetrics = `<span class="similarity-method${isBest ? ' best' : ''}">${stageName}: ${comparison.similarity.toFixed(3)}</span>`;
-
-                                    // STT Ensemble 점수가 있다면 추가 표시
-                                    if (comparison.similarities && comparison.similarities.stt_ensemble) {
-                                        stageMetrics += ` <span class="similarity-method stt-metric" style="color: #4caf50;">STT: ${comparison.similarities.stt_ensemble}</span>`;
-                                    }
-
-                                    return `
-                                        <div style="margin-bottom: 8px;">
-                                            ${stageMetrics}
-                                            <span style="color: #888; font-size: 0.8rem; display: block; margin-left: 10px;">
-                                                ("${comparison.expectedText}" vs "${comparison.candidateText}")
-                                            </span>
-                                            ${comparison.similarities && Object.keys(comparison.similarities).filter(k => k.startsWith('stt_')).length > 1 ? `
-                                                <div style="margin-left: 10px; margin-top: 3px;">
-                                                    <button class="similarity-toggle" onclick="toggleStageSTTDetails('${candidateId}_${stage}')" style="font-size: 0.75rem; padding: 2px 6px;">STT 상세</button>
-                                                    <div id="stt_details_${candidateId}_${stage}" style="display: none; margin-top: 5px; font-size: 0.8rem;">
-                                                        ${Object.keys(comparison.similarities).filter(k => k.startsWith('stt_')).map(method => {
-                                                            const value = comparison.similarities[method];
-                                                            let displayName = method;
-                                                            if (method === 'stt_jaro_winkler') displayName = 'Jaro-Winkler';
-                                                            else if (method === 'stt_levenshtein') displayName = 'Levenshtein';
-                                                            else if (method === 'stt_phonetic') displayName = 'Korean Phonetic';
-                                                            else if (method === 'stt_ensemble') displayName = 'Ensemble ⭐';
-                                                            return `<span class="stt-metric" style="color: #4caf50;">${displayName}: ${value}</span>`;
-                                                        }).join(' ')}
-                                                    </div>
-                                                </div>
-                                            ` : ''}
-                                        </div>
-                                    `;
-                                }).join('')}
-                                ${candidate.bestPreprocessingMethod ? `
-                                    <span style="color: #4fc3f7; font-weight: bold; margin-top: 5px; display: block;">
-                                        최적 방법: ${stageNames[candidate.bestPreprocessingMethod] || candidate.bestPreprocessingMethod}
-                                    </span>
-                                ` : ''}
-                            </div>
-                        `;
-                    }
-
-                    return `
-                        <div class="candidate-item ${status}" id="candidate_${candidateId}">
-                            <div class="candidate-info">
-                                <div class="candidate-word" style="font-size: 0.95rem; line-height: 1.4;">${candidate.candidate_word}</div>
-                                <div class="candidate-stats">
-                                    Log ID: [${candidate.log_id.join(', ')}] |
-                                    키워드: <strong>${candidate.keyword}</strong> |
-                                    키워드 포함: <span class="${keywordClass}">${candidate.keyword_included ? 'YES' : 'NO'}</span>
-                                    <br>
-                                    주요 유사도: <span class="${similarityClass}">${nonSTTAnalysis && nonSTTAnalysis.highest ? `${candidate.similarity} (${nonSTTAnalysis.highest.method})` : candidate.similarity}</span>${sttEnsembleScore ? ` / STT Ensemble: <span class="similarity-method stt-metric" style="color: #4caf50;">${sttEnsembleScore}</span>` : ''}
-                                    <button class="similarity-toggle" onclick="toggleSimilarityDetails('${candidateId}')">상세보기</button>
-                                    <br>
-                                    출현횟수: ${candidate.frequency}회 |
-                                    원본판정: <span class="${candidate.origin_judge === 'true' ? 'similarity-high' : 'similarity-low'}">${candidate.origin_judge}</span>
-                                </div>
-                                <div class="similarity-details" id="similarity_${candidateId}" style="display: none;">
-                                    <strong>모든 유사도 계산 결과:</strong><br>
-                                    ${similarityDetailsHTML}
-                                    <br><br>
-                                    <strong>분석:</strong><br>
-                                    • 최고점: ${analysis.highest ? `${analysis.highest.method} (${analysis.highest.value})` : 'N/A'}<br>
-                                    • 최저점: ${analysis.lowest ? `${analysis.lowest.method} (${analysis.lowest.value})` : 'N/A'}<br>
-                                    • 평균: ${analysis.average ? analysis.average.toFixed(3) : 'N/A'}<br>
-                                    • 분산: ${analysis.variance ? analysis.variance.toFixed(3) : 'N/A'}
-                                    ${preprocessingComparisonHTML}
-                                </div>
-                            </div>
-                            <div class="candidate-actions">
-                                <button class="btn-approve" onclick="approveCandidate('${candidateId}')">승인</button>
-                                <button class="btn-reject" onclick="rejectCandidate('${candidateId}')">거절</button>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-
-                resultDiv.innerHTML = `
-                    <div class="result-header">
-                        <h3>ID: ${result.id} | 키워드: "${result.keyword || result.expected_answer}"</h3>
-                        <div class="expected" style="font-size: 0.95rem; line-height: 1.4; margin-top: 10px;">정답: "${result.expected_answer}"</div>
-                    </div>
-                    <div class="candidates-list">
-                        ${candidatesHTML}
-                    </div>
-                `;
-
-                resultsContainer.appendChild(resultDiv);
-            });
-        }
-
-        // STT 상세 정보 토글 함수 (전처리 비교용)
-        function toggleStageSTTDetails(stageId) {
-            const element = document.getElementById(`stt_details_${stageId}`);
-            if (element) {
-                element.style.display = element.style.display === 'none' ? 'block' : 'none';
-            }
-        }
 
     </script>
 </body>
 </html>
 
 
-<!--
-todo 이 블럭의 코드는 할일을 기록한 것이르모 클로드가 수정하거나 삭제하면 안됨.
-1. 사용자 발화는 "팔점이", "팔점이 미리", "팔점이 미리미터" 등 한글화된 숫자 표현을 정규화해서 숫자로 바꾼 뒤 비교하는 게 가장 정확합니다.
-2. 8.2mm > 팔점이미리 로 숫자> 한글 전처리 제거해서 비교
-3. 전처리 원본 vs 1-3 vs 1-4 단계를 하되, 체크박스를 만들어서 어떤 유사도 결과만 볼지 선택할 수 있고, 이에 때라 openai api 호출도 조정할 수 있게 수정
-4. Step 3. 단위 정규화 에서 mm 를 미리로 바꾸는게 아니라 mm 로 유지하거니, 인치도 inch 로 바꿔야하는거 아닌가
-5. vectordb 쓰게되면, 이미 임베딩 얻은 값들은 중복해서 조회하지 않도록 + 처리된 사용자 발화 값은 중복 조회하지 않도록 로직 필요
-6. 일정 기준의 유사도 아래의 결과는 아예 숨겨야하나?
-
-
--->

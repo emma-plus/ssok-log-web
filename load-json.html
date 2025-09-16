@@ -38,7 +38,7 @@
                 <button class="btn" onclick="exportExcel()" style="background: #2e7d32; margin-right: 10px;">📊 엑셀 내보내기</button>
                 <button class="btn" onclick="exportPDF()" style="background: #e91e63;">📄 PDF 내보내기</button>
             </div>
-            
+
             <!-- 필터 패널 -->
             <div class="filter-panel" style="background: #2a2a2a; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; align-items: center;">
@@ -207,7 +207,7 @@
         function processJSONData(jsonData, fileName) {
             try {
                 console.log('JSON 데이터 처리 시작:', fileName);
-                
+
                 // 데이터 검증
                 if (!Array.isArray(jsonData)) {
                     throw new Error('JSON 데이터는 배열 형태여야 합니다.');
@@ -219,7 +219,7 @@
 
                 // analysisResults에 데이터 할당
                 analysisResults = jsonData;
-                
+
                 // 승인 상태 초기화
                 approvalStatus = {};
                 analysisResults.forEach(result => {
@@ -257,14 +257,14 @@
         function displayDataInfo(fileName) {
             const totalGroups = analysisResults.length;
             const totalCandidates = analysisResults.reduce((sum, result) => sum + result.candidates.length, 0);
-            
+
             const approvedCount = Object.values(approvalStatus).filter(status => status === 'approved').length;
             const rejectedCount = Object.values(approvalStatus).filter(status => status === 'rejected').length;
             const pendingCount = totalCandidates - approvedCount - rejectedCount;
 
             // STT 메트릭 사용 여부 확인
-            const hasSTTMetrics = analysisResults.some(result => 
-                result.candidates.some(candidate => 
+            const hasSTTMetrics = analysisResults.some(result =>
+                result.candidates.some(candidate =>
                     candidate.similarities && Object.keys(candidate.similarities).some(key => key.startsWith('stt_'))
                 )
             );
@@ -311,11 +311,11 @@
         function updateFilteredDataInfo() {
             const totalGroups = filteredResults.length;
             const totalCandidates = filteredResults.reduce((sum, result) => sum + result.candidates.length, 0);
-            
+
             // 현재 필터링된 결과에서 승인 상태 계산
             let approvedCount = 0;
             let rejectedCount = 0;
-            
+
             filteredResults.forEach(result => {
                 result.candidates.forEach(candidate => {
                     const candidateId = `${result.id}_${candidate.candidate_word}`;
@@ -324,19 +324,19 @@
                     else if (status === 'rejected') rejectedCount++;
                 });
             });
-            
+
             const pendingCount = totalCandidates - approvedCount - rejectedCount;
 
             // STT 메트릭 사용 여부 확인
-            const hasSTTMetrics = filteredResults.some(result => 
-                result.candidates.some(candidate => 
+            const hasSTTMetrics = filteredResults.some(result =>
+                result.candidates.some(candidate =>
                     candidate.similarities && Object.keys(candidate.similarities).some(key => key.startsWith('stt_'))
                 )
             );
 
             // 필터 상태 정보
             const filterInfo = [];
-            
+
             if (currentFilters.mainSimilarity !== 'all') {
                 const mainFilter = parseFilterValue(currentFilters.mainSimilarity);
                 if (mainFilter.type === 'gte') {
@@ -345,7 +345,7 @@
                     filterInfo.push(`주요 유사도 ≤ ${mainFilter.value}`);
                 }
             }
-            
+
             if (currentFilters.sttEnsemble !== 'all') {
                 const sttFilter = parseFilterValue(currentFilters.sttEnsemble);
                 if (sttFilter.type === 'gte') {
@@ -354,7 +354,7 @@
                     filterInfo.push(`STT Ensemble ≤ ${sttFilter.value}`);
                 }
             }
-            
+
             if (currentFilters.originJudge !== 'all') {
                 filterInfo.push(`원본판정 = ${currentFilters.originJudge}`);
             }
@@ -402,12 +402,12 @@
         // 승인 추천 항목 생성
         function generateRecommendations() {
             const recommendations = [];
-            
+
             analysisResults.forEach(result => {
                 result.candidates.forEach(candidate => {
                     const mainSimilarity = candidate.similarity || 0;
                     const sttEnsemble = candidate.similarities?.stt_ensemble || 0;
-                    
+
                     // 주요 유사도와 STT Ensemble 모두 0.9 이상인 항목
                     if (mainSimilarity >= 0.9 && sttEnsemble >= 0.9) {
                         const candidateId = `${result.id}_${candidate.candidate_word}`;
@@ -432,7 +432,7 @@
             if (recommendations.length > 0) {
                 recommendationPanel.style.display = 'block';
                 recommendationCount.textContent = `(${recommendations.length}개 항목)`;
-                
+
                 // 추천 항목을 유사도 순으로 정렬
                 recommendations.sort((a, b) => {
                     if (b.mainSimilarity !== a.mainSimilarity) {
@@ -448,8 +448,8 @@
                                 ID ${rec.resultId}: "${rec.expectedAnswer}" → "${rec.candidateWord}"
                             </div>
                             <div style="color: #b0b0b0; font-size: 0.9rem; margin-top: 3px;">
-                                주요 유사도: <span style="color: #4fc3f7;">${rec.mainSimilarity}</span> | 
-                                STT Ensemble: <span style="color: #4caf50;">${rec.sttEnsemble}</span> | 
+                                주요 유사도: <span style="color: #4fc3f7;">${rec.mainSimilarity}</span> |
+                                STT Ensemble: <span style="color: #4caf50;">${rec.sttEnsemble}</span> |
                                 출현: ${rec.frequency}회
                             </div>
                         </div>
@@ -470,11 +470,11 @@
         function goToCandidate(candidateId) {
             const element = document.getElementById(`candidate_${candidateId}`);
             if (element) {
-                element.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'center' 
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
                 });
-                
+
                 // 하이라이트 효과
                 element.style.boxShadow = '0 0 20px #4caf50';
                 setTimeout(() => {
@@ -486,13 +486,13 @@
         // 필터 값 파싱 함수
         function parseFilterValue(filterValue) {
             if (filterValue === 'all') return { type: 'all' };
-            
+
             if (filterValue.startsWith('gte_')) {
                 return { type: 'gte', value: parseFloat(filterValue.substring(4)) };
             } else if (filterValue.startsWith('lte_')) {
                 return { type: 'lte', value: parseFloat(filterValue.substring(4)) };
             }
-            
+
             // 레거시 지원 (이전 버전과의 호환성)
             return { type: 'gte', value: parseFloat(filterValue) };
         }
@@ -502,7 +502,7 @@
             const mainSimilarityFilter = document.getElementById('mainSimilarityFilter').value;
             const sttEnsembleFilter = document.getElementById('sttEnsembleFilter').value;
             const originJudgeFilter = document.getElementById('originJudgeFilter').value;
-            
+
             currentFilters.mainSimilarity = mainSimilarityFilter;
             currentFilters.sttEnsemble = sttEnsembleFilter;
             currentFilters.originJudge = originJudgeFilter;
@@ -518,7 +518,7 @@
                     const mainSimilarity = candidate.similarity || 0;
                     const sttEnsemble = candidate.similarities?.stt_ensemble || 0;
                     const originJudge = candidate.origin_judge;
-                    
+
                     // 주요 유사도 필터 확인
                     let mainMatch = true;
                     if (mainFilter.type === 'gte') {
@@ -526,7 +526,7 @@
                     } else if (mainFilter.type === 'lte') {
                         mainMatch = mainSimilarity <= mainFilter.value;
                     }
-                    
+
                     // STT Ensemble 필터 확인
                     let sttMatch = true;
                     if (sttFilter.type === 'gte') {
@@ -534,7 +534,7 @@
                     } else if (sttFilter.type === 'lte') {
                         sttMatch = sttEnsemble <= sttFilter.value;
                     }
-                    
+
                     // 원본판정 필터 확인
                     let originMatch = true;
                     if (originJudgeFilter === 'true') {
@@ -542,10 +542,10 @@
                     } else if (originJudgeFilter === 'false') {
                         originMatch = originJudge === 'false' || originJudge === false;
                     }
-                    
+
                     return mainMatch && sttMatch && originMatch;
                 });
-                
+
                 return hasMatchingCandidate;
             }).map(result => {
                 // 각 그룹에서 필터 조건을 만족하는 후보만 포함
@@ -553,7 +553,7 @@
                     const mainSimilarity = candidate.similarity || 0;
                     const sttEnsemble = candidate.similarities?.stt_ensemble || 0;
                     const originJudge = candidate.origin_judge;
-                    
+
                     // 주요 유사도 필터 확인
                     let mainMatch = true;
                     if (mainFilter.type === 'gte') {
@@ -561,7 +561,7 @@
                     } else if (mainFilter.type === 'lte') {
                         mainMatch = mainSimilarity <= mainFilter.value;
                     }
-                    
+
                     // STT Ensemble 필터 확인
                     let sttMatch = true;
                     if (sttFilter.type === 'gte') {
@@ -569,7 +569,7 @@
                     } else if (sttFilter.type === 'lte') {
                         sttMatch = sttEnsemble <= sttFilter.value;
                     }
-                    
+
                     // 원본판정 필터 확인
                     let originMatch = true;
                     if (originJudgeFilter === 'true') {
@@ -577,10 +577,10 @@
                     } else if (originJudgeFilter === 'false') {
                         originMatch = originJudge === 'false' || originJudge === false;
                     }
-                    
+
                     return mainMatch && sttMatch && originMatch;
                 });
-                
+
                 return {
                     ...result,
                     candidates: filteredCandidates
@@ -589,10 +589,10 @@
 
             // 결과 다시 표시
             displayWordResults();
-            
+
             // 필터링된 데이터 정보 업데이트
             updateFilteredDataInfo();
-            
+
             console.log(`필터 적용:`, {
                 mainSimilarity: mainSimilarityFilter,
                 sttEnsemble: sttEnsembleFilter,
@@ -653,10 +653,10 @@
                             obj[method] = similarities[method];
                             return obj;
                         }, {});
-                    
-                    const nonSTTAnalysis = Object.keys(nonSTTSimilarities).length > 0 ? 
+
+                    const nonSTTAnalysis = Object.keys(nonSTTSimilarities).length > 0 ?
                         SimilarityCalculator.analyzeSimilarities(nonSTTSimilarities) : null;
-                    
+
                     // STT Ensemble 점수 가져오기
                     const sttEnsembleScore = similarities.stt_ensemble || null;
 
@@ -709,7 +709,7 @@
 
                                     // STT Ensemble 점수가 있다면 추가 표시
                                     if (comparison.similarities && comparison.similarities.stt_ensemble) {
-                                        stageMetrics += ` <span class="similarity-method stt-metric" style="color: #4caf50;">STT: ${comparison.similarities.stt_ensemble}</span>`;
+                                        stageMetrics += ` <span class="similarity-method stt-metric">STT: ${comparison.similarities.stt_ensemble}</span>`;
                                     }
 
                                     return `
@@ -729,7 +729,7 @@
                                                             else if (method === 'stt_levenshtein') displayName = 'Levenshtein';
                                                             else if (method === 'stt_phonetic') displayName = 'Korean Phonetic';
                                                             else if (method === 'stt_ensemble') displayName = 'Ensemble ⭐';
-                                                            return `<span class="stt-metric" style="color: #4caf50;">${displayName}: ${value}</span>`;
+                                                            return `<span class="stt-metric">${displayName}: ${value}</span>`;
                                                         }).join(' ')}
                                                     </div>
                                                 </div>
@@ -752,7 +752,7 @@
                                 <div class="candidate-word">${candidate.candidate_word}</div>
                                 <div class="candidate-stats">
                                     Log ID: [${candidate.log_id.join(', ')}] |
-                                    주요 유사도: <span class="${similarityClass}">${nonSTTAnalysis && nonSTTAnalysis.highest ? `${candidate.similarity} (${nonSTTAnalysis.highest.method})` : candidate.similarity}</span>${sttEnsembleScore ? ` / STT Ensemble: <span class="similarity-method stt-metric" style="color: #4caf50;">${sttEnsembleScore}</span>` : ''}
+                                    주요 유사도: <span class="${similarityClass}">${nonSTTAnalysis && nonSTTAnalysis.highest ? `${candidate.similarity} (${nonSTTAnalysis.highest.method})` : candidate.similarity}</span>${sttEnsembleScore ? ` / STT Ensemble: <span class="similarity-method stt-metric">${sttEnsembleScore}</span>` : ''}
                                     <button class="similarity-toggle" onclick="toggleSimilarityDetails('${candidateId}')">상세보기</button>
                                     <br>
                                     출현횟수: ${candidate.frequency}회 |
@@ -827,7 +827,7 @@
                 // 모든 상세보기 펼치기
                 const allDetailElements = document.querySelectorAll('.similarity-details');
                 const originalDisplayStates = [];
-                
+
                 allDetailElements.forEach((element, index) => {
                     originalDisplayStates[index] = element.style.display;
                     element.style.display = 'block';
@@ -836,7 +836,7 @@
                 // 모든 STT 상세 정보도 펼치기
                 const allSTTDetails = document.querySelectorAll('[id^="stt_details_"]');
                 const originalSTTStates = [];
-                
+
                 allSTTDetails.forEach((element, index) => {
                     originalSTTStates[index] = element.style.display;
                     element.style.display = 'block';
@@ -873,7 +873,7 @@
                 const pdfHeight = pdf.internal.pageSize.getHeight();
                 const imgWidth = canvas.width;
                 const imgHeight = canvas.height;
-                
+
                 const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
                 const scaledWidth = imgWidth * ratio;
                 const scaledHeight = imgHeight * ratio;
@@ -884,20 +884,20 @@
                 if (scaledHeight > pdfHeight - 20) {
                     const pageHeight = pdfHeight - 20;
                     const totalPages = Math.ceil(scaledHeight / pageHeight);
-                    
+
                     for (let page = 0; page < totalPages; page++) {
                         if (page > 0) {
                             pdf.addPage();
                         }
-                        
+
                         const sourceY = (page * pageHeight) / ratio;
                         const sourceHeight = Math.min(pageHeight / ratio, imgHeight - sourceY);
-                        
+
                         const partCanvas = document.createElement('canvas');
                         partCanvas.width = imgWidth;
                         partCanvas.height = sourceHeight;
                         const partCtx = partCanvas.getContext('2d');
-                        
+
                         const img = new Image();
                         await new Promise((resolve) => {
                             img.onload = () => {
@@ -906,7 +906,7 @@
                             };
                             img.src = imgData;
                         });
-                        
+
                         const partImgData = partCanvas.toDataURL('image/png');
                         pdf.addImage(partImgData, 'PNG', x, y, scaledWidth, sourceHeight * ratio);
                     }
