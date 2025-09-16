@@ -615,6 +615,141 @@
             console.log('필터가 초기화되었습니다.');
         }
 
+        // STT 메트릭 이름을 사용자 친화적인 이름으로 변환
+        function getSTTMethodDisplayName(method) {
+            const nameMap = {
+                'stt_ensemble': 'STT Ensemble',
+                'stt_enhanced': 'STT Enhanced',
+                'jaroWinkler': 'STT Jaro-Winkler',
+                'levenshtein': 'STT Levenshtein',
+                'phonetic': 'STT Korean Phonetic',
+                'stt_jaro_winkler': 'STT Jaro-Winkler',
+                'stt_levenshtein': 'STT Levenshtein',
+                'stt_phonetic': 'STT Korean Phonetic'
+            };
+            return nameMap[method] || method;
+        }
+
+        // 문장 품질 분석 HTML 생성 함수
+        function generateSentenceQualityHTML(similarities) {
+            const sentenceComponents = similarities.sentence_components || {};
+            const sentenceAnalysis = similarities.sentence_analysis || {};
+            const hasSentenceEnhanced = similarities.sentence_enhanced !== undefined;
+
+            if (!hasSentenceEnhanced) return '';
+
+            const qualityData = [];
+
+            // 문장 길이 분석
+            if (sentenceAnalysis.candidateLength !== undefined) {
+                const lengthRatio = sentenceAnalysis.lengthRatio || 0;
+                const lengthStatus = lengthRatio > 0.7 ? 'good' : lengthRatio > 0.3 ? 'medium' : 'poor';
+                qualityData.push({
+                    label: '문장 길이',
+                    value: `${sentenceAnalysis.candidateLength}자 (비율: ${(lengthRatio * 100).toFixed(1)}%)`,
+                    status: lengthStatus
+                });
+            }
+
+            // 단어 수
+            if (sentenceAnalysis.wordCount !== undefined) {
+                const wordStatus = sentenceAnalysis.wordCount >= 5 ? 'good' : sentenceAnalysis.wordCount >= 3 ? 'medium' : 'poor';
+                qualityData.push({
+                    label: '단어 수',
+                    value: `${sentenceAnalysis.wordCount}개`,
+                    status: wordStatus
+                });
+            }
+
+            // 키워드 포함 여부
+            if (sentenceAnalysis.keywordIncluded !== undefined) {
+                qualityData.push({
+                    label: '키워드 포함',
+                    value: sentenceAnalysis.keywordIncluded ? 'YES' : 'NO',
+                    status: sentenceAnalysis.keywordIncluded ? 'good' : 'poor'
+                });
+            }
+
+            // 컴포넌트별 점수
+            const componentData = [];
+            if (sentenceComponents.completeness !== undefined) {
+                const score = (sentenceComponents.completeness * 100).toFixed(1);
+                const status = sentenceComponents.completeness >= 0.7 ? 'good' : sentenceComponents.completeness >= 0.4 ? 'medium' : 'poor';
+                componentData.push({ label: '문장 완성도', value: `${score}%`, status });
+            }
+
+            if (sentenceComponents.keywordWeighted !== undefined) {
+                const score = (sentenceComponents.keywordWeighted * 100).toFixed(1);
+                const status = sentenceComponents.keywordWeighted >= 0.7 ? 'good' : sentenceComponents.keywordWeighted >= 0.4 ? 'medium' : 'poor';
+                componentData.push({ label: '키워드 가중 유사도', value: `${score}%`, status });
+            }
+
+            if (sentenceComponents.sttCorrected !== undefined) {
+                const score = (sentenceComponents.sttCorrected * 100).toFixed(1);
+                const status = sentenceComponents.sttCorrected >= 0.7 ? 'good' : sentenceComponents.sttCorrected >= 0.4 ? 'medium' : 'poor';
+                componentData.push({ label: 'STT 보정 점수', value: `${score}%`, status });
+            }
+
+            if (sentenceComponents.lengthPenalty !== undefined) {
+                const score = (sentenceComponents.lengthPenalty * 100).toFixed(1);
+                const status = sentenceComponents.lengthPenalty >= 0.8 ? 'good' : sentenceComponents.lengthPenalty >= 0.5 ? 'medium' : 'poor';
+                componentData.push({ label: '길이 페널티', value: `${score}%`, status });
+            }
+
+            const getStatusColor = (status) => {
+                switch(status) {
+                    case 'good': return '#4caf50';
+                    case 'medium': return '#ff9800';
+                    case 'poor': return '#f44336';
+                    default: return '#888';
+                }
+            };
+
+            return `
+                <div style="margin-top: 15px; padding: 12px; background: #2a2a2a; border-radius: 8px; border-left: 4px solid #ff9800;">
+                    <strong style="color: #ff9800;">📊 문장 품질 분석</strong>
+                    <div style="margin-top: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.85rem;">
+                        ${qualityData.map(item => `
+                            <div style="display: flex; justify-content: space-between;">
+                                <span style="color: #ccc;">${item.label}:</span>
+                                <span style="color: ${getStatusColor(item.status)}; font-weight: bold;">${item.value}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    ${componentData.length > 0 ? `
+                        <div style="margin-top: 12px; padding-top: 8px; border-top: 1px solid #444;">
+                            <strong style="color: #4fc3f7; font-size: 0.9rem;">🔧 상세 점수 분석</strong>
+                            <div style="margin-top: 8px; font-size: 0.8rem;">
+                                ${componentData.map(item => `
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                                        <span style="color: #bbb;">${item.label}:</span>
+                                        <span style="color: ${getStatusColor(item.status)}; font-weight: bold;">${item.value}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        // 데이터 타입 감지 함수
+        function detectDataType(analysisResults) {
+            if (analysisResults.length === 0) return 'word';
+            
+            // 첫 번째 결과의 첫 번째 후보를 확인
+            const firstCandidate = analysisResults[0].candidates[0];
+            
+            // keyword 필드가 있고 sentence_enhanced나 sentence_components가 있으면 문장
+            if (firstCandidate.keyword && 
+                (firstCandidate.similarities?.sentence_enhanced !== undefined || 
+                 firstCandidate.similarities?.sentence_components !== undefined)) {
+                return 'sentence';
+            }
+            
+            return 'word';
+        }
+
         // index.html의 displayWordResults() 함수와 동일한 로직 (필터링된 결과 사용)
         function displayWordResults() {
             const resultsContainer = document.getElementById('results');
@@ -642,13 +777,23 @@
                     const candidateId = `${result.id}_${candidate.candidate_word}`;
                     const status = approvalStatus[candidateId] || '';
 
-                    // 유사도 상세 정보 생성 (단어용)
+                    // 유사도 상세 정보 생성
                     const similarities = candidate.similarities || {};
                     const analysis = SimilarityCalculator.analyzeSimilarities(similarities);
 
-                    // STT 외의 최고 유사도 메트릭 찾기
+                    // 데이터 타입 감지
+                    const dataType = detectDataType(filteredResults);
+                    const isSentenceData = dataType === 'sentence';
+
+                    // 문장 특화 정보 추출
+                    const sentenceComponents = similarities.sentence_components || {};
+                    const sentenceAnalysis = similarities.sentence_analysis || {};
+                    const hasSentenceEnhanced = similarities.sentence_enhanced !== undefined;
+                    const keywordClass = candidate.keyword_included ? 'similarity-high' : 'similarity-low';
+
+                    // STT 외의 최고 유사도 메트릭 찾기 (문장의 경우 sentence_ 제외)
                     const nonSTTSimilarities = Object.keys(similarities)
-                        .filter(method => !method.startsWith('stt_'))
+                        .filter(method => !method.startsWith('stt_') && (isSentenceData ? !method.startsWith('sentence_') : true))
                         .reduce((obj, method) => {
                             obj[method] = similarities[method];
                             return obj;
@@ -660,7 +805,20 @@
                     // STT Ensemble 점수 가져오기
                     const sttEnsembleScore = similarities.stt_ensemble || null;
 
-                    const similarityDetailsHTML = Object.keys(similarities).map(method => {
+                    // STT 특화 메트릭들만 추출하여 최고값 찾기
+                    const sttMetrics = Object.keys(similarities)
+                        .filter(method => method.startsWith('stt_') || ['jaroWinkler', 'levenshtein', 'phonetic'].includes(method))
+                        .reduce((obj, method) => {
+                            obj[method] = similarities[method];
+                            return obj;
+                        }, {});
+
+                    const sttAnalysis = Object.keys(sttMetrics).length > 0 ?
+                        SimilarityCalculator.analyzeSimilarities(sttMetrics) : null;
+
+                    const similarityDetailsHTML = Object.keys(similarities)
+                        .filter(method => isSentenceData ? !method.startsWith('sentence_') : true) // 문장 특화 메트릭 제외
+                        .map(method => {
                         const value = similarities[method];
                         let className = 'similarity-method';
 
@@ -676,11 +834,8 @@
                         }
 
                         // STT 메트릭의 경우 더 친숙한 이름으로 표시
-                        let displayName = method;
-                        if (method === 'stt_jaro_winkler') displayName = 'STT Jaro-Winkler';
-                        else if (method === 'stt_levenshtein') displayName = 'STT Levenshtein';
-                        else if (method === 'stt_phonetic') displayName = 'STT Korean Phonetic';
-                        else if (method === 'stt_ensemble') displayName = 'STT Ensemble ⭐';
+                        let displayName = getSTTMethodDisplayName(method);
+                        if (method === 'stt_ensemble') displayName = 'STT Ensemble ⭐';
 
                         return `<span class="${className}">${displayName}: ${value}</span>`;
                     }).join(' ');
@@ -746,19 +901,32 @@
                         `;
                     }
 
+                    // 문장 품질 분석 HTML 생성
+                    const sentenceQualityHTML = isSentenceData ? generateSentenceQualityHTML(similarities) : '';
+
                     return `
                         <div class="candidate-item ${status}" id="candidate_${candidateId}">
                             <div class="candidate-info">
-                                <div class="candidate-word">${candidate.candidate_word}</div>
+                                <div class="candidate-word" ${isSentenceData ? 'style="font-size: 0.95rem; line-height: 1.4;"' : ''}>${candidate.candidate_word}</div>
                                 <div class="candidate-stats">
                                     Log ID: [${candidate.log_id.join(', ')}] |
-                                    주요 유사도: <span class="${similarityClass}">${nonSTTAnalysis && nonSTTAnalysis.highest ? `${candidate.similarity} (${nonSTTAnalysis.highest.method})` : candidate.similarity}</span>${sttEnsembleScore ? ` / STT Ensemble: <span class="similarity-method stt-metric">${sttEnsembleScore}</span>` : ''}
+                                    ${isSentenceData && candidate.keyword ? `키워드: <strong>${candidate.keyword}</strong> |` : ''}
+                                    ${isSentenceData ? `키워드 포함: <span class="${keywordClass}">${candidate.keyword_included ? 'YES' : 'NO'}</span><br>` : ''}
+                                    주요 유사도: <span class="${similarityClass}">${nonSTTAnalysis && nonSTTAnalysis.highest ? `${candidate.similarity} (${nonSTTAnalysis.highest.method})` : candidate.similarity}</span>
+                                    ${sttAnalysis && sttAnalysis.highest ? ` / <span class="similarity-method stt-metric">${sttAnalysis.highest.value.toFixed(3)}</span>(${getSTTMethodDisplayName(sttAnalysis.highest.method)})` : ''}
+                                    ${sttEnsembleScore ? ` / STT Ensemble: <span class="similarity-method stt-metric">${sttEnsembleScore}</span>` : ''}
                                     <button class="similarity-toggle" onclick="toggleSimilarityDetails('${candidateId}')">상세보기</button>
                                     <br>
                                     출현횟수: ${candidate.frequency}회 |
                                     원본판정: <span class="${candidate.origin_judge === 'true' ? 'similarity-high' : 'similarity-low'}">${candidate.origin_judge}</span>
                                 </div>
                                 <div class="similarity-details" id="similarity_${candidateId}" style="display: none;">
+                                    ${hasSentenceEnhanced && isSentenceData ? `
+                                        <strong style="color: #4fc3f7;">🎯 문장 특화 유사도: ${similarities.sentence_enhanced.toFixed(3)}</strong><br>
+                                        <span style="color: #888; font-size: 0.85rem;">기존 방식 대비 향상된 문장 분석 결과입니다.</span>
+                                        ${sentenceQualityHTML}
+                                        <br>
+                                    ` : ''}
                                     <strong>모든 유사도 계산 결과:</strong><br>
                                     ${similarityDetailsHTML}
                                     <br><br>
@@ -778,10 +946,13 @@
                     `;
                 }).join('');
 
+                const dataType = detectDataType(filteredResults);
+                const isSentenceData = dataType === 'sentence';
+
                 resultDiv.innerHTML = `
                     <div class="result-header">
-                        <h3>ID: ${result.id}</h3>
-                        <div class="expected">정답: "${result.expected_answer}"</div>
+                        <h3>ID: ${result.id}${isSentenceData && result.keyword ? ` | 키워드: "${result.keyword}"` : ''}</h3>
+                        <div class="expected" ${isSentenceData ? 'style="font-size: 0.95rem; line-height: 1.4; margin-top: 10px;"' : ''}>정답: "${result.expected_answer}"</div>
                     </div>
                     <div class="candidates-list">
                         ${candidatesHTML}
