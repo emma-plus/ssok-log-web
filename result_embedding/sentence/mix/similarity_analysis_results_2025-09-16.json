@@ -1,0 +1,3449 @@
+[
+  {
+    "id": 1,
+    "expected_answer": "000처리를 위해서 000서류가 필요합니다. 혹시 준비해오셨나요? 고객님 번거로우시겠지만 본인 확인을 위해 신분증 부탁드립니다.",
+    "keyword": "번거로우시겠지만",
+    "candidates": [
+      {
+        "log_id": [
+          36932
+        ],
+        "candidate_word": "번거로우셨지만",
+        "similarity": 0.5,
+        "similarities": {
+          "cosine": 0.003724588634038681,
+          "euclidean": 0.2400650647425613,
+          "manhattan": 0.1440390388455368,
+          "pearson": 0.1674,
+          "jaccard": 0.5,
+          "sentence_enhanced": 0.003724588634038681,
+          "sentence_components": {
+            "baseSimilarity": 0.2400650647425613,
+            "keywordWeighted": 0.1440390388455368,
+            "sttCorrected": 0.1674,
+            "completeness": 0,
+            "lengthPenalty": 0.02464788732394366
+          },
+          "sentence_analysis": {
+            "keywordIncluded": false,
+            "candidateLength": 7,
+            "expectedLength": 71,
+            "lengthRatio": 0.09859154929577464,
+            "wordCount": 1
+          },
+          "stt_ensemble": 0.205,
+          "stt_enhanced": 0.003724588634038681
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.003724588634038681,
+            "similarities": {
+              "cosine": 0.003724588634038681,
+              "euclidean": 0.2400650647425613,
+              "manhattan": 0.1440390388455368,
+              "pearson": 0.1674,
+              "jaccard": 0.5,
+              "sentence_enhanced": 0.003724588634038681,
+              "sentence_components": {
+                "baseSimilarity": 0.2400650647425613,
+                "keywordWeighted": 0.1440390388455368,
+                "sttCorrected": 0.1674,
+                "completeness": 0,
+                "lengthPenalty": 0.02464788732394366
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 7,
+                "expectedLength": 71,
+                "lengthRatio": 0.09859154929577464,
+                "wordCount": 1
+              },
+              "stt_ensemble": 0.205,
+              "stt_enhanced": 0.003724588634038681
+            },
+            "expected_text": "000처리를 위해서 000서류가 필요합니다. 혹시 준비해오셨나요? 고객님 번거로우시겠지만 본인 확인을 위해 신분증 부탁드립니다.",
+            "candidate_text": "번거로우셨지만"
+          },
+          "step13": {
+            "similarity": 0.003724588634038681,
+            "similarities": {
+              "cosine": 0.003724588634038681,
+              "euclidean": 0.2400650647425613,
+              "manhattan": 0.1440390388455368,
+              "pearson": 0.1674,
+              "jaccard": 0.5,
+              "sentence_enhanced": 0.003724588634038681,
+              "sentence_components": {
+                "baseSimilarity": 0.2400650647425613,
+                "keywordWeighted": 0.1440390388455368,
+                "sttCorrected": 0.1674,
+                "completeness": 0,
+                "lengthPenalty": 0.02464788732394366
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 7,
+                "expectedLength": 71,
+                "lengthRatio": 0.09859154929577464,
+                "wordCount": 1
+              },
+              "stt_ensemble": 0.205,
+              "stt_enhanced": 0.003724588634038681
+            },
+            "expected_text": "000처리를 위해서 000서류가 필요합니다. 혹시 준비해오셨나요? 고객님 번거로우시겠지만 본인 확인을 위해 신분증 부탁드립니다.",
+            "candidate_text": "번거로우셨지만"
+          },
+          "step14": {
+            "similarity": 0.004129946647244374,
+            "similarities": {
+              "cosine": 0.004129946647244374,
+              "euclidean": 0.25362848439110564,
+              "manhattan": 0.15217709063466336,
+              "pearson": 0.16920000000000002,
+              "jaccard": 0.5,
+              "sentence_enhanced": 0.004129946647244374,
+              "sentence_components": {
+                "baseSimilarity": 0.25362848439110564,
+                "keywordWeighted": 0.15217709063466336,
+                "sttCorrected": 0.16920000000000002,
+                "completeness": 0,
+                "lengthPenalty": 0.026119402985074626
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 7,
+                "expectedLength": 67,
+                "lengthRatio": 0.1044776119402985,
+                "wordCount": 1
+              },
+              "stt_ensemble": 0.212,
+              "stt_enhanced": 0.004129946647244374
+            },
+            "expected_text": "영처리를 위해서 영서류가 필요합니다. 혹시 준비해오셨나요? 고객님 번거로우시겠지만 본인 확인을 위해 신분증 부탁드립니다.",
+            "candidate_text": "번거로우셨지만"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "expected_answer": "CCTV는 분실물 확인이나 고객 응대에 문제가 생겼을 때 확인이 가능하고, 유플러스는 자동 저장하는 클라우드 방식이라 저장 장치를 따로 관리할 필요도 없고 영상 유출도 걱정 없습니다.",
+    "keyword": "클라우드",
+    "candidates": [
+      {
+        "log_id": [
+          37319
+        ],
+        "candidate_word": "CCTV는 분실물 확인이나 고객 응대가 응대에 문제가 생겼을 때 확인이 가능하고 유플러스는 자동 저장하는 클라우드 방식이라 저장장치가 장치를 따로 관리할 필요도 없고 영상 유출도 걱정 없습니다",
+        "similarity": 0.9796088448006451,
+        "similarities": {
+          "cosine": 0.8182957949825816,
+          "euclidean": 0.9796088448006451,
+          "manhattan": 0.912765306880387,
+          "pearson": 0.717,
+          "jaccard": 0.7,
+          "sentence_enhanced": 0.8182957949825816,
+          "sentence_components": {
+            "baseSimilarity": 0.9796088448006451,
+            "keywordWeighted": 0.912765306880387,
+            "sttCorrected": 0.717,
+            "completeness": 0.7,
+            "lengthPenalty": 0.9532710280373832
+          },
+          "sentence_analysis": {
+            "keywordIncluded": true,
+            "candidateLength": 107,
+            "expectedLength": 102,
+            "lengthRatio": 1.0490196078431373,
+            "wordCount": 26
+          },
+          "stt_ensemble": 0.809,
+          "stt_enhanced": 0.8182957949825816
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.8182957949825816,
+            "similarities": {
+              "cosine": 0.8182957949825816,
+              "euclidean": 0.9796088448006451,
+              "manhattan": 0.912765306880387,
+              "pearson": 0.717,
+              "jaccard": 0.7,
+              "sentence_enhanced": 0.8182957949825816,
+              "sentence_components": {
+                "baseSimilarity": 0.9796088448006451,
+                "keywordWeighted": 0.912765306880387,
+                "sttCorrected": 0.717,
+                "completeness": 0.7,
+                "lengthPenalty": 0.9532710280373832
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 107,
+                "expectedLength": 102,
+                "lengthRatio": 1.0490196078431373,
+                "wordCount": 26
+              },
+              "stt_ensemble": 0.809,
+              "stt_enhanced": 0.8182957949825816
+            },
+            "expected_text": "CCTV는 분실물 확인이나 고객 응대에 문제가 생겼을 때 확인이 가능하고, 유플러스는 자동 저장하는 클라우드 방식이라 저장 장치를 따로 관리할 필요도 없고 영상 유출도 걱정 없습니다.",
+            "candidate_text": "CCTV는 분실물 확인이나 고객 응대가 응대에 문제가 생겼을 때 확인이 가능하고 유플러스는 자동 저장하는 클라우드 방식이라 저장장치가 장치를 따로 관리할 필요도 없고 영상 유출도 걱정 없습니다"
+          },
+          "step13": {
+            "similarity": 0.8182957949825816,
+            "similarities": {
+              "cosine": 0.8182957949825816,
+              "euclidean": 0.9796088448006451,
+              "manhattan": 0.912765306880387,
+              "pearson": 0.717,
+              "jaccard": 0.7,
+              "sentence_enhanced": 0.8182957949825816,
+              "sentence_components": {
+                "baseSimilarity": 0.9796088448006451,
+                "keywordWeighted": 0.912765306880387,
+                "sttCorrected": 0.717,
+                "completeness": 0.7,
+                "lengthPenalty": 0.9532710280373832
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 107,
+                "expectedLength": 102,
+                "lengthRatio": 1.0490196078431373,
+                "wordCount": 26
+              },
+              "stt_ensemble": 0.809,
+              "stt_enhanced": 0.8182957949825816
+            },
+            "expected_text": "CCTV는 분실물 확인이나 고객 응대에 문제가 생겼을 때 확인이 가능하고, 유플러스는 자동 저장하는 클라우드 방식이라 저장 장치를 따로 관리할 필요도 없고 영상 유출도 걱정 없습니다.",
+            "candidate_text": "CCTV는 분실물 확인이나 고객 응대가 응대에 문제가 생겼을 때 확인이 가능하고 유플러스는 자동 저장하는 클라우드 방식이라 저장장치가 장치를 따로 관리할 필요도 없고 영상 유출도 걱정 없습니다"
+          },
+          "step14": {
+            "similarity": 0.8182957949825816,
+            "similarities": {
+              "cosine": 0.8182957949825816,
+              "euclidean": 0.9796088448006451,
+              "manhattan": 0.912765306880387,
+              "pearson": 0.717,
+              "jaccard": 0.7,
+              "sentence_enhanced": 0.8182957949825816,
+              "sentence_components": {
+                "baseSimilarity": 0.9796088448006451,
+                "keywordWeighted": 0.912765306880387,
+                "sttCorrected": 0.717,
+                "completeness": 0.7,
+                "lengthPenalty": 0.9532710280373832
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 107,
+                "expectedLength": 102,
+                "lengthRatio": 1.0490196078431373,
+                "wordCount": 26
+              },
+              "stt_ensemble": 0.809,
+              "stt_enhanced": 0.8182957949825816
+            },
+            "expected_text": "CCTV는 분실물 확인이나 고객 응대에 문제가 생겼을 때 확인이 가능하고, 유플러스는 자동 저장하는 클라우드 방식이라 저장 장치를 따로 관리할 필요도 없고 영상 유출도 걱정 없습니다.",
+            "candidate_text": "CCTV는 분실물 확인이나 고객 응대가 응대에 문제가 생겼을 때 확인이 가능하고 유플러스는 자동 저장하는 클라우드 방식이라 저장장치가 장치를 따로 관리할 필요도 없고 영상 유출도 걱정 없습니다"
+          }
+        }
+      },
+      {
+        "log_id": [
+          30084
+        ],
+        "candidate_word": "CCTV는 분실물 확인이나 고객 응대에 문제가 생겼을 때 확인이 가능하고 예 아 연결해 드릴게요",
+        "similarity": 0.7609293379799659,
+        "similarities": {
+          "cosine": 0.2492267089979131,
+          "euclidean": 0.7609293379799659,
+          "manhattan": 0.22827880139398976,
+          "pearson": 0.653,
+          "jaccard": 0.44999999999999996,
+          "sentence_enhanced": 0.2492267089979131,
+          "sentence_components": {
+            "baseSimilarity": 0.7609293379799659,
+            "keywordWeighted": 0.22827880139398976,
+            "sttCorrected": 0.653,
+            "completeness": 0.44999999999999996,
+            "lengthPenalty": 0.5196078431372549
+          },
+          "sentence_analysis": {
+            "keywordIncluded": false,
+            "candidateLength": 53,
+            "expectedLength": 102,
+            "lengthRatio": 0.5196078431372549,
+            "wordCount": 14
+          },
+          "stt_ensemble": 0.703,
+          "stt_enhanced": 0.2492267089979131
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.2492267089979131,
+            "similarities": {
+              "cosine": 0.2492267089979131,
+              "euclidean": 0.7609293379799659,
+              "manhattan": 0.22827880139398976,
+              "pearson": 0.653,
+              "jaccard": 0.44999999999999996,
+              "sentence_enhanced": 0.2492267089979131,
+              "sentence_components": {
+                "baseSimilarity": 0.7609293379799659,
+                "keywordWeighted": 0.22827880139398976,
+                "sttCorrected": 0.653,
+                "completeness": 0.44999999999999996,
+                "lengthPenalty": 0.5196078431372549
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 53,
+                "expectedLength": 102,
+                "lengthRatio": 0.5196078431372549,
+                "wordCount": 14
+              },
+              "stt_ensemble": 0.703,
+              "stt_enhanced": 0.2492267089979131
+            },
+            "expected_text": "CCTV는 분실물 확인이나 고객 응대에 문제가 생겼을 때 확인이 가능하고, 유플러스는 자동 저장하는 클라우드 방식이라 저장 장치를 따로 관리할 필요도 없고 영상 유출도 걱정 없습니다.",
+            "candidate_text": "CCTV는 분실물 확인이나 고객 응대에 문제가 생겼을 때 확인이 가능하고 예 아 연결해 드릴게요"
+          },
+          "step13": {
+            "similarity": 0.2492267089979131,
+            "similarities": {
+              "cosine": 0.2492267089979131,
+              "euclidean": 0.7609293379799659,
+              "manhattan": 0.22827880139398976,
+              "pearson": 0.653,
+              "jaccard": 0.44999999999999996,
+              "sentence_enhanced": 0.2492267089979131,
+              "sentence_components": {
+                "baseSimilarity": 0.7609293379799659,
+                "keywordWeighted": 0.22827880139398976,
+                "sttCorrected": 0.653,
+                "completeness": 0.44999999999999996,
+                "lengthPenalty": 0.5196078431372549
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 53,
+                "expectedLength": 102,
+                "lengthRatio": 0.5196078431372549,
+                "wordCount": 14
+              },
+              "stt_ensemble": 0.703,
+              "stt_enhanced": 0.2492267089979131
+            },
+            "expected_text": "CCTV는 분실물 확인이나 고객 응대에 문제가 생겼을 때 확인이 가능하고, 유플러스는 자동 저장하는 클라우드 방식이라 저장 장치를 따로 관리할 필요도 없고 영상 유출도 걱정 없습니다.",
+            "candidate_text": "CCTV는 분실물 확인이나 고객 응대에 문제가 생겼을 때 확인이 가능하고 예 아 연결해 드릴게요"
+          },
+          "step14": {
+            "similarity": 0.2492267089979131,
+            "similarities": {
+              "cosine": 0.2492267089979131,
+              "euclidean": 0.7609293379799659,
+              "manhattan": 0.22827880139398976,
+              "pearson": 0.653,
+              "jaccard": 0.44999999999999996,
+              "sentence_enhanced": 0.2492267089979131,
+              "sentence_components": {
+                "baseSimilarity": 0.7609293379799659,
+                "keywordWeighted": 0.22827880139398976,
+                "sttCorrected": 0.653,
+                "completeness": 0.44999999999999996,
+                "lengthPenalty": 0.5196078431372549
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 53,
+                "expectedLength": 102,
+                "lengthRatio": 0.5196078431372549,
+                "wordCount": 14
+              },
+              "stt_ensemble": 0.703,
+              "stt_enhanced": 0.2492267089979131
+            },
+            "expected_text": "CCTV는 분실물 확인이나 고객 응대에 문제가 생겼을 때 확인이 가능하고, 유플러스는 자동 저장하는 클라우드 방식이라 저장 장치를 따로 관리할 필요도 없고 영상 유출도 걱정 없습니다.",
+            "candidate_text": "CCTV는 분실물 확인이나 고객 응대에 문제가 생겼을 때 확인이 가능하고 예 아 연결해 드릴게요"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "expected_answer": "고객님 죄송하지만 모든 직원이 상담 중에 있어, 약 00분 정도 기다려 주시면 끝나는 대로 바로 도와드리겠습니다.",
+    "keyword": "죄송하지만",
+    "candidates": [
+      {
+        "log_id": [
+          37074
+        ],
+        "candidate_word": "고객님 죄송하지만 모든 직원이 상담 중에 있어 약 10분 정도 기다려 주시면 끊는 대로 바로 보안드리겠습니다",
+        "similarity": 0.9471444259384679,
+        "similarities": {
+          "cosine": 0.8519453589752988,
+          "euclidean": 0.9119073765641131,
+          "manhattan": 0.9471444259384679,
+          "pearson": 0.80465,
+          "jaccard": 0.85,
+          "sentence_enhanced": 0.8519453589752988,
+          "sentence_components": {
+            "baseSimilarity": 0.9119073765641131,
+            "keywordWeighted": 0.9471444259384679,
+            "sttCorrected": 0.80465,
+            "completeness": 0.85,
+            "lengthPenalty": 0.9516129032258065
+          },
+          "sentence_analysis": {
+            "keywordIncluded": true,
+            "candidateLength": 59,
+            "expectedLength": 62,
+            "lengthRatio": 0.9516129032258065,
+            "wordCount": 16
+          },
+          "stt_ensemble": 0.821,
+          "stt_enhanced": 0.8519453589752988
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.8451190044349742,
+            "similarities": {
+              "cosine": 0.8451190044349742,
+              "euclidean": 0.9010509278708633,
+              "manhattan": 0.9406305567225178,
+              "pearson": 0.7543,
+              "jaccard": 0.9,
+              "sentence_enhanced": 0.8451190044349742,
+              "sentence_components": {
+                "baseSimilarity": 0.9010509278708633,
+                "keywordWeighted": 0.9406305567225178,
+                "sttCorrected": 0.7543,
+                "completeness": 0.9,
+                "lengthPenalty": 0.9523809523809523
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 60,
+                "expectedLength": 63,
+                "lengthRatio": 0.9523809523809523,
+                "wordCount": 16
+              },
+              "stt_ensemble": 0.819,
+              "stt_enhanced": 0.8451190044349742
+            },
+            "expected_text": "고객님 죄송하지만 모든 직원이 상담 중에 있어, 약 00분 정도 기다려 주시면 끝나는 대로 바로 도와드리겠습니다.",
+            "candidate_text": "고객님 죄송하지만 모든 직원이 상담 중에 있어 약 10분 정도 기다려 주시면 끊는 대로 바로 보안드리겠습니다"
+          },
+          "step13": {
+            "similarity": 0.8451190044349742,
+            "similarities": {
+              "cosine": 0.8451190044349742,
+              "euclidean": 0.9010509278708633,
+              "manhattan": 0.9406305567225178,
+              "pearson": 0.7543,
+              "jaccard": 0.9,
+              "sentence_enhanced": 0.8451190044349742,
+              "sentence_components": {
+                "baseSimilarity": 0.9010509278708633,
+                "keywordWeighted": 0.9406305567225178,
+                "sttCorrected": 0.7543,
+                "completeness": 0.9,
+                "lengthPenalty": 0.9523809523809523
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 60,
+                "expectedLength": 63,
+                "lengthRatio": 0.9523809523809523,
+                "wordCount": 16
+              },
+              "stt_ensemble": 0.819,
+              "stt_enhanced": 0.8451190044349742
+            },
+            "expected_text": "고객님 죄송하지만 모든 직원이 상담 중에 있어, 약 00분 정도 기다려 주시면 끝나는 대로 바로 도와드리겠습니다.",
+            "candidate_text": "고객님 죄송하지만 모든 직원이 상담 중에 있어 약 10분 정도 기다려 주시면 끊는 대로 바로 보안드리겠습니다"
+          },
+          "step14": {
+            "similarity": 0.8519453589752988,
+            "similarities": {
+              "cosine": 0.8519453589752988,
+              "euclidean": 0.9119073765641131,
+              "manhattan": 0.9471444259384679,
+              "pearson": 0.80465,
+              "jaccard": 0.85,
+              "sentence_enhanced": 0.8519453589752988,
+              "sentence_components": {
+                "baseSimilarity": 0.9119073765641131,
+                "keywordWeighted": 0.9471444259384679,
+                "sttCorrected": 0.80465,
+                "completeness": 0.85,
+                "lengthPenalty": 0.9516129032258065
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 59,
+                "expectedLength": 62,
+                "lengthRatio": 0.9516129032258065,
+                "wordCount": 16
+              },
+              "stt_ensemble": 0.821,
+              "stt_enhanced": 0.8519453589752988
+            },
+            "expected_text": "고객님 죄송하지만 모든 직원이 상담 중에 있어, 약 영분 정도 기다려 주시면 끝나는 대로 바로 도와드리겠습니다.",
+            "candidate_text": "고객님 죄송하지만 모든 직원이 상담 중에 있어 약 십분 정도 기다려 주시면 끊는 대로 바로 보안드리겠습니다"
+          }
+        }
+      },
+      {
+        "log_id": [
+          37319
+        ],
+        "candidate_word": "고객님 죄송하지만 뭐든지 원이 상담 중에 있어 약 땡땡분 정도 기다려주시면은 끝나는대로 바로 도와드리겠습니다",
+        "similarity": 0.8687854385202202,
+        "similarities": {
+          "cosine": 0.7775162286807865,
+          "euclidean": 0.8687854385202202,
+          "manhattan": 0.7498426916835607,
+          "pearson": 0.794,
+          "jaccard": 0.85,
+          "sentence_enhanced": 0.7775162286807865,
+          "sentence_components": {
+            "baseSimilarity": 0.8687854385202202,
+            "keywordWeighted": 0.7498426916835607,
+            "sttCorrected": 0.794,
+            "completeness": 0.85,
+            "lengthPenalty": 0.967741935483871
+          },
+          "sentence_analysis": {
+            "keywordIncluded": true,
+            "candidateLength": 60,
+            "expectedLength": 62,
+            "lengthRatio": 0.967741935483871,
+            "wordCount": 14
+          },
+          "stt_ensemble": 0.819,
+          "stt_enhanced": 0.7775162286807865
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.7268541186466315,
+            "similarities": {
+              "cosine": 0.7268541186466315,
+              "euclidean": 0.8115678635722281,
+              "manhattan": 0.7155121467147654,
+              "pearson": 0.733,
+              "jaccard": 0.85,
+              "sentence_enhanced": 0.7268541186466315,
+              "sentence_components": {
+                "baseSimilarity": 0.8115678635722281,
+                "keywordWeighted": 0.7155121467147654,
+                "sttCorrected": 0.733,
+                "completeness": 0.85,
+                "lengthPenalty": 0.9523809523809523
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 60,
+                "expectedLength": 63,
+                "lengthRatio": 0.9523809523809523,
+                "wordCount": 14
+              },
+              "stt_ensemble": 0.756,
+              "stt_enhanced": 0.7268541186466315
+            },
+            "expected_text": "고객님 죄송하지만 모든 직원이 상담 중에 있어, 약 00분 정도 기다려 주시면 끝나는 대로 바로 도와드리겠습니다.",
+            "candidate_text": "고객님 죄송하지만 뭐든지 원이 상담 중에 있어 약 땡땡분 정도 기다려주시면은 끝나는대로 바로 도와드리겠습니다"
+          },
+          "step13": {
+            "similarity": 0.7268541186466315,
+            "similarities": {
+              "cosine": 0.7268541186466315,
+              "euclidean": 0.8115678635722281,
+              "manhattan": 0.7155121467147654,
+              "pearson": 0.733,
+              "jaccard": 0.85,
+              "sentence_enhanced": 0.7268541186466315,
+              "sentence_components": {
+                "baseSimilarity": 0.8115678635722281,
+                "keywordWeighted": 0.7155121467147654,
+                "sttCorrected": 0.733,
+                "completeness": 0.85,
+                "lengthPenalty": 0.9523809523809523
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 60,
+                "expectedLength": 63,
+                "lengthRatio": 0.9523809523809523,
+                "wordCount": 14
+              },
+              "stt_ensemble": 0.756,
+              "stt_enhanced": 0.7268541186466315
+            },
+            "expected_text": "고객님 죄송하지만 모든 직원이 상담 중에 있어, 약 00분 정도 기다려 주시면 끝나는 대로 바로 도와드리겠습니다.",
+            "candidate_text": "고객님 죄송하지만 뭐든지 원이 상담 중에 있어 약 땡땡분 정도 기다려주시면은 끝나는대로 바로 도와드리겠습니다"
+          },
+          "step14": {
+            "similarity": 0.7775162286807865,
+            "similarities": {
+              "cosine": 0.7775162286807865,
+              "euclidean": 0.8687854385202202,
+              "manhattan": 0.7498426916835607,
+              "pearson": 0.794,
+              "jaccard": 0.85,
+              "sentence_enhanced": 0.7775162286807865,
+              "sentence_components": {
+                "baseSimilarity": 0.8687854385202202,
+                "keywordWeighted": 0.7498426916835607,
+                "sttCorrected": 0.794,
+                "completeness": 0.85,
+                "lengthPenalty": 0.967741935483871
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 60,
+                "expectedLength": 62,
+                "lengthRatio": 0.967741935483871,
+                "wordCount": 14
+              },
+              "stt_ensemble": 0.819,
+              "stt_enhanced": 0.7775162286807865
+            },
+            "expected_text": "고객님 죄송하지만 모든 직원이 상담 중에 있어, 약 영분 정도 기다려 주시면 끝나는 대로 바로 도와드리겠습니다.",
+            "candidate_text": "고객님 죄송하지만 뭐든지 원이 상담 중에 있어 약 땡땡분 정도 기다려주시면은 끝나는대로 바로 도와드리겠습니다"
+          }
+        }
+      },
+      {
+        "log_id": [
+          37346
+        ],
+        "candidate_word": "음 안영미나 고객님 어떤 정보 도와드릴까요",
+        "similarity": 0.3803827213179128,
+        "similarities": {
+          "cosine": 0.08604285416799093,
+          "euclidean": 0.3803827213179128,
+          "manhattan": 0.11411481639537382,
+          "pearson": 0.231,
+          "jaccard": 0.3,
+          "sentence_enhanced": 0.08604285416799093,
+          "sentence_components": {
+            "baseSimilarity": 0.3803827213179128,
+            "keywordWeighted": 0.11411481639537382,
+            "sttCorrected": 0.231,
+            "completeness": 0.3,
+            "lengthPenalty": 0.3709677419354839
+          },
+          "sentence_analysis": {
+            "keywordIncluded": false,
+            "candidateLength": 23,
+            "expectedLength": 62,
+            "lengthRatio": 0.3709677419354839,
+            "wordCount": 6
+          },
+          "stt_ensemble": 0.29,
+          "stt_enhanced": 0.08604285416799093
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.07920374623427641,
+            "similarities": {
+              "cosine": 0.07920374623427641,
+              "euclidean": 0.34094430232190526,
+              "manhattan": 0.10228329069657158,
+              "pearson": 0.229,
+              "jaccard": 0.3,
+              "sentence_enhanced": 0.07920374623427641,
+              "sentence_components": {
+                "baseSimilarity": 0.34094430232190526,
+                "keywordWeighted": 0.10228329069657158,
+                "sttCorrected": 0.229,
+                "completeness": 0.3,
+                "lengthPenalty": 0.36507936507936506
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 23,
+                "expectedLength": 63,
+                "lengthRatio": 0.36507936507936506,
+                "wordCount": 6
+              },
+              "stt_ensemble": 0.274,
+              "stt_enhanced": 0.07920374623427641
+            },
+            "expected_text": "고객님 죄송하지만 모든 직원이 상담 중에 있어, 약 00분 정도 기다려 주시면 끝나는 대로 바로 도와드리겠습니다.",
+            "candidate_text": "음 안영미나 고객님 어떤 정보 도와드릴까요"
+          },
+          "step13": {
+            "similarity": 0.07920374623427641,
+            "similarities": {
+              "cosine": 0.07920374623427641,
+              "euclidean": 0.34094430232190526,
+              "manhattan": 0.10228329069657158,
+              "pearson": 0.229,
+              "jaccard": 0.3,
+              "sentence_enhanced": 0.07920374623427641,
+              "sentence_components": {
+                "baseSimilarity": 0.34094430232190526,
+                "keywordWeighted": 0.10228329069657158,
+                "sttCorrected": 0.229,
+                "completeness": 0.3,
+                "lengthPenalty": 0.36507936507936506
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 23,
+                "expectedLength": 63,
+                "lengthRatio": 0.36507936507936506,
+                "wordCount": 6
+              },
+              "stt_ensemble": 0.274,
+              "stt_enhanced": 0.07920374623427641
+            },
+            "expected_text": "고객님 죄송하지만 모든 직원이 상담 중에 있어, 약 00분 정도 기다려 주시면 끝나는 대로 바로 도와드리겠습니다.",
+            "candidate_text": "음 안영미나 고객님 어떤 정보 도와드릴까요"
+          },
+          "step14": {
+            "similarity": 0.08604285416799093,
+            "similarities": {
+              "cosine": 0.08604285416799093,
+              "euclidean": 0.3803827213179128,
+              "manhattan": 0.11411481639537382,
+              "pearson": 0.231,
+              "jaccard": 0.3,
+              "sentence_enhanced": 0.08604285416799093,
+              "sentence_components": {
+                "baseSimilarity": 0.3803827213179128,
+                "keywordWeighted": 0.11411481639537382,
+                "sttCorrected": 0.231,
+                "completeness": 0.3,
+                "lengthPenalty": 0.3709677419354839
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 23,
+                "expectedLength": 62,
+                "lengthRatio": 0.3709677419354839,
+                "wordCount": 6
+              },
+              "stt_ensemble": 0.29,
+              "stt_enhanced": 0.08604285416799093
+            },
+            "expected_text": "고객님 죄송하지만 모든 직원이 상담 중에 있어, 약 영분 정도 기다려 주시면 끝나는 대로 바로 도와드리겠습니다.",
+            "candidate_text": "음 안영미나 고객님 어떤 정보 도와드릴까요"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "expected_answer": "지능형CCTV와 AI전화 상품입니다. 두 가지 모두 매장 운영에 큰 도움이 될 수 있어요.",
+    "keyword": "전화",
+    "candidates": [
+      {
+        "log_id": [
+          36765
+        ],
+        "candidate_word": "지능형 CCTV와 AI 전환 상품입니다 2가지 모두 매장 운영에 큰 도움이 될 수 있어요",
+        "similarity": 0.8758611373525371,
+        "similarities": {
+          "cosine": 0.54651524840403,
+          "euclidean": 0.8758611373525371,
+          "manhattan": 0.26275834120576114,
+          "pearson": 0.793,
+          "jaccard": 0.49999999999999994,
+          "sentence_enhanced": 0.54651524840403,
+          "sentence_components": {
+            "baseSimilarity": 0.8758611373525371,
+            "keywordWeighted": 0.26275834120576114,
+            "sttCorrected": 0.793,
+            "completeness": 0.49999999999999994,
+            "lengthPenalty": 0.98
+          },
+          "sentence_analysis": {
+            "keywordIncluded": false,
+            "candidateLength": 49,
+            "expectedLength": 50,
+            "lengthRatio": 0.98,
+            "wordCount": 14
+          },
+          "stt_ensemble": 0.821,
+          "stt_enhanced": 0.54651524840403
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.54651524840403,
+            "similarities": {
+              "cosine": 0.54651524840403,
+              "euclidean": 0.8758611373525371,
+              "manhattan": 0.26275834120576114,
+              "pearson": 0.793,
+              "jaccard": 0.49999999999999994,
+              "sentence_enhanced": 0.54651524840403,
+              "sentence_components": {
+                "baseSimilarity": 0.8758611373525371,
+                "keywordWeighted": 0.26275834120576114,
+                "sttCorrected": 0.793,
+                "completeness": 0.49999999999999994,
+                "lengthPenalty": 0.98
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 49,
+                "expectedLength": 50,
+                "lengthRatio": 0.98,
+                "wordCount": 14
+              },
+              "stt_ensemble": 0.821,
+              "stt_enhanced": 0.54651524840403
+            },
+            "expected_text": "지능형CCTV와 AI전화 상품입니다. 두 가지 모두 매장 운영에 큰 도움이 될 수 있어요.",
+            "candidate_text": "지능형 CCTV와 AI 전환 상품입니다 2가지 모두 매장 운영에 큰 도움이 될 수 있어요"
+          },
+          "step13": {
+            "similarity": 0.54651524840403,
+            "similarities": {
+              "cosine": 0.54651524840403,
+              "euclidean": 0.8758611373525371,
+              "manhattan": 0.26275834120576114,
+              "pearson": 0.793,
+              "jaccard": 0.49999999999999994,
+              "sentence_enhanced": 0.54651524840403,
+              "sentence_components": {
+                "baseSimilarity": 0.8758611373525371,
+                "keywordWeighted": 0.26275834120576114,
+                "sttCorrected": 0.793,
+                "completeness": 0.49999999999999994,
+                "lengthPenalty": 0.98
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 49,
+                "expectedLength": 50,
+                "lengthRatio": 0.98,
+                "wordCount": 14
+              },
+              "stt_ensemble": 0.821,
+              "stt_enhanced": 0.54651524840403
+            },
+            "expected_text": "지능형CCTV와 AI전화 상품입니다. 두 가지 모두 매장 운영에 큰 도움이 될 수 있어요.",
+            "candidate_text": "지능형 CCTV와 AI 전환 상품입니다 2가지 모두 매장 운영에 큰 도움이 될 수 있어요"
+          },
+          "step14": {
+            "similarity": 0.5295950273312611,
+            "similarities": {
+              "cosine": 0.5295950273312611,
+              "euclidean": 0.8510894300365723,
+              "manhattan": 0.2553268290109717,
+              "pearson": 0.79,
+              "jaccard": 0.44999999999999996,
+              "sentence_enhanced": 0.5295950273312611,
+              "sentence_components": {
+                "baseSimilarity": 0.8510894300365723,
+                "keywordWeighted": 0.2553268290109717,
+                "sttCorrected": 0.79,
+                "completeness": 0.44999999999999996,
+                "lengthPenalty": 0.98
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 49,
+                "expectedLength": 50,
+                "lengthRatio": 0.98,
+                "wordCount": 14
+              },
+              "stt_ensemble": 0.81,
+              "stt_enhanced": 0.5295950273312611
+            },
+            "expected_text": "지능형CCTV와 AI전화 상품입니다. 두 가지 모두 매장 운영에 큰 도움이 될 수 있어요.",
+            "candidate_text": "지능형 CCTV와 AI 전환 상품입니다 이가지 모두 매장 운영에 큰 도움이 될 수 있어요"
+          }
+        }
+      },
+      {
+        "log_id": [
+          37319
+        ],
+        "candidate_word": "지능형 CCTV와 AI전화 상품입니다 2가지 모드 매장 운영에 큰 도움이 될 수 있어요 그리고 나중에 사진 찍으면",
+        "similarity": 0.8578087867895634,
+        "similarities": {
+          "cosine": 0.5566875440689572,
+          "euclidean": 0.8578087867895634,
+          "manhattan": 0.644685272073738,
+          "pearson": 0.583,
+          "jaccard": 0.75,
+          "sentence_enhanced": 0.5566875440689572,
+          "sentence_components": {
+            "baseSimilarity": 0.8578087867895634,
+            "keywordWeighted": 0.644685272073738,
+            "sttCorrected": 0.583,
+            "completeness": 0.75,
+            "lengthPenalty": 0.7936507936507936
+          },
+          "sentence_analysis": {
+            "keywordIncluded": true,
+            "candidateLength": 63,
+            "expectedLength": 50,
+            "lengthRatio": 1.26,
+            "wordCount": 17
+          },
+          "stt_ensemble": 0.683,
+          "stt_enhanced": 0.5566875440689572
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.5566875440689572,
+            "similarities": {
+              "cosine": 0.5566875440689572,
+              "euclidean": 0.8578087867895634,
+              "manhattan": 0.644685272073738,
+              "pearson": 0.583,
+              "jaccard": 0.75,
+              "sentence_enhanced": 0.5566875440689572,
+              "sentence_components": {
+                "baseSimilarity": 0.8578087867895634,
+                "keywordWeighted": 0.644685272073738,
+                "sttCorrected": 0.583,
+                "completeness": 0.75,
+                "lengthPenalty": 0.7936507936507936
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 63,
+                "expectedLength": 50,
+                "lengthRatio": 1.26,
+                "wordCount": 17
+              },
+              "stt_ensemble": 0.683,
+              "stt_enhanced": 0.5566875440689572
+            },
+            "expected_text": "지능형CCTV와 AI전화 상품입니다. 두 가지 모두 매장 운영에 큰 도움이 될 수 있어요.",
+            "candidate_text": "지능형 CCTV와 AI전화 상품입니다 2가지 모드 매장 운영에 큰 도움이 될 수 있어요 그리고 나중에 사진 찍으면"
+          },
+          "step13": {
+            "similarity": 0.5566875440689572,
+            "similarities": {
+              "cosine": 0.5566875440689572,
+              "euclidean": 0.8578087867895634,
+              "manhattan": 0.644685272073738,
+              "pearson": 0.583,
+              "jaccard": 0.75,
+              "sentence_enhanced": 0.5566875440689572,
+              "sentence_components": {
+                "baseSimilarity": 0.8578087867895634,
+                "keywordWeighted": 0.644685272073738,
+                "sttCorrected": 0.583,
+                "completeness": 0.75,
+                "lengthPenalty": 0.7936507936507936
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 63,
+                "expectedLength": 50,
+                "lengthRatio": 1.26,
+                "wordCount": 17
+              },
+              "stt_ensemble": 0.683,
+              "stt_enhanced": 0.5566875440689572
+            },
+            "expected_text": "지능형CCTV와 AI전화 상품입니다. 두 가지 모두 매장 운영에 큰 도움이 될 수 있어요.",
+            "candidate_text": "지능형 CCTV와 AI전화 상품입니다 2가지 모드 매장 운영에 큰 도움이 될 수 있어요 그리고 나중에 사진 찍으면"
+          },
+          "step14": {
+            "similarity": 0.5391604651013387,
+            "similarities": {
+              "cosine": 0.5391604651013387,
+              "euclidean": 0.8349840531177284,
+              "manhattan": 0.630990431870637,
+              "pearson": 0.566,
+              "jaccard": 0.7,
+              "sentence_enhanced": 0.5391604651013387,
+              "sentence_components": {
+                "baseSimilarity": 0.8349840531177284,
+                "keywordWeighted": 0.630990431870637,
+                "sttCorrected": 0.566,
+                "completeness": 0.7,
+                "lengthPenalty": 0.7936507936507936
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 63,
+                "expectedLength": 50,
+                "lengthRatio": 1.26,
+                "wordCount": 17
+              },
+              "stt_ensemble": 0.663,
+              "stt_enhanced": 0.5391604651013387
+            },
+            "expected_text": "지능형CCTV와 AI전화 상품입니다. 두 가지 모두 매장 운영에 큰 도움이 될 수 있어요.",
+            "candidate_text": "지능형 CCTV와 AI전화 상품입니다 이가지 모드 매장 운영에 큰 도움이 될 수 있어요 그리고 나중에 사진 찍으면"
+          }
+        }
+      },
+      {
+        "log_id": [
+          37070
+        ],
+        "candidate_word": "집에 가고 CCTV가 와야 있잖아 쌍방향에다 놔두고 집어다 매장 운영에관 도움이 될 수 있어요 형아",
+        "similarity": 0.6078731568483615,
+        "similarities": {
+          "cosine": 0.3103755163944489,
+          "euclidean": 0.6078731568483615,
+          "manhattan": 0.18236194705450845,
+          "pearson": 0.395,
+          "jaccard": 0.25,
+          "sentence_enhanced": 0.3103755163944489,
+          "sentence_components": {
+            "baseSimilarity": 0.6078731568483615,
+            "keywordWeighted": 0.18236194705450845,
+            "sttCorrected": 0.395,
+            "completeness": 0.25,
+            "lengthPenalty": 0.9090909090909091
+          },
+          "sentence_analysis": {
+            "keywordIncluded": false,
+            "candidateLength": 55,
+            "expectedLength": 50,
+            "lengthRatio": 1.1,
+            "wordCount": 15
+          },
+          "stt_ensemble": 0.473,
+          "stt_enhanced": 0.3103755163944489
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.3103755163944489,
+            "similarities": {
+              "cosine": 0.3103755163944489,
+              "euclidean": 0.6078731568483615,
+              "manhattan": 0.18236194705450845,
+              "pearson": 0.395,
+              "jaccard": 0.25,
+              "sentence_enhanced": 0.3103755163944489,
+              "sentence_components": {
+                "baseSimilarity": 0.6078731568483615,
+                "keywordWeighted": 0.18236194705450845,
+                "sttCorrected": 0.395,
+                "completeness": 0.25,
+                "lengthPenalty": 0.9090909090909091
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 55,
+                "expectedLength": 50,
+                "lengthRatio": 1.1,
+                "wordCount": 15
+              },
+              "stt_ensemble": 0.473,
+              "stt_enhanced": 0.3103755163944489
+            },
+            "expected_text": "지능형CCTV와 AI전화 상품입니다. 두 가지 모두 매장 운영에 큰 도움이 될 수 있어요.",
+            "candidate_text": "집에 가고 CCTV가 와야 있잖아 쌍방향에다 놔두고 집어다 매장 운영에관 도움이 될 수 있어요 형아"
+          },
+          "step13": {
+            "similarity": 0.3103755163944489,
+            "similarities": {
+              "cosine": 0.3103755163944489,
+              "euclidean": 0.6078731568483615,
+              "manhattan": 0.18236194705450845,
+              "pearson": 0.395,
+              "jaccard": 0.25,
+              "sentence_enhanced": 0.3103755163944489,
+              "sentence_components": {
+                "baseSimilarity": 0.6078731568483615,
+                "keywordWeighted": 0.18236194705450845,
+                "sttCorrected": 0.395,
+                "completeness": 0.25,
+                "lengthPenalty": 0.9090909090909091
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 55,
+                "expectedLength": 50,
+                "lengthRatio": 1.1,
+                "wordCount": 15
+              },
+              "stt_ensemble": 0.473,
+              "stt_enhanced": 0.3103755163944489
+            },
+            "expected_text": "지능형CCTV와 AI전화 상품입니다. 두 가지 모두 매장 운영에 큰 도움이 될 수 있어요.",
+            "candidate_text": "집에 가고 CCTV가 와야 있잖아 쌍방향에다 놔두고 집어다 매장 운영에관 도움이 될 수 있어요 형아"
+          },
+          "step14": {
+            "similarity": 0.3103755163944489,
+            "similarities": {
+              "cosine": 0.3103755163944489,
+              "euclidean": 0.6078731568483615,
+              "manhattan": 0.18236194705450845,
+              "pearson": 0.395,
+              "jaccard": 0.25,
+              "sentence_enhanced": 0.3103755163944489,
+              "sentence_components": {
+                "baseSimilarity": 0.6078731568483615,
+                "keywordWeighted": 0.18236194705450845,
+                "sttCorrected": 0.395,
+                "completeness": 0.25,
+                "lengthPenalty": 0.9090909090909091
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 55,
+                "expectedLength": 50,
+                "lengthRatio": 1.1,
+                "wordCount": 15
+              },
+              "stt_ensemble": 0.473,
+              "stt_enhanced": 0.3103755163944489
+            },
+            "expected_text": "지능형CCTV와 AI전화 상품입니다. 두 가지 모두 매장 운영에 큰 도움이 될 수 있어요.",
+            "candidate_text": "집에 가고 CCTV가 와야 있잖아 쌍방향에다 놔두고 집어다 매장 운영에관 도움이 될 수 있어요 형아"
+          }
+        }
+      },
+      {
+        "log_id": [
+          37070
+        ],
+        "candidate_word": "195CCTV가 왜 이래야 알잖아",
+        "similarity": 0.5,
+        "similarities": {
+          "cosine": 0.06751372316234279,
+          "euclidean": 0.3434261960337325,
+          "manhattan": 0.10302785881011974,
+          "pearson": 0.253,
+          "jaccard": 0.5,
+          "sentence_enhanced": 0.06751372316234279,
+          "sentence_components": {
+            "baseSimilarity": 0.3434261960337325,
+            "keywordWeighted": 0.10302785881011974,
+            "sttCorrected": 0.253,
+            "completeness": 0,
+            "lengthPenalty": 0.38
+          },
+          "sentence_analysis": {
+            "keywordIncluded": false,
+            "candidateLength": 19,
+            "expectedLength": 50,
+            "lengthRatio": 0.38,
+            "wordCount": 4
+          },
+          "stt_ensemble": 0.29,
+          "stt_enhanced": 0.06751372316234279
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.0732168228187524,
+            "similarities": {
+              "cosine": 0.0732168228187524,
+              "euclidean": 0.3629190902308739,
+              "manhattan": 0.10887572706926216,
+              "pearson": 0.308,
+              "jaccard": 0.05,
+              "sentence_enhanced": 0.0732168228187524,
+              "sentence_components": {
+                "baseSimilarity": 0.3629190902308739,
+                "keywordWeighted": 0.10887572706926216,
+                "sttCorrected": 0.308,
+                "completeness": 0.05,
+                "lengthPenalty": 0.36
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 18,
+                "expectedLength": 50,
+                "lengthRatio": 0.36,
+                "wordCount": 4
+              },
+              "stt_ensemble": 0.333,
+              "stt_enhanced": 0.0732168228187524
+            },
+            "expected_text": "지능형CCTV와 AI전화 상품입니다. 두 가지 모두 매장 운영에 큰 도움이 될 수 있어요.",
+            "candidate_text": "195CCTV가 왜 이래야 알잖아"
+          },
+          "step13": {
+            "similarity": 0.0732168228187524,
+            "similarities": {
+              "cosine": 0.0732168228187524,
+              "euclidean": 0.3629190902308739,
+              "manhattan": 0.10887572706926216,
+              "pearson": 0.308,
+              "jaccard": 0.05,
+              "sentence_enhanced": 0.0732168228187524,
+              "sentence_components": {
+                "baseSimilarity": 0.3629190902308739,
+                "keywordWeighted": 0.10887572706926216,
+                "sttCorrected": 0.308,
+                "completeness": 0.05,
+                "lengthPenalty": 0.36
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 18,
+                "expectedLength": 50,
+                "lengthRatio": 0.36,
+                "wordCount": 4
+              },
+              "stt_ensemble": 0.333,
+              "stt_enhanced": 0.0732168228187524
+            },
+            "expected_text": "지능형CCTV와 AI전화 상품입니다. 두 가지 모두 매장 운영에 큰 도움이 될 수 있어요.",
+            "candidate_text": "195CCTV가 왜 이래야 알잖아"
+          },
+          "step14": {
+            "similarity": 0.06751372316234279,
+            "similarities": {
+              "cosine": 0.06751372316234279,
+              "euclidean": 0.3434261960337325,
+              "manhattan": 0.10302785881011974,
+              "pearson": 0.253,
+              "jaccard": 0.5,
+              "sentence_enhanced": 0.06751372316234279,
+              "sentence_components": {
+                "baseSimilarity": 0.3434261960337325,
+                "keywordWeighted": 0.10302785881011974,
+                "sttCorrected": 0.253,
+                "completeness": 0,
+                "lengthPenalty": 0.38
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 19,
+                "expectedLength": 50,
+                "lengthRatio": 0.38,
+                "wordCount": 4
+              },
+              "stt_ensemble": 0.29,
+              "stt_enhanced": 0.06751372316234279
+            },
+            "expected_text": "지능형CCTV와 AI전화 상품입니다. 두 가지 모두 매장 운영에 큰 도움이 될 수 있어요.",
+            "candidate_text": "백구십오CCTV가 왜 이래야 알잖아"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "expected_answer": "고객님, 마침 사전 예약 기간이라 잘 오셨습니다. 안내 도와드릴게요. 이번 제품은 디스플레이가 8인치로 더 넓어졌고, 두께는 4.2mm로 정말 얇아졌으며, 무게도 216g으로 10% 이상 가벼워졌어요.",
+    "keyword": "8인치",
+    "candidates": [
+      {
+        "log_id": [
+          13671
+        ],
+        "candidate_word": "일단은 지금 고객님 마침 사전 예약 기간이라 잘 오셨습니다 안내 도와드릴게요 이번 제품은 디스플레이가",
+        "similarity": 0.7372412574930312,
+        "similarities": {
+          "cosine": 0.21153842482830962,
+          "euclidean": 0.7372412574930312,
+          "manhattan": 0.22117237724790934,
+          "pearson": 0.35814999999999997,
+          "jaccard": 0.6,
+          "sentence_enhanced": 0.21153842482830962,
+          "sentence_components": {
+            "baseSimilarity": 0.7372412574930312,
+            "keywordWeighted": 0.22117237724790934,
+            "sttCorrected": 0.35814999999999997,
+            "completeness": 0.6,
+            "lengthPenalty": 0.48695652173913045
+          },
+          "sentence_analysis": {
+            "keywordIncluded": false,
+            "candidateLength": 56,
+            "expectedLength": 115,
+            "lengthRatio": 0.48695652173913045,
+            "wordCount": 14
+          },
+          "stt_ensemble": 0.516,
+          "stt_enhanced": 0.21153842482830962
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.20235030405080517,
+            "similarities": {
+              "cosine": 0.20235030405080517,
+              "euclidean": 0.6548935354097577,
+              "manhattan": 0.1964680606229273,
+              "pearson": 0.36195,
+              "jaccard": 0.6,
+              "sentence_enhanced": 0.20235030405080517,
+              "sentence_components": {
+                "baseSimilarity": 0.6548935354097577,
+                "keywordWeighted": 0.1964680606229273,
+                "sttCorrected": 0.36195,
+                "completeness": 0.6,
+                "lengthPenalty": 0.5
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 56,
+                "expectedLength": 112,
+                "lengthRatio": 0.5,
+                "wordCount": 14
+              },
+              "stt_ensemble": 0.486,
+              "stt_enhanced": 0.20235030405080517
+            },
+            "expected_text": "고객님, 마침 사전 예약 기간이라 잘 오셨습니다. 안내 도와드릴게요. 이번 제품은 디스플레이가 8인치로 더 넓어졌고, 두께는 4.2mm로 정말 얇아졌으며, 무게도 216g으로 10% 이상 가벼워졌어요.",
+            "candidate_text": "일단은 지금 고객님 마침 사전 예약 기간이라 잘 오셨습니다 안내 도와드릴게요 이번 제품은 디스플레이가"
+          },
+          "step13": {
+            "similarity": 0.19891668257427345,
+            "similarities": {
+              "cosine": 0.19891668257427345,
+              "euclidean": 0.6671881513533517,
+              "manhattan": 0.20015644540600552,
+              "pearson": 0.35814999999999997,
+              "jaccard": 0.6,
+              "sentence_enhanced": 0.19891668257427345,
+              "sentence_components": {
+                "baseSimilarity": 0.6671881513533517,
+                "keywordWeighted": 0.20015644540600552,
+                "sttCorrected": 0.35814999999999997,
+                "completeness": 0.6,
+                "lengthPenalty": 0.48695652173913045
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 56,
+                "expectedLength": 115,
+                "lengthRatio": 0.48695652173913045,
+                "wordCount": 14
+              },
+              "stt_ensemble": 0.488,
+              "stt_enhanced": 0.19891668257427345
+            },
+            "expected_text": "고객님, 마침 사전 예약 기간이라 잘 오셨습니다. 안내 도와드릴게요. 이번 제품은 디스플레이가 8인치로 더 넓어졌고, 두께는 4.2미리로 정말 얇아졌으며, 무게도 216그램으로 10퍼센트 이상 가벼워졌어요.",
+            "candidate_text": "일단은 지금 고객님 마침 사전 예약 기간이라 잘 오셨습니다 안내 도와드릴게요 이번 제품은 디스플레이가"
+          },
+          "step14": {
+            "similarity": 0.21153842482830962,
+            "similarities": {
+              "cosine": 0.21153842482830962,
+              "euclidean": 0.7372412574930312,
+              "manhattan": 0.22117237724790934,
+              "pearson": 0.35814999999999997,
+              "jaccard": 0.6,
+              "sentence_enhanced": 0.21153842482830962,
+              "sentence_components": {
+                "baseSimilarity": 0.7372412574930312,
+                "keywordWeighted": 0.22117237724790934,
+                "sttCorrected": 0.35814999999999997,
+                "completeness": 0.6,
+                "lengthPenalty": 0.48695652173913045
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 56,
+                "expectedLength": 115,
+                "lengthRatio": 0.48695652173913045,
+                "wordCount": 14
+              },
+              "stt_ensemble": 0.516,
+              "stt_enhanced": 0.21153842482830962
+            },
+            "expected_text": "고객님, 마침 사전 예약 기간이라 잘 오셨습니다. 안내 도와드릴게요. 이번 제품은 디스플레이가 팔인치로 더 넓어졌고, 두께는 사점이미리로 정말 얇아졌으며, 무게도 이백십육그램으로 십퍼센트 이상 가벼워졌어요.",
+            "candidate_text": "일단은 지금 고객님 마침 사전 예약 기간이라 잘 오셨습니다 안내 도와드릴게요 이번 제품은 디스플레이가"
+          }
+        }
+      },
+      {
+        "log_id": [
+          36959
+        ],
+        "candidate_word": "음 고객님 마침 사전 예약이 기 기 아유",
+        "similarity": 0.5515846072828855,
+        "similarities": {
+          "cosine": 0.028260081318620386,
+          "euclidean": 0.5515846072828855,
+          "manhattan": 0.16547538218486565,
+          "pearson": 0.23179999999999998,
+          "jaccard": 0.3,
+          "sentence_enhanced": 0.028260081318620386,
+          "sentence_components": {
+            "baseSimilarity": 0.5515846072828855,
+            "keywordWeighted": 0.16547538218486565,
+            "sttCorrected": 0.23179999999999998,
+            "completeness": 0.3,
+            "lengthPenalty": 0.09565217391304348
+          },
+          "sentence_analysis": {
+            "keywordIncluded": false,
+            "candidateLength": 22,
+            "expectedLength": 115,
+            "lengthRatio": 0.19130434782608696,
+            "wordCount": 8
+          },
+          "stt_ensemble": 0.368,
+          "stt_enhanced": 0.028260081318620386
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.026455352074302354,
+            "similarities": {
+              "cosine": 0.026455352074302354,
+              "euclidean": 0.4739556344771164,
+              "manhattan": 0.1421866903431349,
+              "pearson": 0.245,
+              "jaccard": 0.3,
+              "sentence_enhanced": 0.026455352074302354,
+              "sentence_components": {
+                "baseSimilarity": 0.4739556344771164,
+                "keywordWeighted": 0.1421866903431349,
+                "sttCorrected": 0.245,
+                "completeness": 0.3,
+                "lengthPenalty": 0.09821428571428571
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 22,
+                "expectedLength": 112,
+                "lengthRatio": 0.19642857142857142,
+                "wordCount": 8
+              },
+              "stt_ensemble": 0.337,
+              "stt_enhanced": 0.026455352074302354
+            },
+            "expected_text": "고객님, 마침 사전 예약 기간이라 잘 오셨습니다. 안내 도와드릴게요. 이번 제품은 디스플레이가 8인치로 더 넓어졌고, 두께는 4.2mm로 정말 얇아졌으며, 무게도 216g으로 10% 이상 가벼워졌어요.",
+            "candidate_text": "음 고객님 마침 사전 예약이 기 기 아유"
+          },
+          "step13": {
+            "similarity": 0.02567325537205132,
+            "similarities": {
+              "cosine": 0.02567325537205132,
+              "euclidean": 0.4784924736574698,
+              "manhattan": 0.14354774209724092,
+              "pearson": 0.23179999999999998,
+              "jaccard": 0.3,
+              "sentence_enhanced": 0.02567325537205132,
+              "sentence_components": {
+                "baseSimilarity": 0.4784924736574698,
+                "keywordWeighted": 0.14354774209724092,
+                "sttCorrected": 0.23179999999999998,
+                "completeness": 0.3,
+                "lengthPenalty": 0.09565217391304348
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 22,
+                "expectedLength": 115,
+                "lengthRatio": 0.19130434782608696,
+                "wordCount": 8
+              },
+              "stt_ensemble": 0.338,
+              "stt_enhanced": 0.02567325537205132
+            },
+            "expected_text": "고객님, 마침 사전 예약 기간이라 잘 오셨습니다. 안내 도와드릴게요. 이번 제품은 디스플레이가 8인치로 더 넓어졌고, 두께는 4.2미리로 정말 얇아졌으며, 무게도 216그램으로 10퍼센트 이상 가벼워졌어요.",
+            "candidate_text": "음 고객님 마침 사전 예약이 기 기 아유"
+          },
+          "step14": {
+            "similarity": 0.028260081318620386,
+            "similarities": {
+              "cosine": 0.028260081318620386,
+              "euclidean": 0.5515846072828855,
+              "manhattan": 0.16547538218486565,
+              "pearson": 0.23179999999999998,
+              "jaccard": 0.3,
+              "sentence_enhanced": 0.028260081318620386,
+              "sentence_components": {
+                "baseSimilarity": 0.5515846072828855,
+                "keywordWeighted": 0.16547538218486565,
+                "sttCorrected": 0.23179999999999998,
+                "completeness": 0.3,
+                "lengthPenalty": 0.09565217391304348
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 22,
+                "expectedLength": 115,
+                "lengthRatio": 0.19130434782608696,
+                "wordCount": 8
+              },
+              "stt_ensemble": 0.368,
+              "stt_enhanced": 0.028260081318620386
+            },
+            "expected_text": "고객님, 마침 사전 예약 기간이라 잘 오셨습니다. 안내 도와드릴게요. 이번 제품은 디스플레이가 팔인치로 더 넓어졌고, 두께는 사점이미리로 정말 얇아졌으며, 무게도 이백십육그램으로 십퍼센트 이상 가벼워졌어요.",
+            "candidate_text": "음 고객님 마침 사전 예약이 기 기 아유"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "expected_answer": "네, 더블 스토리지라고 해서 256GB 가격으로 512GB를 구매하실 수 있고, 사전 예약하시면 AI 서비스인 캔바와 라이너를 6개월 무료로 이용하실 수 있어요. 라이너로 보고서 요약, 캔바로 시각화된 슬라이드 구성, 발표 자료 제작도 가능합니다.",
+    "keyword": "캔바",
+    "candidates": [
+      {
+        "log_id": [
+          19117
+        ],
+        "candidate_word": "네 더블스토리지라고 해서 256기가가 가격으로 512기가를 구매하실 수 있고 사전 예약하시면 AI서비스인 케바와 라이너를 6개월 무료로 이용하실 수 있어요 라이너로 보고서 요약  말이죠 캔바로우 시각화된 온라인도 구성 발표 자료 제작도 가능합니다",
+        "similarity": 0.9236999992391078,
+        "similarities": {
+          "cosine": 0.6994078329631979,
+          "euclidean": 0.9236999992391078,
+          "manhattan": 0.6542199995434647,
+          "pearson": 0.647,
+          "jaccard": 0.55,
+          "sentence_enhanced": 0.6994078329631979,
+          "sentence_components": {
+            "baseSimilarity": 0.9236999992391078,
+            "keywordWeighted": 0.6542199995434647,
+            "sttCorrected": 0.647,
+            "completeness": 0.55,
+            "lengthPenalty": 0.9927536231884058
+          },
+          "sentence_analysis": {
+            "keywordIncluded": true,
+            "candidateLength": 137,
+            "expectedLength": 138,
+            "lengthRatio": 0.9927536231884058,
+            "wordCount": 31
+          },
+          "stt_ensemble": 0.744,
+          "stt_enhanced": 0.6994078329631979
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step13",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.6622394403841165,
+            "similarities": {
+              "cosine": 0.6622394403841165,
+              "euclidean": 0.8554557243111588,
+              "manhattan": 0.6132734345866953,
+              "pearson": 0.627,
+              "jaccard": 0.55,
+              "sentence_enhanced": 0.6622394403841165,
+              "sentence_components": {
+                "baseSimilarity": 0.8554557243111588,
+                "keywordWeighted": 0.6132734345866953,
+                "sttCorrected": 0.627,
+                "completeness": 0.55,
+                "lengthPenalty": 0.9927536231884058
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 137,
+                "expectedLength": 138,
+                "lengthRatio": 0.9927536231884058,
+                "wordCount": 31
+              },
+              "stt_ensemble": 0.704,
+              "stt_enhanced": 0.6622394403841165
+            },
+            "expected_text": "네, 더블 스토리지라고 해서 256GB 가격으로 512GB를 구매하실 수 있고, 사전 예약하시면 AI 서비스인 캔바와 라이너를 6개월 무료로 이용하실 수 있어요. 라이너로 보고서 요약, 캔바로 시각화된 슬라이드 구성, 발표 자료 제작도 가능합니다.",
+            "candidate_text": "네 더블스토리지라고 해서 256기가가 가격으로 512기가를 구매하실 수 있고 사전 예약하시면 AI서비스인 케바와 라이너를 6개월 무료로 이용하실 수 있어요 라이너로 보고서 요약  말이죠 캔바로우 시각화된 온라인도 구성 발표 자료 제작도 가능합니다"
+          },
+          "step13": {
+            "similarity": 0.6994078329631979,
+            "similarities": {
+              "cosine": 0.6994078329631979,
+              "euclidean": 0.9236999992391078,
+              "manhattan": 0.6542199995434647,
+              "pearson": 0.647,
+              "jaccard": 0.55,
+              "sentence_enhanced": 0.6994078329631979,
+              "sentence_components": {
+                "baseSimilarity": 0.9236999992391078,
+                "keywordWeighted": 0.6542199995434647,
+                "sttCorrected": 0.647,
+                "completeness": 0.55,
+                "lengthPenalty": 0.9927536231884058
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 137,
+                "expectedLength": 138,
+                "lengthRatio": 0.9927536231884058,
+                "wordCount": 31
+              },
+              "stt_ensemble": 0.744,
+              "stt_enhanced": 0.6994078329631979
+            },
+            "expected_text": "네, 더블 스토리지라고 해서 256기가 가격으로 512기가를 구매하실 수 있고, 사전 예약하시면 AI 서비스인 캔바와 라이너를 6개월 무료로 이용하실 수 있어요. 라이너로 보고서 요약, 캔바로 시각화된 슬라이드 구성, 발표 자료 제작도 가능합니다.",
+            "candidate_text": "네 더블스토리지라고 해서 256기가가 가격으로 512기가를 구매하실 수 있고 사전 예약하시면 AI서비스인 케바와 라이너를 6개월 무료로 이용하실 수 있어요 라이너로 보고서 요약  말이죠 캔바로우 시각화된 온라인도 구성 발표 자료 제작도 가능합니다"
+          },
+          "step14": {
+            "similarity": 0.6915945104236572,
+            "similarities": {
+              "cosine": 0.6915945104236572,
+              "euclidean": 0.9227234106375459,
+              "manhattan": 0.6536340463825275,
+              "pearson": 0.647,
+              "jaccard": 0.5,
+              "sentence_enhanced": 0.6915945104236572,
+              "sentence_components": {
+                "baseSimilarity": 0.9227234106375459,
+                "keywordWeighted": 0.6536340463825275,
+                "sttCorrected": 0.647,
+                "completeness": 0.5,
+                "lengthPenalty": 0.9929078014184397
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 140,
+                "expectedLength": 141,
+                "lengthRatio": 0.9929078014184397,
+                "wordCount": 31
+              },
+              "stt_ensemble": 0.743,
+              "stt_enhanced": 0.6915945104236572
+            },
+            "expected_text": "네, 더블 스토리지라고 해서 이백오십육기가 가격으로 오백십이기가를 구매하실 수 있고, 사전 예약하시면 AI 서비스인 캔바와 라이너를 육개월 무료로 이용하실 수 있어요. 라이너로 보고서 요약, 캔바로 시각화된 슬라이드 구성, 발표 자료 제작도 가능합니다.",
+            "candidate_text": "네 더블스토리지라고 해서 이백오십육기가가 가격으로 오백십이기가를 구매하실 수 있고 사전 예약하시면 AI서비스인 케바와 라이너를 육개월 무료로 이용하실 수 있어요 라이너로 보고서 요약  말이죠 캔바로우 시각화된 온라인도 구성 발표 자료 제작도 가능합니다"
+          }
+        }
+      },
+      {
+        "log_id": [
+          37066
+        ],
+        "candidate_word": "캔바로 시각화된 슬라이드 구성 발표 자료 제작도 가능합니다",
+        "similarity": 0.5404556948441731,
+        "similarities": {
+          "cosine": 0.04346936701143709,
+          "euclidean": 0.5404556948441731,
+          "manhattan": 0.4242734169065039,
+          "pearson": 0.238,
+          "jaccard": 0.15,
+          "sentence_enhanced": 0.04346936701143709,
+          "sentence_components": {
+            "baseSimilarity": 0.5404556948441731,
+            "keywordWeighted": 0.4242734169065039,
+            "sttCorrected": 0.238,
+            "completeness": 0.15,
+            "lengthPenalty": 0.11594202898550725
+          },
+          "sentence_analysis": {
+            "keywordIncluded": true,
+            "candidateLength": 32,
+            "expectedLength": 138,
+            "lengthRatio": 0.2318840579710145,
+            "wordCount": 8
+          },
+          "stt_ensemble": 0.357,
+          "stt_enhanced": 0.04346936701143709
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step13",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.04161009373435081,
+            "similarities": {
+              "cosine": 0.04161009373435081,
+              "euclidean": 0.5060960376709708,
+              "manhattan": 0.4036576226025824,
+              "pearson": 0.242,
+              "jaccard": 0.15,
+              "sentence_enhanced": 0.04161009373435081,
+              "sentence_components": {
+                "baseSimilarity": 0.5060960376709708,
+                "keywordWeighted": 0.4036576226025824,
+                "sttCorrected": 0.242,
+                "completeness": 0.15,
+                "lengthPenalty": 0.11594202898550725
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 32,
+                "expectedLength": 138,
+                "lengthRatio": 0.2318840579710145,
+                "wordCount": 8
+              },
+              "stt_ensemble": 0.346,
+              "stt_enhanced": 0.04161009373435081
+            },
+            "expected_text": "네, 더블 스토리지라고 해서 256GB 가격으로 512GB를 구매하실 수 있고, 사전 예약하시면 AI 서비스인 캔바와 라이너를 6개월 무료로 이용하실 수 있어요. 라이너로 보고서 요약, 캔바로 시각화된 슬라이드 구성, 발표 자료 제작도 가능합니다.",
+            "candidate_text": "캔바로 시각화된 슬라이드 구성 발표 자료 제작도 가능합니다"
+          },
+          "step13": {
+            "similarity": 0.04346936701143709,
+            "similarities": {
+              "cosine": 0.04346936701143709,
+              "euclidean": 0.5404556948441731,
+              "manhattan": 0.4242734169065039,
+              "pearson": 0.238,
+              "jaccard": 0.15,
+              "sentence_enhanced": 0.04346936701143709,
+              "sentence_components": {
+                "baseSimilarity": 0.5404556948441731,
+                "keywordWeighted": 0.4242734169065039,
+                "sttCorrected": 0.238,
+                "completeness": 0.15,
+                "lengthPenalty": 0.11594202898550725
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 32,
+                "expectedLength": 138,
+                "lengthRatio": 0.2318840579710145,
+                "wordCount": 8
+              },
+              "stt_ensemble": 0.357,
+              "stt_enhanced": 0.04346936701143709
+            },
+            "expected_text": "네, 더블 스토리지라고 해서 256기가 가격으로 512기가를 구매하실 수 있고, 사전 예약하시면 AI 서비스인 캔바와 라이너를 6개월 무료로 이용하실 수 있어요. 라이너로 보고서 요약, 캔바로 시각화된 슬라이드 구성, 발표 자료 제작도 가능합니다.",
+            "candidate_text": "캔바로 시각화된 슬라이드 구성 발표 자료 제작도 가능합니다"
+          },
+          "step14": {
+            "similarity": 0.04194034449785184,
+            "similarities": {
+              "cosine": 0.04194034449785184,
+              "euclidean": 0.532447522219019,
+              "manhattan": 0.41946851333141144,
+              "pearson": 0.231,
+              "jaccard": 0.15,
+              "sentence_enhanced": 0.04194034449785184,
+              "sentence_components": {
+                "baseSimilarity": 0.532447522219019,
+                "keywordWeighted": 0.41946851333141144,
+                "sttCorrected": 0.231,
+                "completeness": 0.15,
+                "lengthPenalty": 0.11347517730496454
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 32,
+                "expectedLength": 141,
+                "lengthRatio": 0.22695035460992907,
+                "wordCount": 8
+              },
+              "stt_ensemble": 0.349,
+              "stt_enhanced": 0.04194034449785184
+            },
+            "expected_text": "네, 더블 스토리지라고 해서 이백오십육기가 가격으로 오백십이기가를 구매하실 수 있고, 사전 예약하시면 AI 서비스인 캔바와 라이너를 육개월 무료로 이용하실 수 있어요. 라이너로 보고서 요약, 캔바로 시각화된 슬라이드 구성, 발표 자료 제작도 가능합니다.",
+            "candidate_text": "캔바로 시각화된 슬라이드 구성 발표 자료 제작도 가능합니다"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "expected_answer": "고객님 요청하신 000폰 개통 완료되었습니다.",
+    "keyword": "개통",
+    "candidates": [
+      {
+        "log_id": [
+          37345
+        ],
+        "candidate_word": "고객님 요청하신 00058 개통 완료 되었습니다",
+        "similarity": 0.8571126363239743,
+        "similarities": {
+          "cosine": 0.7509472998064879,
+          "euclidean": 0.8571126363239743,
+          "manhattan": 0.7267675817943845,
+          "pearson": 0.78,
+          "jaccard": 0.8,
+          "sentence_enhanced": 0.7509472998064879,
+          "sentence_components": {
+            "baseSimilarity": 0.8571126363239743,
+            "keywordWeighted": 0.7267675817943845,
+            "sttCorrected": 0.78,
+            "completeness": 0.8,
+            "lengthPenalty": 0.9615384615384616
+          },
+          "sentence_analysis": {
+            "keywordIncluded": true,
+            "candidateLength": 26,
+            "expectedLength": 25,
+            "lengthRatio": 1.04,
+            "wordCount": 6
+          },
+          "stt_ensemble": 0.804,
+          "stt_enhanced": 0.7509472998064879
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.7509472998064879,
+            "similarities": {
+              "cosine": 0.7509472998064879,
+              "euclidean": 0.8571126363239743,
+              "manhattan": 0.7267675817943845,
+              "pearson": 0.78,
+              "jaccard": 0.8,
+              "sentence_enhanced": 0.7509472998064879,
+              "sentence_components": {
+                "baseSimilarity": 0.8571126363239743,
+                "keywordWeighted": 0.7267675817943845,
+                "sttCorrected": 0.78,
+                "completeness": 0.8,
+                "lengthPenalty": 0.9615384615384616
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 26,
+                "expectedLength": 25,
+                "lengthRatio": 1.04,
+                "wordCount": 6
+              },
+              "stt_ensemble": 0.804,
+              "stt_enhanced": 0.7509472998064879
+            },
+            "expected_text": "고객님 요청하신 000폰 개통 완료되었습니다.",
+            "candidate_text": "고객님 요청하신 00058 개통 완료 되었습니다"
+          },
+          "step13": {
+            "similarity": 0.7509472998064879,
+            "similarities": {
+              "cosine": 0.7509472998064879,
+              "euclidean": 0.8571126363239743,
+              "manhattan": 0.7267675817943845,
+              "pearson": 0.78,
+              "jaccard": 0.8,
+              "sentence_enhanced": 0.7509472998064879,
+              "sentence_components": {
+                "baseSimilarity": 0.8571126363239743,
+                "keywordWeighted": 0.7267675817943845,
+                "sttCorrected": 0.78,
+                "completeness": 0.8,
+                "lengthPenalty": 0.9615384615384616
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 26,
+                "expectedLength": 25,
+                "lengthRatio": 1.04,
+                "wordCount": 6
+              },
+              "stt_ensemble": 0.804,
+              "stt_enhanced": 0.7509472998064879
+            },
+            "expected_text": "고객님 요청하신 000폰 개통 완료되었습니다.",
+            "candidate_text": "고객님 요청하신 00058 개통 완료 되었습니다"
+          },
+          "step14": {
+            "similarity": 0.715829495922909,
+            "similarities": {
+              "cosine": 0.715829495922909,
+              "euclidean": 0.8237806479281113,
+              "manhattan": 0.7067683887568668,
+              "pearson": 0.729,
+              "jaccard": 0.75,
+              "sentence_enhanced": 0.715829495922909,
+              "sentence_components": {
+                "baseSimilarity": 0.8237806479281113,
+                "keywordWeighted": 0.7067683887568668,
+                "sttCorrected": 0.729,
+                "completeness": 0.75,
+                "lengthPenalty": 0.9583333333333334
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 24,
+                "expectedLength": 23,
+                "lengthRatio": 1.0434782608695652,
+                "wordCount": 6
+              },
+              "stt_ensemble": 0.76,
+              "stt_enhanced": 0.715829495922909
+            },
+            "expected_text": "고객님 요청하신 영폰 개통 완료되었습니다.",
+            "candidate_text": "고객님 요청하신 오십팔 개통 완료 되었습니다"
+          }
+        }
+      },
+      {
+        "log_id": [
+          37317
+        ],
+        "candidate_word": "공연 요청하신 폰 개통 완료되었습니다",
+        "similarity": 0.737898780577166,
+        "similarities": {
+          "cosine": 0.5566699152024446,
+          "euclidean": 0.737898780577166,
+          "manhattan": 0.6177392683462996,
+          "pearson": 0.593,
+          "jaccard": 0.6,
+          "sentence_enhanced": 0.5566699152024446,
+          "sentence_components": {
+            "baseSimilarity": 0.737898780577166,
+            "keywordWeighted": 0.6177392683462996,
+            "sttCorrected": 0.593,
+            "completeness": 0.6,
+            "lengthPenalty": 0.8695652173913043
+          },
+          "sentence_analysis": {
+            "keywordIncluded": true,
+            "candidateLength": 20,
+            "expectedLength": 23,
+            "lengthRatio": 0.8695652173913043,
+            "wordCount": 5
+          },
+          "stt_ensemble": 0.636,
+          "stt_enhanced": 0.5566699152024446
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.5042096271363835,
+            "similarities": {
+              "cosine": 0.5042096271363835,
+              "euclidean": 0.7291061916744477,
+              "manhattan": 0.6124637150046686,
+              "pearson": 0.565,
+              "jaccard": 0.6,
+              "sentence_enhanced": 0.5042096271363835,
+              "sentence_components": {
+                "baseSimilarity": 0.7291061916744477,
+                "keywordWeighted": 0.6124637150046686,
+                "sttCorrected": 0.565,
+                "completeness": 0.6,
+                "lengthPenalty": 0.8
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 20,
+                "expectedLength": 25,
+                "lengthRatio": 0.8,
+                "wordCount": 5
+              },
+              "stt_ensemble": 0.618,
+              "stt_enhanced": 0.5042096271363835
+            },
+            "expected_text": "고객님 요청하신 000폰 개통 완료되었습니다.",
+            "candidate_text": "공연 요청하신 폰 개통 완료되었습니다"
+          },
+          "step13": {
+            "similarity": 0.5042096271363835,
+            "similarities": {
+              "cosine": 0.5042096271363835,
+              "euclidean": 0.7291061916744477,
+              "manhattan": 0.6124637150046686,
+              "pearson": 0.565,
+              "jaccard": 0.6,
+              "sentence_enhanced": 0.5042096271363835,
+              "sentence_components": {
+                "baseSimilarity": 0.7291061916744477,
+                "keywordWeighted": 0.6124637150046686,
+                "sttCorrected": 0.565,
+                "completeness": 0.6,
+                "lengthPenalty": 0.8
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 20,
+                "expectedLength": 25,
+                "lengthRatio": 0.8,
+                "wordCount": 5
+              },
+              "stt_ensemble": 0.618,
+              "stt_enhanced": 0.5042096271363835
+            },
+            "expected_text": "고객님 요청하신 000폰 개통 완료되었습니다.",
+            "candidate_text": "공연 요청하신 폰 개통 완료되었습니다"
+          },
+          "step14": {
+            "similarity": 0.5566699152024446,
+            "similarities": {
+              "cosine": 0.5566699152024446,
+              "euclidean": 0.737898780577166,
+              "manhattan": 0.6177392683462996,
+              "pearson": 0.593,
+              "jaccard": 0.6,
+              "sentence_enhanced": 0.5566699152024446,
+              "sentence_components": {
+                "baseSimilarity": 0.737898780577166,
+                "keywordWeighted": 0.6177392683462996,
+                "sttCorrected": 0.593,
+                "completeness": 0.6,
+                "lengthPenalty": 0.8695652173913043
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 20,
+                "expectedLength": 23,
+                "lengthRatio": 0.8695652173913043,
+                "wordCount": 5
+              },
+              "stt_ensemble": 0.636,
+              "stt_enhanced": 0.5566699152024446
+            },
+            "expected_text": "고객님 요청하신 영폰 개통 완료되었습니다.",
+            "candidate_text": "공연 요청하신 폰 개통 완료되었습니다"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "expected_answer": "사장님 통할인 신한카드 사용하시면 전월 실적 250만원 기준으로 최대 5만원까지 할인이 가능해서 저렴하게 이용하실 수 있습니다.",
+    "keyword": "5만원",
+    "candidates": [
+      {
+        "log_id": [
+          37319
+        ],
+        "candidate_word": "사장님 통화할인 신한카드 사용하시면 전액 실적 250만원 기준으로 최대 50000원까지 할인이 가능해서 저렴하게 이용하실 수 있습니다",
+        "similarity": 0.9420773544128315,
+        "similarities": {
+          "cosine": 0.5568686211327477,
+          "euclidean": 0.9420773544128315,
+          "manhattan": 0.2826232063238494,
+          "pearson": 0.704,
+          "jaccard": 0.44999999999999996,
+          "sentence_enhanced": 0.5568686211327477,
+          "sentence_components": {
+            "baseSimilarity": 0.9420773544128315,
+            "keywordWeighted": 0.2826232063238494,
+            "sttCorrected": 0.704,
+            "completeness": 0.44999999999999996,
+            "lengthPenalty": 1
+          },
+          "sentence_analysis": {
+            "keywordIncluded": false,
+            "candidateLength": 72,
+            "expectedLength": 72,
+            "lengthRatio": 1,
+            "wordCount": 16
+          },
+          "stt_ensemble": 0.782,
+          "stt_enhanced": 0.5568686211327477
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.5359484961354144,
+            "similarities": {
+              "cosine": 0.5359484961354144,
+              "euclidean": 0.9362005601073725,
+              "manhattan": 0.28086016803221175,
+              "pearson": 0.686,
+              "jaccard": 0.49999999999999994,
+              "sentence_enhanced": 0.5359484961354144,
+              "sentence_components": {
+                "baseSimilarity": 0.9362005601073725,
+                "keywordWeighted": 0.28086016803221175,
+                "sttCorrected": 0.686,
+                "completeness": 0.49999999999999994,
+                "lengthPenalty": 0.9594594594594594
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 74,
+                "expectedLength": 71,
+                "lengthRatio": 1.0422535211267605,
+                "wordCount": 16
+              },
+              "stt_ensemble": 0.771,
+              "stt_enhanced": 0.5359484961354144
+            },
+            "expected_text": "사장님 통할인 신한카드 사용하시면 전월 실적 250만원 기준으로 최대 5만원까지 할인이 가능해서 저렴하게 이용하실 수 있습니다.",
+            "candidate_text": "사장님 통화할인 신한카드 사용하시면 전액 실적 250만원 기준으로 최대 50000원까지 할인이 가능해서 저렴하게 이용하실 수 있습니다"
+          },
+          "step13": {
+            "similarity": 0.5359484961354144,
+            "similarities": {
+              "cosine": 0.5359484961354144,
+              "euclidean": 0.9362005601073725,
+              "manhattan": 0.28086016803221175,
+              "pearson": 0.686,
+              "jaccard": 0.49999999999999994,
+              "sentence_enhanced": 0.5359484961354144,
+              "sentence_components": {
+                "baseSimilarity": 0.9362005601073725,
+                "keywordWeighted": 0.28086016803221175,
+                "sttCorrected": 0.686,
+                "completeness": 0.49999999999999994,
+                "lengthPenalty": 0.9594594594594594
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 74,
+                "expectedLength": 71,
+                "lengthRatio": 1.0422535211267605,
+                "wordCount": 16
+              },
+              "stt_ensemble": 0.771,
+              "stt_enhanced": 0.5359484961354144
+            },
+            "expected_text": "사장님 통할인 신한카드 사용하시면 전월 실적 250만원 기준으로 최대 5만원까지 할인이 가능해서 저렴하게 이용하실 수 있습니다.",
+            "candidate_text": "사장님 통화할인 신한카드 사용하시면 전액 실적 250만원 기준으로 최대 50000원까지 할인이 가능해서 저렴하게 이용하실 수 있습니다"
+          },
+          "step14": {
+            "similarity": 0.5568686211327477,
+            "similarities": {
+              "cosine": 0.5568686211327477,
+              "euclidean": 0.9420773544128315,
+              "manhattan": 0.2826232063238494,
+              "pearson": 0.704,
+              "jaccard": 0.44999999999999996,
+              "sentence_enhanced": 0.5568686211327477,
+              "sentence_components": {
+                "baseSimilarity": 0.9420773544128315,
+                "keywordWeighted": 0.2826232063238494,
+                "sttCorrected": 0.704,
+                "completeness": 0.44999999999999996,
+                "lengthPenalty": 1
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 72,
+                "expectedLength": 72,
+                "lengthRatio": 1,
+                "wordCount": 16
+              },
+              "stt_ensemble": 0.782,
+              "stt_enhanced": 0.5568686211327477
+            },
+            "expected_text": "사장님 통할인 신한카드 사용하시면 전월 실적 이백오십만원 기준으로 최대 오만원까지 할인이 가능해서 저렴하게 이용하실 수 있습니다.",
+            "candidate_text": "사장님 통화할인 신한카드 사용하시면 전액 실적 이백오십만원 기준으로 최대 오만원까지 할인이 가능해서 저렴하게 이용하실 수 있습니다"
+          }
+        }
+      },
+      {
+        "log_id": [
+          28869
+        ],
+        "candidate_word": "비싸면 쓰지 마세요",
+        "similarity": 0.5,
+        "similarities": {
+          "cosine": 0.008664202362732146,
+          "euclidean": 0.24170722581296336,
+          "manhattan": 0.07251216774388901,
+          "pearson": 0.168,
+          "jaccard": 0.5,
+          "sentence_enhanced": 0.008664202362732146,
+          "sentence_components": {
+            "baseSimilarity": 0.24170722581296336,
+            "keywordWeighted": 0.07251216774388901,
+            "sttCorrected": 0.168,
+            "completeness": 0,
+            "lengthPenalty": 0.07042253521126761
+          },
+          "sentence_analysis": {
+            "keywordIncluded": false,
+            "candidateLength": 10,
+            "expectedLength": 71,
+            "lengthRatio": 0.14084507042253522,
+            "wordCount": 3
+          },
+          "stt_ensemble": 0.201,
+          "stt_enhanced": 0.008664202362732146
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.008664202362732146,
+            "similarities": {
+              "cosine": 0.008664202362732146,
+              "euclidean": 0.24170722581296336,
+              "manhattan": 0.07251216774388901,
+              "pearson": 0.168,
+              "jaccard": 0.5,
+              "sentence_enhanced": 0.008664202362732146,
+              "sentence_components": {
+                "baseSimilarity": 0.24170722581296336,
+                "keywordWeighted": 0.07251216774388901,
+                "sttCorrected": 0.168,
+                "completeness": 0,
+                "lengthPenalty": 0.07042253521126761
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 10,
+                "expectedLength": 71,
+                "lengthRatio": 0.14084507042253522,
+                "wordCount": 3
+              },
+              "stt_ensemble": 0.201,
+              "stt_enhanced": 0.008664202362732146
+            },
+            "expected_text": "사장님 통할인 신한카드 사용하시면 전월 실적 250만원 기준으로 최대 5만원까지 할인이 가능해서 저렴하게 이용하실 수 있습니다.",
+            "candidate_text": "비싸면 쓰지 마세요"
+          },
+          "step13": {
+            "similarity": 0.008664202362732146,
+            "similarities": {
+              "cosine": 0.008664202362732146,
+              "euclidean": 0.24170722581296336,
+              "manhattan": 0.07251216774388901,
+              "pearson": 0.168,
+              "jaccard": 0.5,
+              "sentence_enhanced": 0.008664202362732146,
+              "sentence_components": {
+                "baseSimilarity": 0.24170722581296336,
+                "keywordWeighted": 0.07251216774388901,
+                "sttCorrected": 0.168,
+                "completeness": 0,
+                "lengthPenalty": 0.07042253521126761
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 10,
+                "expectedLength": 71,
+                "lengthRatio": 0.14084507042253522,
+                "wordCount": 3
+              },
+              "stt_ensemble": 0.201,
+              "stt_enhanced": 0.008664202362732146
+            },
+            "expected_text": "사장님 통할인 신한카드 사용하시면 전월 실적 250만원 기준으로 최대 5만원까지 할인이 가능해서 저렴하게 이용하실 수 있습니다.",
+            "candidate_text": "비싸면 쓰지 마세요"
+          },
+          "step14": {
+            "similarity": 0.008760606890600623,
+            "similarities": {
+              "cosine": 0.008760606890600623,
+              "euclidean": 0.2501425384449972,
+              "manhattan": 0.07504276153349915,
+              "pearson": 0.168,
+              "jaccard": 0.5,
+              "sentence_enhanced": 0.008760606890600623,
+              "sentence_components": {
+                "baseSimilarity": 0.2501425384449972,
+                "keywordWeighted": 0.07504276153349915,
+                "sttCorrected": 0.168,
+                "completeness": 0,
+                "lengthPenalty": 0.06944444444444445
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 10,
+                "expectedLength": 72,
+                "lengthRatio": 0.1388888888888889,
+                "wordCount": 3
+              },
+              "stt_ensemble": 0.204,
+              "stt_enhanced": 0.008760606890600623
+            },
+            "expected_text": "사장님 통할인 신한카드 사용하시면 전월 실적 이백오십만원 기준으로 최대 오만원까지 할인이 가능해서 저렴하게 이용하실 수 있습니다.",
+            "candidate_text": "비싸면 쓰지 마세요"
+          }
+        }
+      },
+      {
+        "log_id": [
+          18116
+        ],
+        "candidate_word": "네 사단님 가능해서 저렴하게 이용하실 수 있습니다",
+        "similarity": 0.47153037192192343,
+        "similarities": {
+          "cosine": 0.10536233910416687,
+          "euclidean": 0.47153037192192343,
+          "manhattan": 0.14145911157657703,
+          "pearson": 0.27,
+          "jaccard": 0.35,
+          "sentence_enhanced": 0.10536233910416687,
+          "sentence_components": {
+            "baseSimilarity": 0.47153037192192343,
+            "keywordWeighted": 0.14145911157657703,
+            "sttCorrected": 0.27,
+            "completeness": 0.35,
+            "lengthPenalty": 0.375
+          },
+          "sentence_analysis": {
+            "keywordIncluded": false,
+            "candidateLength": 27,
+            "expectedLength": 72,
+            "lengthRatio": 0.375,
+            "wordCount": 7
+          },
+          "stt_ensemble": 0.345,
+          "stt_enhanced": 0.10536233910416687
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.1064487043549666,
+            "similarities": {
+              "cosine": 0.1064487043549666,
+              "euclidean": 0.4676234243446075,
+              "manhattan": 0.14028702730338224,
+              "pearson": 0.272,
+              "jaccard": 0.35,
+              "sentence_enhanced": 0.1064487043549666,
+              "sentence_components": {
+                "baseSimilarity": 0.4676234243446075,
+                "keywordWeighted": 0.14028702730338224,
+                "sttCorrected": 0.272,
+                "completeness": 0.35,
+                "lengthPenalty": 0.38028169014084506
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 27,
+                "expectedLength": 71,
+                "lengthRatio": 0.38028169014084506,
+                "wordCount": 7
+              },
+              "stt_ensemble": 0.345,
+              "stt_enhanced": 0.1064487043549666
+            },
+            "expected_text": "사장님 통할인 신한카드 사용하시면 전월 실적 250만원 기준으로 최대 5만원까지 할인이 가능해서 저렴하게 이용하실 수 있습니다.",
+            "candidate_text": "네 사단님 가능해서 저렴하게 이용하실 수 있습니다"
+          },
+          "step13": {
+            "similarity": 0.1064487043549666,
+            "similarities": {
+              "cosine": 0.1064487043549666,
+              "euclidean": 0.4676234243446075,
+              "manhattan": 0.14028702730338224,
+              "pearson": 0.272,
+              "jaccard": 0.35,
+              "sentence_enhanced": 0.1064487043549666,
+              "sentence_components": {
+                "baseSimilarity": 0.4676234243446075,
+                "keywordWeighted": 0.14028702730338224,
+                "sttCorrected": 0.272,
+                "completeness": 0.35,
+                "lengthPenalty": 0.38028169014084506
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 27,
+                "expectedLength": 71,
+                "lengthRatio": 0.38028169014084506,
+                "wordCount": 7
+              },
+              "stt_ensemble": 0.345,
+              "stt_enhanced": 0.1064487043549666
+            },
+            "expected_text": "사장님 통할인 신한카드 사용하시면 전월 실적 250만원 기준으로 최대 5만원까지 할인이 가능해서 저렴하게 이용하실 수 있습니다.",
+            "candidate_text": "네 사단님 가능해서 저렴하게 이용하실 수 있습니다"
+          },
+          "step14": {
+            "similarity": 0.10536233910416687,
+            "similarities": {
+              "cosine": 0.10536233910416687,
+              "euclidean": 0.47153037192192343,
+              "manhattan": 0.14145911157657703,
+              "pearson": 0.27,
+              "jaccard": 0.35,
+              "sentence_enhanced": 0.10536233910416687,
+              "sentence_components": {
+                "baseSimilarity": 0.47153037192192343,
+                "keywordWeighted": 0.14145911157657703,
+                "sttCorrected": 0.27,
+                "completeness": 0.35,
+                "lengthPenalty": 0.375
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 27,
+                "expectedLength": 72,
+                "lengthRatio": 0.375,
+                "wordCount": 7
+              },
+              "stt_ensemble": 0.345,
+              "stt_enhanced": 0.10536233910416687
+            },
+            "expected_text": "사장님 통할인 신한카드 사용하시면 전월 실적 이백오십만원 기준으로 최대 오만원까지 할인이 가능해서 저렴하게 이용하실 수 있습니다.",
+            "candidate_text": "네 사단님 가능해서 저렴하게 이용하실 수 있습니다"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "expected_answer": "전용앱으로 실시간 확인이 가능하고, 360도 회전 5배줌 카메라도 지원합니다. 긴급상황 발생 시 에스원에 월 2회 호출도 가능합니다.",
+    "keyword": "실시간",
+    "candidates": [
+      {
+        "log_id": [
+          37319
+        ],
+        "candidate_word": "전용 앱으로 실시간 확인이 가능하고 360도 회전 5배 중 카메라도 지원합니다 긴급 상황 발생 시 S1의 월이에 호출도 가능합니다",
+        "similarity": 0.8380518057032061,
+        "similarities": {
+          "cosine": 0.6888117257460692,
+          "euclidean": 0.8380518057032061,
+          "manhattan": 0.7153310834219236,
+          "pearson": 0.649,
+          "jaccard": 0.55,
+          "sentence_enhanced": 0.6888117257460692,
+          "sentence_components": {
+            "baseSimilarity": 0.8380518057032061,
+            "keywordWeighted": 0.7153310834219236,
+            "sttCorrected": 0.649,
+            "completeness": 0.55,
+            "lengthPenalty": 0.972972972972973
+          },
+          "sentence_analysis": {
+            "keywordIncluded": true,
+            "candidateLength": 72,
+            "expectedLength": 74,
+            "lengthRatio": 0.972972972972973,
+            "wordCount": 19
+          },
+          "stt_ensemble": 0.714,
+          "stt_enhanced": 0.6888117257460692
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.6888117257460692,
+            "similarities": {
+              "cosine": 0.6888117257460692,
+              "euclidean": 0.8380518057032061,
+              "manhattan": 0.7153310834219236,
+              "pearson": 0.649,
+              "jaccard": 0.55,
+              "sentence_enhanced": 0.6888117257460692,
+              "sentence_components": {
+                "baseSimilarity": 0.8380518057032061,
+                "keywordWeighted": 0.7153310834219236,
+                "sttCorrected": 0.649,
+                "completeness": 0.55,
+                "lengthPenalty": 0.972972972972973
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 72,
+                "expectedLength": 74,
+                "lengthRatio": 0.972972972972973,
+                "wordCount": 19
+              },
+              "stt_ensemble": 0.714,
+              "stt_enhanced": 0.6888117257460692
+            },
+            "expected_text": "전용앱으로 실시간 확인이 가능하고, 360도 회전 5배줌 카메라도 지원합니다. 긴급상황 발생 시 에스원에 월 2회 호출도 가능합니다.",
+            "candidate_text": "전용 앱으로 실시간 확인이 가능하고 360도 회전 5배 중 카메라도 지원합니다 긴급 상황 발생 시 S1의 월이에 호출도 가능합니다"
+          },
+          "step13": {
+            "similarity": 0.6888117257460692,
+            "similarities": {
+              "cosine": 0.6888117257460692,
+              "euclidean": 0.8380518057032061,
+              "manhattan": 0.7153310834219236,
+              "pearson": 0.649,
+              "jaccard": 0.55,
+              "sentence_enhanced": 0.6888117257460692,
+              "sentence_components": {
+                "baseSimilarity": 0.8380518057032061,
+                "keywordWeighted": 0.7153310834219236,
+                "sttCorrected": 0.649,
+                "completeness": 0.55,
+                "lengthPenalty": 0.972972972972973
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 72,
+                "expectedLength": 74,
+                "lengthRatio": 0.972972972972973,
+                "wordCount": 19
+              },
+              "stt_ensemble": 0.714,
+              "stt_enhanced": 0.6888117257460692
+            },
+            "expected_text": "전용앱으로 실시간 확인이 가능하고, 360도 회전 5배줌 카메라도 지원합니다. 긴급상황 발생 시 에스원에 월 2회 호출도 가능합니다.",
+            "candidate_text": "전용 앱으로 실시간 확인이 가능하고 360도 회전 5배 중 카메라도 지원합니다 긴급 상황 발생 시 S1의 월이에 호출도 가능합니다"
+          },
+          "step14": {
+            "similarity": 0.6607597917428075,
+            "similarities": {
+              "cosine": 0.6607597917428075,
+              "euclidean": 0.7895159178280841,
+              "manhattan": 0.6862095506968503,
+              "pearson": 0.66,
+              "jaccard": 0.5,
+              "sentence_enhanced": 0.6607597917428075,
+              "sentence_components": {
+                "baseSimilarity": 0.7895159178280841,
+                "keywordWeighted": 0.6862095506968503,
+                "sttCorrected": 0.66,
+                "completeness": 0.5,
+                "lengthPenalty": 0.9733333333333334
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 73,
+                "expectedLength": 75,
+                "lengthRatio": 0.9733333333333334,
+                "wordCount": 19
+              },
+              "stt_ensemble": 0.7,
+              "stt_enhanced": 0.6607597917428075
+            },
+            "expected_text": "전용앱으로 실시간 확인이 가능하고, 삼백육십도 회전 오배줌 카메라도 지원합니다. 긴급상황 발생 시 에스원에 월 이회 호출도 가능합니다.",
+            "candidate_text": "전용 앱으로 실시간 확인이 가능하고 삼백육십도 회전 오배 중 카메라도 지원합니다 긴급 상황 발생 시 S일의 월이에 호출도 가능합니다"
+          }
+        }
+      },
+      {
+        "log_id": [
+          29946
+        ],
+        "candidate_word": "전용 앱으로 실시간 확인이 가능하고 서류대제로 솔직 카메라로 전환합니다 교사 발신해서 선생님이 이유 없이도 가능합니다",
+        "similarity": 0.6466790238010236,
+        "similarities": {
+          "cosine": 0.4806008032186124,
+          "euclidean": 0.6466790238010236,
+          "manhattan": 0.5546740809472808,
+          "pearson": 0.48,
+          "jaccard": 0.5,
+          "sentence_enhanced": 0.4806008032186124,
+          "sentence_components": {
+            "baseSimilarity": 0.6466790238010236,
+            "keywordWeighted": 0.5546740809472808,
+            "sttCorrected": 0.48,
+            "completeness": 0.5,
+            "lengthPenalty": 0.8666666666666667
+          },
+          "sentence_analysis": {
+            "keywordIncluded": true,
+            "candidateLength": 65,
+            "expectedLength": 75,
+            "lengthRatio": 0.8666666666666667,
+            "wordCount": 15
+          },
+          "stt_ensemble": 0.54,
+          "stt_enhanced": 0.4806008032186124
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.46568318427512745,
+            "similarities": {
+              "cosine": 0.46568318427512745,
+              "euclidean": 0.605093321916047,
+              "manhattan": 0.5297226598162948,
+              "pearson": 0.46,
+              "jaccard": 0.5,
+              "sentence_enhanced": 0.46568318427512745,
+              "sentence_components": {
+                "baseSimilarity": 0.605093321916047,
+                "keywordWeighted": 0.5297226598162948,
+                "sttCorrected": 0.46,
+                "completeness": 0.5,
+                "lengthPenalty": 0.8783783783783784
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 65,
+                "expectedLength": 74,
+                "lengthRatio": 0.8783783783783784,
+                "wordCount": 15
+              },
+              "stt_ensemble": 0.51,
+              "stt_enhanced": 0.46568318427512745
+            },
+            "expected_text": "전용앱으로 실시간 확인이 가능하고, 360도 회전 5배줌 카메라도 지원합니다. 긴급상황 발생 시 에스원에 월 2회 호출도 가능합니다.",
+            "candidate_text": "전용 앱으로 실시간 확인이 가능하고 서류대제로 솔직 카메라로 전환합니다 교사 발신해서 선생님이 이유 없이도 가능합니다"
+          },
+          "step13": {
+            "similarity": 0.46568318427512745,
+            "similarities": {
+              "cosine": 0.46568318427512745,
+              "euclidean": 0.605093321916047,
+              "manhattan": 0.5297226598162948,
+              "pearson": 0.46,
+              "jaccard": 0.5,
+              "sentence_enhanced": 0.46568318427512745,
+              "sentence_components": {
+                "baseSimilarity": 0.605093321916047,
+                "keywordWeighted": 0.5297226598162948,
+                "sttCorrected": 0.46,
+                "completeness": 0.5,
+                "lengthPenalty": 0.8783783783783784
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 65,
+                "expectedLength": 74,
+                "lengthRatio": 0.8783783783783784,
+                "wordCount": 15
+              },
+              "stt_ensemble": 0.51,
+              "stt_enhanced": 0.46568318427512745
+            },
+            "expected_text": "전용앱으로 실시간 확인이 가능하고, 360도 회전 5배줌 카메라도 지원합니다. 긴급상황 발생 시 에스원에 월 2회 호출도 가능합니다.",
+            "candidate_text": "전용 앱으로 실시간 확인이 가능하고 서류대제로 솔직 카메라로 전환합니다 교사 발신해서 선생님이 이유 없이도 가능합니다"
+          },
+          "step14": {
+            "similarity": 0.4806008032186124,
+            "similarities": {
+              "cosine": 0.4806008032186124,
+              "euclidean": 0.6466790238010236,
+              "manhattan": 0.5546740809472808,
+              "pearson": 0.48,
+              "jaccard": 0.5,
+              "sentence_enhanced": 0.4806008032186124,
+              "sentence_components": {
+                "baseSimilarity": 0.6466790238010236,
+                "keywordWeighted": 0.5546740809472808,
+                "sttCorrected": 0.48,
+                "completeness": 0.5,
+                "lengthPenalty": 0.8666666666666667
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 65,
+                "expectedLength": 75,
+                "lengthRatio": 0.8666666666666667,
+                "wordCount": 15
+              },
+              "stt_ensemble": 0.54,
+              "stt_enhanced": 0.4806008032186124
+            },
+            "expected_text": "전용앱으로 실시간 확인이 가능하고, 삼백육십도 회전 오배줌 카메라도 지원합니다. 긴급상황 발생 시 에스원에 월 이회 호출도 가능합니다.",
+            "candidate_text": "전용 앱으로 실시간 확인이 가능하고 서류대제로 솔직 카메라로 전환합니다 교사 발신해서 선생님이 이유 없이도 가능합니다"
+          }
+        }
+      },
+      {
+        "log_id": [
+          29946
+        ],
+        "candidate_word": "전용 앱으로 실시되요",
+        "similarity": 0.5012057977930809,
+        "similarities": {
+          "cosine": 0.018058050646785596,
+          "euclidean": 0.5012057977930809,
+          "manhattan": 0.15036173933792427,
+          "pearson": 0.304,
+          "jaccard": 0.5,
+          "sentence_enhanced": 0.018058050646785596,
+          "sentence_components": {
+            "baseSimilarity": 0.5012057977930809,
+            "keywordWeighted": 0.15036173933792427,
+            "sttCorrected": 0.304,
+            "completeness": 0,
+            "lengthPenalty": 0.07333333333333333
+          },
+          "sentence_analysis": {
+            "keywordIncluded": false,
+            "candidateLength": 11,
+            "expectedLength": 75,
+            "lengthRatio": 0.14666666666666667,
+            "wordCount": 3
+          },
+          "stt_ensemble": 0.388,
+          "stt_enhanced": 0.018058050646785596
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.018069687866947508,
+            "similarities": {
+              "cosine": 0.018069687866947508,
+              "euclidean": 0.4922146939332263,
+              "manhattan": 0.1476644081799679,
+              "pearson": 0.305,
+              "jaccard": 0.5,
+              "sentence_enhanced": 0.018069687866947508,
+              "sentence_components": {
+                "baseSimilarity": 0.4922146939332263,
+                "keywordWeighted": 0.1476644081799679,
+                "sttCorrected": 0.305,
+                "completeness": 0,
+                "lengthPenalty": 0.07432432432432433
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 11,
+                "expectedLength": 74,
+                "lengthRatio": 0.14864864864864866,
+                "wordCount": 3
+              },
+              "stt_ensemble": 0.385,
+              "stt_enhanced": 0.018069687866947508
+            },
+            "expected_text": "전용앱으로 실시간 확인이 가능하고, 360도 회전 5배줌 카메라도 지원합니다. 긴급상황 발생 시 에스원에 월 2회 호출도 가능합니다.",
+            "candidate_text": "전용 앱으로 실시되요"
+          },
+          "step13": {
+            "similarity": 0.018069687866947508,
+            "similarities": {
+              "cosine": 0.018069687866947508,
+              "euclidean": 0.4922146939332263,
+              "manhattan": 0.1476644081799679,
+              "pearson": 0.305,
+              "jaccard": 0.5,
+              "sentence_enhanced": 0.018069687866947508,
+              "sentence_components": {
+                "baseSimilarity": 0.4922146939332263,
+                "keywordWeighted": 0.1476644081799679,
+                "sttCorrected": 0.305,
+                "completeness": 0,
+                "lengthPenalty": 0.07432432432432433
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 11,
+                "expectedLength": 74,
+                "lengthRatio": 0.14864864864864866,
+                "wordCount": 3
+              },
+              "stt_ensemble": 0.385,
+              "stt_enhanced": 0.018069687866947508
+            },
+            "expected_text": "전용앱으로 실시간 확인이 가능하고, 360도 회전 5배줌 카메라도 지원합니다. 긴급상황 발생 시 에스원에 월 2회 호출도 가능합니다.",
+            "candidate_text": "전용 앱으로 실시되요"
+          },
+          "step14": {
+            "similarity": 0.018058050646785596,
+            "similarities": {
+              "cosine": 0.018058050646785596,
+              "euclidean": 0.5012057977930809,
+              "manhattan": 0.15036173933792427,
+              "pearson": 0.304,
+              "jaccard": 0.5,
+              "sentence_enhanced": 0.018058050646785596,
+              "sentence_components": {
+                "baseSimilarity": 0.5012057977930809,
+                "keywordWeighted": 0.15036173933792427,
+                "sttCorrected": 0.304,
+                "completeness": 0,
+                "lengthPenalty": 0.07333333333333333
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 11,
+                "expectedLength": 75,
+                "lengthRatio": 0.14666666666666667,
+                "wordCount": 3
+              },
+              "stt_ensemble": 0.388,
+              "stt_enhanced": 0.018058050646785596
+            },
+            "expected_text": "전용앱으로 실시간 확인이 가능하고, 삼백육십도 회전 오배줌 카메라도 지원합니다. 긴급상황 발생 시 에스원에 월 이회 호출도 가능합니다.",
+            "candidate_text": "전용 앱으로 실시되요"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "expected_answer": "네, 유플러스 대표 AI 기능인 익시오도 무료로 이용 가능하시고, 보이스 피싱 방지, 통화녹음 요약, AI 전화 받기 등 보안에 관한 기능들이 있어요. 이번에 추가된 안티딥보이스 기능은, 말투까지 따라 하는 보이스피싱 범죄자를 실시간으로 걸러줘서, 더 보안에 신경 쓴 기능이에요.",
+    "keyword": "안티딥보이스",
+    "candidates": [
+      {
+        "log_id": [
+          20
+        ],
+        "candidate_word": "저는 그 질문이지요 좋습니다",
+        "similarity": 0.2,
+        "similarities": {
+          "cosine": 0.005189219046001161,
+          "euclidean": 0.1127993409643896,
+          "manhattan": 0.03383980228931688,
+          "pearson": 0.181,
+          "jaccard": 0.2,
+          "sentence_enhanced": 0.005189219046001161,
+          "sentence_components": {
+            "baseSimilarity": 0.1127993409643896,
+            "keywordWeighted": 0.03383980228931688,
+            "sttCorrected": 0.181,
+            "completeness": 0.2,
+            "lengthPenalty": 0.04807692307692308
+          },
+          "sentence_analysis": {
+            "keywordIncluded": false,
+            "candidateLength": 15,
+            "expectedLength": 156,
+            "lengthRatio": 0.09615384615384616,
+            "wordCount": 4
+          },
+          "stt_ensemble": 0.158,
+          "stt_enhanced": 0.005189219046001161
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.005189219046001161,
+            "similarities": {
+              "cosine": 0.005189219046001161,
+              "euclidean": 0.1127993409643896,
+              "manhattan": 0.03383980228931688,
+              "pearson": 0.181,
+              "jaccard": 0.2,
+              "sentence_enhanced": 0.005189219046001161,
+              "sentence_components": {
+                "baseSimilarity": 0.1127993409643896,
+                "keywordWeighted": 0.03383980228931688,
+                "sttCorrected": 0.181,
+                "completeness": 0.2,
+                "lengthPenalty": 0.04807692307692308
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 15,
+                "expectedLength": 156,
+                "lengthRatio": 0.09615384615384616,
+                "wordCount": 4
+              },
+              "stt_ensemble": 0.158,
+              "stt_enhanced": 0.005189219046001161
+            },
+            "expected_text": "네, 유플러스 대표 AI 기능인 익시오도 무료로 이용 가능하시고, 보이스 피싱 방지, 통화녹음 요약, AI 전화 받기 등 보안에 관한 기능들이 있어요. 이번에 추가된 안티딥보이스 기능은, 말투까지 따라 하는 보이스피싱 범죄자를 실시간으로 걸러줘서, 더 보안에 신경 쓴 기능이에요.",
+            "candidate_text": "저는 그 질문이지요 좋습니다"
+          },
+          "step13": {
+            "similarity": 0.005189219046001161,
+            "similarities": {
+              "cosine": 0.005189219046001161,
+              "euclidean": 0.1127993409643896,
+              "manhattan": 0.03383980228931688,
+              "pearson": 0.181,
+              "jaccard": 0.2,
+              "sentence_enhanced": 0.005189219046001161,
+              "sentence_components": {
+                "baseSimilarity": 0.1127993409643896,
+                "keywordWeighted": 0.03383980228931688,
+                "sttCorrected": 0.181,
+                "completeness": 0.2,
+                "lengthPenalty": 0.04807692307692308
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 15,
+                "expectedLength": 156,
+                "lengthRatio": 0.09615384615384616,
+                "wordCount": 4
+              },
+              "stt_ensemble": 0.158,
+              "stt_enhanced": 0.005189219046001161
+            },
+            "expected_text": "네, 유플러스 대표 AI 기능인 익시오도 무료로 이용 가능하시고, 보이스 피싱 방지, 통화녹음 요약, AI 전화 받기 등 보안에 관한 기능들이 있어요. 이번에 추가된 안티딥보이스 기능은, 말투까지 따라 하는 보이스피싱 범죄자를 실시간으로 걸러줘서, 더 보안에 신경 쓴 기능이에요.",
+            "candidate_text": "저는 그 질문이지요 좋습니다"
+          },
+          "step14": {
+            "similarity": 0.005189219046001161,
+            "similarities": {
+              "cosine": 0.005189219046001161,
+              "euclidean": 0.1127993409643896,
+              "manhattan": 0.03383980228931688,
+              "pearson": 0.181,
+              "jaccard": 0.2,
+              "sentence_enhanced": 0.005189219046001161,
+              "sentence_components": {
+                "baseSimilarity": 0.1127993409643896,
+                "keywordWeighted": 0.03383980228931688,
+                "sttCorrected": 0.181,
+                "completeness": 0.2,
+                "lengthPenalty": 0.04807692307692308
+              },
+              "sentence_analysis": {
+                "keywordIncluded": false,
+                "candidateLength": 15,
+                "expectedLength": 156,
+                "lengthRatio": 0.09615384615384616,
+                "wordCount": 4
+              },
+              "stt_ensemble": 0.158,
+              "stt_enhanced": 0.005189219046001161
+            },
+            "expected_text": "네, 유플러스 대표 AI 기능인 익시오도 무료로 이용 가능하시고, 보이스 피싱 방지, 통화녹음 요약, AI 전화 받기 등 보안에 관한 기능들이 있어요. 이번에 추가된 안티딥보이스 기능은, 말투까지 따라 하는 보이스피싱 범죄자를 실시간으로 걸러줘서, 더 보안에 신경 쓴 기능이에요.",
+            "candidate_text": "저는 그 질문이지요 좋습니다"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "expected_answer": "고객님, 가입 정보 확인 후 정확한 상담 도와드리겠습니다.",
+    "keyword": "정확한",
+    "candidates": [
+      {
+        "log_id": [
+          37319
+        ],
+        "candidate_word": "고객님 가입 정보 확인 후 정확한 상담 도와드리겠습니다",
+        "similarity": 0.9666055677076946,
+        "similarities": {
+          "cosine": 0.7995478255228651,
+          "euclidean": 0.9666055677076946,
+          "manhattan": 0.894249054910331,
+          "pearson": 0.705,
+          "jaccard": 0.75,
+          "sentence_enhanced": 0.7995478255228651,
+          "sentence_components": {
+            "baseSimilarity": 0.9666055677076946,
+            "keywordWeighted": 0.894249054910331,
+            "sttCorrected": 0.705,
+            "completeness": 0.75,
+            "lengthPenalty": 0.9375
+          },
+          "sentence_analysis": {
+            "keywordIncluded": true,
+            "candidateLength": 30,
+            "expectedLength": 32,
+            "lengthRatio": 0.9375,
+            "wordCount": 8
+          },
+          "stt_ensemble": 0.793,
+          "stt_enhanced": 0.7995478255228651
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.7995478255228651,
+            "similarities": {
+              "cosine": 0.7995478255228651,
+              "euclidean": 0.9666055677076946,
+              "manhattan": 0.894249054910331,
+              "pearson": 0.705,
+              "jaccard": 0.75,
+              "sentence_enhanced": 0.7995478255228651,
+              "sentence_components": {
+                "baseSimilarity": 0.9666055677076946,
+                "keywordWeighted": 0.894249054910331,
+                "sttCorrected": 0.705,
+                "completeness": 0.75,
+                "lengthPenalty": 0.9375
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 30,
+                "expectedLength": 32,
+                "lengthRatio": 0.9375,
+                "wordCount": 8
+              },
+              "stt_ensemble": 0.793,
+              "stt_enhanced": 0.7995478255228651
+            },
+            "expected_text": "고객님, 가입 정보 확인 후 정확한 상담 도와드리겠습니다.",
+            "candidate_text": "고객님 가입 정보 확인 후 정확한 상담 도와드리겠습니다"
+          },
+          "step13": {
+            "similarity": 0.7995478255228651,
+            "similarities": {
+              "cosine": 0.7995478255228651,
+              "euclidean": 0.9666055677076946,
+              "manhattan": 0.894249054910331,
+              "pearson": 0.705,
+              "jaccard": 0.75,
+              "sentence_enhanced": 0.7995478255228651,
+              "sentence_components": {
+                "baseSimilarity": 0.9666055677076946,
+                "keywordWeighted": 0.894249054910331,
+                "sttCorrected": 0.705,
+                "completeness": 0.75,
+                "lengthPenalty": 0.9375
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 30,
+                "expectedLength": 32,
+                "lengthRatio": 0.9375,
+                "wordCount": 8
+              },
+              "stt_ensemble": 0.793,
+              "stt_enhanced": 0.7995478255228651
+            },
+            "expected_text": "고객님, 가입 정보 확인 후 정확한 상담 도와드리겠습니다.",
+            "candidate_text": "고객님 가입 정보 확인 후 정확한 상담 도와드리겠습니다"
+          },
+          "step14": {
+            "similarity": 0.7995478255228651,
+            "similarities": {
+              "cosine": 0.7995478255228651,
+              "euclidean": 0.9666055677076946,
+              "manhattan": 0.894249054910331,
+              "pearson": 0.705,
+              "jaccard": 0.75,
+              "sentence_enhanced": 0.7995478255228651,
+              "sentence_components": {
+                "baseSimilarity": 0.9666055677076946,
+                "keywordWeighted": 0.894249054910331,
+                "sttCorrected": 0.705,
+                "completeness": 0.75,
+                "lengthPenalty": 0.9375
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 30,
+                "expectedLength": 32,
+                "lengthRatio": 0.9375,
+                "wordCount": 8
+              },
+              "stt_ensemble": 0.793,
+              "stt_enhanced": 0.7995478255228651
+            },
+            "expected_text": "고객님, 가입 정보 확인 후 정확한 상담 도와드리겠습니다.",
+            "candidate_text": "고객님 가입 정보 확인 후 정확한 상담 도와드리겠습니다"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "expected_answer": "바쁠 때 AI가 알아서 전화 받고, 핵심만 전달해주는 기능이 있습니다. 통화 내용과 고객이 남긴 내용도 확인할 수 있어요.",
+    "keyword": "핵심",
+    "candidates": [
+      {
+        "log_id": [
+          37319
+        ],
+        "candidate_word": "바쁠 때의 AI가 알아서 전화 받고 핵심만 전달해 주는 기능이 있습니다 통화 내용과 고객이 남긴 내용도 확인 할 수 있어요",
+        "similarity": 0.975820947615595,
+        "similarities": {
+          "cosine": 0.8293522643316416,
+          "euclidean": 0.975820947615595,
+          "manhattan": 0.8054925685693569,
+          "pearson": 0.791,
+          "jaccard": 0.7,
+          "sentence_enhanced": 0.8293522643316416,
+          "sentence_components": {
+            "baseSimilarity": 0.975820947615595,
+            "keywordWeighted": 0.8054925685693569,
+            "sttCorrected": 0.791,
+            "completeness": 0.7,
+            "lengthPenalty": 1
+          },
+          "sentence_analysis": {
+            "keywordIncluded": true,
+            "candidateLength": 68,
+            "expectedLength": 68,
+            "lengthRatio": 1,
+            "wordCount": 20
+          },
+          "stt_ensemble": 0.856,
+          "stt_enhanced": 0.8293522643316416
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.8293522643316416,
+            "similarities": {
+              "cosine": 0.8293522643316416,
+              "euclidean": 0.975820947615595,
+              "manhattan": 0.8054925685693569,
+              "pearson": 0.791,
+              "jaccard": 0.7,
+              "sentence_enhanced": 0.8293522643316416,
+              "sentence_components": {
+                "baseSimilarity": 0.975820947615595,
+                "keywordWeighted": 0.8054925685693569,
+                "sttCorrected": 0.791,
+                "completeness": 0.7,
+                "lengthPenalty": 1
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 68,
+                "expectedLength": 68,
+                "lengthRatio": 1,
+                "wordCount": 20
+              },
+              "stt_ensemble": 0.856,
+              "stt_enhanced": 0.8293522643316416
+            },
+            "expected_text": "바쁠 때 AI가 알아서 전화 받고, 핵심만 전달해주는 기능이 있습니다. 통화 내용과 고객이 남긴 내용도 확인할 수 있어요.",
+            "candidate_text": "바쁠 때의 AI가 알아서 전화 받고 핵심만 전달해 주는 기능이 있습니다 통화 내용과 고객이 남긴 내용도 확인 할 수 있어요"
+          },
+          "step13": {
+            "similarity": 0.8293522643316416,
+            "similarities": {
+              "cosine": 0.8293522643316416,
+              "euclidean": 0.975820947615595,
+              "manhattan": 0.8054925685693569,
+              "pearson": 0.791,
+              "jaccard": 0.7,
+              "sentence_enhanced": 0.8293522643316416,
+              "sentence_components": {
+                "baseSimilarity": 0.975820947615595,
+                "keywordWeighted": 0.8054925685693569,
+                "sttCorrected": 0.791,
+                "completeness": 0.7,
+                "lengthPenalty": 1
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 68,
+                "expectedLength": 68,
+                "lengthRatio": 1,
+                "wordCount": 20
+              },
+              "stt_ensemble": 0.856,
+              "stt_enhanced": 0.8293522643316416
+            },
+            "expected_text": "바쁠 때 AI가 알아서 전화 받고, 핵심만 전달해주는 기능이 있습니다. 통화 내용과 고객이 남긴 내용도 확인할 수 있어요.",
+            "candidate_text": "바쁠 때의 AI가 알아서 전화 받고 핵심만 전달해 주는 기능이 있습니다 통화 내용과 고객이 남긴 내용도 확인 할 수 있어요"
+          },
+          "step14": {
+            "similarity": 0.8293522643316416,
+            "similarities": {
+              "cosine": 0.8293522643316416,
+              "euclidean": 0.975820947615595,
+              "manhattan": 0.8054925685693569,
+              "pearson": 0.791,
+              "jaccard": 0.7,
+              "sentence_enhanced": 0.8293522643316416,
+              "sentence_components": {
+                "baseSimilarity": 0.975820947615595,
+                "keywordWeighted": 0.8054925685693569,
+                "sttCorrected": 0.791,
+                "completeness": 0.7,
+                "lengthPenalty": 1
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 68,
+                "expectedLength": 68,
+                "lengthRatio": 1,
+                "wordCount": 20
+              },
+              "stt_ensemble": 0.856,
+              "stt_enhanced": 0.8293522643316416
+            },
+            "expected_text": "바쁠 때 AI가 알아서 전화 받고, 핵심만 전달해주는 기능이 있습니다. 통화 내용과 고객이 남긴 내용도 확인할 수 있어요.",
+            "candidate_text": "바쁠 때의 AI가 알아서 전화 받고 핵심만 전달해 주는 기능이 있습니다 통화 내용과 고객이 남긴 내용도 확인 할 수 있어요"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "expected_answer": "000폰 구매하시면 월 요금이 000원 청구됩니다.",
+    "keyword": "월 요금",
+    "candidates": [
+      {
+        "log_id": [
+          37345,
+          37345
+        ],
+        "candidate_word": "공공분 구매하시면 월 요금이 공공공원 청구됩니다",
+        "similarity": 0.6559323123667926,
+        "similarities": {
+          "cosine": 0.5203777735554621,
+          "euclidean": 0.6559323123667926,
+          "manhattan": 0.49355938742007555,
+          "pearson": 0.545,
+          "jaccard": 0.6,
+          "sentence_enhanced": 0.5203777735554621,
+          "sentence_components": {
+            "baseSimilarity": 0.6559323123667926,
+            "keywordWeighted": 0.49355938742007555,
+            "sttCorrected": 0.545,
+            "completeness": 0.6,
+            "lengthPenalty": 0.9285714285714286
+          },
+          "sentence_analysis": {
+            "keywordIncluded": true,
+            "candidateLength": 26,
+            "expectedLength": 28,
+            "lengthRatio": 0.9285714285714286,
+            "wordCount": 6
+          },
+          "stt_ensemble": 0.577,
+          "stt_enhanced": 0.5203777735554621
+        },
+        "origin_judge": "true",
+        "frequency": 2,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.5203777735554621,
+            "similarities": {
+              "cosine": 0.5203777735554621,
+              "euclidean": 0.6559323123667926,
+              "manhattan": 0.49355938742007555,
+              "pearson": 0.545,
+              "jaccard": 0.6,
+              "sentence_enhanced": 0.5203777735554621,
+              "sentence_components": {
+                "baseSimilarity": 0.6559323123667926,
+                "keywordWeighted": 0.49355938742007555,
+                "sttCorrected": 0.545,
+                "completeness": 0.6,
+                "lengthPenalty": 0.9285714285714286
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 26,
+                "expectedLength": 28,
+                "lengthRatio": 0.9285714285714286,
+                "wordCount": 6
+              },
+              "stt_ensemble": 0.577,
+              "stt_enhanced": 0.5203777735554621
+            },
+            "expected_text": "000폰 구매하시면 월 요금이 000원 청구됩니다.",
+            "candidate_text": "공공분 구매하시면 월 요금이 공공공원 청구됩니다"
+          },
+          "step13": {
+            "similarity": 0.5203777735554621,
+            "similarities": {
+              "cosine": 0.5203777735554621,
+              "euclidean": 0.6559323123667926,
+              "manhattan": 0.49355938742007555,
+              "pearson": 0.545,
+              "jaccard": 0.6,
+              "sentence_enhanced": 0.5203777735554621,
+              "sentence_components": {
+                "baseSimilarity": 0.6559323123667926,
+                "keywordWeighted": 0.49355938742007555,
+                "sttCorrected": 0.545,
+                "completeness": 0.6,
+                "lengthPenalty": 0.9285714285714286
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 26,
+                "expectedLength": 28,
+                "lengthRatio": 0.9285714285714286,
+                "wordCount": 6
+              },
+              "stt_ensemble": 0.577,
+              "stt_enhanced": 0.5203777735554621
+            },
+            "expected_text": "000폰 구매하시면 월 요금이 000원 청구됩니다.",
+            "candidate_text": "공공분 구매하시면 월 요금이 공공공원 청구됩니다"
+          },
+          "step14": {
+            "similarity": 0.508833084401044,
+            "similarities": {
+              "cosine": 0.508833084401044,
+              "euclidean": 0.6282364110907436,
+              "manhattan": 0.47694184665444617,
+              "pearson": 0.567,
+              "jaccard": 0.6,
+              "sentence_enhanced": 0.508833084401044,
+              "sentence_components": {
+                "baseSimilarity": 0.6282364110907436,
+                "keywordWeighted": 0.47694184665444617,
+                "sttCorrected": 0.567,
+                "completeness": 0.6,
+                "lengthPenalty": 0.9230769230769231
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 26,
+                "expectedLength": 24,
+                "lengthRatio": 1.0833333333333333,
+                "wordCount": 6
+              },
+              "stt_ensemble": 0.578,
+              "stt_enhanced": 0.508833084401044
+            },
+            "expected_text": "영폰 구매하시면 월 요금이 영원 청구됩니다.",
+            "candidate_text": "공공분 구매하시면 월 요금이 공공공원 청구됩니다"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "expected_answer": "네, 포토 이레이저 갤럭시 AI 버튼을 한 번만 누르면, 메인 피사체와 배경을 자동으로 판단해서 삭제하는 기능이 있어요. 추가로 오디오 기능도 좋아져서, 오디오 이레이저 갤럭시 AI 한 번만 눌러도 잡음 제거가 가능합니다.",
+    "keyword": "포토",
+    "candidates": [
+      {
+        "log_id": [
+          19117
+        ],
+        "candidate_word": "네 포토 이레이저 갤럭시 AI 버튼을 한 번만 누르면 메인 피사체와 배경을 자동으로 판단해서 삭제하는 기능이 있어요 추가로 오디오 기능도 좋아져서 오디오 이레이저 갤럭시 AI 1번만 눌러도 자금제거가 가능합니다",
+        "similarity": 0.9424979636962141,
+        "similarities": {
+          "cosine": 0.7456145827314835,
+          "euclidean": 0.9424979636962141,
+          "manhattan": 0.8654987782177284,
+          "pearson": 0.667,
+          "jaccard": 0.5,
+          "sentence_enhanced": 0.7456145827314835,
+          "sentence_components": {
+            "baseSimilarity": 0.9424979636962141,
+            "keywordWeighted": 0.8654987782177284,
+            "sttCorrected": 0.667,
+            "completeness": 0.5,
+            "lengthPenalty": 0.9435483870967742
+          },
+          "sentence_analysis": {
+            "keywordIncluded": true,
+            "candidateLength": 117,
+            "expectedLength": 124,
+            "lengthRatio": 0.9435483870967742,
+            "wordCount": 29
+          },
+          "stt_ensemble": 0.76,
+          "stt_enhanced": 0.7456145827314835
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.7504539719483042,
+            "similarities": {
+              "cosine": 0.7504539719483042,
+              "euclidean": 0.9376590357856222,
+              "manhattan": 0.8625954214713732,
+              "pearson": 0.667,
+              "jaccard": 0.55,
+              "sentence_enhanced": 0.7504539719483042,
+              "sentence_components": {
+                "baseSimilarity": 0.9376590357856222,
+                "keywordWeighted": 0.8625954214713732,
+                "sttCorrected": 0.667,
+                "completeness": 0.55,
+                "lengthPenalty": 0.9435483870967742
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 117,
+                "expectedLength": 124,
+                "lengthRatio": 0.9435483870967742,
+                "wordCount": 29
+              },
+              "stt_ensemble": 0.758,
+              "stt_enhanced": 0.7504539719483042
+            },
+            "expected_text": "네, 포토 이레이저 갤럭시 AI 버튼을 한 번만 누르면, 메인 피사체와 배경을 자동으로 판단해서 삭제하는 기능이 있어요. 추가로 오디오 기능도 좋아져서, 오디오 이레이저 갤럭시 AI 한 번만 눌러도 잡음 제거가 가능합니다.",
+            "candidate_text": "네 포토 이레이저 갤럭시 AI 버튼을 한 번만 누르면 메인 피사체와 배경을 자동으로 판단해서 삭제하는 기능이 있어요 추가로 오디오 기능도 좋아져서 오디오 이레이저 갤럭시 AI 1번만 눌러도 자금제거가 가능합니다"
+          },
+          "step13": {
+            "similarity": 0.7504539719483042,
+            "similarities": {
+              "cosine": 0.7504539719483042,
+              "euclidean": 0.9376590357856222,
+              "manhattan": 0.8625954214713732,
+              "pearson": 0.667,
+              "jaccard": 0.55,
+              "sentence_enhanced": 0.7504539719483042,
+              "sentence_components": {
+                "baseSimilarity": 0.9376590357856222,
+                "keywordWeighted": 0.8625954214713732,
+                "sttCorrected": 0.667,
+                "completeness": 0.55,
+                "lengthPenalty": 0.9435483870967742
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 117,
+                "expectedLength": 124,
+                "lengthRatio": 0.9435483870967742,
+                "wordCount": 29
+              },
+              "stt_ensemble": 0.758,
+              "stt_enhanced": 0.7504539719483042
+            },
+            "expected_text": "네, 포토 이레이저 갤럭시 AI 버튼을 한 번만 누르면, 메인 피사체와 배경을 자동으로 판단해서 삭제하는 기능이 있어요. 추가로 오디오 기능도 좋아져서, 오디오 이레이저 갤럭시 AI 한 번만 눌러도 잡음 제거가 가능합니다.",
+            "candidate_text": "네 포토 이레이저 갤럭시 AI 버튼을 한 번만 누르면 메인 피사체와 배경을 자동으로 판단해서 삭제하는 기능이 있어요 추가로 오디오 기능도 좋아져서 오디오 이레이저 갤럭시 AI 1번만 눌러도 자금제거가 가능합니다"
+          },
+          "step14": {
+            "similarity": 0.7456145827314835,
+            "similarities": {
+              "cosine": 0.7456145827314835,
+              "euclidean": 0.9424979636962141,
+              "manhattan": 0.8654987782177284,
+              "pearson": 0.667,
+              "jaccard": 0.5,
+              "sentence_enhanced": 0.7456145827314835,
+              "sentence_components": {
+                "baseSimilarity": 0.9424979636962141,
+                "keywordWeighted": 0.8654987782177284,
+                "sttCorrected": 0.667,
+                "completeness": 0.5,
+                "lengthPenalty": 0.9435483870967742
+              },
+              "sentence_analysis": {
+                "keywordIncluded": true,
+                "candidateLength": 117,
+                "expectedLength": 124,
+                "lengthRatio": 0.9435483870967742,
+                "wordCount": 29
+              },
+              "stt_ensemble": 0.76,
+              "stt_enhanced": 0.7456145827314835
+            },
+            "expected_text": "네, 포토 이레이저 갤럭시 AI 버튼을 한 번만 누르면, 메인 피사체와 배경을 자동으로 판단해서 삭제하는 기능이 있어요. 추가로 오디오 기능도 좋아져서, 오디오 이레이저 갤럭시 AI 한 번만 눌러도 잡음 제거가 가능합니다.",
+            "candidate_text": "네 포토 이레이저 갤럭시 AI 버튼을 한 번만 누르면 메인 피사체와 배경을 자동으로 판단해서 삭제하는 기능이 있어요 추가로 오디오 기능도 좋아져서 오디오 이레이저 갤럭시 AI 일번만 눌러도 자금제거가 가능합니다"
+          }
+        }
+      }
+    ]
+  }
+]

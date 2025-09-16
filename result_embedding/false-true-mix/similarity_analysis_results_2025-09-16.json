@@ -1,0 +1,5049 @@
+[
+  {
+    "id": 1,
+    "expected_answer": "4400",
+    "keyword": null,
+    "candidates": [
+      {
+        "log_id": [
+          3985
+        ],
+        "candidate_word": "사천 사천사백",
+        "similarity": 0.928,
+        "similarities": {
+          "cosine": 0.928,
+          "euclidean": 0.725,
+          "manhattan": 0.078,
+          "pearson": 0.928,
+          "jaccard": 0,
+          "ensemble": 0.75,
+          "stt_jaro_winkler": 0.781,
+          "stt_levenshtein": 0.571,
+          "stt_phonetic": 0.393,
+          "stt_ensemble": 0.731
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.034,
+            "similarities": {
+              "cosine": 0.034,
+              "euclidean": 0.418,
+              "manhattan": 0.023,
+              "pearson": 0.034,
+              "jaccard": 0,
+              "ensemble": 0.128,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.014
+            },
+            "expected_text": "4400",
+            "candidate_text": "사천 사천사백"
+          },
+          "step13": {
+            "similarity": 0.034,
+            "similarities": {
+              "cosine": 0.034,
+              "euclidean": 0.418,
+              "manhattan": 0.023,
+              "pearson": 0.034,
+              "jaccard": 0,
+              "ensemble": 0.128,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.014
+            },
+            "expected_text": "4400",
+            "candidate_text": "사천 사천사백"
+          },
+          "step14": {
+            "similarity": 0.928,
+            "similarities": {
+              "cosine": 0.928,
+              "euclidean": 0.725,
+              "manhattan": 0.078,
+              "pearson": 0.928,
+              "jaccard": 0,
+              "ensemble": 0.75,
+              "stt_jaro_winkler": 0.781,
+              "stt_levenshtein": 0.571,
+              "stt_phonetic": 0.393,
+              "stt_ensemble": 0.731
+            },
+            "expected_text": "사천사백",
+            "candidate_text": "사천 사천사백"
+          }
+        }
+      },
+      {
+        "log_id": [
+          3985
+        ],
+        "candidate_word": "4천 사백",
+        "similarity": 0.908,
+        "similarities": {
+          "cosine": 0.908,
+          "euclidean": 0.7,
+          "manhattan": 0.069,
+          "pearson": 0.908,
+          "jaccard": 0,
+          "ensemble": 0.73,
+          "stt_jaro_winkler": 0.947,
+          "stt_levenshtein": 0.8,
+          "stt_phonetic": 0.45,
+          "stt_ensemble": 0.81
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.259,
+            "similarities": {
+              "cosine": 0.259,
+              "euclidean": 0.451,
+              "manhattan": 0.026,
+              "pearson": 0.259,
+              "jaccard": 0,
+              "ensemble": 0.272,
+              "stt_jaro_winkler": 0.535,
+              "stt_levenshtein": 0.2,
+              "stt_phonetic": 0.225,
+              "stt_ensemble": 0.312
+            },
+            "expected_text": "4400",
+            "candidate_text": "4천 사백"
+          },
+          "step13": {
+            "similarity": 0.259,
+            "similarities": {
+              "cosine": 0.259,
+              "euclidean": 0.451,
+              "manhattan": 0.026,
+              "pearson": 0.259,
+              "jaccard": 0,
+              "ensemble": 0.272,
+              "stt_jaro_winkler": 0.535,
+              "stt_levenshtein": 0.2,
+              "stt_phonetic": 0.225,
+              "stt_ensemble": 0.312
+            },
+            "expected_text": "4400",
+            "candidate_text": "4천 사백"
+          },
+          "step14": {
+            "similarity": 0.908,
+            "similarities": {
+              "cosine": 0.908,
+              "euclidean": 0.7,
+              "manhattan": 0.069,
+              "pearson": 0.908,
+              "jaccard": 0,
+              "ensemble": 0.73,
+              "stt_jaro_winkler": 0.947,
+              "stt_levenshtein": 0.8,
+              "stt_phonetic": 0.45,
+              "stt_ensemble": 0.81
+            },
+            "expected_text": "사천사백",
+            "candidate_text": "사천 사백"
+          }
+        }
+      },
+      {
+        "log_id": [
+          3985
+        ],
+        "candidate_word": "4천 사4000",
+        "similarity": 0.758,
+        "similarities": {
+          "cosine": 0.758,
+          "euclidean": 0.59,
+          "manhattan": 0.044,
+          "pearson": 0.758,
+          "jaccard": 0,
+          "ensemble": 0.609,
+          "stt_jaro_winkler": 0.8,
+          "stt_levenshtein": 0.5,
+          "stt_phonetic": 0.417,
+          "stt_ensemble": 0.662
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.473,
+            "similarities": {
+              "cosine": 0.473,
+              "euclidean": 0.493,
+              "manhattan": 0.03,
+              "pearson": 0.473,
+              "jaccard": 0,
+              "ensemble": 0.412,
+              "stt_jaro_winkler": 0.85,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.188,
+              "stt_ensemble": 0.514
+            },
+            "expected_text": "4400",
+            "candidate_text": "4천 사4000"
+          },
+          "step13": {
+            "similarity": 0.473,
+            "similarities": {
+              "cosine": 0.473,
+              "euclidean": 0.493,
+              "manhattan": 0.03,
+              "pearson": 0.473,
+              "jaccard": 0,
+              "ensemble": 0.412,
+              "stt_jaro_winkler": 0.85,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.188,
+              "stt_ensemble": 0.514
+            },
+            "expected_text": "4400",
+            "candidate_text": "4천 사4000"
+          },
+          "step14": {
+            "similarity": 0.758,
+            "similarities": {
+              "cosine": 0.758,
+              "euclidean": 0.59,
+              "manhattan": 0.044,
+              "pearson": 0.758,
+              "jaccard": 0,
+              "ensemble": 0.609,
+              "stt_jaro_winkler": 0.8,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.417,
+              "stt_ensemble": 0.662
+            },
+            "expected_text": "사천사백",
+            "candidate_text": "사천 사사천"
+          }
+        }
+      },
+      {
+        "log_id": [
+          7937
+        ],
+        "candidate_word": "4만 4000",
+        "similarity": 0.61,
+        "similarities": {
+          "cosine": 0.61,
+          "euclidean": 0.531,
+          "manhattan": 0.035,
+          "pearson": 0.61,
+          "jaccard": 0,
+          "ensemble": 0.504,
+          "stt_jaro_winkler": 0.871,
+          "stt_levenshtein": 0.571,
+          "stt_phonetic": 0.196,
+          "stt_ensemble": 0.587
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.61,
+            "similarities": {
+              "cosine": 0.61,
+              "euclidean": 0.531,
+              "manhattan": 0.035,
+              "pearson": 0.61,
+              "jaccard": 0,
+              "ensemble": 0.504,
+              "stt_jaro_winkler": 0.871,
+              "stt_levenshtein": 0.571,
+              "stt_phonetic": 0.196,
+              "stt_ensemble": 0.587
+            },
+            "expected_text": "4400",
+            "candidate_text": "4만 4000"
+          },
+          "step13": {
+            "similarity": 0.61,
+            "similarities": {
+              "cosine": 0.61,
+              "euclidean": 0.531,
+              "manhattan": 0.035,
+              "pearson": 0.61,
+              "jaccard": 0,
+              "ensemble": 0.504,
+              "stt_jaro_winkler": 0.871,
+              "stt_levenshtein": 0.571,
+              "stt_phonetic": 0.196,
+              "stt_ensemble": 0.587
+            },
+            "expected_text": "4400",
+            "candidate_text": "4만 4000"
+          },
+          "step14": {
+            "similarity": 0.385,
+            "similarities": {
+              "cosine": 0.385,
+              "euclidean": 0.474,
+              "manhattan": 0.028,
+              "pearson": 0.385,
+              "jaccard": 0,
+              "ensemble": 0.354,
+              "stt_jaro_winkler": 0.67,
+              "stt_levenshtein": 0.4,
+              "stt_phonetic": 0.225,
+              "stt_ensemble": 0.427
+            },
+            "expected_text": "사천사백",
+            "candidate_text": "사만 사천"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "expected_answer": "스냅드래곤 8",
+    "keyword": null,
+    "candidates": [
+      {
+        "log_id": [
+          7344
+        ],
+        "candidate_word": "스냅드래곤",
+        "similarity": 0.85,
+        "similarities": {
+          "cosine": 0.85,
+          "euclidean": 0.646,
+          "manhattan": 0.056,
+          "pearson": 0.85,
+          "jaccard": 0,
+          "ensemble": 0.68,
+          "stt_jaro_winkler": 0.943,
+          "stt_levenshtein": 0.714,
+          "stt_phonetic": 0.857,
+          "stt_ensemble": 0.854
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.756,
+            "similarities": {
+              "cosine": 0.756,
+              "euclidean": 0.589,
+              "manhattan": 0.044,
+              "pearson": 0.756,
+              "jaccard": 0,
+              "ensemble": 0.608,
+              "stt_jaro_winkler": 0.943,
+              "stt_levenshtein": 0.714,
+              "stt_phonetic": 0.857,
+              "stt_ensemble": 0.817
+            },
+            "expected_text": "스냅드래곤 8",
+            "candidate_text": "스냅드래곤"
+          },
+          "step13": {
+            "similarity": 0.756,
+            "similarities": {
+              "cosine": 0.756,
+              "euclidean": 0.589,
+              "manhattan": 0.044,
+              "pearson": 0.756,
+              "jaccard": 0,
+              "ensemble": 0.608,
+              "stt_jaro_winkler": 0.943,
+              "stt_levenshtein": 0.714,
+              "stt_phonetic": 0.857,
+              "stt_ensemble": 0.817
+            },
+            "expected_text": "스냅드래곤 8",
+            "candidate_text": "스냅드래곤"
+          },
+          "step14": {
+            "similarity": 0.85,
+            "similarities": {
+              "cosine": 0.85,
+              "euclidean": 0.646,
+              "manhattan": 0.056,
+              "pearson": 0.85,
+              "jaccard": 0,
+              "ensemble": 0.68,
+              "stt_jaro_winkler": 0.943,
+              "stt_levenshtein": 0.714,
+              "stt_phonetic": 0.857,
+              "stt_ensemble": 0.854
+            },
+            "expected_text": "스냅드래곤 팔",
+            "candidate_text": "스냅드래곤"
+          }
+        }
+      },
+      {
+        "log_id": [
+          7344
+        ],
+        "candidate_word": "드래곤 팔",
+        "similarity": 0.792,
+        "similarities": {
+          "cosine": 0.792,
+          "euclidean": 0.608,
+          "manhattan": 0.048,
+          "pearson": 0.793,
+          "jaccard": 0,
+          "ensemble": 0.635,
+          "stt_jaro_winkler": 0.905,
+          "stt_levenshtein": 0.714,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.65
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step13",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.47,
+            "similarities": {
+              "cosine": 0.47,
+              "euclidean": 0.493,
+              "manhattan": 0.03,
+              "pearson": 0.47,
+              "jaccard": 0,
+              "ensemble": 0.41,
+              "stt_jaro_winkler": 0.79,
+              "stt_levenshtein": 0.571,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.471
+            },
+            "expected_text": "스냅드래곤 8",
+            "candidate_text": "드래곤 팔"
+          },
+          "step13": {
+            "similarity": 0.792,
+            "similarities": {
+              "cosine": 0.792,
+              "euclidean": 0.608,
+              "manhattan": 0.048,
+              "pearson": 0.793,
+              "jaccard": 0,
+              "ensemble": 0.635,
+              "stt_jaro_winkler": 0.905,
+              "stt_levenshtein": 0.714,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.65
+            },
+            "expected_text": "스냅드래곤 8",
+            "candidate_text": "드래곤 8"
+          },
+          "step14": {
+            "similarity": 0.679,
+            "similarities": {
+              "cosine": 0.679,
+              "euclidean": 0.555,
+              "manhattan": 0.038,
+              "pearson": 0.679,
+              "jaccard": 0,
+              "ensemble": 0.552,
+              "stt_jaro_winkler": 0.905,
+              "stt_levenshtein": 0.714,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.605
+            },
+            "expected_text": "스냅드래곤 팔",
+            "candidate_text": "드래곤 팔"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "expected_answer": "안티딥보이스",
+    "keyword": null,
+    "candidates": [
+      {
+        "log_id": [
+          913
+        ],
+        "candidate_word": "안티디딥 보이스",
+        "similarity": 0.808,
+        "similarities": {
+          "cosine": 0.808,
+          "euclidean": 0.618,
+          "manhattan": 0.05,
+          "pearson": 0.808,
+          "jaccard": 0,
+          "ensemble": 0.647,
+          "stt_jaro_winkler": 0.933,
+          "stt_levenshtein": 0.75,
+          "stt_phonetic": 0.292,
+          "stt_ensemble": 0.727
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.808,
+            "similarities": {
+              "cosine": 0.808,
+              "euclidean": 0.618,
+              "manhattan": 0.05,
+              "pearson": 0.808,
+              "jaccard": 0,
+              "ensemble": 0.647,
+              "stt_jaro_winkler": 0.933,
+              "stt_levenshtein": 0.75,
+              "stt_phonetic": 0.292,
+              "stt_ensemble": 0.727
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티디딥 보이스"
+          },
+          "step13": {
+            "similarity": 0.808,
+            "similarities": {
+              "cosine": 0.808,
+              "euclidean": 0.618,
+              "manhattan": 0.05,
+              "pearson": 0.808,
+              "jaccard": 0,
+              "ensemble": 0.647,
+              "stt_jaro_winkler": 0.933,
+              "stt_levenshtein": 0.75,
+              "stt_phonetic": 0.292,
+              "stt_ensemble": 0.727
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티디딥 보이스"
+          },
+          "step14": {
+            "similarity": 0.808,
+            "similarities": {
+              "cosine": 0.808,
+              "euclidean": 0.618,
+              "manhattan": 0.05,
+              "pearson": 0.808,
+              "jaccard": 0,
+              "ensemble": 0.647,
+              "stt_jaro_winkler": 0.933,
+              "stt_levenshtein": 0.75,
+              "stt_phonetic": 0.292,
+              "stt_ensemble": 0.727
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티디딥 보이스"
+          }
+        }
+      },
+      {
+        "log_id": [
+          26956
+        ],
+        "candidate_word": "안티 보이스피싱",
+        "similarity": 0.743,
+        "similarities": {
+          "cosine": 0.743,
+          "euclidean": 0.583,
+          "manhattan": 0.043,
+          "pearson": 0.744,
+          "jaccard": 0,
+          "ensemble": 0.598,
+          "stt_jaro_winkler": 0.856,
+          "stt_levenshtein": 0.625,
+          "stt_phonetic": 0.729,
+          "stt_ensemble": 0.751
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.743,
+            "similarities": {
+              "cosine": 0.743,
+              "euclidean": 0.583,
+              "manhattan": 0.043,
+              "pearson": 0.744,
+              "jaccard": 0,
+              "ensemble": 0.598,
+              "stt_jaro_winkler": 0.856,
+              "stt_levenshtein": 0.625,
+              "stt_phonetic": 0.729,
+              "stt_ensemble": 0.751
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티 보이스피싱"
+          },
+          "step13": {
+            "similarity": 0.743,
+            "similarities": {
+              "cosine": 0.743,
+              "euclidean": 0.583,
+              "manhattan": 0.043,
+              "pearson": 0.744,
+              "jaccard": 0,
+              "ensemble": 0.598,
+              "stt_jaro_winkler": 0.856,
+              "stt_levenshtein": 0.625,
+              "stt_phonetic": 0.729,
+              "stt_ensemble": 0.751
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티 보이스피싱"
+          },
+          "step14": {
+            "similarity": 0.743,
+            "similarities": {
+              "cosine": 0.743,
+              "euclidean": 0.583,
+              "manhattan": 0.043,
+              "pearson": 0.744,
+              "jaccard": 0,
+              "ensemble": 0.598,
+              "stt_jaro_winkler": 0.856,
+              "stt_levenshtein": 0.625,
+              "stt_phonetic": 0.729,
+              "stt_ensemble": 0.751
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티 보이스피싱"
+          }
+        }
+      },
+      {
+        "log_id": [
+          2315
+        ],
+        "candidate_word": "안티빗 보이스",
+        "similarity": 0.695,
+        "similarities": {
+          "cosine": 0.695,
+          "euclidean": 0.562,
+          "manhattan": 0.04,
+          "pearson": 0.695,
+          "jaccard": 0,
+          "ensemble": 0.564,
+          "stt_jaro_winkler": 0.879,
+          "stt_levenshtein": 0.714,
+          "stt_phonetic": 0.31,
+          "stt_ensemble": 0.667
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.695,
+            "similarities": {
+              "cosine": 0.695,
+              "euclidean": 0.562,
+              "manhattan": 0.04,
+              "pearson": 0.695,
+              "jaccard": 0,
+              "ensemble": 0.564,
+              "stt_jaro_winkler": 0.879,
+              "stt_levenshtein": 0.714,
+              "stt_phonetic": 0.31,
+              "stt_ensemble": 0.667
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티빗 보이스"
+          },
+          "step13": {
+            "similarity": 0.695,
+            "similarities": {
+              "cosine": 0.695,
+              "euclidean": 0.562,
+              "manhattan": 0.04,
+              "pearson": 0.695,
+              "jaccard": 0,
+              "ensemble": 0.564,
+              "stt_jaro_winkler": 0.879,
+              "stt_levenshtein": 0.714,
+              "stt_phonetic": 0.31,
+              "stt_ensemble": 0.667
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티빗 보이스"
+          },
+          "step14": {
+            "similarity": 0.695,
+            "similarities": {
+              "cosine": 0.695,
+              "euclidean": 0.562,
+              "manhattan": 0.04,
+              "pearson": 0.695,
+              "jaccard": 0,
+              "ensemble": 0.564,
+              "stt_jaro_winkler": 0.879,
+              "stt_levenshtein": 0.714,
+              "stt_phonetic": 0.31,
+              "stt_ensemble": 0.667
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티빗 보이스"
+          }
+        }
+      },
+      {
+        "log_id": [
+          27906
+        ],
+        "candidate_word": "안티 디보이 보이스",
+        "similarity": 0.686,
+        "similarities": {
+          "cosine": 0.686,
+          "euclidean": 0.558,
+          "manhattan": 0.039,
+          "pearson": 0.686,
+          "jaccard": 0,
+          "ensemble": 0.557,
+          "stt_jaro_winkler": 0.822,
+          "stt_levenshtein": 0.5,
+          "stt_phonetic": 0.267,
+          "stt_ensemble": 0.608
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.686,
+            "similarities": {
+              "cosine": 0.686,
+              "euclidean": 0.558,
+              "manhattan": 0.039,
+              "pearson": 0.686,
+              "jaccard": 0,
+              "ensemble": 0.557,
+              "stt_jaro_winkler": 0.822,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.267,
+              "stt_ensemble": 0.608
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티 디보이 보이스"
+          },
+          "step13": {
+            "similarity": 0.686,
+            "similarities": {
+              "cosine": 0.686,
+              "euclidean": 0.558,
+              "manhattan": 0.039,
+              "pearson": 0.686,
+              "jaccard": 0,
+              "ensemble": 0.557,
+              "stt_jaro_winkler": 0.822,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.267,
+              "stt_ensemble": 0.608
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티 디보이 보이스"
+          },
+          "step14": {
+            "similarity": 0.686,
+            "similarities": {
+              "cosine": 0.686,
+              "euclidean": 0.558,
+              "manhattan": 0.039,
+              "pearson": 0.686,
+              "jaccard": 0,
+              "ensemble": 0.557,
+              "stt_jaro_winkler": 0.822,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.267,
+              "stt_ensemble": 0.608
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티 디보이 보이스"
+          }
+        }
+      },
+      {
+        "log_id": [
+          19342
+        ],
+        "candidate_word": "안티 디폴이스",
+        "similarity": 0.655,
+        "similarities": {
+          "cosine": 0.655,
+          "euclidean": 0.546,
+          "manhattan": 0.037,
+          "pearson": 0.655,
+          "jaccard": 0,
+          "ensemble": 0.535,
+          "stt_jaro_winkler": 0.797,
+          "stt_levenshtein": 0.571,
+          "stt_phonetic": 0.31,
+          "stt_ensemble": 0.609
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.655,
+            "similarities": {
+              "cosine": 0.655,
+              "euclidean": 0.546,
+              "manhattan": 0.037,
+              "pearson": 0.655,
+              "jaccard": 0,
+              "ensemble": 0.535,
+              "stt_jaro_winkler": 0.797,
+              "stt_levenshtein": 0.571,
+              "stt_phonetic": 0.31,
+              "stt_ensemble": 0.609
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티 디폴이스"
+          },
+          "step13": {
+            "similarity": 0.655,
+            "similarities": {
+              "cosine": 0.655,
+              "euclidean": 0.546,
+              "manhattan": 0.037,
+              "pearson": 0.655,
+              "jaccard": 0,
+              "ensemble": 0.535,
+              "stt_jaro_winkler": 0.797,
+              "stt_levenshtein": 0.571,
+              "stt_phonetic": 0.31,
+              "stt_ensemble": 0.609
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티 디폴이스"
+          },
+          "step14": {
+            "similarity": 0.655,
+            "similarities": {
+              "cosine": 0.655,
+              "euclidean": 0.546,
+              "manhattan": 0.037,
+              "pearson": 0.655,
+              "jaccard": 0,
+              "ensemble": 0.535,
+              "stt_jaro_winkler": 0.797,
+              "stt_levenshtein": 0.571,
+              "stt_phonetic": 0.31,
+              "stt_ensemble": 0.609
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티 디폴이스"
+          }
+        }
+      },
+      {
+        "log_id": [
+          27269
+        ],
+        "candidate_word": "안티릿 보이즈요",
+        "similarity": 0.626,
+        "similarities": {
+          "cosine": 0.626,
+          "euclidean": 0.536,
+          "manhattan": 0.036,
+          "pearson": 0.626,
+          "jaccard": 0,
+          "ensemble": 0.515,
+          "stt_jaro_winkler": 0.778,
+          "stt_levenshtein": 0.5,
+          "stt_phonetic": 0.292,
+          "stt_ensemble": 0.578
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.626,
+            "similarities": {
+              "cosine": 0.626,
+              "euclidean": 0.536,
+              "manhattan": 0.036,
+              "pearson": 0.626,
+              "jaccard": 0,
+              "ensemble": 0.515,
+              "stt_jaro_winkler": 0.778,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.292,
+              "stt_ensemble": 0.578
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티릿 보이즈요"
+          },
+          "step13": {
+            "similarity": 0.626,
+            "similarities": {
+              "cosine": 0.626,
+              "euclidean": 0.536,
+              "manhattan": 0.036,
+              "pearson": 0.626,
+              "jaccard": 0,
+              "ensemble": 0.515,
+              "stt_jaro_winkler": 0.778,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.292,
+              "stt_ensemble": 0.578
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티릿 보이즈요"
+          },
+          "step14": {
+            "similarity": 0.626,
+            "similarities": {
+              "cosine": 0.626,
+              "euclidean": 0.536,
+              "manhattan": 0.036,
+              "pearson": 0.626,
+              "jaccard": 0,
+              "ensemble": 0.515,
+              "stt_jaro_winkler": 0.778,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.292,
+              "stt_ensemble": 0.578
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티릿 보이즈요"
+          }
+        }
+      },
+      {
+        "log_id": [
+          31355
+        ],
+        "candidate_word": "안티릿 보이스 티",
+        "similarity": 0.62,
+        "similarities": {
+          "cosine": 0.62,
+          "euclidean": 0.534,
+          "manhattan": 0.036,
+          "pearson": 0.62,
+          "jaccard": 0,
+          "ensemble": 0.511,
+          "stt_jaro_winkler": 0.837,
+          "stt_levenshtein": 0.556,
+          "stt_phonetic": 0.278,
+          "stt_ensemble": 0.596
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.62,
+            "similarities": {
+              "cosine": 0.62,
+              "euclidean": 0.534,
+              "manhattan": 0.036,
+              "pearson": 0.62,
+              "jaccard": 0,
+              "ensemble": 0.511,
+              "stt_jaro_winkler": 0.837,
+              "stt_levenshtein": 0.556,
+              "stt_phonetic": 0.278,
+              "stt_ensemble": 0.596
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티릿 보이스 티"
+          },
+          "step13": {
+            "similarity": 0.62,
+            "similarities": {
+              "cosine": 0.62,
+              "euclidean": 0.534,
+              "manhattan": 0.036,
+              "pearson": 0.62,
+              "jaccard": 0,
+              "ensemble": 0.511,
+              "stt_jaro_winkler": 0.837,
+              "stt_levenshtein": 0.556,
+              "stt_phonetic": 0.278,
+              "stt_ensemble": 0.596
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티릿 보이스 티"
+          },
+          "step14": {
+            "similarity": 0.62,
+            "similarities": {
+              "cosine": 0.62,
+              "euclidean": 0.534,
+              "manhattan": 0.036,
+              "pearson": 0.62,
+              "jaccard": 0,
+              "ensemble": 0.511,
+              "stt_jaro_winkler": 0.837,
+              "stt_levenshtein": 0.556,
+              "stt_phonetic": 0.278,
+              "stt_ensemble": 0.596
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티릿 보이스 티"
+          }
+        }
+      },
+      {
+        "log_id": [
+          32284
+        ],
+        "candidate_word": "안티 DDID 보이스",
+        "similarity": 0.597,
+        "similarities": {
+          "cosine": 0.597,
+          "euclidean": 0.527,
+          "manhattan": 0.035,
+          "pearson": 0.597,
+          "jaccard": 0,
+          "ensemble": 0.495,
+          "stt_jaro_winkler": 0.604,
+          "stt_levenshtein": 0.455,
+          "stt_phonetic": 0.258,
+          "stt_ensemble": 0.51
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.597,
+            "similarities": {
+              "cosine": 0.597,
+              "euclidean": 0.527,
+              "manhattan": 0.035,
+              "pearson": 0.597,
+              "jaccard": 0,
+              "ensemble": 0.495,
+              "stt_jaro_winkler": 0.604,
+              "stt_levenshtein": 0.455,
+              "stt_phonetic": 0.258,
+              "stt_ensemble": 0.51
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티 DDID 보이스"
+          },
+          "step13": {
+            "similarity": 0.597,
+            "similarities": {
+              "cosine": 0.597,
+              "euclidean": 0.527,
+              "manhattan": 0.035,
+              "pearson": 0.597,
+              "jaccard": 0,
+              "ensemble": 0.495,
+              "stt_jaro_winkler": 0.604,
+              "stt_levenshtein": 0.455,
+              "stt_phonetic": 0.258,
+              "stt_ensemble": 0.51
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티 DDID 보이스"
+          },
+          "step14": {
+            "similarity": 0.597,
+            "similarities": {
+              "cosine": 0.597,
+              "euclidean": 0.527,
+              "manhattan": 0.035,
+              "pearson": 0.597,
+              "jaccard": 0,
+              "ensemble": 0.495,
+              "stt_jaro_winkler": 0.604,
+              "stt_levenshtein": 0.455,
+              "stt_phonetic": 0.258,
+              "stt_ensemble": 0.51
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티 DDID 보이스"
+          }
+        }
+      },
+      {
+        "log_id": [
+          36859
+        ],
+        "candidate_word": "안티드 뽀이스",
+        "similarity": 0.576,
+        "similarities": {
+          "cosine": 0.576,
+          "euclidean": 0.521,
+          "manhattan": 0.034,
+          "pearson": 0.576,
+          "jaccard": 0,
+          "ensemble": 0.481,
+          "stt_jaro_winkler": 0.797,
+          "stt_levenshtein": 0.571,
+          "stt_phonetic": 0.31,
+          "stt_ensemble": 0.577
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.576,
+            "similarities": {
+              "cosine": 0.576,
+              "euclidean": 0.521,
+              "manhattan": 0.034,
+              "pearson": 0.576,
+              "jaccard": 0,
+              "ensemble": 0.481,
+              "stt_jaro_winkler": 0.797,
+              "stt_levenshtein": 0.571,
+              "stt_phonetic": 0.31,
+              "stt_ensemble": 0.577
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티드 뽀이스"
+          },
+          "step13": {
+            "similarity": 0.576,
+            "similarities": {
+              "cosine": 0.576,
+              "euclidean": 0.521,
+              "manhattan": 0.034,
+              "pearson": 0.576,
+              "jaccard": 0,
+              "ensemble": 0.481,
+              "stt_jaro_winkler": 0.797,
+              "stt_levenshtein": 0.571,
+              "stt_phonetic": 0.31,
+              "stt_ensemble": 0.577
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티드 뽀이스"
+          },
+          "step14": {
+            "similarity": 0.576,
+            "similarities": {
+              "cosine": 0.576,
+              "euclidean": 0.521,
+              "manhattan": 0.034,
+              "pearson": 0.576,
+              "jaccard": 0,
+              "ensemble": 0.481,
+              "stt_jaro_winkler": 0.797,
+              "stt_levenshtein": 0.571,
+              "stt_phonetic": 0.31,
+              "stt_ensemble": 0.577
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티드 뽀이스"
+          }
+        }
+      },
+      {
+        "log_id": [
+          27428
+        ],
+        "candidate_word": "안티뽀이스",
+        "similarity": 0.569,
+        "similarities": {
+          "cosine": 0.569,
+          "euclidean": 0.519,
+          "manhattan": 0.034,
+          "pearson": 0.569,
+          "jaccard": 0,
+          "ensemble": 0.476,
+          "stt_jaro_winkler": 0.858,
+          "stt_levenshtein": 0.667,
+          "stt_phonetic": 0.367,
+          "stt_ensemble": 0.616
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.569,
+            "similarities": {
+              "cosine": 0.569,
+              "euclidean": 0.519,
+              "manhattan": 0.034,
+              "pearson": 0.569,
+              "jaccard": 0,
+              "ensemble": 0.476,
+              "stt_jaro_winkler": 0.858,
+              "stt_levenshtein": 0.667,
+              "stt_phonetic": 0.367,
+              "stt_ensemble": 0.616
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티뽀이스"
+          },
+          "step13": {
+            "similarity": 0.569,
+            "similarities": {
+              "cosine": 0.569,
+              "euclidean": 0.519,
+              "manhattan": 0.034,
+              "pearson": 0.569,
+              "jaccard": 0,
+              "ensemble": 0.476,
+              "stt_jaro_winkler": 0.858,
+              "stt_levenshtein": 0.667,
+              "stt_phonetic": 0.367,
+              "stt_ensemble": 0.616
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티뽀이스"
+          },
+          "step14": {
+            "similarity": 0.569,
+            "similarities": {
+              "cosine": 0.569,
+              "euclidean": 0.519,
+              "manhattan": 0.034,
+              "pearson": 0.569,
+              "jaccard": 0,
+              "ensemble": 0.476,
+              "stt_jaro_winkler": 0.858,
+              "stt_levenshtein": 0.667,
+              "stt_phonetic": 0.367,
+              "stt_ensemble": 0.616
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "안티뽀이스"
+          }
+        }
+      },
+      {
+        "log_id": [
+          35644
+        ],
+        "candidate_word": "딥 보이스",
+        "similarity": 0.537,
+        "similarities": {
+          "cosine": 0.537,
+          "euclidean": 0.51,
+          "manhattan": 0.032,
+          "pearson": 0.537,
+          "jaccard": 0,
+          "ensemble": 0.455,
+          "stt_jaro_winkler": 0.822,
+          "stt_levenshtein": 0.5,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.495
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.537,
+            "similarities": {
+              "cosine": 0.537,
+              "euclidean": 0.51,
+              "manhattan": 0.032,
+              "pearson": 0.537,
+              "jaccard": 0,
+              "ensemble": 0.455,
+              "stt_jaro_winkler": 0.822,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.495
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "딥 보이스"
+          },
+          "step13": {
+            "similarity": 0.537,
+            "similarities": {
+              "cosine": 0.537,
+              "euclidean": 0.51,
+              "manhattan": 0.032,
+              "pearson": 0.537,
+              "jaccard": 0,
+              "ensemble": 0.455,
+              "stt_jaro_winkler": 0.822,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.495
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "딥 보이스"
+          },
+          "step14": {
+            "similarity": 0.537,
+            "similarities": {
+              "cosine": 0.537,
+              "euclidean": 0.51,
+              "manhattan": 0.032,
+              "pearson": 0.537,
+              "jaccard": 0,
+              "ensemble": 0.455,
+              "stt_jaro_winkler": 0.822,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.495
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "딥 보이스"
+          }
+        }
+      },
+      {
+        "log_id": [
+          23569
+        ],
+        "candidate_word": "아 예 음식점마다 안티집 보이스미라나",
+        "similarity": 0.351,
+        "similarities": {
+          "cosine": 0.351,
+          "euclidean": 0.467,
+          "manhattan": 0.028,
+          "pearson": 0.351,
+          "jaccard": 0,
+          "ensemble": 0.331,
+          "stt_jaro_winkler": 0,
+          "stt_levenshtein": 0.25,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.178
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.351,
+            "similarities": {
+              "cosine": 0.351,
+              "euclidean": 0.467,
+              "manhattan": 0.028,
+              "pearson": 0.351,
+              "jaccard": 0,
+              "ensemble": 0.331,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.25,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.178
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "아 예 음식점마다 안티집 보이스미라나"
+          },
+          "step13": {
+            "similarity": 0.351,
+            "similarities": {
+              "cosine": 0.351,
+              "euclidean": 0.467,
+              "manhattan": 0.028,
+              "pearson": 0.351,
+              "jaccard": 0,
+              "ensemble": 0.331,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.25,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.178
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "아 예 음식점마다 안티집 보이스미라나"
+          },
+          "step14": {
+            "similarity": 0.351,
+            "similarities": {
+              "cosine": 0.351,
+              "euclidean": 0.467,
+              "manhattan": 0.028,
+              "pearson": 0.351,
+              "jaccard": 0,
+              "ensemble": 0.331,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.25,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.178
+            },
+            "expected_text": "안티딥보이스",
+            "candidate_text": "아 예 음식점마다 안티집 보이스미라나"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "expected_answer": "5만원",
+    "keyword": null,
+    "candidates": [
+      {
+        "log_id": [
+          34879
+        ],
+        "candidate_word": "50000원",
+        "similarity": 1,
+        "similarities": {
+          "cosine": 1,
+          "euclidean": 1,
+          "manhattan": 1,
+          "pearson": 1,
+          "jaccard": 0,
+          "ensemble": 1,
+          "stt_jaro_winkler": 1,
+          "stt_levenshtein": 1,
+          "stt_phonetic": 1,
+          "stt_ensemble": 1
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.662,
+            "similarities": {
+              "cosine": 0.662,
+              "euclidean": 0.549,
+              "manhattan": 0.038,
+              "pearson": 0.662,
+              "jaccard": 0,
+              "ensemble": 0.54,
+              "stt_jaro_winkler": 0.55,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0.25,
+              "stt_ensemble": 0.502
+            },
+            "expected_text": "5만원",
+            "candidate_text": "50000원"
+          },
+          "step13": {
+            "similarity": 0.662,
+            "similarities": {
+              "cosine": 0.662,
+              "euclidean": 0.549,
+              "manhattan": 0.038,
+              "pearson": 0.662,
+              "jaccard": 0,
+              "ensemble": 0.54,
+              "stt_jaro_winkler": 0.55,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0.25,
+              "stt_ensemble": 0.502
+            },
+            "expected_text": "5만원",
+            "candidate_text": "50000원"
+          },
+          "step14": {
+            "similarity": 1,
+            "similarities": {
+              "cosine": 1,
+              "euclidean": 1,
+              "manhattan": 1,
+              "pearson": 1,
+              "jaccard": 0,
+              "ensemble": 1,
+              "stt_jaro_winkler": 1,
+              "stt_levenshtein": 1,
+              "stt_phonetic": 1,
+              "stt_ensemble": 1
+            },
+            "expected_text": "오만원",
+            "candidate_text": "오만원"
+          }
+        }
+      },
+      {
+        "log_id": [
+          36274
+        ],
+        "candidate_word": "오만",
+        "similarity": 0.879,
+        "similarities": {
+          "cosine": 0.879,
+          "euclidean": 0.671,
+          "manhattan": 0.061,
+          "pearson": 0.879,
+          "jaccard": 0,
+          "ensemble": 0.704,
+          "stt_jaro_winkler": 0.911,
+          "stt_levenshtein": 0.667,
+          "stt_phonetic": 0.833,
+          "stt_ensemble": 0.846
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.186,
+            "similarities": {
+              "cosine": 0.186,
+              "euclidean": 0.439,
+              "manhattan": 0.024,
+              "pearson": 0.187,
+              "jaccard": 0,
+              "ensemble": 0.225,
+              "stt_jaro_winkler": 0.611,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0.417,
+              "stt_ensemble": 0.361
+            },
+            "expected_text": "5만원",
+            "candidate_text": "오만"
+          },
+          "step13": {
+            "similarity": 0.186,
+            "similarities": {
+              "cosine": 0.186,
+              "euclidean": 0.439,
+              "manhattan": 0.024,
+              "pearson": 0.187,
+              "jaccard": 0,
+              "ensemble": 0.225,
+              "stt_jaro_winkler": 0.611,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0.417,
+              "stt_ensemble": 0.361
+            },
+            "expected_text": "5만원",
+            "candidate_text": "오만"
+          },
+          "step14": {
+            "similarity": 0.879,
+            "similarities": {
+              "cosine": 0.879,
+              "euclidean": 0.671,
+              "manhattan": 0.061,
+              "pearson": 0.879,
+              "jaccard": 0,
+              "ensemble": 0.704,
+              "stt_jaro_winkler": 0.911,
+              "stt_levenshtein": 0.667,
+              "stt_phonetic": 0.833,
+              "stt_ensemble": 0.846
+            },
+            "expected_text": "오만원",
+            "candidate_text": "오만"
+          }
+        }
+      },
+      {
+        "log_id": [
+          8697
+        ],
+        "candidate_word": "5만",
+        "similarity": 0.879,
+        "similarities": {
+          "cosine": 0.879,
+          "euclidean": 0.671,
+          "manhattan": 0.061,
+          "pearson": 0.879,
+          "jaccard": 0,
+          "ensemble": 0.704,
+          "stt_jaro_winkler": 0.911,
+          "stt_levenshtein": 0.667,
+          "stt_phonetic": 0.833,
+          "stt_ensemble": 0.846
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.766,
+            "similarities": {
+              "cosine": 0.766,
+              "euclidean": 0.594,
+              "manhattan": 0.045,
+              "pearson": 0.766,
+              "jaccard": 0,
+              "ensemble": 0.615,
+              "stt_jaro_winkler": 0.911,
+              "stt_levenshtein": 0.667,
+              "stt_phonetic": 0.833,
+              "stt_ensemble": 0.801
+            },
+            "expected_text": "5만원",
+            "candidate_text": "5만"
+          },
+          "step13": {
+            "similarity": 0.766,
+            "similarities": {
+              "cosine": 0.766,
+              "euclidean": 0.594,
+              "manhattan": 0.045,
+              "pearson": 0.766,
+              "jaccard": 0,
+              "ensemble": 0.615,
+              "stt_jaro_winkler": 0.911,
+              "stt_levenshtein": 0.667,
+              "stt_phonetic": 0.833,
+              "stt_ensemble": 0.801
+            },
+            "expected_text": "5만원",
+            "candidate_text": "5만"
+          },
+          "step14": {
+            "similarity": 0.879,
+            "similarities": {
+              "cosine": 0.879,
+              "euclidean": 0.671,
+              "manhattan": 0.061,
+              "pearson": 0.879,
+              "jaccard": 0,
+              "ensemble": 0.704,
+              "stt_jaro_winkler": 0.911,
+              "stt_levenshtein": 0.667,
+              "stt_phonetic": 0.833,
+              "stt_ensemble": 0.846
+            },
+            "expected_text": "오만원",
+            "candidate_text": "오만"
+          }
+        }
+      },
+      {
+        "log_id": [
+          3359
+        ],
+        "candidate_word": "50만 원",
+        "similarity": 0.743,
+        "similarities": {
+          "cosine": 0.743,
+          "euclidean": 0.583,
+          "manhattan": 0.043,
+          "pearson": 0.743,
+          "jaccard": 0,
+          "ensemble": 0.598,
+          "stt_jaro_winkler": 0.72,
+          "stt_levenshtein": 0.6,
+          "stt_phonetic": 0.267,
+          "stt_ensemble": 0.621
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.743,
+            "similarities": {
+              "cosine": 0.743,
+              "euclidean": 0.583,
+              "manhattan": 0.043,
+              "pearson": 0.743,
+              "jaccard": 0,
+              "ensemble": 0.598,
+              "stt_jaro_winkler": 0.72,
+              "stt_levenshtein": 0.6,
+              "stt_phonetic": 0.267,
+              "stt_ensemble": 0.621
+            },
+            "expected_text": "5만원",
+            "candidate_text": "50만 원"
+          },
+          "step13": {
+            "similarity": 0.743,
+            "similarities": {
+              "cosine": 0.743,
+              "euclidean": 0.583,
+              "manhattan": 0.043,
+              "pearson": 0.743,
+              "jaccard": 0,
+              "ensemble": 0.598,
+              "stt_jaro_winkler": 0.72,
+              "stt_levenshtein": 0.6,
+              "stt_phonetic": 0.267,
+              "stt_ensemble": 0.621
+            },
+            "expected_text": "5만원",
+            "candidate_text": "50만 원"
+          },
+          "step14": {
+            "similarity": 0.551,
+            "similarities": {
+              "cosine": 0.551,
+              "euclidean": 0.513,
+              "manhattan": 0.033,
+              "pearson": 0.551,
+              "jaccard": 0,
+              "ensemble": 0.464,
+              "stt_jaro_winkler": 0.72,
+              "stt_levenshtein": 0.6,
+              "stt_phonetic": 0.267,
+              "stt_ensemble": 0.544
+            },
+            "expected_text": "오만원",
+            "candidate_text": "오십만 원"
+          }
+        }
+      },
+      {
+        "log_id": [
+          22899
+        ],
+        "candidate_word": "55만 원",
+        "similarity": 0.717,
+        "similarities": {
+          "cosine": 0.717,
+          "euclidean": 0.571,
+          "manhattan": 0.041,
+          "pearson": 0.717,
+          "jaccard": 0,
+          "ensemble": 0.579,
+          "stt_jaro_winkler": 0.72,
+          "stt_levenshtein": 0.6,
+          "stt_phonetic": 0.267,
+          "stt_ensemble": 0.61
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.717,
+            "similarities": {
+              "cosine": 0.717,
+              "euclidean": 0.571,
+              "manhattan": 0.041,
+              "pearson": 0.717,
+              "jaccard": 0,
+              "ensemble": 0.579,
+              "stt_jaro_winkler": 0.72,
+              "stt_levenshtein": 0.6,
+              "stt_phonetic": 0.267,
+              "stt_ensemble": 0.61
+            },
+            "expected_text": "5만원",
+            "candidate_text": "55만 원"
+          },
+          "step13": {
+            "similarity": 0.717,
+            "similarities": {
+              "cosine": 0.717,
+              "euclidean": 0.571,
+              "manhattan": 0.041,
+              "pearson": 0.717,
+              "jaccard": 0,
+              "ensemble": 0.579,
+              "stt_jaro_winkler": 0.72,
+              "stt_levenshtein": 0.6,
+              "stt_phonetic": 0.267,
+              "stt_ensemble": 0.61
+            },
+            "expected_text": "5만원",
+            "candidate_text": "55만 원"
+          },
+          "step14": {
+            "similarity": 0.599,
+            "similarities": {
+              "cosine": 0.599,
+              "euclidean": 0.528,
+              "manhattan": 0.034,
+              "pearson": 0.599,
+              "jaccard": 0,
+              "ensemble": 0.497,
+              "stt_jaro_winkler": 0.7,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.25,
+              "stt_ensemble": 0.54
+            },
+            "expected_text": "오만원",
+            "candidate_text": "오십오만 원"
+          }
+        }
+      },
+      {
+        "log_id": [
+          25248
+        ],
+        "candidate_word": "1500원 50만 원",
+        "similarity": 0.684,
+        "similarities": {
+          "cosine": 0.684,
+          "euclidean": 0.557,
+          "manhattan": 0.039,
+          "pearson": 0.684,
+          "jaccard": 0,
+          "ensemble": 0.555,
+          "stt_jaro_winkler": 0.616,
+          "stt_levenshtein": 0.273,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.469
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.684,
+            "similarities": {
+              "cosine": 0.684,
+              "euclidean": 0.557,
+              "manhattan": 0.039,
+              "pearson": 0.684,
+              "jaccard": 0,
+              "ensemble": 0.555,
+              "stt_jaro_winkler": 0.616,
+              "stt_levenshtein": 0.273,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.469
+            },
+            "expected_text": "5만원",
+            "candidate_text": "1500원 50만 원"
+          },
+          "step13": {
+            "similarity": 0.684,
+            "similarities": {
+              "cosine": 0.684,
+              "euclidean": 0.557,
+              "manhattan": 0.039,
+              "pearson": 0.684,
+              "jaccard": 0,
+              "ensemble": 0.555,
+              "stt_jaro_winkler": 0.616,
+              "stt_levenshtein": 0.273,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.469
+            },
+            "expected_text": "5만원",
+            "candidate_text": "1500원 50만 원"
+          },
+          "step14": {
+            "similarity": 0.429,
+            "similarities": {
+              "cosine": 0.429,
+              "euclidean": 0.483,
+              "manhattan": 0.029,
+              "pearson": 0.43,
+              "jaccard": 0,
+              "ensemble": 0.383,
+              "stt_jaro_winkler": 0.622,
+              "stt_levenshtein": 0.3,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.372
+            },
+            "expected_text": "오만원",
+            "candidate_text": "천오백원 오십만 원"
+          }
+        }
+      },
+      {
+        "log_id": [
+          31299
+        ],
+        "candidate_word": "오 만 원",
+        "similarity": 0.641,
+        "similarities": {
+          "cosine": 0.641,
+          "euclidean": 0.541,
+          "manhattan": 0.037,
+          "pearson": 0.641,
+          "jaccard": 0,
+          "ensemble": 0.526,
+          "stt_jaro_winkler": 0.72,
+          "stt_levenshtein": 0.6,
+          "stt_phonetic": 0.267,
+          "stt_ensemble": 0.58
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.218,
+            "similarities": {
+              "cosine": 0.218,
+              "euclidean": 0.444,
+              "manhattan": 0.025,
+              "pearson": 0.219,
+              "jaccard": 0,
+              "ensemble": 0.246,
+              "stt_jaro_winkler": 0.511,
+              "stt_levenshtein": 0.4,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.275
+            },
+            "expected_text": "5만원",
+            "candidate_text": "오 만 원"
+          },
+          "step13": {
+            "similarity": 0.613,
+            "similarities": {
+              "cosine": 0.613,
+              "euclidean": 0.532,
+              "manhattan": 0.035,
+              "pearson": 0.613,
+              "jaccard": 0,
+              "ensemble": 0.506,
+              "stt_jaro_winkler": 0.72,
+              "stt_levenshtein": 0.6,
+              "stt_phonetic": 0.267,
+              "stt_ensemble": 0.569
+            },
+            "expected_text": "5만원",
+            "candidate_text": "5 만 원"
+          },
+          "step14": {
+            "similarity": 0.641,
+            "similarities": {
+              "cosine": 0.641,
+              "euclidean": 0.541,
+              "manhattan": 0.037,
+              "pearson": 0.641,
+              "jaccard": 0,
+              "ensemble": 0.526,
+              "stt_jaro_winkler": 0.72,
+              "stt_levenshtein": 0.6,
+              "stt_phonetic": 0.267,
+              "stt_ensemble": 0.58
+            },
+            "expected_text": "오만원",
+            "candidate_text": "오 만 원"
+          }
+        }
+      },
+      {
+        "log_id": [
+          32300
+        ],
+        "candidate_word": "핵심은 오만 오만 오만",
+        "similarity": 0.568,
+        "similarities": {
+          "cosine": 0.568,
+          "euclidean": 0.518,
+          "manhattan": 0.033,
+          "pearson": 0.568,
+          "jaccard": 0,
+          "ensemble": 0.475,
+          "stt_jaro_winkler": 0.611,
+          "stt_levenshtein": 0.167,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.405
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.102,
+            "similarities": {
+              "cosine": 0.102,
+              "euclidean": 0.427,
+              "manhattan": 0.023,
+              "pearson": 0.103,
+              "jaccard": 0,
+              "ensemble": 0.172,
+              "stt_jaro_winkler": 0.472,
+              "stt_levenshtein": 0.083,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.171
+            },
+            "expected_text": "5만원",
+            "candidate_text": "핵심은 오만 오만 오만"
+          },
+          "step13": {
+            "similarity": 0.102,
+            "similarities": {
+              "cosine": 0.102,
+              "euclidean": 0.427,
+              "manhattan": 0.023,
+              "pearson": 0.103,
+              "jaccard": 0,
+              "ensemble": 0.172,
+              "stt_jaro_winkler": 0.472,
+              "stt_levenshtein": 0.083,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.171
+            },
+            "expected_text": "5만원",
+            "candidate_text": "핵심은 오만 오만 오만"
+          },
+          "step14": {
+            "similarity": 0.568,
+            "similarities": {
+              "cosine": 0.568,
+              "euclidean": 0.518,
+              "manhattan": 0.033,
+              "pearson": 0.568,
+              "jaccard": 0,
+              "ensemble": 0.475,
+              "stt_jaro_winkler": 0.611,
+              "stt_levenshtein": 0.167,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.405
+            },
+            "expected_text": "오만원",
+            "candidate_text": "핵심은 오만 오만 오만"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "expected_answer": "도어캠",
+    "keyword": null,
+    "candidates": [
+      {
+        "log_id": [
+          13608
+        ],
+        "candidate_word": "도어 캠프",
+        "similarity": 0.616,
+        "similarities": {
+          "cosine": 0.616,
+          "euclidean": 0.533,
+          "manhattan": 0.036,
+          "pearson": 0.616,
+          "jaccard": 0,
+          "ensemble": 0.508,
+          "stt_jaro_winkler": 0.893,
+          "stt_levenshtein": 0.6,
+          "stt_phonetic": 0.533,
+          "stt_ensemble": 0.666
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.616,
+            "similarities": {
+              "cosine": 0.616,
+              "euclidean": 0.533,
+              "manhattan": 0.036,
+              "pearson": 0.616,
+              "jaccard": 0,
+              "ensemble": 0.508,
+              "stt_jaro_winkler": 0.893,
+              "stt_levenshtein": 0.6,
+              "stt_phonetic": 0.533,
+              "stt_ensemble": 0.666
+            },
+            "expected_text": "도어캠",
+            "candidate_text": "도어 캠프"
+          },
+          "step13": {
+            "similarity": 0.616,
+            "similarities": {
+              "cosine": 0.616,
+              "euclidean": 0.533,
+              "manhattan": 0.036,
+              "pearson": 0.616,
+              "jaccard": 0,
+              "ensemble": 0.508,
+              "stt_jaro_winkler": 0.893,
+              "stt_levenshtein": 0.6,
+              "stt_phonetic": 0.533,
+              "stt_ensemble": 0.666
+            },
+            "expected_text": "도어캠",
+            "candidate_text": "도어 캠프"
+          },
+          "step14": {
+            "similarity": 0.616,
+            "similarities": {
+              "cosine": 0.616,
+              "euclidean": 0.533,
+              "manhattan": 0.036,
+              "pearson": 0.616,
+              "jaccard": 0,
+              "ensemble": 0.508,
+              "stt_jaro_winkler": 0.893,
+              "stt_levenshtein": 0.6,
+              "stt_phonetic": 0.533,
+              "stt_ensemble": 0.666
+            },
+            "expected_text": "도어캠",
+            "candidate_text": "도어 캠프"
+          }
+        }
+      },
+      {
+        "log_id": [
+          36392
+        ],
+        "candidate_word": "네 더 어 캔 너 어 어 캔",
+        "similarity": 0.26,
+        "similarities": {
+          "cosine": 0.26,
+          "euclidean": 0.451,
+          "manhattan": 0.026,
+          "pearson": 0.26,
+          "jaccard": 0,
+          "ensemble": 0.272,
+          "stt_jaro_winkler": 0.467,
+          "stt_levenshtein": 0.067,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.231
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.26,
+            "similarities": {
+              "cosine": 0.26,
+              "euclidean": 0.451,
+              "manhattan": 0.026,
+              "pearson": 0.26,
+              "jaccard": 0,
+              "ensemble": 0.272,
+              "stt_jaro_winkler": 0.467,
+              "stt_levenshtein": 0.067,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.231
+            },
+            "expected_text": "도어캠",
+            "candidate_text": "네 더 어 캔 너 어 어 캔"
+          },
+          "step13": {
+            "similarity": 0.26,
+            "similarities": {
+              "cosine": 0.26,
+              "euclidean": 0.451,
+              "manhattan": 0.026,
+              "pearson": 0.26,
+              "jaccard": 0,
+              "ensemble": 0.272,
+              "stt_jaro_winkler": 0.467,
+              "stt_levenshtein": 0.067,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.231
+            },
+            "expected_text": "도어캠",
+            "candidate_text": "네 더 어 캔 너 어 어 캔"
+          },
+          "step14": {
+            "similarity": 0.26,
+            "similarities": {
+              "cosine": 0.26,
+              "euclidean": 0.451,
+              "manhattan": 0.026,
+              "pearson": 0.26,
+              "jaccard": 0,
+              "ensemble": 0.272,
+              "stt_jaro_winkler": 0.467,
+              "stt_levenshtein": 0.067,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.231
+            },
+            "expected_text": "도어캠",
+            "candidate_text": "네 더 어 캔 너 어 어 캔"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "expected_answer": "8인치",
+    "keyword": null,
+    "candidates": [
+      {
+        "log_id": [
+          19756
+        ],
+        "candidate_word": "8인치로 8미리로",
+        "similarity": 0.819,
+        "similarities": {
+          "cosine": 0.819,
+          "euclidean": 0.624,
+          "manhattan": 0.051,
+          "pearson": 0.819,
+          "jaccard": 0,
+          "ensemble": 0.655,
+          "stt_jaro_winkler": 0.844,
+          "stt_levenshtein": 0.333,
+          "stt_phonetic": 0.667,
+          "stt_ensemble": 0.722
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.819,
+            "similarities": {
+              "cosine": 0.819,
+              "euclidean": 0.624,
+              "manhattan": 0.051,
+              "pearson": 0.819,
+              "jaccard": 0,
+              "ensemble": 0.655,
+              "stt_jaro_winkler": 0.844,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0.667,
+              "stt_ensemble": 0.722
+            },
+            "expected_text": "8인치",
+            "candidate_text": "8인치로 8미리로"
+          },
+          "step13": {
+            "similarity": 0.819,
+            "similarities": {
+              "cosine": 0.819,
+              "euclidean": 0.624,
+              "manhattan": 0.051,
+              "pearson": 0.819,
+              "jaccard": 0,
+              "ensemble": 0.655,
+              "stt_jaro_winkler": 0.844,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0.667,
+              "stt_ensemble": 0.722
+            },
+            "expected_text": "8인치",
+            "candidate_text": "8인치로 8미리로"
+          },
+          "step14": {
+            "similarity": 0.735,
+            "similarities": {
+              "cosine": 0.735,
+              "euclidean": 0.578,
+              "manhattan": 0.043,
+              "pearson": 0.735,
+              "jaccard": 0,
+              "ensemble": 0.592,
+              "stt_jaro_winkler": 0.844,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0.667,
+              "stt_ensemble": 0.688
+            },
+            "expected_text": "팔인치",
+            "candidate_text": "팔인치로 팔미리로"
+          }
+        }
+      },
+      {
+        "log_id": [
+          30065
+        ],
+        "candidate_word": "8.2인치",
+        "similarity": 0.772,
+        "similarities": {
+          "cosine": 0.772,
+          "euclidean": 0.597,
+          "manhattan": 0.046,
+          "pearson": 0.772,
+          "jaccard": 0,
+          "ensemble": 0.62,
+          "stt_jaro_winkler": 0.56,
+          "stt_levenshtein": 0.6,
+          "stt_phonetic": 0.267,
+          "stt_ensemble": 0.592
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.772,
+            "similarities": {
+              "cosine": 0.772,
+              "euclidean": 0.597,
+              "manhattan": 0.046,
+              "pearson": 0.772,
+              "jaccard": 0,
+              "ensemble": 0.62,
+              "stt_jaro_winkler": 0.56,
+              "stt_levenshtein": 0.6,
+              "stt_phonetic": 0.267,
+              "stt_ensemble": 0.592
+            },
+            "expected_text": "8인치",
+            "candidate_text": "8.2인치"
+          },
+          "step13": {
+            "similarity": 0.772,
+            "similarities": {
+              "cosine": 0.772,
+              "euclidean": 0.597,
+              "manhattan": 0.046,
+              "pearson": 0.772,
+              "jaccard": 0,
+              "ensemble": 0.62,
+              "stt_jaro_winkler": 0.56,
+              "stt_levenshtein": 0.6,
+              "stt_phonetic": 0.267,
+              "stt_ensemble": 0.592
+            },
+            "expected_text": "8인치",
+            "candidate_text": "8.2인치"
+          },
+          "step14": {
+            "similarity": 0.653,
+            "similarities": {
+              "cosine": 0.653,
+              "euclidean": 0.546,
+              "manhattan": 0.037,
+              "pearson": 0.653,
+              "jaccard": 0,
+              "ensemble": 0.534,
+              "stt_jaro_winkler": 0.56,
+              "stt_levenshtein": 0.6,
+              "stt_phonetic": 0.267,
+              "stt_ensemble": 0.545
+            },
+            "expected_text": "팔인치",
+            "candidate_text": "팔점이인치"
+          }
+        }
+      },
+      {
+        "log_id": [
+          27906
+        ],
+        "candidate_word": "8mm",
+        "similarity": 0.623,
+        "similarities": {
+          "cosine": 0.623,
+          "euclidean": 0.535,
+          "manhattan": 0.036,
+          "pearson": 0.623,
+          "jaccard": 0,
+          "ensemble": 0.513,
+          "stt_jaro_winkler": 0.6,
+          "stt_levenshtein": 0.333,
+          "stt_phonetic": 0.333,
+          "stt_ensemble": 0.516
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step13",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.468,
+            "similarities": {
+              "cosine": 0.468,
+              "euclidean": 0.492,
+              "manhattan": 0.03,
+              "pearson": 0.468,
+              "jaccard": 0,
+              "ensemble": 0.409,
+              "stt_jaro_winkler": 0.6,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0.333,
+              "stt_ensemble": 0.454
+            },
+            "expected_text": "8인치",
+            "candidate_text": "8mm"
+          },
+          "step13": {
+            "similarity": 0.623,
+            "similarities": {
+              "cosine": 0.623,
+              "euclidean": 0.535,
+              "manhattan": 0.036,
+              "pearson": 0.623,
+              "jaccard": 0,
+              "ensemble": 0.513,
+              "stt_jaro_winkler": 0.6,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0.333,
+              "stt_ensemble": 0.516
+            },
+            "expected_text": "8인치",
+            "candidate_text": "8미리"
+          },
+          "step14": {
+            "similarity": 0.548,
+            "similarities": {
+              "cosine": 0.548,
+              "euclidean": 0.513,
+              "manhattan": 0.033,
+              "pearson": 0.548,
+              "jaccard": 0,
+              "ensemble": 0.462,
+              "stt_jaro_winkler": 0.6,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0.333,
+              "stt_ensemble": 0.486
+            },
+            "expected_text": "팔인치",
+            "candidate_text": "팔미리"
+          }
+        }
+      },
+      {
+        "log_id": [
+          27906
+        ],
+        "candidate_word": "8미리",
+        "similarity": 0.623,
+        "similarities": {
+          "cosine": 0.623,
+          "euclidean": 0.535,
+          "manhattan": 0.036,
+          "pearson": 0.623,
+          "jaccard": 0,
+          "ensemble": 0.513,
+          "stt_jaro_winkler": 0.6,
+          "stt_levenshtein": 0.333,
+          "stt_phonetic": 0.333,
+          "stt_ensemble": 0.516
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.623,
+            "similarities": {
+              "cosine": 0.623,
+              "euclidean": 0.535,
+              "manhattan": 0.036,
+              "pearson": 0.623,
+              "jaccard": 0,
+              "ensemble": 0.513,
+              "stt_jaro_winkler": 0.6,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0.333,
+              "stt_ensemble": 0.516
+            },
+            "expected_text": "8인치",
+            "candidate_text": "8미리"
+          },
+          "step13": {
+            "similarity": 0.623,
+            "similarities": {
+              "cosine": 0.623,
+              "euclidean": 0.535,
+              "manhattan": 0.036,
+              "pearson": 0.623,
+              "jaccard": 0,
+              "ensemble": 0.513,
+              "stt_jaro_winkler": 0.6,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0.333,
+              "stt_ensemble": 0.516
+            },
+            "expected_text": "8인치",
+            "candidate_text": "8미리"
+          },
+          "step14": {
+            "similarity": 0.548,
+            "similarities": {
+              "cosine": 0.548,
+              "euclidean": 0.513,
+              "manhattan": 0.033,
+              "pearson": 0.548,
+              "jaccard": 0,
+              "ensemble": 0.462,
+              "stt_jaro_winkler": 0.6,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0.333,
+              "stt_ensemble": 0.486
+            },
+            "expected_text": "팔인치",
+            "candidate_text": "팔미리"
+          }
+        }
+      },
+      {
+        "log_id": [
+          27906
+        ],
+        "candidate_word": "8mm요",
+        "similarity": 0.599,
+        "similarities": {
+          "cosine": 0.599,
+          "euclidean": 0.528,
+          "manhattan": 0.035,
+          "pearson": 0.599,
+          "jaccard": 0,
+          "ensemble": 0.497,
+          "stt_jaro_winkler": 0.575,
+          "stt_levenshtein": 0.25,
+          "stt_phonetic": 0.292,
+          "stt_ensemble": 0.479
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step13",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.488,
+            "similarities": {
+              "cosine": 0.488,
+              "euclidean": 0.497,
+              "manhattan": 0.031,
+              "pearson": 0.488,
+              "jaccard": 0,
+              "ensemble": 0.422,
+              "stt_jaro_winkler": 0.575,
+              "stt_levenshtein": 0.25,
+              "stt_phonetic": 0.292,
+              "stt_ensemble": 0.435
+            },
+            "expected_text": "8인치",
+            "candidate_text": "8mm요"
+          },
+          "step13": {
+            "similarity": 0.599,
+            "similarities": {
+              "cosine": 0.599,
+              "euclidean": 0.528,
+              "manhattan": 0.035,
+              "pearson": 0.599,
+              "jaccard": 0,
+              "ensemble": 0.497,
+              "stt_jaro_winkler": 0.575,
+              "stt_levenshtein": 0.25,
+              "stt_phonetic": 0.292,
+              "stt_ensemble": 0.479
+            },
+            "expected_text": "8인치",
+            "candidate_text": "8미리요"
+          },
+          "step14": {
+            "similarity": 0.525,
+            "similarities": {
+              "cosine": 0.525,
+              "euclidean": 0.506,
+              "manhattan": 0.032,
+              "pearson": 0.525,
+              "jaccard": 0,
+              "ensemble": 0.446,
+              "stt_jaro_winkler": 0.575,
+              "stt_levenshtein": 0.25,
+              "stt_phonetic": 0.292,
+              "stt_ensemble": 0.45
+            },
+            "expected_text": "팔인치",
+            "candidate_text": "팔미리요"
+          }
+        }
+      },
+      {
+        "log_id": [
+          24076
+        ],
+        "candidate_word": "8미리미터",
+        "similarity": 0.557,
+        "similarities": {
+          "cosine": 0.557,
+          "euclidean": 0.515,
+          "manhattan": 0.033,
+          "pearson": 0.557,
+          "jaccard": 0,
+          "ensemble": 0.468,
+          "stt_jaro_winkler": 0.56,
+          "stt_levenshtein": 0.2,
+          "stt_phonetic": 0.267,
+          "stt_ensemble": 0.446
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.557,
+            "similarities": {
+              "cosine": 0.557,
+              "euclidean": 0.515,
+              "manhattan": 0.033,
+              "pearson": 0.557,
+              "jaccard": 0,
+              "ensemble": 0.468,
+              "stt_jaro_winkler": 0.56,
+              "stt_levenshtein": 0.2,
+              "stt_phonetic": 0.267,
+              "stt_ensemble": 0.446
+            },
+            "expected_text": "8인치",
+            "candidate_text": "8미리미터"
+          },
+          "step13": {
+            "similarity": 0.557,
+            "similarities": {
+              "cosine": 0.557,
+              "euclidean": 0.515,
+              "manhattan": 0.033,
+              "pearson": 0.557,
+              "jaccard": 0,
+              "ensemble": 0.468,
+              "stt_jaro_winkler": 0.56,
+              "stt_levenshtein": 0.2,
+              "stt_phonetic": 0.267,
+              "stt_ensemble": 0.446
+            },
+            "expected_text": "8인치",
+            "candidate_text": "8미리미터"
+          },
+          "step14": {
+            "similarity": 0.483,
+            "similarities": {
+              "cosine": 0.483,
+              "euclidean": 0.496,
+              "manhattan": 0.031,
+              "pearson": 0.483,
+              "jaccard": 0,
+              "ensemble": 0.418,
+              "stt_jaro_winkler": 0.56,
+              "stt_levenshtein": 0.2,
+              "stt_phonetic": 0.267,
+              "stt_ensemble": 0.417
+            },
+            "expected_text": "팔인치",
+            "candidate_text": "팔미리미터"
+          }
+        }
+      },
+      {
+        "log_id": [
+          29642
+        ],
+        "candidate_word": "팔잉치",
+        "similarity": 0.539,
+        "similarities": {
+          "cosine": 0.539,
+          "euclidean": 0.51,
+          "manhattan": 0.033,
+          "pearson": 0.54,
+          "jaccard": 0,
+          "ensemble": 0.456,
+          "stt_jaro_winkler": 0.8,
+          "stt_levenshtein": 0.667,
+          "stt_phonetic": 0.667,
+          "stt_ensemble": 0.649
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.27,
+            "similarities": {
+              "cosine": 0.27,
+              "euclidean": 0.453,
+              "manhattan": 0.026,
+              "pearson": 0.27,
+              "jaccard": 0,
+              "ensemble": 0.279,
+              "stt_jaro_winkler": 0.556,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0.333,
+              "stt_ensemble": 0.364
+            },
+            "expected_text": "8인치",
+            "candidate_text": "팔잉치"
+          },
+          "step13": {
+            "similarity": 0.27,
+            "similarities": {
+              "cosine": 0.27,
+              "euclidean": 0.453,
+              "manhattan": 0.026,
+              "pearson": 0.27,
+              "jaccard": 0,
+              "ensemble": 0.279,
+              "stt_jaro_winkler": 0.556,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0.333,
+              "stt_ensemble": 0.364
+            },
+            "expected_text": "8인치",
+            "candidate_text": "팔잉치"
+          },
+          "step14": {
+            "similarity": 0.539,
+            "similarities": {
+              "cosine": 0.539,
+              "euclidean": 0.51,
+              "manhattan": 0.033,
+              "pearson": 0.54,
+              "jaccard": 0,
+              "ensemble": 0.456,
+              "stt_jaro_winkler": 0.8,
+              "stt_levenshtein": 0.667,
+              "stt_phonetic": 0.667,
+              "stt_ensemble": 0.649
+            },
+            "expected_text": "팔인치",
+            "candidate_text": "팔잉치"
+          }
+        }
+      },
+      {
+        "log_id": [
+          21775
+        ],
+        "candidate_word": "알 인치",
+        "similarity": 0.414,
+        "similarities": {
+          "cosine": 0.414,
+          "euclidean": 0.48,
+          "manhattan": 0.029,
+          "pearson": 0.414,
+          "jaccard": 0,
+          "ensemble": 0.373,
+          "stt_jaro_winkler": 0.722,
+          "stt_levenshtein": 0.5,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.421
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.307,
+            "similarities": {
+              "cosine": 0.307,
+              "euclidean": 0.459,
+              "manhattan": 0.027,
+              "pearson": 0.307,
+              "jaccard": 0,
+              "ensemble": 0.303,
+              "stt_jaro_winkler": 0.722,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.378
+            },
+            "expected_text": "8인치",
+            "candidate_text": "알 인치"
+          },
+          "step13": {
+            "similarity": 0.307,
+            "similarities": {
+              "cosine": 0.307,
+              "euclidean": 0.459,
+              "manhattan": 0.027,
+              "pearson": 0.307,
+              "jaccard": 0,
+              "ensemble": 0.303,
+              "stt_jaro_winkler": 0.722,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.378
+            },
+            "expected_text": "8인치",
+            "candidate_text": "알 인치"
+          },
+          "step14": {
+            "similarity": 0.414,
+            "similarities": {
+              "cosine": 0.414,
+              "euclidean": 0.48,
+              "manhattan": 0.029,
+              "pearson": 0.414,
+              "jaccard": 0,
+              "ensemble": 0.373,
+              "stt_jaro_winkler": 0.722,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.421
+            },
+            "expected_text": "팔인치",
+            "candidate_text": "알 인치"
+          }
+        }
+      },
+      {
+        "log_id": [
+          21775
+        ],
+        "candidate_word": "알 일치",
+        "similarity": 0.343,
+        "similarities": {
+          "cosine": 0.343,
+          "euclidean": 0.466,
+          "manhattan": 0.027,
+          "pearson": 0.343,
+          "jaccard": 0,
+          "ensemble": 0.326,
+          "stt_jaro_winkler": 0.528,
+          "stt_levenshtein": 0.25,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.307
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.24,
+            "similarities": {
+              "cosine": 0.24,
+              "euclidean": 0.448,
+              "manhattan": 0.025,
+              "pearson": 0.24,
+              "jaccard": 0,
+              "ensemble": 0.26,
+              "stt_jaro_winkler": 0.528,
+              "stt_levenshtein": 0.25,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.266
+            },
+            "expected_text": "8인치",
+            "candidate_text": "알 일치"
+          },
+          "step13": {
+            "similarity": 0.24,
+            "similarities": {
+              "cosine": 0.24,
+              "euclidean": 0.448,
+              "manhattan": 0.025,
+              "pearson": 0.24,
+              "jaccard": 0,
+              "ensemble": 0.26,
+              "stt_jaro_winkler": 0.528,
+              "stt_levenshtein": 0.25,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.266
+            },
+            "expected_text": "8인치",
+            "candidate_text": "알 일치"
+          },
+          "step14": {
+            "similarity": 0.343,
+            "similarities": {
+              "cosine": 0.343,
+              "euclidean": 0.466,
+              "manhattan": 0.027,
+              "pearson": 0.343,
+              "jaccard": 0,
+              "ensemble": 0.326,
+              "stt_jaro_winkler": 0.528,
+              "stt_levenshtein": 0.25,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.307
+            },
+            "expected_text": "팔인치",
+            "candidate_text": "알 일치"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "expected_answer": "프로스케일러",
+    "keyword": null,
+    "candidates": [
+      {
+        "log_id": [
+          35493
+        ],
+        "candidate_word": "크로스케일러",
+        "similarity": 0.653,
+        "similarities": {
+          "cosine": 0.653,
+          "euclidean": 0.545,
+          "manhattan": 0.037,
+          "pearson": 0.652,
+          "jaccard": 0,
+          "ensemble": 0.533,
+          "stt_jaro_winkler": 0.889,
+          "stt_levenshtein": 0.833,
+          "stt_phonetic": 0.833,
+          "stt_ensemble": 0.775
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.653,
+            "similarities": {
+              "cosine": 0.653,
+              "euclidean": 0.545,
+              "manhattan": 0.037,
+              "pearson": 0.652,
+              "jaccard": 0,
+              "ensemble": 0.533,
+              "stt_jaro_winkler": 0.889,
+              "stt_levenshtein": 0.833,
+              "stt_phonetic": 0.833,
+              "stt_ensemble": 0.775
+            },
+            "expected_text": "프로스케일러",
+            "candidate_text": "크로스케일러"
+          },
+          "step13": {
+            "similarity": 0.653,
+            "similarities": {
+              "cosine": 0.653,
+              "euclidean": 0.545,
+              "manhattan": 0.037,
+              "pearson": 0.652,
+              "jaccard": 0,
+              "ensemble": 0.533,
+              "stt_jaro_winkler": 0.889,
+              "stt_levenshtein": 0.833,
+              "stt_phonetic": 0.833,
+              "stt_ensemble": 0.775
+            },
+            "expected_text": "프로스케일러",
+            "candidate_text": "크로스케일러"
+          },
+          "step14": {
+            "similarity": 0.653,
+            "similarities": {
+              "cosine": 0.653,
+              "euclidean": 0.545,
+              "manhattan": 0.037,
+              "pearson": 0.652,
+              "jaccard": 0,
+              "ensemble": 0.533,
+              "stt_jaro_winkler": 0.889,
+              "stt_levenshtein": 0.833,
+              "stt_phonetic": 0.833,
+              "stt_ensemble": 0.775
+            },
+            "expected_text": "프로스케일러",
+            "candidate_text": "크로스케일러"
+          }
+        }
+      },
+      {
+        "log_id": [
+          35493
+        ],
+        "candidate_word": "크로스케일러 AI 섭섭",
+        "similarity": 0.42,
+        "similarities": {
+          "cosine": 0.42,
+          "euclidean": 0.482,
+          "manhattan": 0.029,
+          "pearson": 0.421,
+          "jaccard": 0,
+          "ensemble": 0.377,
+          "stt_jaro_winkler": 0.75,
+          "stt_levenshtein": 0.417,
+          "stt_phonetic": 0.625,
+          "stt_ensemble": 0.543
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.42,
+            "similarities": {
+              "cosine": 0.42,
+              "euclidean": 0.482,
+              "manhattan": 0.029,
+              "pearson": 0.421,
+              "jaccard": 0,
+              "ensemble": 0.377,
+              "stt_jaro_winkler": 0.75,
+              "stt_levenshtein": 0.417,
+              "stt_phonetic": 0.625,
+              "stt_ensemble": 0.543
+            },
+            "expected_text": "프로스케일러",
+            "candidate_text": "크로스케일러 AI 섭섭"
+          },
+          "step13": {
+            "similarity": 0.42,
+            "similarities": {
+              "cosine": 0.42,
+              "euclidean": 0.482,
+              "manhattan": 0.029,
+              "pearson": 0.421,
+              "jaccard": 0,
+              "ensemble": 0.377,
+              "stt_jaro_winkler": 0.75,
+              "stt_levenshtein": 0.417,
+              "stt_phonetic": 0.625,
+              "stt_ensemble": 0.543
+            },
+            "expected_text": "프로스케일러",
+            "candidate_text": "크로스케일러 AI 섭섭"
+          },
+          "step14": {
+            "similarity": 0.42,
+            "similarities": {
+              "cosine": 0.42,
+              "euclidean": 0.482,
+              "manhattan": 0.029,
+              "pearson": 0.421,
+              "jaccard": 0,
+              "ensemble": 0.377,
+              "stt_jaro_winkler": 0.75,
+              "stt_levenshtein": 0.417,
+              "stt_phonetic": 0.625,
+              "stt_ensemble": 0.543
+            },
+            "expected_text": "프로스케일러",
+            "candidate_text": "크로스케일러 AI 섭섭"
+          }
+        }
+      },
+      {
+        "log_id": [
+          28934
+        ],
+        "candidate_word": "플러스 케일링",
+        "similarity": 0.418,
+        "similarities": {
+          "cosine": 0.418,
+          "euclidean": 0.481,
+          "manhattan": 0.029,
+          "pearson": 0.418,
+          "jaccard": 0,
+          "ensemble": 0.375,
+          "stt_jaro_winkler": 0.643,
+          "stt_levenshtein": 0.429,
+          "stt_phonetic": 0.155,
+          "stt_ensemble": 0.423
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.418,
+            "similarities": {
+              "cosine": 0.418,
+              "euclidean": 0.481,
+              "manhattan": 0.029,
+              "pearson": 0.418,
+              "jaccard": 0,
+              "ensemble": 0.375,
+              "stt_jaro_winkler": 0.643,
+              "stt_levenshtein": 0.429,
+              "stt_phonetic": 0.155,
+              "stt_ensemble": 0.423
+            },
+            "expected_text": "프로스케일러",
+            "candidate_text": "플러스 케일링"
+          },
+          "step13": {
+            "similarity": 0.418,
+            "similarities": {
+              "cosine": 0.418,
+              "euclidean": 0.481,
+              "manhattan": 0.029,
+              "pearson": 0.418,
+              "jaccard": 0,
+              "ensemble": 0.375,
+              "stt_jaro_winkler": 0.643,
+              "stt_levenshtein": 0.429,
+              "stt_phonetic": 0.155,
+              "stt_ensemble": 0.423
+            },
+            "expected_text": "프로스케일러",
+            "candidate_text": "플러스 케일링"
+          },
+          "step14": {
+            "similarity": 0.418,
+            "similarities": {
+              "cosine": 0.418,
+              "euclidean": 0.481,
+              "manhattan": 0.029,
+              "pearson": 0.418,
+              "jaccard": 0,
+              "ensemble": 0.375,
+              "stt_jaro_winkler": 0.643,
+              "stt_levenshtein": 0.429,
+              "stt_phonetic": 0.155,
+              "stt_ensemble": 0.423
+            },
+            "expected_text": "프로스케일러",
+            "candidate_text": "플러스 케일링"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "expected_answer": "실시간",
+    "keyword": null,
+    "candidates": [
+      {
+        "log_id": [
+          21719
+        ],
+        "candidate_word": "3시간 쉴 시간 실시간",
+        "similarity": 0.649,
+        "similarities": {
+          "cosine": 0.649,
+          "euclidean": 0.544,
+          "manhattan": 0.037,
+          "pearson": 0.649,
+          "jaccard": 0,
+          "ensemble": 0.531,
+          "stt_jaro_winkler": 0.611,
+          "stt_levenshtein": 0.25,
+          "stt_phonetic": 0.417,
+          "stt_ensemble": 0.533
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.616,
+            "similarities": {
+              "cosine": 0.616,
+              "euclidean": 0.533,
+              "manhattan": 0.035,
+              "pearson": 0.616,
+              "jaccard": 0,
+              "ensemble": 0.508,
+              "stt_jaro_winkler": 0.611,
+              "stt_levenshtein": 0.25,
+              "stt_phonetic": 0.417,
+              "stt_ensemble": 0.52
+            },
+            "expected_text": "실시간",
+            "candidate_text": "3시간 쉴 시간 실시간"
+          },
+          "step13": {
+            "similarity": 0.616,
+            "similarities": {
+              "cosine": 0.616,
+              "euclidean": 0.533,
+              "manhattan": 0.035,
+              "pearson": 0.616,
+              "jaccard": 0,
+              "ensemble": 0.508,
+              "stt_jaro_winkler": 0.611,
+              "stt_levenshtein": 0.25,
+              "stt_phonetic": 0.417,
+              "stt_ensemble": 0.52
+            },
+            "expected_text": "실시간",
+            "candidate_text": "3시간 쉴 시간 실시간"
+          },
+          "step14": {
+            "similarity": 0.649,
+            "similarities": {
+              "cosine": 0.649,
+              "euclidean": 0.544,
+              "manhattan": 0.037,
+              "pearson": 0.649,
+              "jaccard": 0,
+              "ensemble": 0.531,
+              "stt_jaro_winkler": 0.611,
+              "stt_levenshtein": 0.25,
+              "stt_phonetic": 0.417,
+              "stt_ensemble": 0.533
+            },
+            "expected_text": "실시간",
+            "candidate_text": "삼시간 쉴 시간 실시간"
+          }
+        }
+      },
+      {
+        "log_id": [
+          24555
+        ],
+        "candidate_word": "3시간",
+        "similarity": 0.503,
+        "similarities": {
+          "cosine": 0.503,
+          "euclidean": 0.501,
+          "manhattan": 0.031,
+          "pearson": 0.503,
+          "jaccard": 0,
+          "ensemble": 0.432,
+          "stt_jaro_winkler": 0.778,
+          "stt_levenshtein": 0.667,
+          "stt_phonetic": 0.667,
+          "stt_ensemble": 0.629
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.503,
+            "similarities": {
+              "cosine": 0.503,
+              "euclidean": 0.501,
+              "manhattan": 0.031,
+              "pearson": 0.503,
+              "jaccard": 0,
+              "ensemble": 0.432,
+              "stt_jaro_winkler": 0.778,
+              "stt_levenshtein": 0.667,
+              "stt_phonetic": 0.667,
+              "stt_ensemble": 0.629
+            },
+            "expected_text": "실시간",
+            "candidate_text": "3시간"
+          },
+          "step13": {
+            "similarity": 0.503,
+            "similarities": {
+              "cosine": 0.503,
+              "euclidean": 0.501,
+              "manhattan": 0.031,
+              "pearson": 0.503,
+              "jaccard": 0,
+              "ensemble": 0.432,
+              "stt_jaro_winkler": 0.778,
+              "stt_levenshtein": 0.667,
+              "stt_phonetic": 0.667,
+              "stt_ensemble": 0.629
+            },
+            "expected_text": "실시간",
+            "candidate_text": "3시간"
+          },
+          "step14": {
+            "similarity": 0.499,
+            "similarities": {
+              "cosine": 0.499,
+              "euclidean": 0.5,
+              "manhattan": 0.032,
+              "pearson": 0.499,
+              "jaccard": 0,
+              "ensemble": 0.429,
+              "stt_jaro_winkler": 0.778,
+              "stt_levenshtein": 0.667,
+              "stt_phonetic": 0.667,
+              "stt_ensemble": 0.628
+            },
+            "expected_text": "실시간",
+            "candidate_text": "삼시간"
+          }
+        }
+      },
+      {
+        "log_id": [
+          24739,
+          24739,
+          24739
+        ],
+        "candidate_word": "쉴 시간",
+        "similarity": 0.491,
+        "similarities": {
+          "cosine": 0.491,
+          "euclidean": 0.498,
+          "manhattan": 0.031,
+          "pearson": 0.491,
+          "jaccard": 0,
+          "ensemble": 0.423,
+          "stt_jaro_winkler": 0.722,
+          "stt_levenshtein": 0.5,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.452
+        },
+        "origin_judge": "false",
+        "frequency": 3,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.491,
+            "similarities": {
+              "cosine": 0.491,
+              "euclidean": 0.498,
+              "manhattan": 0.031,
+              "pearson": 0.491,
+              "jaccard": 0,
+              "ensemble": 0.423,
+              "stt_jaro_winkler": 0.722,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.452
+            },
+            "expected_text": "실시간",
+            "candidate_text": "쉴 시간"
+          },
+          "step13": {
+            "similarity": 0.491,
+            "similarities": {
+              "cosine": 0.491,
+              "euclidean": 0.498,
+              "manhattan": 0.031,
+              "pearson": 0.491,
+              "jaccard": 0,
+              "ensemble": 0.423,
+              "stt_jaro_winkler": 0.722,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.452
+            },
+            "expected_text": "실시간",
+            "candidate_text": "쉴 시간"
+          },
+          "step14": {
+            "similarity": 0.491,
+            "similarities": {
+              "cosine": 0.491,
+              "euclidean": 0.498,
+              "manhattan": 0.031,
+              "pearson": 0.491,
+              "jaccard": 0,
+              "ensemble": 0.423,
+              "stt_jaro_winkler": 0.722,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.452
+            },
+            "expected_text": "실시간",
+            "candidate_text": "쉴 시간"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "expected_answer": "전화",
+    "keyword": null,
+    "candidates": [
+      {
+        "log_id": [
+          24298
+        ],
+        "candidate_word": "전황",
+        "similarity": 0.36,
+        "similarities": {
+          "cosine": 0.36,
+          "euclidean": 0.469,
+          "manhattan": 0.027,
+          "pearson": 0.361,
+          "jaccard": 0,
+          "ensemble": 0.338,
+          "stt_jaro_winkler": 0.7,
+          "stt_levenshtein": 0.5,
+          "stt_phonetic": 0.5,
+          "stt_ensemble": 0.494
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.36,
+            "similarities": {
+              "cosine": 0.36,
+              "euclidean": 0.469,
+              "manhattan": 0.027,
+              "pearson": 0.361,
+              "jaccard": 0,
+              "ensemble": 0.338,
+              "stt_jaro_winkler": 0.7,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.5,
+              "stt_ensemble": 0.494
+            },
+            "expected_text": "전화",
+            "candidate_text": "전황"
+          },
+          "step13": {
+            "similarity": 0.36,
+            "similarities": {
+              "cosine": 0.36,
+              "euclidean": 0.469,
+              "manhattan": 0.027,
+              "pearson": 0.361,
+              "jaccard": 0,
+              "ensemble": 0.338,
+              "stt_jaro_winkler": 0.7,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.5,
+              "stt_ensemble": 0.494
+            },
+            "expected_text": "전화",
+            "candidate_text": "전황"
+          },
+          "step14": {
+            "similarity": 0.36,
+            "similarities": {
+              "cosine": 0.36,
+              "euclidean": 0.469,
+              "manhattan": 0.027,
+              "pearson": 0.361,
+              "jaccard": 0,
+              "ensemble": 0.338,
+              "stt_jaro_winkler": 0.7,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.5,
+              "stt_ensemble": 0.494
+            },
+            "expected_text": "전화",
+            "candidate_text": "전황"
+          }
+        }
+      },
+      {
+        "log_id": [
+          2995
+        ],
+        "candidate_word": "전황 전황",
+        "similarity": 0.303,
+        "similarities": {
+          "cosine": 0.303,
+          "euclidean": 0.458,
+          "manhattan": 0.027,
+          "pearson": 0.302,
+          "jaccard": 0,
+          "ensemble": 0.3,
+          "stt_jaro_winkler": 0.61,
+          "stt_levenshtein": 0.2,
+          "stt_phonetic": 0.35,
+          "stt_ensemble": 0.374
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.303,
+            "similarities": {
+              "cosine": 0.303,
+              "euclidean": 0.458,
+              "manhattan": 0.027,
+              "pearson": 0.302,
+              "jaccard": 0,
+              "ensemble": 0.3,
+              "stt_jaro_winkler": 0.61,
+              "stt_levenshtein": 0.2,
+              "stt_phonetic": 0.35,
+              "stt_ensemble": 0.374
+            },
+            "expected_text": "전화",
+            "candidate_text": "전황 전황"
+          },
+          "step13": {
+            "similarity": 0.303,
+            "similarities": {
+              "cosine": 0.303,
+              "euclidean": 0.458,
+              "manhattan": 0.027,
+              "pearson": 0.302,
+              "jaccard": 0,
+              "ensemble": 0.3,
+              "stt_jaro_winkler": 0.61,
+              "stt_levenshtein": 0.2,
+              "stt_phonetic": 0.35,
+              "stt_ensemble": 0.374
+            },
+            "expected_text": "전화",
+            "candidate_text": "전황 전황"
+          },
+          "step14": {
+            "similarity": 0.303,
+            "similarities": {
+              "cosine": 0.303,
+              "euclidean": 0.458,
+              "manhattan": 0.027,
+              "pearson": 0.302,
+              "jaccard": 0,
+              "ensemble": 0.3,
+              "stt_jaro_winkler": 0.61,
+              "stt_levenshtein": 0.2,
+              "stt_phonetic": 0.35,
+              "stt_ensemble": 0.374
+            },
+            "expected_text": "전화",
+            "candidate_text": "전황 전황"
+          }
+        }
+      },
+      {
+        "log_id": [
+          30608
+        ],
+        "candidate_word": "천하",
+        "similarity": 0.27,
+        "similarities": {
+          "cosine": 0.27,
+          "euclidean": 0.453,
+          "manhattan": 0.026,
+          "pearson": 0.27,
+          "jaccard": 0,
+          "ensemble": 0.279,
+          "stt_jaro_winkler": 0,
+          "stt_levenshtein": 0,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.108
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.27,
+            "similarities": {
+              "cosine": 0.27,
+              "euclidean": 0.453,
+              "manhattan": 0.026,
+              "pearson": 0.27,
+              "jaccard": 0,
+              "ensemble": 0.279,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.108
+            },
+            "expected_text": "전화",
+            "candidate_text": "천하"
+          },
+          "step13": {
+            "similarity": 0.27,
+            "similarities": {
+              "cosine": 0.27,
+              "euclidean": 0.453,
+              "manhattan": 0.026,
+              "pearson": 0.27,
+              "jaccard": 0,
+              "ensemble": 0.279,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.108
+            },
+            "expected_text": "전화",
+            "candidate_text": "천하"
+          },
+          "step14": {
+            "similarity": 0.27,
+            "similarities": {
+              "cosine": 0.27,
+              "euclidean": 0.453,
+              "manhattan": 0.026,
+              "pearson": 0.27,
+              "jaccard": 0,
+              "ensemble": 0.279,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.108
+            },
+            "expected_text": "전화",
+            "candidate_text": "천하"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "expected_answer": "핵심",
+    "keyword": null,
+    "candidates": [
+      {
+        "log_id": [
+          20357
+        ],
+        "candidate_word": "음 책 실 핵심 책",
+        "similarity": 0.467,
+        "similarities": {
+          "cosine": 0.467,
+          "euclidean": 0.492,
+          "manhattan": 0.03,
+          "pearson": 0.467,
+          "jaccard": 0,
+          "ensemble": 0.408,
+          "stt_jaro_winkler": 0,
+          "stt_levenshtein": 0.2,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.217
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.467,
+            "similarities": {
+              "cosine": 0.467,
+              "euclidean": 0.492,
+              "manhattan": 0.03,
+              "pearson": 0.467,
+              "jaccard": 0,
+              "ensemble": 0.408,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.2,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.217
+            },
+            "expected_text": "핵심",
+            "candidate_text": "음 책 실 핵심 책"
+          },
+          "step13": {
+            "similarity": 0.467,
+            "similarities": {
+              "cosine": 0.467,
+              "euclidean": 0.492,
+              "manhattan": 0.03,
+              "pearson": 0.467,
+              "jaccard": 0,
+              "ensemble": 0.408,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.2,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.217
+            },
+            "expected_text": "핵심",
+            "candidate_text": "음 책 실 핵심 책"
+          },
+          "step14": {
+            "similarity": 0.467,
+            "similarities": {
+              "cosine": 0.467,
+              "euclidean": 0.492,
+              "manhattan": 0.03,
+              "pearson": 0.467,
+              "jaccard": 0,
+              "ensemble": 0.408,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.2,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.217
+            },
+            "expected_text": "핵심",
+            "candidate_text": "음 책 실 핵심 책"
+          }
+        }
+      },
+      {
+        "log_id": [
+          34112
+        ],
+        "candidate_word": "헬싱",
+        "similarity": 0.267,
+        "similarities": {
+          "cosine": 0.267,
+          "euclidean": 0.452,
+          "manhattan": 0.026,
+          "pearson": 0.268,
+          "jaccard": 0,
+          "ensemble": 0.277,
+          "stt_jaro_winkler": 0,
+          "stt_levenshtein": 0,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.107
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.267,
+            "similarities": {
+              "cosine": 0.267,
+              "euclidean": 0.452,
+              "manhattan": 0.026,
+              "pearson": 0.268,
+              "jaccard": 0,
+              "ensemble": 0.277,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.107
+            },
+            "expected_text": "핵심",
+            "candidate_text": "헬싱"
+          },
+          "step13": {
+            "similarity": 0.267,
+            "similarities": {
+              "cosine": 0.267,
+              "euclidean": 0.452,
+              "manhattan": 0.026,
+              "pearson": 0.268,
+              "jaccard": 0,
+              "ensemble": 0.277,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.107
+            },
+            "expected_text": "핵심",
+            "candidate_text": "헬싱"
+          },
+          "step14": {
+            "similarity": 0.267,
+            "similarities": {
+              "cosine": 0.267,
+              "euclidean": 0.452,
+              "manhattan": 0.026,
+              "pearson": 0.268,
+              "jaccard": 0,
+              "ensemble": 0.277,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.107
+            },
+            "expected_text": "핵심",
+            "candidate_text": "헬싱"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "expected_answer": "AICC",
+    "keyword": null,
+    "candidates": [
+      {
+        "log_id": [
+          36389
+        ],
+        "candidate_word": "AIC",
+        "similarity": 0.707,
+        "similarities": {
+          "cosine": 0.707,
+          "euclidean": 0.566,
+          "manhattan": 0.04,
+          "pearson": 0.708,
+          "jaccard": 0,
+          "ensemble": 0.572,
+          "stt_jaro_winkler": 0.942,
+          "stt_levenshtein": 0.75,
+          "stt_phonetic": 0.875,
+          "stt_ensemble": 0.806
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.707,
+            "similarities": {
+              "cosine": 0.707,
+              "euclidean": 0.566,
+              "manhattan": 0.04,
+              "pearson": 0.708,
+              "jaccard": 0,
+              "ensemble": 0.572,
+              "stt_jaro_winkler": 0.942,
+              "stt_levenshtein": 0.75,
+              "stt_phonetic": 0.875,
+              "stt_ensemble": 0.806
+            },
+            "expected_text": "AICC",
+            "candidate_text": "AIC"
+          },
+          "step13": {
+            "similarity": 0.707,
+            "similarities": {
+              "cosine": 0.707,
+              "euclidean": 0.566,
+              "manhattan": 0.04,
+              "pearson": 0.708,
+              "jaccard": 0,
+              "ensemble": 0.572,
+              "stt_jaro_winkler": 0.942,
+              "stt_levenshtein": 0.75,
+              "stt_phonetic": 0.875,
+              "stt_ensemble": 0.806
+            },
+            "expected_text": "AICC",
+            "candidate_text": "AIC"
+          },
+          "step14": {
+            "similarity": 0.707,
+            "similarities": {
+              "cosine": 0.707,
+              "euclidean": 0.566,
+              "manhattan": 0.04,
+              "pearson": 0.708,
+              "jaccard": 0,
+              "ensemble": 0.572,
+              "stt_jaro_winkler": 0.942,
+              "stt_levenshtein": 0.75,
+              "stt_phonetic": 0.875,
+              "stt_ensemble": 0.806
+            },
+            "expected_text": "AICC",
+            "candidate_text": "AIC"
+          }
+        }
+      },
+      {
+        "log_id": [
+          36389
+        ],
+        "candidate_word": "AISSCA",
+        "similarity": 0.598,
+        "similarities": {
+          "cosine": 0.598,
+          "euclidean": 0.527,
+          "manhattan": 0.035,
+          "pearson": 0.598,
+          "jaccard": 0,
+          "ensemble": 0.496,
+          "stt_jaro_winkler": 0.8,
+          "stt_levenshtein": 0.5,
+          "stt_phonetic": 0.417,
+          "stt_ensemble": 0.598
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.598,
+            "similarities": {
+              "cosine": 0.598,
+              "euclidean": 0.527,
+              "manhattan": 0.035,
+              "pearson": 0.598,
+              "jaccard": 0,
+              "ensemble": 0.496,
+              "stt_jaro_winkler": 0.8,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.417,
+              "stt_ensemble": 0.598
+            },
+            "expected_text": "AICC",
+            "candidate_text": "AISSCA"
+          },
+          "step13": {
+            "similarity": 0.598,
+            "similarities": {
+              "cosine": 0.598,
+              "euclidean": 0.527,
+              "manhattan": 0.035,
+              "pearson": 0.598,
+              "jaccard": 0,
+              "ensemble": 0.496,
+              "stt_jaro_winkler": 0.8,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.417,
+              "stt_ensemble": 0.598
+            },
+            "expected_text": "AICC",
+            "candidate_text": "AISSCA"
+          },
+          "step14": {
+            "similarity": 0.598,
+            "similarities": {
+              "cosine": 0.598,
+              "euclidean": 0.527,
+              "manhattan": 0.035,
+              "pearson": 0.598,
+              "jaccard": 0,
+              "ensemble": 0.496,
+              "stt_jaro_winkler": 0.8,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.417,
+              "stt_ensemble": 0.598
+            },
+            "expected_text": "AICC",
+            "candidate_text": "AISSCA"
+          }
+        }
+      },
+      {
+        "log_id": [
+          36389
+        ],
+        "candidate_word": "AI CCP",
+        "similarity": 0.555,
+        "similarities": {
+          "cosine": 0.555,
+          "euclidean": 0.515,
+          "manhattan": 0.033,
+          "pearson": 0.555,
+          "jaccard": 0,
+          "ensemble": 0.467,
+          "stt_jaro_winkler": 0.911,
+          "stt_levenshtein": 0.667,
+          "stt_phonetic": 0.625,
+          "stt_ensemble": 0.675
+        },
+        "origin_judge": "false",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.555,
+            "similarities": {
+              "cosine": 0.555,
+              "euclidean": 0.515,
+              "manhattan": 0.033,
+              "pearson": 0.555,
+              "jaccard": 0,
+              "ensemble": 0.467,
+              "stt_jaro_winkler": 0.911,
+              "stt_levenshtein": 0.667,
+              "stt_phonetic": 0.625,
+              "stt_ensemble": 0.675
+            },
+            "expected_text": "AICC",
+            "candidate_text": "AI CCP"
+          },
+          "step13": {
+            "similarity": 0.555,
+            "similarities": {
+              "cosine": 0.555,
+              "euclidean": 0.515,
+              "manhattan": 0.033,
+              "pearson": 0.555,
+              "jaccard": 0,
+              "ensemble": 0.467,
+              "stt_jaro_winkler": 0.911,
+              "stt_levenshtein": 0.667,
+              "stt_phonetic": 0.625,
+              "stt_ensemble": 0.675
+            },
+            "expected_text": "AICC",
+            "candidate_text": "AI CCP"
+          },
+          "step14": {
+            "similarity": 0.555,
+            "similarities": {
+              "cosine": 0.555,
+              "euclidean": 0.515,
+              "manhattan": 0.033,
+              "pearson": 0.555,
+              "jaccard": 0,
+              "ensemble": 0.467,
+              "stt_jaro_winkler": 0.911,
+              "stt_levenshtein": 0.667,
+              "stt_phonetic": 0.625,
+              "stt_ensemble": 0.675
+            },
+            "expected_text": "AICC",
+            "candidate_text": "AI CCP"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "expected_answer": "캔바",
+    "keyword": null,
+    "candidates": [
+      {
+        "log_id": [
+          31884
+        ],
+        "candidate_word": "캔버",
+        "similarity": 0.774,
+        "similarities": {
+          "cosine": 0.774,
+          "euclidean": 0.598,
+          "manhattan": 0.045,
+          "pearson": 0.774,
+          "jaccard": 0,
+          "ensemble": 0.62,
+          "stt_jaro_winkler": 0.7,
+          "stt_levenshtein": 0.5,
+          "stt_phonetic": 0.5,
+          "stt_ensemble": 0.66
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.774,
+            "similarities": {
+              "cosine": 0.774,
+              "euclidean": 0.598,
+              "manhattan": 0.045,
+              "pearson": 0.774,
+              "jaccard": 0,
+              "ensemble": 0.62,
+              "stt_jaro_winkler": 0.7,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.5,
+              "stt_ensemble": 0.66
+            },
+            "expected_text": "캔바",
+            "candidate_text": "캔버"
+          },
+          "step13": {
+            "similarity": 0.774,
+            "similarities": {
+              "cosine": 0.774,
+              "euclidean": 0.598,
+              "manhattan": 0.045,
+              "pearson": 0.774,
+              "jaccard": 0,
+              "ensemble": 0.62,
+              "stt_jaro_winkler": 0.7,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.5,
+              "stt_ensemble": 0.66
+            },
+            "expected_text": "캔바",
+            "candidate_text": "캔버"
+          },
+          "step14": {
+            "similarity": 0.774,
+            "similarities": {
+              "cosine": 0.774,
+              "euclidean": 0.598,
+              "manhattan": 0.045,
+              "pearson": 0.774,
+              "jaccard": 0,
+              "ensemble": 0.62,
+              "stt_jaro_winkler": 0.7,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.5,
+              "stt_ensemble": 0.66
+            },
+            "expected_text": "캔바",
+            "candidate_text": "캔버"
+          }
+        }
+      },
+      {
+        "log_id": [
+          20973
+        ],
+        "candidate_word": "겐박 캔바",
+        "similarity": 0.671,
+        "similarities": {
+          "cosine": 0.671,
+          "euclidean": 0.552,
+          "manhattan": 0.038,
+          "pearson": 0.671,
+          "jaccard": 0,
+          "ensemble": 0.546,
+          "stt_jaro_winkler": 0,
+          "stt_levenshtein": 0.4,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.328
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.671,
+            "similarities": {
+              "cosine": 0.671,
+              "euclidean": 0.552,
+              "manhattan": 0.038,
+              "pearson": 0.671,
+              "jaccard": 0,
+              "ensemble": 0.546,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.4,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.328
+            },
+            "expected_text": "캔바",
+            "candidate_text": "겐박 캔바"
+          },
+          "step13": {
+            "similarity": 0.671,
+            "similarities": {
+              "cosine": 0.671,
+              "euclidean": 0.552,
+              "manhattan": 0.038,
+              "pearson": 0.671,
+              "jaccard": 0,
+              "ensemble": 0.546,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.4,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.328
+            },
+            "expected_text": "캔바",
+            "candidate_text": "겐박 캔바"
+          },
+          "step14": {
+            "similarity": 0.671,
+            "similarities": {
+              "cosine": 0.671,
+              "euclidean": 0.552,
+              "manhattan": 0.038,
+              "pearson": 0.671,
+              "jaccard": 0,
+              "ensemble": 0.546,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.4,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.328
+            },
+            "expected_text": "캔바",
+            "candidate_text": "겐박 캔바"
+          }
+        }
+      },
+      {
+        "log_id": [
+          4270
+        ],
+        "candidate_word": "케밥 캠바",
+        "similarity": 0.49,
+        "similarities": {
+          "cosine": 0.49,
+          "euclidean": 0.497,
+          "manhattan": 0.031,
+          "pearson": 0.49,
+          "jaccard": 0,
+          "ensemble": 0.423,
+          "stt_jaro_winkler": 0,
+          "stt_levenshtein": 0.2,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.226
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.49,
+            "similarities": {
+              "cosine": 0.49,
+              "euclidean": 0.497,
+              "manhattan": 0.031,
+              "pearson": 0.49,
+              "jaccard": 0,
+              "ensemble": 0.423,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.2,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.226
+            },
+            "expected_text": "캔바",
+            "candidate_text": "케밥 캠바"
+          },
+          "step13": {
+            "similarity": 0.49,
+            "similarities": {
+              "cosine": 0.49,
+              "euclidean": 0.497,
+              "manhattan": 0.031,
+              "pearson": 0.49,
+              "jaccard": 0,
+              "ensemble": 0.423,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.2,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.226
+            },
+            "expected_text": "캔바",
+            "candidate_text": "케밥 캠바"
+          },
+          "step14": {
+            "similarity": 0.49,
+            "similarities": {
+              "cosine": 0.49,
+              "euclidean": 0.497,
+              "manhattan": 0.031,
+              "pearson": 0.49,
+              "jaccard": 0,
+              "ensemble": 0.423,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.2,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.226
+            },
+            "expected_text": "캔바",
+            "candidate_text": "케밥 캠바"
+          }
+        }
+      },
+      {
+        "log_id": [
+          5840
+        ],
+        "candidate_word": "팬바",
+        "similarity": 0.411,
+        "similarities": {
+          "cosine": 0.411,
+          "euclidean": 0.479,
+          "manhattan": 0.029,
+          "pearson": 0.41,
+          "jaccard": 0,
+          "ensemble": 0.371,
+          "stt_jaro_winkler": 0.667,
+          "stt_levenshtein": 0.5,
+          "stt_phonetic": 0.5,
+          "stt_ensemble": 0.506
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.411,
+            "similarities": {
+              "cosine": 0.411,
+              "euclidean": 0.479,
+              "manhattan": 0.029,
+              "pearson": 0.41,
+              "jaccard": 0,
+              "ensemble": 0.371,
+              "stt_jaro_winkler": 0.667,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.5,
+              "stt_ensemble": 0.506
+            },
+            "expected_text": "캔바",
+            "candidate_text": "팬바"
+          },
+          "step13": {
+            "similarity": 0.411,
+            "similarities": {
+              "cosine": 0.411,
+              "euclidean": 0.479,
+              "manhattan": 0.029,
+              "pearson": 0.41,
+              "jaccard": 0,
+              "ensemble": 0.371,
+              "stt_jaro_winkler": 0.667,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.5,
+              "stt_ensemble": 0.506
+            },
+            "expected_text": "캔바",
+            "candidate_text": "팬바"
+          },
+          "step14": {
+            "similarity": 0.411,
+            "similarities": {
+              "cosine": 0.411,
+              "euclidean": 0.479,
+              "manhattan": 0.029,
+              "pearson": 0.41,
+              "jaccard": 0,
+              "ensemble": 0.371,
+              "stt_jaro_winkler": 0.667,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.5,
+              "stt_ensemble": 0.506
+            },
+            "expected_text": "캔바",
+            "candidate_text": "팬바"
+          }
+        }
+      },
+      {
+        "log_id": [
+          6592
+        ],
+        "candidate_word": "케임바",
+        "similarity": 0.405,
+        "similarities": {
+          "cosine": 0.405,
+          "euclidean": 0.478,
+          "manhattan": 0.029,
+          "pearson": 0.405,
+          "jaccard": 0,
+          "ensemble": 0.367,
+          "stt_jaro_winkler": 0,
+          "stt_levenshtein": 0.333,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.212
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.405,
+            "similarities": {
+              "cosine": 0.405,
+              "euclidean": 0.478,
+              "manhattan": 0.029,
+              "pearson": 0.405,
+              "jaccard": 0,
+              "ensemble": 0.367,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.212
+            },
+            "expected_text": "캔바",
+            "candidate_text": "케임바"
+          },
+          "step13": {
+            "similarity": 0.405,
+            "similarities": {
+              "cosine": 0.405,
+              "euclidean": 0.478,
+              "manhattan": 0.029,
+              "pearson": 0.405,
+              "jaccard": 0,
+              "ensemble": 0.367,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.212
+            },
+            "expected_text": "캔바",
+            "candidate_text": "케임바"
+          },
+          "step14": {
+            "similarity": 0.405,
+            "similarities": {
+              "cosine": 0.405,
+              "euclidean": 0.478,
+              "manhattan": 0.029,
+              "pearson": 0.405,
+              "jaccard": 0,
+              "ensemble": 0.367,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.333,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.212
+            },
+            "expected_text": "캔바",
+            "candidate_text": "케임바"
+          }
+        }
+      },
+      {
+        "log_id": [
+          7167
+        ],
+        "candidate_word": "겐박 발음이 안 좋",
+        "similarity": 0.183,
+        "similarities": {
+          "cosine": 0.183,
+          "euclidean": 0.439,
+          "manhattan": 0.025,
+          "pearson": 0.182,
+          "jaccard": 0,
+          "ensemble": 0.223,
+          "stt_jaro_winkler": 0,
+          "stt_levenshtein": 0,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.073
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.183,
+            "similarities": {
+              "cosine": 0.183,
+              "euclidean": 0.439,
+              "manhattan": 0.025,
+              "pearson": 0.182,
+              "jaccard": 0,
+              "ensemble": 0.223,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.073
+            },
+            "expected_text": "캔바",
+            "candidate_text": "겐박 발음이 안 좋"
+          },
+          "step13": {
+            "similarity": 0.183,
+            "similarities": {
+              "cosine": 0.183,
+              "euclidean": 0.439,
+              "manhattan": 0.025,
+              "pearson": 0.182,
+              "jaccard": 0,
+              "ensemble": 0.223,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.073
+            },
+            "expected_text": "캔바",
+            "candidate_text": "겐박 발음이 안 좋"
+          },
+          "step14": {
+            "similarity": 0.183,
+            "similarities": {
+              "cosine": 0.183,
+              "euclidean": 0.439,
+              "manhattan": 0.025,
+              "pearson": 0.182,
+              "jaccard": 0,
+              "ensemble": 0.223,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.073
+            },
+            "expected_text": "캔바",
+            "candidate_text": "겐박 발음이 안 좋"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "expected_answer": "클라우드",
+    "keyword": null,
+    "candidates": [
+      {
+        "log_id": [
+          21775
+        ],
+        "candidate_word": "클라우드우드",
+        "similarity": 0.827,
+        "similarities": {
+          "cosine": 0.827,
+          "euclidean": 0.63,
+          "manhattan": 0.052,
+          "pearson": 0.827,
+          "jaccard": 0,
+          "ensemble": 0.662,
+          "stt_jaro_winkler": 0.933,
+          "stt_levenshtein": 0.667,
+          "stt_phonetic": 0.833,
+          "stt_ensemble": 0.831
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.827,
+            "similarities": {
+              "cosine": 0.827,
+              "euclidean": 0.63,
+              "manhattan": 0.052,
+              "pearson": 0.827,
+              "jaccard": 0,
+              "ensemble": 0.662,
+              "stt_jaro_winkler": 0.933,
+              "stt_levenshtein": 0.667,
+              "stt_phonetic": 0.833,
+              "stt_ensemble": 0.831
+            },
+            "expected_text": "클라우드",
+            "candidate_text": "클라우드우드"
+          },
+          "step13": {
+            "similarity": 0.827,
+            "similarities": {
+              "cosine": 0.827,
+              "euclidean": 0.63,
+              "manhattan": 0.052,
+              "pearson": 0.827,
+              "jaccard": 0,
+              "ensemble": 0.662,
+              "stt_jaro_winkler": 0.933,
+              "stt_levenshtein": 0.667,
+              "stt_phonetic": 0.833,
+              "stt_ensemble": 0.831
+            },
+            "expected_text": "클라우드",
+            "candidate_text": "클라우드우드"
+          },
+          "step14": {
+            "similarity": 0.827,
+            "similarities": {
+              "cosine": 0.827,
+              "euclidean": 0.63,
+              "manhattan": 0.052,
+              "pearson": 0.827,
+              "jaccard": 0,
+              "ensemble": 0.662,
+              "stt_jaro_winkler": 0.933,
+              "stt_levenshtein": 0.667,
+              "stt_phonetic": 0.833,
+              "stt_ensemble": 0.831
+            },
+            "expected_text": "클라우드",
+            "candidate_text": "클라우드우드"
+          }
+        }
+      },
+      {
+        "log_id": [
+          20357
+        ],
+        "candidate_word": "셀라 뿌드 셀라우드",
+        "similarity": 0.435,
+        "similarities": {
+          "cosine": 0.435,
+          "euclidean": 0.485,
+          "manhattan": 0.03,
+          "pearson": 0.435,
+          "jaccard": 0,
+          "ensemble": 0.387,
+          "stt_jaro_winkler": 0.567,
+          "stt_levenshtein": 0.3,
+          "stt_phonetic": 0.175,
+          "stt_ensemble": 0.396
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.435,
+            "similarities": {
+              "cosine": 0.435,
+              "euclidean": 0.485,
+              "manhattan": 0.03,
+              "pearson": 0.435,
+              "jaccard": 0,
+              "ensemble": 0.387,
+              "stt_jaro_winkler": 0.567,
+              "stt_levenshtein": 0.3,
+              "stt_phonetic": 0.175,
+              "stt_ensemble": 0.396
+            },
+            "expected_text": "클라우드",
+            "candidate_text": "셀라 뿌드 셀라우드"
+          },
+          "step13": {
+            "similarity": 0.435,
+            "similarities": {
+              "cosine": 0.435,
+              "euclidean": 0.485,
+              "manhattan": 0.03,
+              "pearson": 0.435,
+              "jaccard": 0,
+              "ensemble": 0.387,
+              "stt_jaro_winkler": 0.567,
+              "stt_levenshtein": 0.3,
+              "stt_phonetic": 0.175,
+              "stt_ensemble": 0.396
+            },
+            "expected_text": "클라우드",
+            "candidate_text": "셀라 뿌드 셀라우드"
+          },
+          "step14": {
+            "similarity": 0.435,
+            "similarities": {
+              "cosine": 0.435,
+              "euclidean": 0.485,
+              "manhattan": 0.03,
+              "pearson": 0.435,
+              "jaccard": 0,
+              "ensemble": 0.387,
+              "stt_jaro_winkler": 0.567,
+              "stt_levenshtein": 0.3,
+              "stt_phonetic": 0.175,
+              "stt_ensemble": 0.396
+            },
+            "expected_text": "클라우드",
+            "candidate_text": "셀라 뿌드 셀라우드"
+          }
+        }
+      },
+      {
+        "log_id": [
+          19414
+        ],
+        "candidate_word": "클라우흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐",
+        "similarity": 0.34,
+        "similarities": {
+          "cosine": 0.34,
+          "euclidean": 0.465,
+          "manhattan": 0.028,
+          "pearson": 0.34,
+          "jaccard": 0,
+          "ensemble": 0.324,
+          "stt_jaro_winkler": 0.723,
+          "stt_levenshtein": 0.061,
+          "stt_phonetic": 0.406,
+          "stt_ensemble": 0.407
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.34,
+            "similarities": {
+              "cosine": 0.34,
+              "euclidean": 0.465,
+              "manhattan": 0.028,
+              "pearson": 0.34,
+              "jaccard": 0,
+              "ensemble": 0.324,
+              "stt_jaro_winkler": 0.723,
+              "stt_levenshtein": 0.061,
+              "stt_phonetic": 0.406,
+              "stt_ensemble": 0.407
+            },
+            "expected_text": "클라우드",
+            "candidate_text": "클라우흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐"
+          },
+          "step13": {
+            "similarity": 0.34,
+            "similarities": {
+              "cosine": 0.34,
+              "euclidean": 0.465,
+              "manhattan": 0.028,
+              "pearson": 0.34,
+              "jaccard": 0,
+              "ensemble": 0.324,
+              "stt_jaro_winkler": 0.723,
+              "stt_levenshtein": 0.061,
+              "stt_phonetic": 0.406,
+              "stt_ensemble": 0.407
+            },
+            "expected_text": "클라우드",
+            "candidate_text": "클라우흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐"
+          },
+          "step14": {
+            "similarity": 0.34,
+            "similarities": {
+              "cosine": 0.34,
+              "euclidean": 0.465,
+              "manhattan": 0.028,
+              "pearson": 0.34,
+              "jaccard": 0,
+              "ensemble": 0.324,
+              "stt_jaro_winkler": 0.723,
+              "stt_levenshtein": 0.061,
+              "stt_phonetic": 0.406,
+              "stt_ensemble": 0.407
+            },
+            "expected_text": "클라우드",
+            "candidate_text": "클라우흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐흐"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "expected_answer": "포토",
+    "keyword": null,
+    "candidates": [
+      {
+        "log_id": [
+          25802
+        ],
+        "candidate_word": "퍼토",
+        "similarity": 0.512,
+        "similarities": {
+          "cosine": 0.512,
+          "euclidean": 0.503,
+          "manhattan": 0.031,
+          "pearson": 0.512,
+          "jaccard": 0,
+          "ensemble": 0.438,
+          "stt_jaro_winkler": 0.667,
+          "stt_levenshtein": 0.5,
+          "stt_phonetic": 0.5,
+          "stt_ensemble": 0.547
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.512,
+            "similarities": {
+              "cosine": 0.512,
+              "euclidean": 0.503,
+              "manhattan": 0.031,
+              "pearson": 0.512,
+              "jaccard": 0,
+              "ensemble": 0.438,
+              "stt_jaro_winkler": 0.667,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.5,
+              "stt_ensemble": 0.547
+            },
+            "expected_text": "포토",
+            "candidate_text": "퍼토"
+          },
+          "step13": {
+            "similarity": 0.512,
+            "similarities": {
+              "cosine": 0.512,
+              "euclidean": 0.503,
+              "manhattan": 0.031,
+              "pearson": 0.512,
+              "jaccard": 0,
+              "ensemble": 0.438,
+              "stt_jaro_winkler": 0.667,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.5,
+              "stt_ensemble": 0.547
+            },
+            "expected_text": "포토",
+            "candidate_text": "퍼토"
+          },
+          "step14": {
+            "similarity": 0.512,
+            "similarities": {
+              "cosine": 0.512,
+              "euclidean": 0.503,
+              "manhattan": 0.031,
+              "pearson": 0.512,
+              "jaccard": 0,
+              "ensemble": 0.438,
+              "stt_jaro_winkler": 0.667,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.5,
+              "stt_ensemble": 0.547
+            },
+            "expected_text": "포토",
+            "candidate_text": "퍼토"
+          }
+        }
+      },
+      {
+        "log_id": [
+          1525
+        ],
+        "candidate_word": "보통 보통 포 토 포",
+        "similarity": 0.485,
+        "similarities": {
+          "cosine": 0.485,
+          "euclidean": 0.496,
+          "manhattan": 0.031,
+          "pearson": 0.486,
+          "jaccard": 0,
+          "ensemble": 0.42,
+          "stt_jaro_winkler": 0,
+          "stt_levenshtein": 0.182,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.221
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.485,
+            "similarities": {
+              "cosine": 0.485,
+              "euclidean": 0.496,
+              "manhattan": 0.031,
+              "pearson": 0.486,
+              "jaccard": 0,
+              "ensemble": 0.42,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.182,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.221
+            },
+            "expected_text": "포토",
+            "candidate_text": "보통 보통 포 토 포"
+          },
+          "step13": {
+            "similarity": 0.485,
+            "similarities": {
+              "cosine": 0.485,
+              "euclidean": 0.496,
+              "manhattan": 0.031,
+              "pearson": 0.486,
+              "jaccard": 0,
+              "ensemble": 0.42,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.182,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.221
+            },
+            "expected_text": "포토",
+            "candidate_text": "보통 보통 포 토 포"
+          },
+          "step14": {
+            "similarity": 0.485,
+            "similarities": {
+              "cosine": 0.485,
+              "euclidean": 0.496,
+              "manhattan": 0.031,
+              "pearson": 0.486,
+              "jaccard": 0,
+              "ensemble": 0.42,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.182,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.221
+            },
+            "expected_text": "포토",
+            "candidate_text": "보통 보통 포 토 포"
+          }
+        }
+      },
+      {
+        "log_id": [
+          308
+        ],
+        "candidate_word": "10억 원 받은 친환경에 대해선 포토",
+        "similarity": 0.414,
+        "similarities": {
+          "cosine": 0.414,
+          "euclidean": 0.48,
+          "manhattan": 0.028,
+          "pearson": 0.414,
+          "jaccard": 0,
+          "ensemble": 0.373,
+          "stt_jaro_winkler": 0,
+          "stt_levenshtein": 0.105,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.181
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "step14",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.383,
+            "similarities": {
+              "cosine": 0.383,
+              "euclidean": 0.474,
+              "manhattan": 0.028,
+              "pearson": 0.382,
+              "jaccard": 0,
+              "ensemble": 0.352,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.1,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.168
+            },
+            "expected_text": "포토",
+            "candidate_text": "10억 원 받은 친환경에 대해선 포토"
+          },
+          "step13": {
+            "similarity": 0.383,
+            "similarities": {
+              "cosine": 0.383,
+              "euclidean": 0.474,
+              "manhattan": 0.028,
+              "pearson": 0.382,
+              "jaccard": 0,
+              "ensemble": 0.352,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.1,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.168
+            },
+            "expected_text": "포토",
+            "candidate_text": "10억 원 받은 친환경에 대해선 포토"
+          },
+          "step14": {
+            "similarity": 0.414,
+            "similarities": {
+              "cosine": 0.414,
+              "euclidean": 0.48,
+              "manhattan": 0.028,
+              "pearson": 0.414,
+              "jaccard": 0,
+              "ensemble": 0.373,
+              "stt_jaro_winkler": 0,
+              "stt_levenshtein": 0.105,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.181
+            },
+            "expected_text": "포토",
+            "candidate_text": "십억 원 받은 친환경에 대해선 포토"
+          }
+        }
+      },
+      {
+        "log_id": [
+          33381
+        ],
+        "candidate_word": "뽀토",
+        "similarity": 0.402,
+        "similarities": {
+          "cosine": 0.402,
+          "euclidean": 0.478,
+          "manhattan": 0.028,
+          "pearson": 0.402,
+          "jaccard": 0,
+          "ensemble": 0.365,
+          "stt_jaro_winkler": 0.667,
+          "stt_levenshtein": 0.5,
+          "stt_phonetic": 0.5,
+          "stt_ensemble": 0.503
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.402,
+            "similarities": {
+              "cosine": 0.402,
+              "euclidean": 0.478,
+              "manhattan": 0.028,
+              "pearson": 0.402,
+              "jaccard": 0,
+              "ensemble": 0.365,
+              "stt_jaro_winkler": 0.667,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.5,
+              "stt_ensemble": 0.503
+            },
+            "expected_text": "포토",
+            "candidate_text": "뽀토"
+          },
+          "step13": {
+            "similarity": 0.402,
+            "similarities": {
+              "cosine": 0.402,
+              "euclidean": 0.478,
+              "manhattan": 0.028,
+              "pearson": 0.402,
+              "jaccard": 0,
+              "ensemble": 0.365,
+              "stt_jaro_winkler": 0.667,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.5,
+              "stt_ensemble": 0.503
+            },
+            "expected_text": "포토",
+            "candidate_text": "뽀토"
+          },
+          "step14": {
+            "similarity": 0.402,
+            "similarities": {
+              "cosine": 0.402,
+              "euclidean": 0.478,
+              "manhattan": 0.028,
+              "pearson": 0.402,
+              "jaccard": 0,
+              "ensemble": 0.365,
+              "stt_jaro_winkler": 0.667,
+              "stt_levenshtein": 0.5,
+              "stt_phonetic": 0.5,
+              "stt_ensemble": 0.503
+            },
+            "expected_text": "포토",
+            "candidate_text": "뽀토"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "expected_answer": "익시오",
+    "keyword": null,
+    "candidates": [
+      {
+        "log_id": [
+          21207
+        ],
+        "candidate_word": "이익시오",
+        "similarity": 0.747,
+        "similarities": {
+          "cosine": 0.747,
+          "euclidean": 0.584,
+          "manhattan": 0.043,
+          "pearson": 0.747,
+          "jaccard": 0,
+          "ensemble": 0.601,
+          "stt_jaro_winkler": 0.917,
+          "stt_levenshtein": 0.75,
+          "stt_phonetic": 0,
+          "stt_ensemble": 0.641
+        },
+        "origin_judge": "true",
+        "frequency": 1,
+        "approval_status": "pending",
+        "best_preprocessing_method": "original",
+        "preprocessing_comparison": {
+          "original": {
+            "similarity": 0.747,
+            "similarities": {
+              "cosine": 0.747,
+              "euclidean": 0.584,
+              "manhattan": 0.043,
+              "pearson": 0.747,
+              "jaccard": 0,
+              "ensemble": 0.601,
+              "stt_jaro_winkler": 0.917,
+              "stt_levenshtein": 0.75,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.641
+            },
+            "expected_text": "익시오",
+            "candidate_text": "이익시오"
+          },
+          "step13": {
+            "similarity": 0.747,
+            "similarities": {
+              "cosine": 0.747,
+              "euclidean": 0.584,
+              "manhattan": 0.043,
+              "pearson": 0.747,
+              "jaccard": 0,
+              "ensemble": 0.601,
+              "stt_jaro_winkler": 0.917,
+              "stt_levenshtein": 0.75,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.641
+            },
+            "expected_text": "익시오",
+            "candidate_text": "이익시오"
+          },
+          "step14": {
+            "similarity": 0.747,
+            "similarities": {
+              "cosine": 0.747,
+              "euclidean": 0.584,
+              "manhattan": 0.043,
+              "pearson": 0.747,
+              "jaccard": 0,
+              "ensemble": 0.601,
+              "stt_jaro_winkler": 0.917,
+              "stt_levenshtein": 0.75,
+              "stt_phonetic": 0,
+              "stt_ensemble": 0.641
+            },
+            "expected_text": "익시오",
+            "candidate_text": "이익시오"
+          }
+        }
+      }
+    ]
+  }
+]
