@@ -42,7 +42,7 @@
                     </label>
                     <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer;">
                         <input type="radio" name="useOpenAI" value="false" checked style="margin-right: 8px;flex: 1;">
-                        사용 안함 (전처리만)
+                        사용 안함 (전처리 및 STT 특화 처리만)
                     </label>
                 </div>
 
@@ -136,23 +136,7 @@
                 </style>
 
                 <script>
-                // STT 정보 아이콘에 hover 이벤트 추가
-                document.addEventListener('DOMContentLoaded', function() {
-                    const infoIcon = document.querySelector('div[style*="position: relative"] span');
-                    const tooltip = document.querySelector('div[style*="position: absolute"]');
-
-                    if (infoIcon && tooltip) {
-                        infoIcon.addEventListener('mouseenter', function() {
-                            tooltip.style.opacity = '1';
-                            tooltip.style.visibility = 'visible';
-                        });
-
-                        infoIcon.addEventListener('mouseleave', function() {
-                            tooltip.style.opacity = '0';
-                            tooltip.style.visibility = 'hidden';
-                        });
-                    }
-                });
+                // STT 정보 아이콘 이벤트는 메인 DOMContentLoaded에서 처리됨
                 </script>
             </div>
 
@@ -209,6 +193,8 @@
     <script src="./management.js"></script>
     <!-- stt-similarity.js 모듈 로드 (STT 특화 유사도) -->
     <script src="./stt-similarity.js"></script>
+    <!-- sentence-similarity.js 모듈 로드 (문장 특화 유사도) -->
+    <script src="./sentence-similarity.js"></script>
     <!-- displayResults.js 모듈 로드 (결과 표시 및 렌더링) -->
     <script src="./displayResults.js"></script>
     <script>
@@ -223,9 +209,39 @@
 
         // 페이지 로드 시 config.js에서 API 키 자동 로드
         document.addEventListener('DOMContentLoaded', function() {
+            // STT 정보 아이콘에 hover 이벤트 추가
+            const infoIcon = document.querySelector('div[style*="position: relative"] span');
+            const tooltip = document.querySelector('div[style*="position: absolute"]');
+
+            if (infoIcon && tooltip) {
+                infoIcon.addEventListener('mouseenter', function() {
+                    tooltip.style.opacity = '1';
+                    tooltip.style.visibility = 'visible';
+                });
+
+                infoIcon.addEventListener('mouseleave', function() {
+                    tooltip.style.opacity = '0';
+                    tooltip.style.visibility = 'hidden';
+                });
+            }
+
             if (typeof CONFIG !== 'undefined' && CONFIG.OPENAI_API_KEY) {
                 document.getElementById('apiKey').value = CONFIG.OPENAI_API_KEY;
                 console.log('API 키가 config.js에서 자동으로 로드되었습니다.');
+            }
+
+            // 모듈 로딩 상태 확인
+            console.log('=== 모듈 로딩 상태 확인 ===');
+            console.log('SimilarityCalculator:', typeof SimilarityCalculator !== 'undefined' ? '✅ 로드됨' : '❌ 로드 안됨');
+            console.log('STTSimilarity:', typeof STTSimilarity !== 'undefined' ? '✅ 로드됨' : '❌ 로드 안됨');
+            console.log('SentenceSimilarity:', typeof SentenceSimilarity !== 'undefined' ? '✅ 로드됨' : '❌ 로드 안됨');
+            console.log('TextPreprocessor:', typeof TextPreprocessor !== 'undefined' ? '✅ 로드됨' : '❌ 로드 안됨');
+            console.log('DataParser:', typeof DataParser !== 'undefined' ? '✅ 로드됨' : '❌ 로드 안됨');
+            console.log('DisplayResults:', typeof DisplayResults !== 'undefined' ? '✅ 로드됨' : '❌ 로드 안됨');
+            console.log('==========================');
+
+            if (typeof SentenceSimilarity !== 'undefined') {
+                console.log('SentenceSimilarity 메서드들:', Object.keys(SentenceSimilarity));
             }
 
             // 전처리 옵션 변경 시 단계 선택 표시/숨김
@@ -614,6 +630,8 @@
                  */
                 // 정답들을 선택된 단계에 따라 수집
                 const expectedAnswers = groupedData.map(group => group.expected_answer);
+                console.log(`🔍 디버그: 정답 텍스트 수집 시작 - 총 ${expectedAnswers.length}개 정답`);
+                console.log('정답들:', expectedAnswers);
                 expectedAnswers.forEach(answer => {
                     if (isValidText(answer)) {
                         selectedStages.forEach(stage => {
@@ -686,6 +704,13 @@
                  * 유사도(거리/방향) 계산에서 측정 대상으로 사용됨
                  */
                 // 모든 후보 단어들도 선택된 단계에 따라 수집
+                console.log(`🔍 디버그: 후보 텍스트 수집 시작 - 총 ${groupedData.length}개 그룹`);
+                groupedData.forEach((group, groupIndex) => {
+                    console.log(`그룹 ${groupIndex + 1}: "${group.expected_answer}" - ${group.candidates.length}개 후보`);
+                    group.candidates.forEach((candidate, candidateIndex) => {
+                        console.log(`  후보 ${candidateIndex + 1}: "${candidate.candidate_word}"`);
+                    });
+                });
                 groupedData.forEach(group => {
                     group.candidates.forEach(candidate => {
                         if (isValidText(candidate.candidate_word)) {
@@ -785,6 +810,15 @@
 
                 //// 전처리 끝
 
+                // 🔍 디버그: allTexts가 비어있는지 확인
+                if (allTexts.length === 0) {
+                    console.error('❌ allTexts 배열이 비어있습니다!');
+                    console.error('그룹화된 데이터:', groupedData);
+                    console.error('선택된 단계:', selectedStages);
+                    console.error('데이터 타입:', dataType);
+                    throw new Error('처리할 텍스트가 없습니다. 입력 데이터나 전처리 설정을 확인해주세요.');
+                }
+
                 // OpenAI API 사용 여부에 따라 분기 처리
                 let allEmbeddings = [];
                 if (useOpenAI) {
@@ -855,20 +889,162 @@
                                         break;
                                 }
 
-                                // 유사도 계산 분기
+                                // 유사도 계산 분기 (데이터 타입별 차별화)
                                 let similarities;
-                                if (enableSTT) {
-                                    // STT 특화 유사도 계산 (임베딩 + STT 메트릭)
-                                    // 💡 STT 메트릭은 텍스트 기반이므로 useOpenAI와 무관하게 작동
-                                    similarities = SimilarityCalculator.calculateSTTEnhancedSimilarities(
-                                        expectedEmbedding,
-                                        candidateEmbedding,
-                                        expectedText,
-                                        candidateText
-                                    );
+                                if (dataType === 'sentence') {
+                                    // 🎯 문장 특화 유사도 계산 (향상된 로직)
+                                    // SentenceSimilarity 모듈 가용성 확인
+                                    if (typeof SentenceSimilarity !== 'undefined' && SentenceSimilarity.calculateSentenceEnhancedSimilarity) {
+                                        // 공통 문장 특화 유사도 계산 (OpenAI 사용 여부와 무관)
+                                        const sentenceResult = SentenceSimilarity.calculateSentenceEnhancedSimilarity(
+                                            expectedEmbedding,
+                                            candidateEmbedding,
+                                            expectedText,
+                                            candidateText,
+                                            group.keyword || group.expected_answer
+                                        );
+
+                                        if (useOpenAI) {
+                                            // OpenAI 사용: 정상적인 문장 특화 유사도 계산
+                                            similarities = {
+                                                cosine: sentenceResult.finalScore,
+                                                euclidean: sentenceResult.components.baseSimilarity || 0.5,
+                                                manhattan: sentenceResult.components.keywordWeighted || 0.5,
+                                                pearson: sentenceResult.components.sttCorrected || 0.5,
+                                                jaccard: sentenceResult.components.completeness || 0.5,
+
+                                                // 문장 특화 메트릭 추가
+                                                sentence_enhanced: sentenceResult.finalScore,
+                                                sentence_components: sentenceResult.components,
+                                                sentence_analysis: sentenceResult.analysis
+                                            };
+                                        } else {
+                                            // OpenAI 미사용: 임베딩 기반 유사도는 0.0으로 설정
+                                            similarities = {
+                                                cosine: 0.0,
+                                                euclidean: 0.0,
+                                                manhattan: 0.0,
+                                                pearson: 0.0,
+                                                jaccard: 0.0,
+
+                                                // 문장 특화 메트릭은 유지 (텍스트 기반 계산 포함)
+                                                sentence_enhanced: 0.0,
+                                                sentence_components: {
+                                                    baseSimilarity: 0.0,
+                                                    keywordWeighted: 0.0,
+                                                    sttCorrected: sentenceResult.components.sttCorrected || 0.0,
+                                                    completeness: 0.0,
+                                                    lengthPenalty: sentenceResult.components.lengthPenalty || 1.0
+                                                },
+                                                sentence_analysis: sentenceResult.analysis
+                                            };
+                                        }
+
+                                        // STT 메트릭이 활성화된 경우 추가
+                                        if (enableSTT) {
+                                            // STT 앙상블: 단어용 STT 메트릭들의 가중 평균 계산
+                                            const sttResult = SimilarityCalculator.calculateSTTEnhancedSimilarities(
+                                                expectedEmbedding,
+                                                candidateEmbedding,
+                                                expectedText,
+                                                candidateText
+                                            );
+                                            similarities.stt_ensemble = sttResult.stt_ensemble;
+
+                                            // STT Enhanced: OpenAI 사용 시에만 문장 특화 최종 점수, 미사용 시에는 STT 메트릭 최고값 사용
+                                            if (useOpenAI) {
+                                                similarities.stt_enhanced = sentenceResult.finalScore;
+                                            } else {
+                                                // OpenAI 미사용: STT 메트릭들 중 최고값 사용
+                                                const sttValues = [
+                                                    sttResult.stt_jaro_winkler || 0,
+                                                    sttResult.stt_levenshtein || 0,
+                                                    sttResult.stt_phonetic || 0
+                                                ];
+                                                similarities.stt_enhanced = Math.max(...sttValues);
+                                            }
+                                        }
+
+                                        // ⭐ 키워드 포함 여부 업데이트 (parser.js에서 false로 초기화된 값 수정)
+                                        if (sentenceResult.analysis && typeof sentenceResult.analysis.keywordIncluded !== 'undefined') {
+                                            candidate.keyword_included = sentenceResult.analysis.keywordIncluded;
+
+                                            if (DEBUG_LEVEL >= 2) {
+                                                console.log(`키워드 포함 여부 업데이트: "${candidate.candidate_word}" → keyword_included: ${candidate.keyword_included}`);
+                                            }
+                                        }
+
+                                        if (DEBUG_LEVEL >= 2) {
+                                            console.log(`문장 특화 유사도 계산 완료:`, {
+                                                keyword: group.keyword,
+                                                finalScore: sentenceResult.finalScore,
+                                                components: sentenceResult.components,
+                                                analysis: sentenceResult.analysis
+                                            });
+                                        }
+                                    } else {
+                                        // SentenceSimilarity 모듈이 없는 경우 기존 방식으로 대체
+                                        console.warn('SentenceSimilarity 모듈을 찾을 수 없습니다. 기존 방식을 사용합니다.');
+                                        if (enableSTT) {
+                                            similarities = SimilarityCalculator.calculateSTTEnhancedSimilarities(
+                                                expectedEmbedding,
+                                                candidateEmbedding,
+                                                expectedText,
+                                                candidateText
+                                            );
+                                        } else {
+                                            similarities = SimilarityCalculator.calculateAllSimilarities(expectedEmbedding, candidateEmbedding);
+                                        }
+                                    }
                                 } else {
-                                    // 기존 방식 (임베딩만)
-                                    similarities = SimilarityCalculator.calculateAllSimilarities(expectedEmbedding, candidateEmbedding);
+                                    // 기존 단어 유사도 계산 로직 유지
+                                    if (enableSTT) {
+                                        // STT 특화 유사도 계산 (임베딩 + STT 메트릭)
+                                        // 💡 STT 메트릭은 텍스트 기반이므로 useOpenAI와 무관하게 작동
+                                        if (useOpenAI) {
+                                            similarities = SimilarityCalculator.calculateSTTEnhancedSimilarities(
+                                                expectedEmbedding,
+                                                candidateEmbedding,
+                                                expectedText,
+                                                candidateText
+                                            );
+                                        } else {
+                                            // OpenAI 미사용: 임베딩 기반 유사도는 0.0, STT 메트릭만 계산
+                                            const sttOnlyResult = SimilarityCalculator.calculateSTTEnhancedSimilarities(
+                                                expectedEmbedding,
+                                                candidateEmbedding,
+                                                expectedText,
+                                                candidateText
+                                            );
+                                            similarities = {
+                                                cosine: 0.0,
+                                                euclidean: 0.0,
+                                                manhattan: 0.0,
+                                                pearson: 0.0,
+                                                jaccard: 0.0,
+                                                // STT 메트릭은 유지 (텍스트 기반)
+                                                stt_ensemble: sttOnlyResult.stt_ensemble,
+                                                stt_enhanced: sttOnlyResult.stt_enhanced,
+                                                jaroWinkler: sttOnlyResult.jaroWinkler,
+                                                levenshtein: sttOnlyResult.levenshtein,
+                                                phonetic: sttOnlyResult.phonetic
+                                            };
+                                        }
+                                    } else {
+                                        if (useOpenAI) {
+                                            // 기존 방식 (임베딩만)
+                                            similarities = SimilarityCalculator.calculateAllSimilarities(expectedEmbedding, candidateEmbedding);
+                                        } else {
+                                            // OpenAI 미사용: 모든 임베딩 기반 유사도 0.0
+                                            similarities = {
+                                                cosine: 0.0,
+                                                euclidean: 0.0,
+                                                manhattan: 0.0,
+                                                pearson: 0.0,
+                                                jaccard: 0.0
+                                            };
+                                        }
+                                    }
                                 }
 
                                 candidate.preprocessingComparison[stage] = {
@@ -878,9 +1054,29 @@
                                     candidateText: candidateText
                                 };
 
+                                // 문장 데이터의 경우 기존 유사도 메트릭 중 최고값 선택
+                                let primarySimilarity = similarities.cosine;
+                                if (dataType === 'sentence') {
+                                    const basicSimilarityMethods = ['cosine', 'euclidean', 'manhattan', 'pearson', 'jaccard'];
+                                    const basicSimilarities = basicSimilarityMethods
+                                        .filter(method => similarities[method] !== undefined)
+                                        .map(method => ({method, value: similarities[method]}));
+
+                                    if (basicSimilarities.length > 0) {
+                                        const highest = basicSimilarities.reduce((max, curr) =>
+                                            curr.value > max.value ? curr : max
+                                        );
+                                        primarySimilarity = highest.value;
+
+                                        if (DEBUG_LEVEL >= 2) {
+                                            console.log(`문장 최고 유사도 선택: ${highest.method} = ${highest.value.toFixed(6)}`);
+                                        }
+                                    }
+                                }
+
                                 comparisonResults.push({
                                     name: stage,
-                                    similarity: similarities.cosine,
+                                    similarity: primarySimilarity,
                                     similarities: similarities
                                 });
 

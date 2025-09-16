@@ -854,10 +854,19 @@
                 // html2canvas로 캡처
                 const canvas = await html2canvas(resultsElement, {
                     useCORS: true,
-                    allowTaint: true,
+                    allowTaint: false,
                     scale: 1.5,
                     backgroundColor: '#1a1a1a',
-                    logging: false
+                    logging: true,
+                    height: resultsElement.scrollHeight,
+                    width: resultsElement.scrollWidth,
+                    scrollX: 0,
+                    scrollY: 0,
+                    windowWidth: resultsElement.scrollWidth,
+                    windowHeight: resultsElement.scrollHeight,
+                    // document.write 문제 해결을 위한 옵션
+                    foreignObjectRendering: false,
+                    removeContainer: true
                 });
 
                 // PDF 생성
@@ -868,7 +877,7 @@
                     format: 'a4'
                 });
 
-                const imgData = canvas.toDataURL('image/png');
+                const imgData = canvas.toDataURL('image/png', 0.8); // 압축률 추가
                 const pdfWidth = pdf.internal.pageSize.getWidth();
                 const pdfHeight = pdf.internal.pageSize.getHeight();
                 const imgWidth = canvas.width;
@@ -899,11 +908,12 @@
                         const partCtx = partCanvas.getContext('2d');
 
                         const img = new Image();
-                        await new Promise((resolve) => {
+                        await new Promise((resolve, reject) => {
                             img.onload = () => {
                                 partCtx.drawImage(img, 0, sourceY, imgWidth, sourceHeight, 0, 0, imgWidth, sourceHeight);
                                 resolve();
                             };
+                            img.onerror = reject;
                             img.src = imgData;
                         });
 
